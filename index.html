@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#131722">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>GrowthTrader</title>
+<style>
+  :root{
+    --bg:#131722; --bg2:#0e1219; --panel:#1a2030; --panel2:#151b28;
+    --brd:#253248; --brd2:#1a2534;
+    --acc:#00d4ff; --grn:#00e87a; --red:#ef5350; --ora:#f5a623; --pur:#a78bfa;
+    --txt:#c8d8f0; --txt2:#8097b8; --dim:#5d7a9a;
+    --mono:'SF Mono',ui-monospace,'Cascadia Code',Menlo,Consolas,monospace;
+    --ui:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overscroll-behavior:none}
+  body{
+    background:var(--bg);color:var(--txt);font-family:var(--ui);
+    display:flex;flex-direction:column;height:100vh;height:100dvh;
+    font-size:15px;line-height:1.4;
+  }
+
+  /* ── Header ── */
+  header{
+    background:var(--bg2);border-bottom:1px solid var(--brd);
+    padding:10px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0;
+  }
+  .logo{font-weight:800;font-size:16px;letter-spacing:.5px}
+  .logo b{color:var(--acc)}
+  .sync{margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--dim);
+    text-align:right;line-height:1.3}
+  .sync .ok{color:var(--grn)} .sync .warn{color:var(--ora)} .sync .err{color:var(--red)}
+
+  /* ── Segment tabs (Kaufbar/Near/Breakout) ── */
+  .tabs{display:flex;background:var(--bg2);border-bottom:1px solid var(--brd);
+    flex-shrink:0;position:sticky;top:0;z-index:10}
+  .tab{flex:1;padding:11px 4px;text-align:center;font-size:12px;font-weight:700;
+    color:var(--dim);background:none;border:none;cursor:pointer;font-family:var(--ui);
+    border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+  .tab .cnt{font-family:var(--mono);font-size:10px;opacity:.7;margin-left:3px}
+  .tab.on{color:var(--txt)}
+  .tab.on.buyable{border-bottom-color:var(--grn);color:var(--grn)}
+  .tab.on.near{border-bottom-color:var(--ora);color:var(--ora)}
+  .tab.on.breakout{border-bottom-color:var(--pur);color:var(--pur)}
+
+  /* ── Scroll area ── */
+  main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px}
+  .view{display:none}
+  .view.on{display:block}
+
+  /* ── Ticker card ── */
+  .card{background:var(--panel);border:1px solid var(--brd);border-radius:10px;
+    padding:11px 13px;margin-bottom:8px;cursor:pointer;
+    transition:border-color .15s,transform .1s}
+  .card:active{transform:scale(.99);border-color:var(--acc)}
+  .card .row1{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+  .tk{font-family:var(--mono);font-weight:800;font-size:17px;color:var(--txt)}
+  .nm{font-size:11px;color:var(--dim);flex:1;overflow:hidden;text-overflow:ellipsis;
+    white-space:nowrap}
+  .rs{font-family:var(--mono);font-size:12px;font-weight:700;padding:1px 6px;
+    border-radius:4px;flex-shrink:0}
+  .rs.hi{color:var(--grn);background:rgba(0,232,122,.13)}
+  .rs.mid{color:var(--ora);background:rgba(245,166,35,.12)}
+  .rs.lo{color:var(--dim);background:rgba(93,122,128,.1)}
+
+  .row2{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+  .px{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--txt);
+    transition:color .3s}
+  .px.flash{color:var(--acc)}
+  .chg{font-family:var(--mono);font-size:14px;font-weight:700}
+  .chg.up{color:var(--grn)} .chg.dn{color:var(--red)} .chg.flat{color:var(--dim)}
+  .badge{margin-left:auto;font-family:var(--mono);font-size:8px;font-weight:700;
+    padding:2px 6px;border-radius:4px;display:flex;align-items:center;gap:4px;
+    text-transform:uppercase;letter-spacing:.3px}
+  .badge.live{color:var(--grn);background:rgba(0,232,122,.13);
+    border:1px solid rgba(0,232,122,.3)}
+  .badge.live .dot{width:5px;height:5px;border-radius:50%;background:var(--grn);
+    box-shadow:0 0 5px var(--grn);animation:pulse 2s ease-in-out infinite}
+  .badge.close{color:var(--ora);background:rgba(245,166,35,.12);
+    border:1px solid rgba(245,166,35,.28)}
+  .badge.loading{color:var(--dim);background:rgba(93,122,128,.1)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  .metrics{display:flex;gap:12px;font-family:var(--mono);font-size:11px;flex-wrap:wrap}
+  .metric{color:var(--dim)}
+  .metric b{color:var(--txt2);font-weight:600}
+  .metric .v{font-weight:700}
+  .v.pos{color:var(--grn)} .v.neg{color:var(--red)} .v.warn{color:var(--ora)}
+  .setup{font-size:9px;font-family:var(--mono);color:var(--pur);
+    background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);
+    padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px}
+
+  /* ── Empty / loading states ── */
+  .empty{text-align:center;padding:48px 24px;color:var(--dim)}
+  .empty .ic{font-size:32px;margin-bottom:12px;opacity:.5}
+  .empty .msg{font-size:13px;line-height:1.6}
+  .empty .sub{font-size:11px;opacity:.6;margin-top:8px}
+  .spinner{width:28px;height:28px;border:3px solid var(--brd);
+    border-top-color:var(--acc);border-radius:50%;margin:40px auto;
+    animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ── Bottom nav ── */
+  nav{display:flex;background:var(--bg2);border-top:1px solid var(--brd);
+    flex-shrink:0;padding-bottom:env(safe-area-inset-bottom)}
+  .nav-btn{flex:1;padding:10px 4px 8px;text-align:center;background:none;border:none;
+    cursor:pointer;color:var(--dim);font-family:var(--ui);font-size:10px;
+    display:flex;flex-direction:column;align-items:center;gap:3px}
+  .nav-btn .ni{font-size:19px;line-height:1}
+  .nav-btn.on{color:var(--acc)}
+
+  /* ── Setup / config panel ── */
+  .cfg{padding:16px;background:var(--panel);border:1px solid var(--brd);
+    border-radius:10px;margin-bottom:12px}
+  .cfg h3{font-size:13px;color:var(--txt);margin-bottom:4px}
+  .cfg p{font-size:11px;color:var(--dim);margin-bottom:10px;line-height:1.5}
+  .cfg input{width:100%;background:var(--bg2);border:1px solid var(--brd);
+    color:var(--txt);padding:9px 11px;border-radius:7px;font-family:var(--mono);
+    font-size:12px;margin-bottom:8px}
+  .cfg button{width:100%;background:var(--acc);color:var(--bg);border:none;
+    padding:11px;border-radius:7px;font-weight:700;font-size:13px;cursor:pointer;
+    font-family:var(--ui)}
+  .cfg button:active{opacity:.85}
+  .cfg .alt{background:none;color:var(--dim);border:1px solid var(--brd);
+    margin-top:6px}
+
+  /* ── Detail sheet (chart) ── */
+  .sheet{position:fixed;inset:0;background:var(--bg);z-index:100;
+    display:none;flex-direction:column}
+  .sheet.on{display:flex}
+  .sheet-hd{display:flex;align-items:center;gap:10px;padding:12px 14px;
+    background:var(--bg2);border-bottom:1px solid var(--brd);flex-shrink:0}
+  .sheet-hd .close{background:none;border:none;color:var(--dim);font-size:22px;
+    cursor:pointer;padding:0 4px}
+  .sheet-hd .st{font-family:var(--mono);font-weight:800;font-size:18px}
+  .sheet-hd .sp{font-family:var(--mono);font-size:15px;margin-left:auto}
+  .sheet-body{flex:1;overflow-y:auto;padding:12px}
+  .chart-wrap{background:var(--panel);border:1px solid var(--brd);border-radius:10px;
+    padding:8px;margin-bottom:12px}
+  canvas{width:100%;display:block}
+  .ma-legend{display:flex;flex-wrap:wrap;gap:8px 14px;padding:10px 4px 2px;
+    font-family:var(--mono);font-size:10px}
+  .ma-item{display:flex;align-items:center;gap:4px;color:var(--dim)}
+  .ma-item .sw{width:12px;height:3px;border-radius:2px}
+  .ma-item .val{color:var(--txt2);font-weight:700}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">GROWTH<b>TRADER</b></div>
+  <div class="sync" id="sync">nicht geladen</div>
+</header>
+
+<!-- ═══ TOP 50 VIEW ═══ -->
+<div class="tabs" id="tabs">
+  <button class="tab buyable on" data-cat="buyable">Kaufbar<span class="cnt" id="c-buyable">0</span></button>
+  <button class="tab near" data-cat="near">Near Pivot<span class="cnt" id="c-near">0</span></button>
+  <button class="tab breakout" data-cat="breakout">Breakout<span class="cnt" id="c-breakout">0</span></button>
+</div>
+
+<main>
+  <!-- Top50 -->
+  <div class="view on" id="view-top50">
+    <div id="list-buyable" class="cat-list"></div>
+    <div id="list-near" class="cat-list" style="display:none"></div>
+    <div id="list-breakout" class="cat-list" style="display:none"></div>
+  </div>
+
+  <!-- Watch -->
+  <div class="view" id="view-watch">
+    <div class="empty">
+      <div class="ic">👁</div>
+      <div class="msg">Watchlist kommt als Nächstes</div>
+      <div class="sub">Zuerst läuft die Top-50-Ansicht mit Live-Kursen.</div>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div class="view" id="view-settings">
+    <div class="cfg">
+      <h3>Datenquelle</h3>
+      <p>Normaler OneDrive-Freigabe-Link zur <b>mobile_screen.json</b>
+         (der <b>1drv.ms/…</b>-Link reicht — die App macht daraus automatisch
+         einen Direkt-Link). Die Auswahl kommt vom PC, die Kurse holt die App
+         selbst live.</p>
+      <input type="text" id="json-url" placeholder="https://... OneDrive-Link"
+             autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button onclick="saveUrl()">Link speichern & laden</button>
+      <button class="alt" onclick="pasteJson()">Stattdessen JSON einfügen</button>
+    </div>
+    <div class="cfg">
+      <h3>Aktualisierung</h3>
+      <p>Kurse werden alle 60 Sekunden aktualisiert, solange die App offen ist.
+         Ziehe die Liste nach unten zum manuellen Neuladen.</p>
+    </div>
+  </div>
+</main>
+
+<nav>
+  <button class="nav-btn on" data-view="top50"><span class="ni">📊</span>Top 50</button>
+  <button class="nav-btn" data-view="watch"><span class="ni">👁</span>Watch</button>
+  <button class="nav-btn" data-view="settings"><span class="ni">⚙️</span>Setup</button>
+</nav>
+
+<!-- ═══ CHART SHEET ═══ -->
+<div class="sheet" id="sheet">
+  <div class="sheet-hd">
+    <button class="close" onclick="closeSheet()">✕</button>
+    <span class="st" id="sheet-tk"></span>
+    <span class="sp" id="sheet-px"></span>
+  </div>
+  <div class="sheet-body">
+    <div class="chart-wrap">
+      <canvas id="chart" height="260"></canvas>
+      <div class="ma-legend" id="ma-legend"></div>
+    </div>
+    <div id="sheet-info"></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+// ─── Konfiguration ───────────────────────────────────────────
+const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
+const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
+const MA_PERIODS = [10,20,30,40,50,100,200];
+const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
+                    50:'#ff8c42',100:'#3b82f6',200:'#ec4899'};
+
+// ─── State ───────────────────────────────────────────────────
+let screenData = null;      // die geladene mobile_screen.json
+let quotes = {};            // ticker -> {price, pct, live, ts}
+let curCat = 'buyable';
+let refreshTimer = null;
+
+// ─── LocalStorage helpers ────────────────────────────────────
+const LS = {
+  get:(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return d}},
+  set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}},
+};
+
+// ─── Tab / View navigation ───────────────────────────────────
+document.querySelectorAll('.tab').forEach(t=>{
+  t.onclick=()=>{
+    curCat=t.dataset.cat;
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    ['buyable','near','breakout'].forEach(c=>{
+      document.getElementById('list-'+c).style.display = c===curCat?'block':'none';
+    });
+  };
+});
+
+document.querySelectorAll('.nav-btn').forEach(b=>{
+  b.onclick=()=>{
+    const v=b.dataset.view;
+    document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+    document.getElementById('view-'+v).classList.add('on');
+    // Tabs nur in Top50 zeigen
+    document.getElementById('tabs').style.display = v==='top50'?'flex':'none';
+  };
+});
+
+// ─── OneDrive-Link → direkter Download-Link ──────────────────
+// Freigabe-Links (1drv.ms / sharepoint) zeigen auf eine HTML-Vorschau,
+// nicht auf die Datei. Diese Funktion erzeugt daraus Direkt-Links.
+function oneDriveDirectUrls(url){
+  const variants = [];
+  // Methode 1: offizielle Microsoft base64-Kodierung → api.onedrive.com
+  if(/1drv\.ms|onedrive|sharepoint/i.test(url)){
+    try{
+      const b64 = btoa(unescape(encodeURIComponent(url)));
+      const enc = 'u!' + b64.replace(/=+$/,'').replace(/\//g,'_').replace(/\+/g,'-');
+      variants.push('https://api.onedrive.com/v1.0/shares/'+enc+'/root/content');
+    }catch{}
+  }
+  // Methode 2: 1drv.ms → 1drv.ws (einfacher Domain-Flip)
+  if(url.includes('1drv.ms')){
+    variants.push(url.replace('1drv.ms','1drv.ws'));
+  }
+  // Methode 3: ?download=1 anhängen (SharePoint/Business)
+  if(/sharepoint|my\.microsoft/i.test(url)){
+    variants.push(url + (url.includes('?')?'&':'?') + 'download=1');
+  }
+  // Zuletzt: der Original-Link selbst
+  variants.push(url);
+  return variants;
+}
+
+// ─── Datenquelle laden ───────────────────────────────────────
+async function loadScreen(){
+  const rawUrl = LS.get('jsonUrl','');
+  const cached = LS.get('screenData',null);
+  if(cached){ screenData=cached; renderAll(); }
+
+  if(!rawUrl){
+    setSync('kein Link — siehe Setup','warn');
+    if(!cached) showNeedSetup();
+    return;
+  }
+  setSync('lädt…','');
+
+  // Alle Direkt-Link-Varianten durchprobieren, jeweils auch über CORS-Proxy
+  const directUrls = oneDriveDirectUrls(rawUrl);
+  const attempts = [];
+  for(const u of directUrls){
+    attempts.push(u);                                   // direkt
+    attempts.push(CORS_PROXY + encodeURIComponent(u));  // über Proxy
+  }
+
+  let lastErr = 'unbekannt';
+  const diag = [];
+  for(const url of attempts){
+    const isProxy = url.startsWith(CORS_PROXY);
+    const label = isProxy ? 'Proxy' : 'Direkt';
+    const short = url.replace(CORS_PROXY,'').slice(8,40);
+    try{
+      const res = await fetch(url, {redirect:'follow'});
+      if(!res.ok){
+        lastErr='HTTP '+res.status;
+        diag.push(`${label} ${short}… → HTTP ${res.status}`);
+        continue;
+      }
+      const text = await res.text();
+      let data;
+      try{ data = JSON.parse(text); }
+      catch{
+        lastErr='keine JSON';
+        // Zeigt an, ob wir eine HTML-Seite bekamen (Login/Vorschau)
+        const hint = text.slice(0,20).includes('<') ? 'HTML statt JSON' : 'Text kein JSON';
+        diag.push(`${label} ${short}… → ${hint}`);
+        continue;
+      }
+      if(!data.views){
+        lastErr='falsches Format';
+        diag.push(`${label} ${short}… → JSON ohne views`);
+        continue;
+      }
+      // Erfolg!
+      screenData = data;
+      LS.set('screenData', data);
+      renderAll();
+      const age = data.computed_iso ? data.computed_iso.replace('T',' ').slice(0,16) : '?';
+      setSync('Auswahl: '+age+' ('+label+')', 'ok');
+      refreshQuotes();
+      return;
+    }catch(e){
+      lastErr = e.message;
+      diag.push(`${label} ${short}… → ${e.message}`);
+    }
+  }
+  // Alle Versuche fehlgeschlagen — Diagnose speichern und anzeigen
+  LS.set('lastDiag', diag);
+  setSync('Fehler — Details in Setup', 'err');
+  if(!cached) showNeedSetup(diag);
+}
+
+function showNeedSetup(diag){
+  const diagHtml = (diag&&diag.length)
+    ? `<div style="margin-top:14px;text-align:left;font-family:var(--mono);
+         font-size:9px;color:var(--dim);background:var(--bg2);border:1px solid var(--brd);
+         border-radius:8px;padding:10px;line-height:1.6">
+         <div style="color:var(--ora);margin-bottom:6px">Diagnose (Versuche):</div>
+         ${diag.map(d=>'• '+d).join('<br>')}
+       </div>`
+    : '';
+  ['buyable','near','breakout'].forEach(c=>{
+    document.getElementById('list-'+c).innerHTML =
+      `<div class="empty"><div class="ic">⚙️</div>
+       <div class="msg">Noch keine Daten geladen</div>
+       <div class="sub">Öffne <b>Setup</b> und trage den OneDrive-Link ein —
+       oder nutze <b>„JSON einfügen"</b>.</div>${diagHtml}</div>`;
+  });
+}
+
+// ─── Rendering ───────────────────────────────────────────────
+function renderAll(){
+  if(!screenData) return;
+  ['buyable','near','breakout'].forEach(cat=>{
+    const list = (screenData.views[cat]||[]);
+    document.getElementById('c-'+cat).textContent = list.length;
+    const el = document.getElementById('list-'+cat);
+    if(!list.length){
+      const msg = {
+        buyable:'Aktuell keine Aktie in der Kaufzone.',
+        near:'Aktuell keine Aktie nahe am Pivot.',
+        breakout:'Aktuell kein frischer Ausbruch mit Volumen.'
+      }[cat];
+      el.innerHTML=`<div class="empty"><div class="ic">✓</div>
+        <div class="msg">${msg}</div>
+        <div class="sub">In schwachen Marktphasen ist das normal.</div></div>`;
+      return;
+    }
+    el.innerHTML = list.map(r=>cardHtml(r)).join('');
+  });
+  // Karten-Klicks laufen über Event-Delegation (siehe unten, einmalig gesetzt)
+}
+
+function cardHtml(r){
+  const q = quotes[r.t];
+  const rsClass = r.rs>=80?'hi':r.rs>=60?'mid':'lo';
+  const setup = r.setup?`<span class="setup">${r.setup}</span>`:'';
+  // Kurs/Änderung: live falls vorhanden, sonst Morgen-Fallback
+  let pxHtml, chgHtml, badgeHtml;
+  if(q && q.price>0){
+    const up=q.pct>0, dn=q.pct<0;
+    pxHtml = `€${fmtPx(q.priceEur||q.price)}`;
+    chgHtml = `<span class="chg ${up?'up':dn?'dn':'flat'}">${q.pct>0?'+':''}${q.pct.toFixed(2)}%</span>`;
+    badgeHtml = q.live
+      ? `<span class="badge live"><span class="dot"></span>Live</span>`
+      : `<span class="badge close">Schluss</span>`;
+  }else{
+    pxHtml = `€${fmtPx(r.price_morning||0)}`;
+    chgHtml = `<span class="chg flat">${r.day_change_pct>0?'+':''}${(r.day_change_pct||0).toFixed(2)}%</span>`;
+    badgeHtml = `<span class="badge loading">lädt…</span>`;
+  }
+  // Metriken
+  const pd = r.pivot_dist;
+  const pdClass = pd==null?'':(pd>=-2&&pd<=5?'pos':pd<-2?'warn':'neg');
+  const e50 = r.ext_gd50;
+  const e50Class = e50==null?'':(e50<=10?'pos':e50<=15?'warn':'neg');
+  const e200 = r.sma200_pct;
+  return `
+  <div class="card" data-tk="${r.t}">
+    <div class="row1">
+      <span class="tk">${r.t}</span>
+      <span class="nm">${r.name||''}</span>
+      <span class="rs ${rsClass}">RS ${r.rs}</span>
+    </div>
+    <div class="row2">
+      <span class="px" id="px-${r.t}">${pxHtml}</span>
+      ${chgHtml}
+      ${badgeHtml}
+    </div>
+    <div class="metrics">
+      ${setup}
+      <span class="metric"><b>Pivot</b> <span class="v ${pdClass}">${pd==null?'—':(pd>0?'+':'')+pd+'%'}</span></span>
+      <span class="metric"><b>GD50</b> <span class="v ${e50Class}">${e50==null?'—':(e50>0?'+':'')+e50+'%'}</span></span>
+      <span class="metric"><b>GD200</b> <span class="v ${e200>0?'pos':'neg'}">${e200==null?'—':(e200>0?'+':'')+e200+'%'}</span></span>
+    </div>
+  </div>`;
+}
+
+function fmtPx(p){
+  if(!p) return '0.00';
+  return p>=1000 ? p.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})
+                 : p.toFixed(2);
+}
+
+// ─── Live-Kurse holen (Yahoo chart endpoint via Proxy) ───────
+async function refreshQuotes(){
+  if(!screenData) return;
+  // alle Ticker aus allen 3 Ansichten (dedupliziert)
+  const tickers = new Set();
+  ['buyable','near','breakout'].forEach(c=>
+    (screenData.views[c]||[]).forEach(r=>tickers.add(r.t)));
+  const fx = await getFx();  // EUR/USD für Umrechnung
+  // seriell mit kleiner Pause (Proxy nicht überlasten)
+  for(const t of tickers){
+    try{
+      const q = await fetchQuote(t, fx);
+      if(q){ quotes[t]=q; updateCard(t); }
+    }catch{}
+    await sleep(120);
+  }
+}
+
+async function fetchQuote(ticker, fx){
+  const yurl = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1d`;
+  const res = await fetch(CORS_PROXY + encodeURIComponent(yurl));
+  if(!res.ok) return null;
+  const j = await res.json();
+  const meta = j?.chart?.result?.[0]?.meta;
+  if(!meta) return null;
+  const price = meta.regularMarketPrice;
+  const prev = meta.chartPreviousClose || meta.previousClose || price;
+  if(!price) return null;
+  const cur = meta.currency||'USD';
+  const isLive = meta.marketState==='REGULAR';
+  // In EUR umrechnen wenn USD
+  let priceEur = price;
+  if(cur==='USD' && fx>0) priceEur = price / fx;
+  else if(cur==='EUR') priceEur = price;
+  else if(fx>0 && cur==='USD') priceEur = price / fx;
+  return {
+    price, priceEur, currency:cur,
+    pct: prev>0 ? (price/prev-1)*100 : 0,
+    live: isLive, ts: Date.now()
+  };
+}
+
+let _fxCache = {v:0, ts:0};
+async function getFx(){
+  if(_fxCache.v>0 && Date.now()-_fxCache.ts < 300000) return _fxCache.v;
+  try{
+    const yurl='https://query1.finance.yahoo.com/v8/finance/chart/EURUSD=X?interval=1d&range=1d';
+    const res=await fetch(CORS_PROXY+encodeURIComponent(yurl));
+    const j=await res.json();
+    const fx=j?.chart?.result?.[0]?.meta?.regularMarketPrice;
+    if(fx>0){ _fxCache={v:fx,ts:Date.now()}; return fx; }
+  }catch{}
+  return _fxCache.v || 1.14;  // Fallback
+}
+
+function updateCard(t){
+  const q=quotes[t]; if(!q) return;
+  const pxEl=document.getElementById('px-'+t);
+  if(!pxEl) return;
+  const card=pxEl.closest('.card');
+  // Kurs
+  pxEl.textContent='€'+fmtPx(q.priceEur||q.price);
+  pxEl.classList.add('flash');
+  setTimeout(()=>pxEl.classList.remove('flash'),300);
+  // Änderung + Badge neu bauen
+  const row2=pxEl.parentElement;
+  const up=q.pct>0,dn=q.pct<0;
+  const chg=row2.querySelector('.chg');
+  chg.className='chg '+(up?'up':dn?'dn':'flat');
+  chg.textContent=(q.pct>0?'+':'')+q.pct.toFixed(2)+'%';
+  const badge=row2.querySelector('.badge');
+  badge.className='badge '+(q.live?'live':'close');
+  badge.innerHTML=q.live?'<span class="dot"></span>Live':'Schluss';
+}
+
+// ─── Chart (Detail sheet) ────────────────────────────────────
+let chartData=null;
+async function openChart(ticker){
+  document.getElementById('sheet').classList.add('on');
+  document.getElementById('sheet-tk').textContent=ticker;
+  document.getElementById('sheet-px').textContent='lädt…';
+  document.getElementById('ma-legend').innerHTML='';
+  const ctx=document.getElementById('chart').getContext('2d');
+  ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+  document.getElementById('sheet-info').innerHTML='';
+  try{
+    const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1y`;
+    // Proxy-Kette: erst allorigins, dann corsproxy.io als Fallback
+    let j=null;
+    const proxies=[
+      'https://api.allorigins.win/raw?url=',
+      'https://corsproxy.io/?url=',
+    ];
+    for(const px of proxies){
+      try{
+        const res=await fetch(px+encodeURIComponent(yurl));
+        if(!res.ok) continue;
+        j=await res.json();
+        if(j?.chart?.result?.[0]) break;
+      }catch{}
+    }
+    const r=j?.chart?.result?.[0];
+    if(!r) throw new Error('Yahoo lieferte keine Daten');
+    const quote=r.indicators?.quote?.[0];
+    if(!quote||!quote.close) throw new Error('keine Kursdaten');
+    const closes=quote.close.filter(x=>x!=null);
+    if(closes.length<2) throw new Error('zu wenige Datenpunkte');
+    const meta=r.meta;
+    const fx=await getFx();
+    let px=meta.regularMarketPrice||closes[closes.length-1];
+    let pxEur = (meta.currency==='USD'&&fx>0) ? px/fx : px;
+    const pxEl=document.getElementById('sheet-px');
+    pxEl.textContent='€'+fmtPx(pxEur);
+    pxEl.style.color=(px>=(meta.chartPreviousClose||px))?'var(--grn)':'var(--red)';
+    drawChart(closes);
+  }catch(e){
+    document.getElementById('sheet-px').textContent='—';
+    document.getElementById('sheet-info').innerHTML=
+      `<div class="empty"><div class="ic">📉</div>
+       <div class="msg">Chart konnte nicht geladen werden</div>
+       <div class="sub">${e.message}. Yahoo/Proxy evtl. kurz nicht erreichbar —
+       versuch es gleich nochmal.</div></div>`;
+  }
+}
+function closeSheet(){document.getElementById('sheet').classList.remove('on');}
+
+function sma(arr,period){
+  const out=new Array(arr.length).fill(null);
+  let sum=0;
+  for(let i=0;i<arr.length;i++){
+    sum+=arr[i];
+    if(i>=period) sum-=arr[i-period];
+    if(i>=period-1) out[i]=sum/period;
+  }
+  return out;
+}
+
+function drawChart(closes){
+  const cv=document.getElementById('chart');
+  const dpr=window.devicePixelRatio||1;
+  const W=cv.clientWidth, H=260;
+  cv.width=W*dpr; cv.height=H*dpr;
+  const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,W,H);
+
+  const n=closes.length;
+  const pad={l:8,r:52,t:10,b:8};
+  const cw=W-pad.l-pad.r, ch=H-pad.t-pad.b;
+
+  // MAs berechnen
+  const mas={};
+  MA_PERIODS.forEach(p=>{ if(n>=p) mas[p]=sma(closes,p); });
+
+  // Wertebereich (Kurse + sichtbare MAs)
+  let allVals=[...closes];
+  Object.values(mas).forEach(m=>m.forEach(v=>{if(v!=null)allVals.push(v)}));
+  const lo=Math.min(...allVals), hi=Math.max(...allVals);
+  const range=hi-lo||1;
+  const x=i=>pad.l+(i/(n-1))*cw;
+  const y=v=>pad.t+ch-((v-lo)/range)*ch;
+
+  // Grid + Preisachse rechts
+  ctx.strokeStyle='#1a2534'; ctx.lineWidth=1; ctx.font='9px monospace';
+  ctx.fillStyle='#5d7a9a'; ctx.textAlign='left';
+  for(let g=0;g<=4;g++){
+    const yy=pad.t+(ch/4)*g;
+    ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(pad.l+cw,yy);ctx.stroke();
+    const val=hi-(range/4)*g;
+    ctx.fillText(val>=1000?val.toFixed(0):val.toFixed(1), pad.l+cw+4, yy+3);
+  }
+
+  // Kurslinie
+  ctx.strokeStyle='#c8d8f0'; ctx.lineWidth=1.6; ctx.beginPath();
+  closes.forEach((v,i)=>{i?ctx.lineTo(x(i),y(v)):ctx.moveTo(x(i),y(v));});
+  ctx.stroke();
+
+  // MAs
+  const legend=[];
+  MA_PERIODS.forEach(p=>{
+    if(!mas[p]) return;
+    const col=MA_COLORS[p];
+    ctx.strokeStyle=col; ctx.lineWidth=1; ctx.beginPath();
+    let started=false;
+    mas[p].forEach((v,i)=>{
+      if(v==null)return;
+      if(!started){ctx.moveTo(x(i),y(v));started=true;}
+      else ctx.lineTo(x(i),y(v));
+    });
+    ctx.stroke();
+    const last=mas[p][mas[p].length-1];
+    legend.push({p,col,val:last});
+  });
+
+  // Legende
+  document.getElementById('ma-legend').innerHTML = legend.map(l=>
+    `<span class="ma-item"><span class="sw" style="background:${l.col}"></span>
+     GD${l.p} <span class="val">${l.val>=1000?l.val.toFixed(0):l.val.toFixed(1)}</span></span>`
+  ).join('');
+}
+
+// ─── Setup actions ───────────────────────────────────────────
+function saveUrl(){
+  const u=document.getElementById('json-url').value.trim();
+  if(!u){alert('Bitte einen Link eintragen');return;}
+  LS.set('jsonUrl',u);
+  loadScreen();
+  // zurück zu Top50
+  document.querySelector('.nav-btn[data-view="top50"]').click();
+}
+function pasteJson(){
+  const txt=prompt('mobile_screen.json Inhalt hier einfügen:');
+  if(!txt)return;
+  try{
+    const data=JSON.parse(txt);
+    if(!data.views)throw new Error('kein views-Feld');
+    screenData=data; LS.set('screenData',data);
+    renderAll(); refreshQuotes();
+    setSync('manuell geladen','ok');
+    document.querySelector('.nav-btn[data-view="top50"]').click();
+  }catch(e){alert('Ungültiges JSON: '+e.message);}
+}
+
+// ─── Utilities ───────────────────────────────────────────────
+function setSync(txt,cls){
+  const el=document.getElementById('sync');
+  el.innerHTML=`<span class="${cls}">${txt}</span>`;
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+// Pull-to-refresh (einfach)
+let touchStartY=0;
+document.querySelector('main').addEventListener('touchstart',e=>{
+  touchStartY=e.touches[0].clientY;
+},{passive:true});
+document.querySelector('main').addEventListener('touchend',e=>{
+  const dy=e.changedTouches[0].clientY-touchStartY;
+  const main=document.querySelector('main');
+  if(dy>80 && main.scrollTop<=0){ loadScreen(); }
+},{passive:true});
+
+// ─── Karten-Klick via Event-Delegation (überlebt Neu-Rendern) ────
+document.querySelector('main').addEventListener('click', e=>{
+  const card = e.target.closest('.card');
+  if(card && card.dataset.tk){
+    openChart(card.dataset.tk);
+  }
+});
+
+// ─── Init ────────────────────────────────────────────────────
+document.getElementById('json-url').value = LS.get('jsonUrl','');
+loadScreen();
+refreshTimer=setInterval(()=>{ if(screenData) refreshQuotes(); }, REFRESH_MS);
+
+// Beim Wiedereinblenden (App aus Hintergrund) aktualisieren
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden && screenData) refreshQuotes();
+});
+</script>
+</body>
+</html>
