@@ -6,6 +6,9 @@
 <meta name="theme-color" content="#131722">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>GrowthTrader</title>
 <style>
   :root{
@@ -884,6 +887,15 @@ refreshTimer=setInterval(()=>{ if(screenData||watchData) refreshQuotes(); }, REF
 document.addEventListener('visibilitychange',()=>{
   if(!document.hidden && (screenData||watchData)) refreshQuotes();
 });
+
+// Service Worker registrieren (macht die App auf Android installierbar —
+// Icon auf dem Startbildschirm, Start ohne Browser-Rahmen). Rein additiv,
+// schlägt der Browser das nicht vor, läuft die Seite trotzdem normal.
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
