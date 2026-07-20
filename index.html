@@ -559,7 +559,7 @@ function wcardHtml(w, allAlerts){
       <span class="dt">${w.dt||''}</span>
     </div>
     <div class="row2">
-      <span class="px" id="px-${t}">${pxHtml}</span>
+      <span class="px" data-tk="${t}">${pxHtml}</span>
       ${chgHtml}
       ${badgeHtml}
     </div>
@@ -599,7 +599,7 @@ function cardHtml(r){
       <span class="rs ${rsClass}">RS ${r.rs}</span>
     </div>
     <div class="row2">
-      <span class="px" id="px-${r.t}">${pxHtml}</span>
+      <span class="px" data-tk="${r.t}">${pxHtml}</span>
       ${chgHtml}
       ${badgeHtml}
     </div>
@@ -680,22 +680,30 @@ async function getFx(){
 
 function updateCard(t){
   const q=quotes[t]; if(!q) return;
-  const pxEl=document.getElementById('px-'+t);
-  if(!pxEl) return;
-  const card=pxEl.closest('.card');
-  // Kurs
-  pxEl.textContent='€'+fmtPx(q.priceEur||q.price);
-  pxEl.classList.add('flash');
-  setTimeout(()=>pxEl.classList.remove('flash'),300);
-  // Änderung + Badge neu bauen
-  const row2=pxEl.parentElement;
-  const up=q.pct>0,dn=q.pct<0;
-  const chg=row2.querySelector('.chg');
-  chg.className='chg '+(up?'up':dn?'dn':'flat');
-  chg.textContent=(q.pct>0?'+':'')+q.pct.toFixed(2)+'%';
-  const badge=row2.querySelector('.badge');
-  badge.className='badge '+(q.live?'live':'close');
-  badge.innerHTML=q.live?'<span class="dot"></span>Live':'Schluss';
+  // Ein Ticker kann mehrfach im DOM auftauchen (mehrere Top-50-Kategorien
+  // UND/ODER die Watchlist) — data-tk ist bewusst KEIN id-Attribut (ids
+  // müssen eindeutig sein, hier brauchen wir aber Mehrfachtreffer).
+  // Also: JEDES Vorkommen aktualisieren, nicht nur das erste.
+  const pxEls = document.querySelectorAll(`.px[data-tk="${cssEsc(t)}"]`);
+  pxEls.forEach(pxEl=>{
+    // Kurs
+    pxEl.textContent='€'+fmtPx(q.priceEur||q.price);
+    pxEl.classList.add('flash');
+    setTimeout(()=>pxEl.classList.remove('flash'),300);
+    // Änderung + Badge neu bauen
+    const row2=pxEl.parentElement;
+    const up=q.pct>0,dn=q.pct<0;
+    const chg=row2.querySelector('.chg');
+    if(chg){
+      chg.className='chg '+(up?'up':dn?'dn':'flat');
+      chg.textContent=(q.pct>0?'+':'')+q.pct.toFixed(2)+'%';
+    }
+    const badge=row2.querySelector('.badge');
+    if(badge){
+      badge.className='badge '+(q.live?'live':'close');
+      badge.innerHTML=q.live?'<span class="dot"></span>Live':'Schluss';
+    }
+  });
 }
 
 // ─── Chart (Detail sheet) ────────────────────────────────────
