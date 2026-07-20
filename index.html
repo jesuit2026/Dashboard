@@ -621,60 +621,87 @@ function fmtPx(p){
 // ─── Live-Kurse holen (Yahoo chart endpoint via Proxy) ───────
 async function refreshQuotes(){
   if(!screenData?.views && !watchData?.watchlist) return;
-  // alle Ticker aus ALLEN Ansichten + Watchlist (dedupliziert)
-  const tickers = new Set();
+  // ── Reihenfolge: WATCHLIST ZUERST ────────────────────────────────
+  // Bei einem breiten Screen (Top-50 + Trendsetter + bis zu 15 Sektor-
+  // Filter) können das 100+ Ticker sein. Die Watchlist ist meist klein
+  // und wichtiger — die soll nicht hinten in der Schlange verhungern.
+  const tickers = [];
+  const seen = new Set();
+  const addTicker = t => { if(t && !seen.has(t)){ seen.add(t); tickers.push(t); } };
+  (watchData?.watchlist||[]).forEach(w=>addTicker(w.t));
   if(screenData?.views){
     Object.keys(screenData.views).forEach(c=>
-      (screenData.views[c]||[]).forEach(r=>tickers.add(r.t)));
+      (screenData.views[c]||[]).forEach(r=>addTicker(r.t)));
   }
-  (watchData?.watchlist||[]).forEach(w=>tickers.add(w.t));
   const fx = await getFx();  // EUR/USD für Umrechnung
-  // seriell mit kleiner Pause (Proxy nicht überlasten)
-  for(const t of tickers){
-    try{
-      const q = await fetchQuote(t, fx);
-      if(q){ quotes[t]=q; updateCard(t); }
-    }catch{}
-    await sleep(120);
+
+  // ── Begrenzte Parallelität statt strikt seriell ──────────────────
+  // 4 gleichzeitige Anfragen: deutlich schneller als 1-nach-1, aber
+  // schont den kostenlosen Proxy trotzdem. Jede Anfrage hat ein
+  // Timeout — eine hängende Anfrage blockiert nicht mehr alle anderen.
+  const CONCURRENCY = 4;
+  let idx = 0;
+  async function worker(){
+    while(idx < tickers.length){
+      const t = tickers[idx++];
+      try{
+        const q = await fetchQuote(t, fx);
+        if(q){ quotes[t]=q; updateCard(t); }
+      }catch{}
+      await sleep(80);
+    }
   }
+  await Promise.all(Array.from({length: Math.min(CONCURRENCY, tickers.length)}, worker));
+
   // Watchlist neu rendern, damit Alarm-Chips ihren "getroffen"-Status aktualisieren
   if(watchData?.watchlist?.length) renderWatch();
 }
 
 async function fetchQuote(ticker, fx){
   const yurl = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1d`;
-  const res = await fetch(CORS_PROXY + encodeURIComponent(yurl));
-  if(!res.ok) return null;
-  const j = await res.json();
-  const meta = j?.chart?.result?.[0]?.meta;
-  if(!meta) return null;
-  const price = meta.regularMarketPrice;
-  const prev = meta.chartPreviousClose || meta.previousClose || price;
-  if(!price) return null;
-  const cur = meta.currency||'USD';
-  const isLive = meta.marketState==='REGULAR';
-  // In EUR umrechnen wenn USD
-  let priceEur = price;
-  if(cur==='USD' && fx>0) priceEur = price / fx;
-  else if(cur==='EUR') priceEur = price;
-  else if(fx>0 && cur==='USD') priceEur = price / fx;
-  return {
-    price, priceEur, currency:cur,
-    pct: prev>0 ? (price/prev-1)*100 : 0,
-    live: isLive, ts: Date.now()
-  };
+  // Timeout, damit eine hängende Proxy-Anfrage nicht die ganze
+  // Warteschlange blockiert (fetch() hat sonst KEIN eingebautes Timeout).
+  const ctrl = new AbortController();
+  const timer = setTimeout(()=>ctrl.abort(), 8000);
+  try{
+    const res = await fetch(CORS_PROXY + encodeURIComponent(yurl), {signal: ctrl.signal});
+    if(!res.ok) return null;
+    const j = await res.json();
+    const meta = j?.chart?.result?.[0]?.meta;
+    if(!meta) return null;
+    const price = meta.regularMarketPrice;
+    const prev = meta.chartPreviousClose || meta.previousClose || price;
+    if(!price) return null;
+    const cur = meta.currency||'USD';
+    const isLive = meta.marketState==='REGULAR';
+    // In EUR umrechnen wenn USD
+    let priceEur = price;
+    if(cur==='USD' && fx>0) priceEur = price / fx;
+    else if(cur==='EUR') priceEur = price;
+    else if(fx>0 && cur==='USD') priceEur = price / fx;
+    return {
+      price, priceEur, currency:cur,
+      pct: prev>0 ? (price/prev-1)*100 : 0,
+      live: isLive, ts: Date.now()
+    };
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 let _fxCache = {v:0, ts:0};
 async function getFx(){
   if(_fxCache.v>0 && Date.now()-_fxCache.ts < 300000) return _fxCache.v;
+  const ctrl = new AbortController();
+  const timer = setTimeout(()=>ctrl.abort(), 6000);
   try{
     const yurl='https://query1.finance.yahoo.com/v8/finance/chart/EURUSD=X?interval=1d&range=1d';
-    const res=await fetch(CORS_PROXY+encodeURIComponent(yurl));
+    const res=await fetch(CORS_PROXY+encodeURIComponent(yurl), {signal: ctrl.signal});
     const j=await res.json();
     const fx=j?.chart?.result?.[0]?.meta?.regularMarketPrice;
     if(fx>0){ _fxCache={v:fx,ts:Date.now()}; return fx; }
   }catch{}
+  finally{ clearTimeout(timer); }
   return _fxCache.v || 1.14;  // Fallback
 }
 
