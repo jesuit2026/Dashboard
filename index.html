@@ -99,6 +99,20 @@
     background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);
     padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px}
 
+  /* ── Watchlist-Karten + Alarme ── */
+  .wcard{background:var(--panel);border:1px solid var(--brd);border-radius:10px;
+    padding:11px 13px;margin-bottom:8px}
+  .wcard .row1{display:flex;align-items:baseline;gap:8px;margin-bottom:2px;cursor:pointer}
+  .wcard .dt{font-size:10px;color:var(--dim);margin-left:auto;font-family:var(--mono)}
+  .alerts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .alert-chip{font-family:var(--mono);font-size:10px;font-weight:700;
+    padding:3px 8px;border-radius:12px;display:flex;align-items:center;gap:4px}
+  .alert-chip.above{color:var(--grn);background:rgba(0,232,122,.1);
+    border:1px solid rgba(0,232,122,.28)}
+  .alert-chip.below{color:var(--red);background:rgba(239,83,80,.1);
+    border:1px solid rgba(239,83,80,.28)}
+  .alert-chip.hit{animation:pulse 1s ease-in-out infinite}
+
   /* ── Empty / loading states ── */
   .empty{text-align:center;padding:48px 24px;color:var(--dim)}
   .empty .ic{font-size:32px;margin-bottom:12px;opacity:.5}
@@ -172,11 +186,7 @@
 
   <!-- Watch -->
   <div class="view" id="view-watch">
-    <div class="empty">
-      <div class="ic">👁</div>
-      <div class="msg">Watchlist kommt als Nächstes</div>
-      <div class="sub">Zuerst läuft die Top-50-Ansicht mit Live-Kursen.</div>
-    </div>
+    <div id="watch-list"></div>
   </div>
 
   <!-- Settings -->
@@ -186,7 +196,8 @@
       <p>Normaler OneDrive-Freigabe-Link zur <b>mobile_screen.json</b>
          (der <b>1drv.ms/…</b>-Link reicht — die App macht daraus automatisch
          einen Direkt-Link). Die Auswahl kommt vom PC, die Kurse holt die App
-         selbst live.</p>
+         selbst live. Die Watchlist (<b>mobile_watchlist.json</b>) wird
+         automatisch von derselben Quelle mitgeladen — kein zweiter Link nötig.</p>
       <input type="text" id="json-url" placeholder="https://... OneDrive-Link"
              autocomplete="off" autocapitalize="off" spellcheck="false">
       <button onclick="saveUrl()">Link speichern & laden</button>
@@ -234,6 +245,7 @@ const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
 
 // ─── State ───────────────────────────────────────────────────
 let screenData = null;      // die geladene mobile_screen.json
+let watchData = null;       // die geladene mobile_watchlist.json
 let quotes = {};            // ticker -> {price, pct, live, ts}
 let curCat = 'buyable';
 let refreshTimer = null;
@@ -409,6 +421,41 @@ async function loadScreen(){
   if(!cached) showNeedSetup(diag);
 }
 
+// ─── Watchlist laden (mobile_watchlist.json — selbe Quelle wie Screen) ──
+// Die URL wird automatisch aus der gespeicherten jsonUrl abgeleitet:
+// "…/mobile_screen.json" → "…/mobile_watchlist.json". Kein zweites
+// Setup-Feld nötig, da beide Dateien vom selben PC-Export ins selbe
+// GitHub-Repo geschrieben werden.
+async function loadWatchlist(){
+  const cached = LS.get('watchData', null);
+  if(cached){ watchData = cached; renderWatch(); }
+
+  const rawUrl = LS.get('jsonUrl','');
+  if(!rawUrl || !rawUrl.includes('mobile_screen.json')){
+    if(!cached) renderWatch();  // zeigt "kein Link" o.ä.
+    return;
+  }
+  const wUrl = rawUrl.replace('mobile_screen.json','mobile_watchlist.json');
+  const directUrls = oneDriveDirectUrls(wUrl);
+  const attempts = [];
+  for(const u of directUrls){ attempts.push(u); attempts.push(CORS_PROXY+encodeURIComponent(u)); }
+
+  for(const url of attempts){
+    try{
+      const res = await fetch(url, {redirect:'follow'});
+      if(!res.ok) continue;
+      const text = await res.text();
+      let data; try{ data = JSON.parse(text); }catch{ continue; }
+      if(!('watchlist' in data)) continue;
+      watchData = data; LS.set('watchData', data);
+      renderWatch();
+      refreshQuotes();
+      return;
+    }catch{}
+  }
+  // Fehlgeschlagen — Cache (falls vorhanden) bleibt sichtbar, sonst leer lassen
+}
+
 function showNeedSetup(diag){
   const diagHtml = (diag&&diag.length)
     ? `<div style="margin-top:14px;text-align:left;font-family:var(--mono);
@@ -456,6 +503,65 @@ function renderAll(){
     return `<div class="cat-list" data-cat="${cat}" style="display:${cat===curCat?'block':'none'}">${body}</div>`;
   }).join('');
   // Karten-Klicks laufen über Event-Delegation (siehe unten, einmalig gesetzt)
+}
+
+// ─── Watchlist-Rendering ───────────────────────────────────────
+function renderWatch(){
+  const el = document.getElementById('watch-list');
+  const list = watchData?.watchlist || [];
+  const alerts = watchData?.alerts || [];
+  if(!list.length){
+    el.innerHTML = `<div class="empty"><div class="ic">👁</div>
+      <div class="msg">Watchlist ist leer</div>
+      <div class="sub">Füge Ticker am PC-Dashboard zur Beobachtungsliste hinzu —
+      sie erscheinen hier automatisch.</div></div>`;
+    return;
+  }
+  el.innerHTML = list.map(w=>wcardHtml(w, alerts)).join('');
+}
+
+function wcardHtml(w, allAlerts){
+  const t = w.t;
+  const q = quotes[t];
+  const myAlerts = allAlerts.filter(a=>(a.ticker||'').toUpperCase()===t.toUpperCase());
+  let pxHtml, chgHtml, badgeHtml;
+  if(q && q.price>0){
+    const up=q.pct>0, dn=q.pct<0;
+    pxHtml = `€${fmtPx(q.priceEur||q.price)}`;
+    chgHtml = `<span class="chg ${up?'up':dn?'dn':'flat'}">${q.pct>0?'+':''}${q.pct.toFixed(2)}%</span>`;
+    badgeHtml = q.live
+      ? `<span class="badge live"><span class="dot"></span>Live</span>`
+      : `<span class="badge close">Schluss</span>`;
+  }else{
+    pxHtml = 'lädt…'; chgHtml='<span class="chg flat">—</span>'; badgeHtml = `<span class="badge loading">lädt…</span>`;
+  }
+  const alertsHtml = myAlerts.length ? `<div class="alerts">${myAlerts.map(a=>{
+    const cond = a.condition==='below' ? 'below' : 'above';
+    const arrow = cond==='below' ? '▼ unter' : '▲ über';
+    // Alarm "getroffen"? (nur wenn Live-Kurs vorhanden, Vergleich in USD)
+    let hit = '';
+    if(q && q.price>0){
+      // Alarm-Preis ist immer in USD gespeichert (app.py: "intern immer USD").
+      // Aktuellen Kurs ebenfalls in USD bringen, unabhängig von der Notierungswährung.
+      const curUsd = q.currency==='USD' ? q.price : (q.priceEur||q.price) * (_fxCache.v||1.14);
+      const isHit = cond==='above' ? curUsd>=a.price : curUsd<=a.price;
+      if(isHit) hit=' hit';
+    }
+    return `<span class="alert-chip ${cond}${hit}">${arrow} ${a.currency||'USD'} ${a.price_input??a.price}</span>`;
+  }).join('')}</div>` : '';
+  return `
+  <div class="wcard">
+    <div class="row1" data-tk="${t}">
+      <span class="tk">${t}</span>
+      <span class="dt">${w.dt||''}</span>
+    </div>
+    <div class="row2">
+      <span class="px" id="px-${t}">${pxHtml}</span>
+      ${chgHtml}
+      ${badgeHtml}
+    </div>
+    ${alertsHtml}
+  </div>`;
 }
 
 function cardHtml(r){
@@ -511,11 +617,14 @@ function fmtPx(p){
 
 // ─── Live-Kurse holen (Yahoo chart endpoint via Proxy) ───────
 async function refreshQuotes(){
-  if(!screenData?.views) return;
-  // alle Ticker aus ALLEN Ansichten (dedupliziert) — egal wie viele es sind
+  if(!screenData?.views && !watchData?.watchlist) return;
+  // alle Ticker aus ALLEN Ansichten + Watchlist (dedupliziert)
   const tickers = new Set();
-  Object.keys(screenData.views).forEach(c=>
-    (screenData.views[c]||[]).forEach(r=>tickers.add(r.t)));
+  if(screenData?.views){
+    Object.keys(screenData.views).forEach(c=>
+      (screenData.views[c]||[]).forEach(r=>tickers.add(r.t)));
+  }
+  (watchData?.watchlist||[]).forEach(w=>tickers.add(w.t));
   const fx = await getFx();  // EUR/USD für Umrechnung
   // seriell mit kleiner Pause (Proxy nicht überlasten)
   for(const t of tickers){
@@ -525,6 +634,8 @@ async function refreshQuotes(){
     }catch{}
     await sleep(120);
   }
+  // Watchlist neu rendern, damit Alarm-Chips ihren "getroffen"-Status aktualisieren
+  if(watchData?.watchlist?.length) renderWatch();
 }
 
 async function fetchQuote(ticker, fx){
@@ -715,6 +826,7 @@ function saveUrl(){
   if(!u){alert('Bitte einen Link eintragen');return;}
   LS.set('jsonUrl',u);
   loadScreen();
+  loadWatchlist();
   // zurück zu Top50
   document.querySelector('.nav-btn[data-view="top50"]').click();
 }
@@ -746,7 +858,7 @@ document.querySelector('main').addEventListener('touchstart',e=>{
 document.querySelector('main').addEventListener('touchend',e=>{
   const dy=e.changedTouches[0].clientY-touchStartY;
   const main=document.querySelector('main');
-  if(dy>80 && main.scrollTop<=0){ loadScreen(); }
+  if(dy>80 && main.scrollTop<=0){ loadScreen(); loadWatchlist(); }
 },{passive:true});
 
 // ─── Karten-Klick via Event-Delegation (überlebt Neu-Rendern) ────
@@ -754,17 +866,23 @@ document.querySelector('main').addEventListener('click', e=>{
   const card = e.target.closest('.card');
   if(card && card.dataset.tk){
     openChart(card.dataset.tk);
+    return;
+  }
+  const wrow = e.target.closest('.wcard .row1');
+  if(wrow && wrow.dataset.tk){
+    openChart(wrow.dataset.tk);
   }
 });
 
 // ─── Init ────────────────────────────────────────────────────
 document.getElementById('json-url').value = LS.get('jsonUrl','');
 loadScreen();
-refreshTimer=setInterval(()=>{ if(screenData) refreshQuotes(); }, REFRESH_MS);
+loadWatchlist();
+refreshTimer=setInterval(()=>{ if(screenData||watchData) refreshQuotes(); }, REFRESH_MS);
 
 // Beim Wiedereinblenden (App aus Hintergrund) aktualisieren
 document.addEventListener('visibilitychange',()=>{
-  if(!document.hidden && screenData) refreshQuotes();
+  if(!document.hidden && (screenData||watchData)) refreshQuotes();
 });
 </script>
 </body>
