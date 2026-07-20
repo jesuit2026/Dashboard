@@ -211,6 +211,13 @@
       <p>Kurse werden alle 60 Sekunden aktualisiert, solange die App offen ist.
          Ziehe die Liste nach unten zum manuellen Neuladen.</p>
     </div>
+    <div class="cfg">
+      <h3>App-Version</h3>
+      <p style="font-family:var(--mono)">Build: <b id="app-build"></b><br>
+         Falls du nach einem Update noch alten Stand siehst: Browser-Cache
+         für diese Seite leeren (Chrome: ⋮ → Website-Einstellungen →
+         Speicher löschen) und neu laden.</p>
+    </div>
   </div>
 </main>
 
@@ -241,6 +248,10 @@
 
 // ─── Konfiguration ───────────────────────────────────────────
 const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
+// Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
+// damit erkennbar ist ob das Handy wirklich die neueste Version geladen
+// hat (statt einer vom CDN/Browser gecachten alten Version).
+const APP_BUILD = '2026-07-20.4';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -356,6 +367,15 @@ function oneDriveDirectUrls(url){
   return variants;
 }
 
+// ─── Cache-Buster ──────────────────────────────────────────────
+// GitHub Pages / sein CDN cachen Dateien mehrere Minuten. Ohne das hier
+// würde die App nach einem PC-Export manchmal noch die alte JSON sehen,
+// obwohl die neue schon im Repo liegt.
+function withCacheBust(url){
+  const sep = url.includes('?') ? '&' : '?';
+  return url + sep + '_cb=' + Date.now();
+}
+
 // ─── Datenquelle laden ───────────────────────────────────────
 async function loadScreen(){
   const rawUrl = LS.get('jsonUrl','');
@@ -373,8 +393,8 @@ async function loadScreen(){
   const directUrls = oneDriveDirectUrls(rawUrl);
   const attempts = [];
   for(const u of directUrls){
-    attempts.push(u);                                   // direkt
-    attempts.push(CORS_PROXY + encodeURIComponent(u));  // über Proxy
+    attempts.push(withCacheBust(u));                                   // direkt
+    attempts.push(CORS_PROXY + encodeURIComponent(withCacheBust(u)));  // über Proxy
   }
 
   let lastErr = 'unbekannt';
@@ -384,7 +404,7 @@ async function loadScreen(){
     const label = isProxy ? 'Proxy' : 'Direkt';
     const short = url.replace(CORS_PROXY,'').slice(8,40);
     try{
-      const res = await fetch(url, {redirect:'follow'});
+      const res = await fetch(url, {redirect:'follow', cache:'no-store'});
       if(!res.ok){
         lastErr='HTTP '+res.status;
         diag.push(`${label} ${short}… → HTTP ${res.status}`);
@@ -410,7 +430,8 @@ async function loadScreen(){
       LS.set('screenData', data);
       renderAll();
       const age = data.computed_iso ? data.computed_iso.replace('T',' ').slice(0,16) : '?';
-      setSync('Auswahl: '+age+' ('+label+')', 'ok');
+      const relAge = data.computed_at ? relTime(data.computed_at) : '';
+      setSync('PC-Stand: '+age+(relAge?' · '+relAge:'')+' ('+label+')', 'ok');
       refreshQuotes();
       return;
     }catch(e){
@@ -441,11 +462,14 @@ async function loadWatchlist(){
   const wUrl = rawUrl.replace('mobile_screen.json','mobile_watchlist.json');
   const directUrls = oneDriveDirectUrls(wUrl);
   const attempts = [];
-  for(const u of directUrls){ attempts.push(u); attempts.push(CORS_PROXY+encodeURIComponent(u)); }
+  for(const u of directUrls){
+    attempts.push(withCacheBust(u));
+    attempts.push(CORS_PROXY+encodeURIComponent(withCacheBust(u)));
+  }
 
   for(const url of attempts){
     try{
-      const res = await fetch(url, {redirect:'follow'});
+      const res = await fetch(url, {redirect:'follow', cache:'no-store'});
       if(!res.ok) continue;
       const text = await res.text();
       let data; try{ data = JSON.parse(text); }catch{ continue; }
@@ -610,6 +634,17 @@ function cardHtml(r){
       <span class="metric"><b>GD200</b> <span class="v ${e200>0?'pos':'neg'}">${e200==null?'—':(e200>0?'+':'')+e200+'%'}</span></span>
     </div>
   </div>`;
+}
+
+// Relative Zeit ("vor 3 Std", "vor 12 Min") — macht sofort klar, dass das
+// der PC-Berechnungszeitpunkt ist, nicht die aktuelle Uhrzeit.
+function relTime(unixSec){
+  const diffMin = Math.round((Date.now()/1000 - unixSec)/60);
+  if(diffMin < 1) return 'gerade eben';
+  if(diffMin < 60) return `vor ${diffMin} Min`;
+  const diffH = Math.round(diffMin/60);
+  if(diffH < 48) return `vor ${diffH} Std`;
+  return `vor ${Math.round(diffH/24)} Tg`;
 }
 
 function fmtPx(p){
@@ -914,6 +949,7 @@ document.querySelector('main').addEventListener('click', e=>{
 
 // ─── Init ────────────────────────────────────────────────────
 document.getElementById('json-url').value = LS.get('jsonUrl','');
+document.getElementById('app-build').textContent = APP_BUILD;
 loadScreen();
 loadWatchlist();
 refreshTimer=setInterval(()=>{ if(screenData||watchData) refreshQuotes(); }, REFRESH_MS);
