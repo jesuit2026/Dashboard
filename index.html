@@ -35,17 +35,22 @@
     text-align:right;line-height:1.3}
   .sync .ok{color:var(--grn)} .sync .warn{color:var(--ora)} .sync .err{color:var(--red)}
 
-  /* ── Segment tabs (Kaufbar/Near/Breakout) ── */
+  /* ── Segment tabs (dynamisch: Kaufbar/Near/Breakout/Trendsetter/Sektoren…) ── */
   .tabs{display:flex;background:var(--bg2);border-bottom:1px solid var(--brd);
-    flex-shrink:0;position:sticky;top:0;z-index:10}
-  .tab{flex:1;padding:11px 4px;text-align:center;font-size:12px;font-weight:700;
+    flex-shrink:0;position:sticky;top:0;z-index:10;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;padding:11px 12px;text-align:center;font-size:12px;font-weight:700;
     color:var(--dim);background:none;border:none;cursor:pointer;font-family:var(--ui);
-    border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+    white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
   .tab .cnt{font-family:var(--mono);font-size:10px;opacity:.7;margin-left:3px}
   .tab.on{color:var(--txt)}
   .tab.on.buyable{border-bottom-color:var(--grn);color:var(--grn)}
   .tab.on.near{border-bottom-color:var(--ora);color:var(--ora)}
   .tab.on.breakout{border-bottom-color:var(--pur);color:var(--pur)}
+  .tab.on.trendsetter{border-bottom-color:var(--acc);color:var(--acc)}
+  .tab.on.sector{border-bottom-color:var(--txt2);color:var(--txt)}
+  .tab.on.setup{border-bottom-color:var(--pur);color:var(--pur)}
 
   /* ── Scroll area ── */
   main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px}
@@ -157,18 +162,12 @@
 </header>
 
 <!-- ═══ TOP 50 VIEW ═══ -->
-<div class="tabs" id="tabs">
-  <button class="tab buyable on" data-cat="buyable">Kaufbar<span class="cnt" id="c-buyable">0</span></button>
-  <button class="tab near" data-cat="near">Near Pivot<span class="cnt" id="c-near">0</span></button>
-  <button class="tab breakout" data-cat="breakout">Breakout<span class="cnt" id="c-breakout">0</span></button>
-</div>
+<div class="tabs" id="tabs"></div>
 
 <main>
   <!-- Top50 -->
   <div class="view on" id="view-top50">
-    <div id="list-buyable" class="cat-list"></div>
-    <div id="list-near" class="cat-list" style="display:none"></div>
-    <div id="list-breakout" class="cat-list" style="display:none"></div>
+    <div id="cat-lists"></div>
   </div>
 
   <!-- Watch -->
@@ -245,16 +244,63 @@ const LS = {
   set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}},
 };
 
-// ─── Tab / View navigation ───────────────────────────────────
-document.querySelectorAll('.tab').forEach(t=>{
-  t.onclick=()=>{
-    curCat=t.dataset.cat;
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-    t.classList.add('on');
-    ['buyable','near','breakout'].forEach(c=>{
-      document.getElementById('list-'+c).style.display = c===curCat?'block':'none';
-    });
+// ─── Kategorie-Metadaten ───────────────────────────────────────
+// Bekannte Kategorien bekommen festes Icon/Farbe/Reihenfolge/Text.
+// Alles Unbekannte (z.B. künftige Sektor-Filter, Setup-Filter) wird
+// automatisch generisch dargestellt — kein Code-Änderung nötig,
+// sobald der PC-Export neue views-Schlüssel liefert.
+const CATEGORY_META = {
+  buyable:    {label:'Kaufbar',    icon:'🟢', cls:'buyable',    order:1,
+               empty:'Aktuell keine Aktie in der Kaufzone.'},
+  near:       {label:'Near Pivot', icon:'🟡', cls:'near',       order:2,
+               empty:'Aktuell keine Aktie nahe am Pivot.'},
+  breakout:   {label:'Breakout',   icon:'🚀', cls:'breakout',   order:3,
+               empty:'Aktuell kein frischer Ausbruch mit Volumen.'},
+  trendsetter:{label:'Trendsetter',icon:'⚡', cls:'trendsetter',order:4,
+               empty:'Aktuell kein Einzelläufer außerhalb der Top-Branchen.'},
+};
+// Prettify für unbekannte Schlüssel, z.B. "sector_semiconductors" → "Semiconductors"
+function prettyLabel(key){
+  if(screenData?.view_labels?.[key]) return screenData.view_labels[key];
+  let s = key.replace(/^sector[_:]?/i,'').replace(/^setup[_:]?/i,'').replace(/_/g,' ');
+  s = s.charAt(0).toUpperCase()+s.slice(1);
+  return s||key;
+}
+function metaFor(key){
+  if(CATEGORY_META[key]) return CATEGORY_META[key];
+  const isSector = /^sector/i.test(key);
+  const isSetup  = /^setup/i.test(key);
+  return {
+    label: prettyLabel(key),
+    icon: isSector ? '📊' : isSetup ? '◆' : '•',
+    cls: isSector ? 'sector' : isSetup ? 'setup' : '',
+    order: 50,
+    empty: 'Aktuell keine Treffer in dieser Liste.'
   };
+}
+function orderedCats(){
+  if(!screenData?.views) return [];
+  return Object.keys(screenData.views).sort((a,b)=>{
+    const ma=metaFor(a), mb=metaFor(b);
+    return ma.order-mb.order || a.localeCompare(b);
+  });
+}
+
+// ─── Tab / View navigation (Tabs werden dynamisch aus renderAll gebaut) ──
+function selectCat(cat){
+  curCat=cat;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  const btn=document.querySelector(`.tab[data-cat="${cssEsc(cat)}"]`);
+  if(btn) btn.classList.add('on');
+  document.querySelectorAll('#cat-lists .cat-list').forEach(el=>{
+    el.style.display = el.dataset.cat===cat ? 'block' : 'none';
+  });
+}
+function cssEsc(s){ return String(s).replace(/["\\]/g,'\\$&'); }
+// Event-Delegation fürs Tab-Klicken (überlebt Neu-Rendern der Tabs)
+document.getElementById('tabs').addEventListener('click', e=>{
+  const t=e.target.closest('.tab');
+  if(t && t.dataset.cat) selectCat(t.dataset.cat);
 });
 
 document.querySelectorAll('.nav-btn').forEach(b=>{
@@ -372,35 +418,43 @@ function showNeedSetup(diag){
          ${diag.map(d=>'• '+d).join('<br>')}
        </div>`
     : '';
-  ['buyable','near','breakout'].forEach(c=>{
-    document.getElementById('list-'+c).innerHTML =
-      `<div class="empty"><div class="ic">⚙️</div>
-       <div class="msg">Noch keine Daten geladen</div>
-       <div class="sub">Öffne <b>Setup</b> und trage den OneDrive-Link ein —
-       oder nutze <b>„JSON einfügen"</b>.</div>${diagHtml}</div>`;
-  });
+  document.getElementById('tabs').innerHTML = '';
+  document.getElementById('cat-lists').innerHTML =
+    `<div class="empty"><div class="ic">⚙️</div>
+     <div class="msg">Noch keine Daten geladen</div>
+     <div class="sub">Öffne <b>Setup</b> und trage den OneDrive-Link ein —
+     oder nutze <b>„JSON einfügen"</b>.</div>${diagHtml}</div>`;
 }
 
 // ─── Rendering ───────────────────────────────────────────────
+// Baut Tabs + Listen komplett neu aus den Schlüsseln in screenData.views.
+// Neue Kategorien (Trendsetter, Sektor-Filter, Setup-Filter, …) tauchen
+// automatisch auf, sobald der PC-Export sie liefert — kein Code nötig.
 function renderAll(){
-  if(!screenData) return;
-  ['buyable','near','breakout'].forEach(cat=>{
-    const list = (screenData.views[cat]||[]);
-    document.getElementById('c-'+cat).textContent = list.length;
-    const el = document.getElementById('list-'+cat);
-    if(!list.length){
-      const msg = {
-        buyable:'Aktuell keine Aktie in der Kaufzone.',
-        near:'Aktuell keine Aktie nahe am Pivot.',
-        breakout:'Aktuell kein frischer Ausbruch mit Volumen.'
-      }[cat];
-      el.innerHTML=`<div class="empty"><div class="ic">✓</div>
-        <div class="msg">${msg}</div>
-        <div class="sub">In schwachen Marktphasen ist das normal.</div></div>`;
-      return;
-    }
-    el.innerHTML = list.map(r=>cardHtml(r)).join('');
-  });
+  if(!screenData?.views) return;
+  const cats = orderedCats();
+  if(!cats.length) return;
+  if(!cats.includes(curCat)) curCat = cats[0];
+
+  // Tabs bauen
+  document.getElementById('tabs').innerHTML = cats.map(cat=>{
+    const m = metaFor(cat);
+    const list = screenData.views[cat]||[];
+    return `<button class="tab ${m.cls}${cat===curCat?' on':''}" data-cat="${cat}">
+      ${m.icon} ${m.label}<span class="cnt">${list.length}</span></button>`;
+  }).join('');
+
+  // Listen bauen
+  document.getElementById('cat-lists').innerHTML = cats.map(cat=>{
+    const m = metaFor(cat);
+    const list = screenData.views[cat]||[];
+    const body = list.length
+      ? list.map(r=>cardHtml(r)).join('')
+      : `<div class="empty"><div class="ic">✓</div>
+          <div class="msg">${m.empty}</div>
+          <div class="sub">In schwachen Marktphasen ist das normal.</div></div>`;
+    return `<div class="cat-list" data-cat="${cat}" style="display:${cat===curCat?'block':'none'}">${body}</div>`;
+  }).join('');
   // Karten-Klicks laufen über Event-Delegation (siehe unten, einmalig gesetzt)
 }
 
@@ -457,10 +511,10 @@ function fmtPx(p){
 
 // ─── Live-Kurse holen (Yahoo chart endpoint via Proxy) ───────
 async function refreshQuotes(){
-  if(!screenData) return;
-  // alle Ticker aus allen 3 Ansichten (dedupliziert)
+  if(!screenData?.views) return;
+  // alle Ticker aus ALLEN Ansichten (dedupliziert) — egal wie viele es sind
   const tickers = new Set();
-  ['buyable','near','breakout'].forEach(c=>
+  Object.keys(screenData.views).forEach(c=>
     (screenData.views[c]||[]).forEach(r=>tickers.add(r.t)));
   const fx = await getFx();  // EUR/USD für Umrechnung
   // seriell mit kleiner Pause (Proxy nicht überlasten)
