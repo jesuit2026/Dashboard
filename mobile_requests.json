@@ -1,0 +1,14 @@
+{
+ "requests": [
+  {
+   "type": "add_alert",
+   "ticker": "COHR",
+   "condition": "above",
+   "price_usd": 250.39,
+   "price_input": 250.39,
+   "currency": "USD",
+   "id": "r1784631568978kuns6",
+   "ts": "2026-07-21T10:59:28.978Z"
+  }
+ ]
+}
