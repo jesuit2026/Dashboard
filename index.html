@@ -204,6 +204,35 @@
   .dir-btn.above.on{background:rgba(0,232,122,.15);border-color:var(--grn);color:var(--grn)}
   .dir-btn.below.on{background:rgba(239,83,80,.15);border-color:var(--red);color:var(--red)}
   .dir-btn:active{opacity:.8}
+
+  /* ── Info-Box: Fundamental/Insider/News ── */
+  .info-box{margin-top:14px;background:var(--panel);border:1px solid var(--brd);
+    border-radius:10px;overflow:hidden}
+  .info-tabs{display:flex;border-bottom:1px solid var(--brd)}
+  .info-tab{flex:1;padding:10px 0;background:none;border:none;color:var(--dim);
+    font-family:var(--ui);font-size:12.5px;font-weight:700;border-bottom:2px solid transparent}
+  .info-tab.on{color:var(--acc);border-bottom-color:var(--acc)}
+  .info-content{padding:12px;min-height:60px}
+  .fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .fund-cell{background:var(--bg2);border:1px solid var(--brd);border-radius:8px;padding:8px 10px}
+  .fund-cell .lbl{font-size:10px;color:var(--dim);margin-bottom:2px;text-transform:uppercase;letter-spacing:.3px}
+  .fund-cell .val{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--txt)}
+  .fund-cell .val.pos{color:var(--grn)}
+  .fund-cell .val.neg{color:var(--red)}
+  .insider-row{display:flex;align-items:center;gap:8px;padding:8px 0;
+    border-bottom:1px solid var(--brd)}
+  .insider-row:last-child{border-bottom:none}
+  .insider-row .itype{font-size:10px;font-weight:800;padding:2px 7px;border-radius:4px;
+    text-transform:uppercase}
+  .insider-row .itype.buy{color:var(--grn);background:rgba(0,232,122,.13)}
+  .insider-row .itype.sell{color:var(--red);background:rgba(239,83,80,.13)}
+  .insider-row .idetails{flex:1;min-width:0}
+  .insider-row .iname{font-size:12.5px;color:var(--txt);font-weight:600}
+  .insider-row .imeta{font-size:10.5px;color:var(--dim);font-family:var(--mono)}
+  .news-row{display:block;padding:9px 0;border-bottom:1px solid var(--brd);text-decoration:none}
+  .news-row:last-child{border-bottom:none}
+  .news-row .ntitle{font-size:13px;color:var(--txt);line-height:1.4;margin-bottom:3px}
+  .news-row .nmeta{font-size:10.5px;color:var(--dim);font-family:var(--mono)}
   #chart-hover-info{min-height:16px;font-family:var(--mono);font-size:11px;
     color:var(--dim);padding:2px 4px 6px}
   #chart-hover-info b{color:var(--txt)}
@@ -319,6 +348,18 @@
     </div>
     <div class="zoom-row" id="zoom-row"></div>
     <div id="sheet-info"></div>
+
+    <!-- ═══ INFO-BOX: Fundamentaldaten / Insider / News ═══ -->
+    <div class="info-box">
+      <div class="info-tabs">
+        <button class="info-tab on" data-itab="fund" onclick="setInfoTab('fund')">Fundamental</button>
+        <button class="info-tab" data-itab="insider" onclick="setInfoTab('insider')">Insider</button>
+        <button class="info-tab" data-itab="news" onclick="setInfoTab('news')">News</button>
+      </div>
+      <div id="info-content" class="info-content">
+        <div class="empty"><div class="ic">📊</div><div class="msg">lädt…</div></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -330,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.11';
+const APP_BUILD = '2026-07-21.12';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -1045,6 +1086,12 @@ async function openChart(ticker){
   _hoverIdx=null;
   _chartCache={day:null, week:null};
   updateIntervalButtons();
+  // Info-Box zurücksetzen: neuer Ticker → alter Cache ungültig,
+  // zurück zum Fundamental-Tab, direkt laden.
+  _infoCache={fund:null, insider:null, news:null};
+  _curInfoTab='fund';
+  document.querySelectorAll('.info-tab').forEach(b=>b.classList.toggle('on', b.dataset.itab==='fund'));
+  loadInfoTab('fund');
   try{
     const data = await fetchChartData(ticker, 'day');
     _chartCache.day = data;
@@ -1102,6 +1149,130 @@ async function setInterval_(interval){
 function updateIntervalButtons(){
   document.querySelectorAll('.interval-btn').forEach(b=>
     b.classList.toggle('on', b.dataset.interval===_curInterval));
+}
+
+// ═══ Info-Box: Fundamentaldaten / Insider / News ═══════════════════
+let _curInfoTab='fund';
+let _infoCache={};   // pro geöffnetem Chart neu: {fund:null, insider:null, news:null}
+
+function setInfoTab(tab){
+  _curInfoTab=tab;
+  document.querySelectorAll('.info-tab').forEach(b=>b.classList.toggle('on', b.dataset.itab===tab));
+  loadInfoTab(tab);
+}
+
+async function loadInfoTab(tab){
+  const el=document.getElementById('info-content');
+  if(_infoCache[tab]!==undefined && _infoCache[tab]!==null){
+    el.innerHTML=_infoCache[tab];
+    return;
+  }
+  el.innerHTML=`<div class="empty"><div class="ic">⏳</div><div class="msg">lädt…</div></div>`;
+  const t=_curTicker;
+  try{
+    let html;
+    if(tab==='fund') html=await renderFundTab(t);
+    else if(tab==='insider') html=renderInsiderTab(t);
+    else html=await renderNewsTab(t);
+    if(_curTicker!==t || _curInfoTab!==tab) return;  // Ticker/Tab inzwischen gewechselt
+    _infoCache[tab]=html;
+    el.innerHTML=html;
+  }catch(e){
+    el.innerHTML=`<div class="empty"><div class="ic">⚠️</div><div class="msg">Konnte nicht geladen werden</div>
+      <div class="sub">${e.message}</div></div>`;
+  }
+}
+
+// ── Fundamentaldaten: Yahoo quoteSummary (öffentlich, kein Key nötig) ──
+async function renderFundTab(ticker){
+  const modules='defaultKeyStatistics,financialData,summaryDetail';
+  const yurl=`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}?modules=${modules}`;
+  const ctrl=new AbortController(); const timer=setTimeout(()=>ctrl.abort(),8000);
+  let j;
+  try{
+    const res=await fetch(CORS_PROXY+encodeURIComponent(yurl), {signal:ctrl.signal});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    j=await res.json();
+  }finally{ clearTimeout(timer); }
+  const res0=j?.quoteSummary?.result?.[0];
+  if(!res0) throw new Error('keine Daten von Yahoo');
+  const ks=res0.defaultKeyStatistics||{}, fd=res0.financialData||{}, sd=res0.summaryDetail||{};
+  const rv=k=>k && typeof k==='object' && 'raw' in k ? k.raw : (k ?? null);
+
+  const cells=[
+    ['KGV (TTM)', rv(sd.trailingPE), v=>v!=null?v.toFixed(1):'—'],
+    ['KGV (fwd.)', rv(sd.forwardPE), v=>v!=null?v.toFixed(1):'—'],
+    ['PEG', rv(ks.pegRatio), v=>v!=null?v.toFixed(2):'—'],
+    ['EPS (TTM)', rv(ks.trailingEps), v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['Umsatzwachstum', rv(fd.revenueGrowth), v=>v!=null?pctFmt(v):'—', rv(fd.revenueGrowth)],
+    ['Gewinnwachstum', rv(fd.earningsGrowth), v=>v!=null?pctFmt(v):'—', rv(fd.earningsGrowth)],
+    ['Gewinnmarge', rv(fd.profitMargins), v=>v!=null?pctFmt(v):'—', rv(fd.profitMargins)],
+    ['Bruttomarge', rv(fd.grossMargins), v=>v!=null?pctFmt(v):'—', rv(fd.grossMargins)],
+    ['Marktkap.', rv(sd.marketCap), v=>v!=null?fmtVol(v):'—'],
+    ['52-Wo-Hoch', rv(sd.fiftyTwoWeekHigh), v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['52-Wo-Tief', rv(sd.fiftyTwoWeekLow), v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['Analysten-Ziel', rv(fd.targetMeanPrice), v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['Inst. Besitz', rv(ks.heldPercentInstitutions), v=>v!=null?pctFmt(v):'—'],
+    ['Short-Float', rv(ks.shortPercentOfFloat), v=>v!=null?pctFmt(v):'—'],
+    ['Beta', rv(sd.beta), v=>v!=null?v.toFixed(2):'—'],
+    ['Div.-Rendite', rv(sd.dividendYield), v=>v!=null?pctFmt(v):'—'],
+  ];
+  return `<div class="fund-grid">${cells.map(([lbl,raw,fmt,colorVal])=>{
+    const cls = colorVal!=null ? (colorVal>=0?'pos':'neg') : '';
+    return `<div class="fund-cell"><div class="lbl">${lbl}</div>
+      <div class="val ${cls}">${fmt(raw)}</div></div>`;
+  }).join('')}</div>`;
+}
+function pctFmt(v){ return (v>=0?'+':'')+(v*100).toFixed(1)+'%'; }
+
+// ── Insider: nur für Watchlist-Titel (Finnhub-Key bleibt sicher am PC) ──
+function renderInsiderTab(ticker){
+  const w=(watchData?.watchlist||[]).find(x=>x.t===ticker);
+  if(!w){
+    return `<div class="empty"><div class="ic">👤</div>
+      <div class="msg">Nur für Watchlist-Titel verfügbar</div>
+      <div class="sub">Füge ${ticker} zur Watchlist hinzu, dann liefert der nächste
+      PC-Sync die Insider-Daten mit.</div></div>`;
+  }
+  const trades=w.insider||[];
+  if(!trades.length){
+    return `<div class="empty"><div class="ic">✓</div>
+      <div class="msg">Keine Insider-Trades (90 Tage)</div></div>`;
+  }
+  return trades.map(t=>{
+    const isBuy=t.type==='BUY';
+    return `<div class="insider-row">
+      <span class="itype ${isBuy?'buy':'sell'}">${isBuy?'Kauf':'Verkauf'}</span>
+      <div class="idetails">
+        <div class="iname">${t.name||'—'}</div>
+        <div class="imeta">${t.date||''} · ${(t.shares||0).toLocaleString('de-DE')} Stk.
+          ${t.value?(' · $'+fmtVol(t.value)):''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── News: Yahoo Such-Endpoint (öffentlich, liefert u.a. News-Treffer) ──
+async function renderNewsTab(ticker){
+  const yurl=`https://query1.finance.yahoo.com/v1/finance/search?q=${ticker}&newsCount=8&quotesCount=0`;
+  const ctrl=new AbortController(); const timer=setTimeout(()=>ctrl.abort(),8000);
+  let j;
+  try{
+    const res=await fetch(CORS_PROXY+encodeURIComponent(yurl), {signal:ctrl.signal});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    j=await res.json();
+  }finally{ clearTimeout(timer); }
+  const news=j?.news||[];
+  if(!news.length){
+    return `<div class="empty"><div class="ic">📰</div><div class="msg">Keine News gefunden</div></div>`;
+  }
+  return news.slice(0,8).map(n=>{
+    const age=n.providerPublishTime ? relTime(n.providerPublishTime) : '';
+    return `<a class="news-row" href="${n.link}" target="_blank" rel="noopener">
+      <div class="ntitle">${(n.title||'').replace(/</g,'&lt;')}</div>
+      <div class="nmeta">${n.publisher||''}${age?' · '+age:''}</div>
+    </a>`;
+  }).join('');
 }
 
 function closeSheet(){
