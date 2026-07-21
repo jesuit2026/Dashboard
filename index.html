@@ -281,7 +281,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.2';
+const APP_BUILD = '2026-07-21.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -344,6 +344,7 @@ function orderedCats(){
 
 // ─── Tab / View navigation (Tabs werden dynamisch aus renderAll gebaut) ──
 function selectCat(cat){
+  if(cat===curCat) return;
   curCat=cat;
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
   const btn=document.querySelector(`.tab[data-cat="${cssEsc(cat)}"]`);
@@ -351,6 +352,7 @@ function selectCat(cat){
   document.querySelectorAll('#cat-lists .cat-list').forEach(el=>{
     el.style.display = el.dataset.cat===cat ? 'block' : 'none';
   });
+  refreshQuotes();  // Kurse für die neue Kategorie gezielt nachladen
 }
 function cssEsc(s){ return String(s).replace(/["\\]/g,'\\$&'); }
 // Event-Delegation fürs Tab-Klicken (überlebt Neu-Rendern der Tabs)
@@ -722,17 +724,20 @@ function fmtPx(p){
 // ─── Live-Kurse holen (Yahoo chart endpoint via Proxy) ───────
 async function refreshQuotes(){
   if(!screenData?.views && !watchData?.watchlist) return;
-  // ── Reihenfolge: WATCHLIST ZUERST ────────────────────────────────
-  // Bei einem breiten Screen (Top-50 + Trendsetter + bis zu 15 Sektor-
-  // Filter) können das 100+ Ticker sein. Die Watchlist ist meist klein
-  // und wichtiger — die soll nicht hinten in der Schlange verhungern.
+  // ── Reihenfolge & Umfang ──────────────────────────────────────────
+  // 1) Watchlist zuerst (klein, wichtig — verhungert nicht mehr hinten).
+  // 2) NUR die gerade sichtbare Top-50-Kategorie, nicht alle zusammen.
+  //    Bei einem breiten Screen (Top-50 + Trendsetter + bis zu 15
+  //    Sektor-Filter) wären das sonst potenziell hunderte Ticker auf
+  //    einmal — das hat den kostenlosen Proxy überlastet und alles
+  //    verlangsamt, auch die Watchlist. Wechselt man den Tab, holt
+  //    selectCat() gezielt die Kurse für die neue Kategorie nach.
   const tickers = [];
   const seen = new Set();
   const addTicker = t => { if(t && !seen.has(t)){ seen.add(t); tickers.push(t); } };
   (watchData?.watchlist||[]).forEach(w=>addTicker(w.t));
-  if(screenData?.views){
-    Object.keys(screenData.views).forEach(c=>
-      (screenData.views[c]||[]).forEach(r=>addTicker(r.t)));
+  if(screenData?.views?.[curCat]){
+    screenData.views[curCat].forEach(r=>addTicker(r.t));
   }
   const fx = await getFx();  // EUR/USD für Umrechnung
 
@@ -740,7 +745,7 @@ async function refreshQuotes(){
   // 4 gleichzeitige Anfragen: deutlich schneller als 1-nach-1, aber
   // schont den kostenlosen Proxy trotzdem. Jede Anfrage hat ein
   // Timeout — eine hängende Anfrage blockiert nicht mehr alle anderen.
-  const CONCURRENCY = 4;
+  const CONCURRENCY = 6;
   let idx = 0;
   async function worker(){
     while(idx < tickers.length){
@@ -845,7 +850,7 @@ async function openChart(ticker){
   ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
   document.getElementById('sheet-info').innerHTML='';
   try{
-    const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1y`;
+    const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1y&events=div,splits,earn`;
     // Proxy-Kette: erst allorigins, dann corsproxy.io als Fallback.
     // Jeder Versuch mit eigenem Timeout — sonst hängt "lädt…" ewig,
     // falls ein Proxy nicht antwortet (kein natürliches fetch-Timeout).
@@ -870,8 +875,35 @@ async function openChart(ticker){
     if(!r) throw new Error('Yahoo lieferte keine Daten');
     const quote=r.indicators?.quote?.[0];
     if(!quote||!quote.close) throw new Error('keine Kursdaten');
-    const closes=quote.close.filter(x=>x!=null);
-    if(closes.length<2) throw new Error('zu wenige Datenpunkte');
+    // Kurse, Volumen UND Zeitstempel synchron anhand derselben Maske
+    // filtern (sonst verschieben sich Volumen-Balken gegenüber der
+    // Kurslinie, sobald einzelne Tage null-Werte haben).
+    const rawCloses=quote.close, rawVolumes=quote.volume||[], rawTs=r.timestamp||[];
+    const idxs=[];
+    for(let i=0;i<rawCloses.length;i++){ if(rawCloses[i]!=null) idxs.push(i); }
+    if(idxs.length<2) throw new Error('zu wenige Datenpunkte');
+    const closes=idxs.map(i=>rawCloses[i]);
+    const volumes=idxs.map(i=>rawVolumes[i]||0);
+    const timestamps=idxs.map(i=>rawTs[i]);
+
+    // Earnings-Termine best-effort aus den Yahoo-Events extrahieren.
+    // Schema ist inoffiziell/undokumentiert — daher sehr defensiv geparst;
+    // schlägt's fehl, wird der Chart trotzdem ganz normal angezeigt.
+    let earningsMarks=[];
+    try{
+      const eObj = r.events?.earnings;
+      if(eObj && typeof eObj==='object'){
+        earningsMarks = Object.values(eObj).map(e=>{
+          const ts = e.date ?? e.timestamp ?? e.epochdate;
+          if(ts==null) return null;
+          const ea = e.epsactual ?? e.epsActual ?? null;
+          const ee = e.epsestimate ?? e.epsEstimate ?? null;
+          const beat = (ea!=null && ee!=null) ? ea>=ee : null;
+          return {ts, beat};
+        }).filter(Boolean);
+      }
+    }catch{}
+
     const meta=r.meta;
     const fx=await getFx();
     let px=meta.regularMarketPrice||closes[closes.length-1];
@@ -879,7 +911,7 @@ async function openChart(ticker){
     const pxEl=document.getElementById('sheet-px');
     pxEl.textContent='€'+fmtPx(pxEur);
     pxEl.style.color=(px>=(meta.chartPreviousClose||px))?'var(--grn)':'var(--red)';
-    drawChart(closes);
+    drawChart(closes, volumes, timestamps, earningsMarks);
   }catch(e){
     document.getElementById('sheet-px').textContent='—';
     document.getElementById('sheet-info').innerHTML=
@@ -902,17 +934,22 @@ function sma(arr,period){
   return out;
 }
 
-function drawChart(closes){
+function drawChart(closes, volumes, timestamps, earnings){
   const cv=document.getElementById('chart');
   const dpr=window.devicePixelRatio||1;
-  const W=cv.clientWidth, H=260;
+  const W=cv.clientWidth, H=340;              // höher: Platz für Volumen-Panel
   cv.width=W*dpr; cv.height=H*dpr;
+  cv.style.height=H+'px';
   const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
   ctx.clearRect(0,0,W,H);
 
   const n=closes.length;
-  const pad={l:8,r:52,t:10,b:8};
-  const cw=W-pad.l-pad.r, ch=H-pad.t-pad.b;
+  const pad={l:8,r:52,t:16,b:8};
+  const cw=W-pad.l-pad.r;
+  // Zwei Zonen: Kurs (oben, ~2/3) + Volumen (unten, ~1/3)
+  const priceH=210, gap=6, volH=100;
+  const priceTop=pad.t, priceBot=priceTop+priceH;
+  const volTop=priceBot+gap, volBot=volTop+volH;
 
   // MAs berechnen
   const mas={};
@@ -924,24 +961,47 @@ function drawChart(closes){
   const lo=Math.min(...allVals), hi=Math.max(...allVals);
   const range=hi-lo||1;
   const x=i=>pad.l+(i/(n-1))*cw;
-  const y=v=>pad.t+ch-((v-lo)/range)*ch;
+  const y=v=>priceTop+priceH-((v-lo)/range)*priceH;
 
-  // Grid + Preisachse rechts
+  // ── Kurs-Grid + Preisachse rechts ──
   ctx.strokeStyle='#1a2534'; ctx.lineWidth=1; ctx.font='9px monospace';
   ctx.fillStyle='#5d7a9a'; ctx.textAlign='left';
   for(let g=0;g<=4;g++){
-    const yy=pad.t+(ch/4)*g;
+    const yy=priceTop+(priceH/4)*g;
     ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(pad.l+cw,yy);ctx.stroke();
     const val=hi-(range/4)*g;
     ctx.fillText(val>=1000?val.toFixed(0):val.toFixed(1), pad.l+cw+4, yy+3);
   }
 
-  // Kurslinie
+  // ── Earnings-Marker (gestrichelte Linie über Kurs+Volumen) ──
+  // Best-effort aus Yahoo-Events — weniger umfangreich als die
+  // Finnhub/TradingView-Daten am Desktop, aber ohne API-Key nutzbar.
+  (earnings||[]).forEach(e=>{
+    // nächstliegenden Balken-Index zum Earnings-Datum finden
+    let idx=-1, best=Infinity;
+    for(let i=0;i<timestamps.length;i++){
+      const d=Math.abs(timestamps[i]-e.ts);
+      if(d<best){best=d; idx=i;}
+    }
+    if(idx<0) return;
+    const ex=x(idx);
+    const col = e.beat===true?'#00e87a':e.beat===false?'#ef5350':'#5d7a9a';
+    ctx.strokeStyle=col; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(ex,priceTop); ctx.lineTo(ex,volBot); ctx.stroke();
+    ctx.setLineDash([]);
+    // kleines Dreieck als Marker über der Kurszone
+    ctx.fillStyle=col;
+    ctx.beginPath();
+    ctx.moveTo(ex-4,priceTop-2); ctx.lineTo(ex+4,priceTop-2); ctx.lineTo(ex,priceTop+5);
+    ctx.closePath(); ctx.fill();
+  });
+
+  // ── Kurslinie ──
   ctx.strokeStyle='#c8d8f0'; ctx.lineWidth=1.6; ctx.beginPath();
   closes.forEach((v,i)=>{i?ctx.lineTo(x(i),y(v)):ctx.moveTo(x(i),y(v));});
   ctx.stroke();
 
-  // MAs
+  // ── MAs ──
   const legend=[];
   MA_PERIODS.forEach(p=>{
     if(!mas[p]) return;
@@ -958,11 +1018,44 @@ function drawChart(closes){
     legend.push({p,col,val:last});
   });
 
+  // ── Volumen-Panel ──
+  if(volumes && volumes.some(v=>v>0)){
+    const volMax = Math.max(...volumes, 1);
+    const vy = v => volBot - (v/volMax)*volH;
+    // 50-Tage-Ø als Referenzlinie (IBD-Stil: >~1.4x Ø = auffällig hohes Volumen)
+    const avgVol = sma(volumes, Math.min(50, volumes.length));
+    const barW = Math.max(1, (cw/n)*0.7);
+    for(let i=0;i<n;i++){
+      const v=volumes[i]||0;
+      const up = i>0 ? closes[i]>=closes[i-1] : true;
+      const isHigh = avgVol[i]!=null && v > avgVol[i]*1.4;
+      ctx.fillStyle = up ? (isHigh?'#00e87a':'rgba(0,232,122,.45)')
+                          : (isHigh?'#ef5350':'rgba(239,83,80,.45)');
+      const bx = x(i)-barW/2;
+      ctx.fillRect(bx, vy(v), barW, volBot-vy(v));
+    }
+    // Volumen-Achsenbeschriftung (oben = Max)
+    ctx.fillStyle='#5d7a9a'; ctx.font='9px monospace'; ctx.textAlign='left';
+    ctx.fillText(fmtVol(volMax), pad.l+cw+4, volTop+8);
+    ctx.fillText('Vol', pad.l+cw+4, volBot);
+  }
+
+  // Trennlinie zwischen Kurs- und Volumen-Panel
+  ctx.strokeStyle='#1a2534'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(pad.l,volTop-3); ctx.lineTo(pad.l+cw,volTop-3); ctx.stroke();
+
   // Legende
   document.getElementById('ma-legend').innerHTML = legend.map(l=>
     `<span class="ma-item"><span class="sw" style="background:${l.col}"></span>
      GD${l.p} <span class="val">${l.val>=1000?l.val.toFixed(0):l.val.toFixed(1)}</span></span>`
   ).join('');
+}
+
+function fmtVol(v){
+  if(v>=1e9) return (v/1e9).toFixed(1)+'B';
+  if(v>=1e6) return (v/1e6).toFixed(1)+'M';
+  if(v>=1e3) return (v/1e3).toFixed(0)+'K';
+  return ''+Math.round(v);
 }
 
 // ─── Setup actions ───────────────────────────────────────────
