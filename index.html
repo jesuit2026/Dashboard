@@ -90,6 +90,10 @@
     box-shadow:0 0 5px var(--grn);animation:pulse 2s ease-in-out infinite}
   .badge.close{color:var(--ora);background:rgba(245,166,35,.12);
     border:1px solid rgba(245,166,35,.28)}
+  .badge.xetra{color:#00d4ff;background:rgba(0,212,255,.13);
+    border:1px solid rgba(0,212,255,.3)}
+  .badge.xetra .dot{width:5px;height:5px;border-radius:50%;background:#00d4ff;
+    box-shadow:0 0 5px #00d4ff;animation:pulse 2s ease-in-out infinite}
   .badge.loading{color:var(--dim);background:rgba(93,122,128,.1)}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
@@ -194,6 +198,12 @@
     border-radius:8px;padding:9px 0;font-family:var(--ui);font-size:13px;font-weight:700}
   .interval-btn.on{background:var(--pur);color:#fff;border-color:var(--pur)}
   .interval-btn:active{opacity:.8}
+  .dir-row{display:flex;gap:8px}
+  .dir-btn{flex:1;background:var(--panel);border:1px solid var(--brd);border-radius:10px;
+    padding:14px 0;font-family:var(--ui);font-size:15px;font-weight:700;color:var(--dim)}
+  .dir-btn.above.on{background:rgba(0,232,122,.15);border-color:var(--grn);color:var(--grn)}
+  .dir-btn.below.on{background:rgba(239,83,80,.15);border-color:var(--red);color:var(--red)}
+  .dir-btn:active{opacity:.8}
   #chart-hover-info{min-height:16px;font-family:var(--mono);font-size:11px;
     color:var(--dim);padding:2px 4px 6px}
   #chart-hover-info b{color:var(--txt)}
@@ -271,6 +281,26 @@
 </nav>
 
 <!-- ═══ CHART SHEET ═══ -->
+<!-- ═══ ALARM-MODAL ═══ -->
+<div class="sheet" id="alarm-modal">
+  <div class="sheet-hd">
+    <button class="close" onclick="closeAlarmModal()">✕</button>
+    <span class="st">Alarm für <span id="alarm-modal-tk"></span></span>
+  </div>
+  <div class="sheet-body">
+    <div class="cfg">
+      <h3>Richtung</h3>
+      <div class="dir-row">
+        <button class="dir-btn above on" id="dir-above" onclick="setAlarmDir('above')">▲ Über</button>
+        <button class="dir-btn below" id="dir-below" onclick="setAlarmDir('below')">▼ Unter</button>
+      </div>
+      <h3 style="margin-top:16px">Kurs (USD)</h3>
+      <input type="number" inputmode="decimal" id="alarm-price-input" placeholder="z.B. 185.50">
+      <button onclick="submitAlarmModal()" style="margin-top:14px">Alarm speichern</button>
+    </div>
+  </div>
+</div>
+
 <div class="sheet" id="sheet">
   <div class="sheet-hd">
     <button class="close" onclick="closeSheet()">✕</button>
@@ -300,7 +330,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.7';
+const APP_BUILD = '2026-07-21.8';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -629,9 +659,7 @@ function wcardHtml(w, allAlerts, pending){
     const up=q.pct>0, dn=q.pct<0;
     pxHtml = `€${fmtPx(q.priceEur||q.price)}`;
     chgHtml = `<span class="chg ${up?'up':dn?'dn':'flat'}">${q.pct>0?'+':''}${q.pct.toFixed(2)}%</span>`;
-    badgeHtml = q.live
-      ? `<span class="badge live"><span class="dot"></span>Live</span>`
-      : `<span class="badge close">Schluss</span>`;
+    badgeHtml = badgeHtmlFor(q);
   }else{
     pxHtml = 'lädt…'; chgHtml='<span class="chg flat">—</span>'; badgeHtml = `<span class="badge loading">lädt…</span>`;
   }
@@ -688,9 +716,7 @@ function cardHtml(r){
     const up=q.pct>0, dn=q.pct<0;
     pxHtml = `€${fmtPx(q.priceEur||q.price)}`;
     chgHtml = `<span class="chg ${up?'up':dn?'dn':'flat'}">${q.pct>0?'+':''}${q.pct.toFixed(2)}%</span>`;
-    badgeHtml = q.live
-      ? `<span class="badge live"><span class="dot"></span>Live</span>`
-      : `<span class="badge close">Schluss</span>`;
+    badgeHtml = badgeHtmlFor(q);
   }else{
     pxHtml = `€${fmtPx(r.price_morning||0)}`;
     chgHtml = `<span class="chg flat">${r.day_change_pct>0?'+':''}${(r.day_change_pct||0).toFixed(2)}%</span>`;
@@ -732,6 +758,14 @@ function relTime(unixSec){
   const diffH = Math.round(diffMin/60);
   if(diffH < 48) return `vor ${diffH} Std`;
   return `vor ${Math.round(diffH/24)} Tg`;
+}
+
+// Badge je nach Kursquelle: echtes US-Live, deutscher Xetra-Overlay
+// (während US-Börse zu ist), oder alter Schlusskurs.
+function badgeHtmlFor(q){
+  if(q.live && q.source==='de') return `<span class="badge xetra"><span class="dot"></span>Xetra</span>`;
+  if(q.live) return `<span class="badge live"><span class="dot"></span>Live</span>`;
+  return `<span class="badge close">Schluss</span>`;
 }
 
 function fmtPx(p){
@@ -782,36 +816,56 @@ async function refreshQuotes(){
   if(watchData?.watchlist?.length) renderWatch();
 }
 
-async function fetchQuote(ticker, fx){
-  const yurl = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1d`;
-  // Timeout, damit eine hängende Proxy-Anfrage nicht die ganze
-  // Warteschlange blockiert (fetch() hat sonst KEIN eingebautes Timeout).
+// Holt nur die Meta-Daten eines Yahoo-Tickers (roh) — wiederverwendbar
+// für den US-Kurs UND den optionalen deutschen Xetra-Overlay.
+async function fetchYahooQuoteMeta(symbol){
+  const yurl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d`;
   const ctrl = new AbortController();
   const timer = setTimeout(()=>ctrl.abort(), 8000);
   try{
     const res = await fetch(CORS_PROXY + encodeURIComponent(yurl), {signal: ctrl.signal});
     if(!res.ok) return null;
     const j = await res.json();
-    const meta = j?.chart?.result?.[0]?.meta;
-    if(!meta) return null;
-    const price = meta.regularMarketPrice;
-    const prev = meta.chartPreviousClose || meta.previousClose || price;
-    if(!price) return null;
-    const cur = meta.currency||'USD';
-    const isLive = meta.marketState==='REGULAR';
-    // In EUR umrechnen wenn USD
-    let priceEur = price;
-    if(cur==='USD' && fx>0) priceEur = price / fx;
-    else if(cur==='EUR') priceEur = price;
-    else if(fx>0 && cur==='USD') priceEur = price / fx;
-    return {
-      price, priceEur, currency:cur,
-      pct: prev>0 ? (price/prev-1)*100 : 0,
-      live: isLive, ts: Date.now()
-    };
-  } finally {
-    clearTimeout(timer);
+    return j?.chart?.result?.[0]?.meta || null;
+  }catch{ return null; }
+  finally{ clearTimeout(timer); }
+}
+
+async function fetchQuote(ticker, fx){
+  const meta = await fetchYahooQuoteMeta(ticker);
+  if(!meta || !meta.regularMarketPrice) return null;
+  let price = meta.regularMarketPrice;
+  let prev = meta.chartPreviousClose || meta.previousClose || price;
+  let cur = meta.currency || 'USD';
+  let isLive = meta.marketState==='REGULAR';
+  let source = 'us';
+
+  // Wenn die US-Börse gerade GESCHLOSSEN ist (typisch: deutscher Vor-/
+  // Nachmittag), zeigt der obige Kurs nur den alten US-Schlusskurs.
+  // Für US-Titel mit Xetra-Zweitnotierung (Ticker + ".DE") versuchen wir
+  // dann den aktuellen deutschen Kurs zu holen. Kostet eine zusätzliche
+  // Anfrage NUR in diesem Fall — während US-Handelszeiten unverändert
+  // schnell wie bisher.
+  if(!isLive && cur==='USD'){
+    const deMeta = await fetchYahooQuoteMeta(ticker+'.DE');
+    if(deMeta && deMeta.regularMarketPrice && deMeta.marketState==='REGULAR'){
+      price = deMeta.regularMarketPrice;
+      prev  = deMeta.chartPreviousClose || deMeta.previousClose || price;
+      cur   = deMeta.currency || 'EUR';
+      isLive = true;
+      source = 'de';
+    }
   }
+
+  // In EUR umrechnen wenn USD
+  let priceEur = price;
+  if(cur==='USD' && fx>0) priceEur = price / fx;
+  else if(cur==='EUR') priceEur = price;
+  return {
+    price, priceEur, currency:cur,
+    pct: prev>0 ? (price/prev-1)*100 : 0,
+    live: isLive, source, ts: Date.now()
+  };
 }
 
 let _fxCache = {v:0, ts:0};
@@ -852,8 +906,10 @@ function updateCard(t){
     }
     const badge=row2.querySelector('.badge');
     if(badge){
-      badge.className='badge '+(q.live?'live':'close');
-      badge.innerHTML=q.live?'<span class="dot"></span>Live':'Schluss';
+      const cls = q.live && q.source==='de' ? 'xetra' : q.live ? 'live' : 'close';
+      const lbl = q.live && q.source==='de' ? 'Xetra' : q.live ? 'Live' : 'Schluss';
+      badge.className='badge '+cls;
+      badge.innerHTML = q.live ? `<span class="dot"></span>${lbl}` : lbl;
     }
   });
 }
@@ -1424,19 +1480,37 @@ async function delWatchFlow(t){
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
 
-async function addAlarmFlow(t){
+// ═══ Alarm-Modal (statt versteckter confirm/prompt-Logik) ═══
+let _alarmModalTk=null, _alarmModalDir='above';
+
+function addAlarmFlow(t){
   if(!requireToken()) return;
-  const above = confirm(`Alarm für ${t}:\n\nOK = auslösen wenn Kurs ÜBER einem Wert steht\nAbbrechen = auslösen wenn Kurs UNTER einem Wert steht`);
-  const condition = above ? 'above' : 'below';
-  const priceStr = prompt(`Bei welchem Kurs (in USD)?`, '');
-  if(!priceStr) return;
-  const price = parseFloat(priceStr.replace(',','.'));
-  if(!(price>0)){ alert('Bitte eine gültige Zahl eingeben.'); return; }
+  _alarmModalTk=t; _alarmModalDir='above';
+  document.getElementById('alarm-modal-tk').textContent=t;
+  document.getElementById('alarm-price-input').value='';
+  setAlarmDir('above');
+  document.getElementById('alarm-modal').classList.add('on');
+}
+function closeAlarmModal(){
+  document.getElementById('alarm-modal').classList.remove('on');
+}
+function setAlarmDir(dir){
+  _alarmModalDir=dir;
+  document.getElementById('dir-above').classList.toggle('on', dir==='above');
+  document.getElementById('dir-below').classList.toggle('on', dir==='below');
+}
+async function submitAlarmModal(){
+  const t=_alarmModalTk;
+  const priceStr=document.getElementById('alarm-price-input').value;
+  const price=parseFloat((priceStr||'').replace(',','.'));
+  if(!(price>0)){ alert('Bitte einen gültigen Kurs eingeben.'); return; }
+  const condition=_alarmModalDir;
   const req = {type:'add_alert', ticker:t, condition, price_usd:price, price_input:price, currency:'USD'};
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
     renderWatch();
+    closeAlarmModal();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
 
