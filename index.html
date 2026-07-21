@@ -115,6 +115,21 @@
   .alert-chip.below{color:var(--red);background:rgba(239,83,80,.1);
     border:1px solid rgba(239,83,80,.28)}
   .alert-chip.hit{animation:pulse 1s ease-in-out infinite}
+  .alert-chip.pending{opacity:.55;border-style:dashed}
+  .alert-chip[data-del-alert]{cursor:pointer}
+
+  .watch-header{padding:10px 13px 4px}
+  .wt-add-btn{width:100%;background:var(--panel);color:var(--acc);
+    border:1px dashed var(--brd2);border-radius:10px;padding:10px;
+    font-family:var(--ui);font-size:13px;font-weight:700}
+  .wt-add-btn:active{opacity:.8}
+  .wcard-actions{display:flex;gap:8px;margin-top:9px}
+  .wt-mini-btn{flex:1;background:var(--bg2);color:var(--txt2);border:1px solid var(--brd);
+    border-radius:8px;padding:7px 6px;font-family:var(--ui);font-size:11.5px;font-weight:600}
+  .wt-mini-btn:active{opacity:.8}
+  .wt-mini-btn.danger{color:var(--red)}
+  .wcard.pending{opacity:.6;border-style:dashed}
+  .pending-tag{font-size:9.5px;color:var(--ora);font-family:var(--mono);margin-left:6px}
 
   /* ── Empty / loading states ── */
   .empty{text-align:center;padding:48px 24px;color:var(--dim)}
@@ -218,6 +233,21 @@
          für diese Seite leeren (Chrome: ⋮ → Website-Einstellungen →
          Speicher löschen) und neu laden.</p>
     </div>
+    <div class="cfg">
+      <h3>Alarme &amp; Watchlist bearbeiten</h3>
+      <p>Um Alarme/Ticker direkt am Handy anlegen zu können, brauchst du ein
+         <b>GitHub-Token</b>, das nur für dieses eine Repo Schreibrechte hat:</p>
+      <ol style="margin:0 0 10px 18px;padding:0;font-size:12.5px;color:var(--dim);line-height:1.7">
+        <li><b>github.com/settings/personal-access-tokens/new</b> öffnen</li>
+        <li>Repository access → <b>Only select repositories</b> → <b>Dashboard</b></li>
+        <li>Permissions → <b>Contents</b> → <b>Read and write</b></li>
+        <li>Token erzeugen und hier einfügen</li>
+      </ol>
+      <input type="password" id="gh-token" placeholder="github_pat_…" autocomplete="off"
+             autocapitalize="off" spellcheck="false">
+      <button onclick="saveGhToken()">Token speichern</button>
+      <p id="gh-token-status" style="margin-top:6px"></p>
+    </div>
   </div>
 </main>
 
@@ -251,7 +281,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-20.4';
+const APP_BUILD = '2026-07-21.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -534,23 +564,45 @@ function renderAll(){
 
 // ─── Watchlist-Rendering ───────────────────────────────────────
 function renderWatch(){
+  clearResolvedPending();
   const el = document.getElementById('watch-list');
   const list = watchData?.watchlist || [];
   const alerts = watchData?.alerts || [];
-  if(!list.length){
-    el.innerHTML = `<div class="empty"><div class="ic">👁</div>
+  const pending = getPending();
+
+  // Kopfzeile mit "+ Ticker" — nur sinnvoll nutzbar mit gespeichertem Token
+  const header = `<div class="watch-header">
+    <button class="wt-add-btn" onclick="addWatchFlow()">+ Ticker zur Watchlist</button>
+  </div>`;
+
+  // Pending "add_watch"-Einträge, die noch nicht in watchData stehen, als
+  // eigene Platzhalter-Karten anzeigen, damit ein Tap nicht "verschwindet"
+  const pendingAdds = pending.filter(p=>p.type==='add_watch' && !list.some(w=>w.t===p.ticker));
+
+  if(!list.length && !pendingAdds.length){
+    el.innerHTML = header + `<div class="empty"><div class="ic">👁</div>
       <div class="msg">Watchlist ist leer</div>
-      <div class="sub">Füge Ticker am PC-Dashboard zur Beobachtungsliste hinzu —
-      sie erscheinen hier automatisch.</div></div>`;
+      <div class="sub">Ticker über den Button oben hinzufügen, oder am
+      PC-Dashboard — beides landet in derselben Liste.</div></div>`;
     return;
   }
-  el.innerHTML = list.map(w=>wcardHtml(w, alerts)).join('');
+  const cards = list.map(w=>wcardHtml(w, alerts, pending)).join('');
+  const pendingCards = pendingAdds.map(p=>`
+    <div class="wcard pending">
+      <div class="row1"><span class="tk">${p.ticker}</span>
+        <span class="pending-tag">⏳ wartet auf PC-Sync</span></div>
+    </div>`).join('');
+  el.innerHTML = header + cards + pendingCards;
 }
 
-function wcardHtml(w, allAlerts){
+function wcardHtml(w, allAlerts, pending){
   const t = w.t;
   const q = quotes[t];
   const myAlerts = allAlerts.filter(a=>(a.ticker||'').toUpperCase()===t.toUpperCase());
+  const myPendingAlerts = pending.filter(p=>p.type==='add_alert' && p.ticker===t);
+  const removePendingFor = (a)=> pending.some(p=>p.type==='remove_alert' && p.ticker===t &&
+    p.condition===a.condition && Math.abs((p.price_usd||0)-(a.price||0))<0.01);
+  const watchRemovePending = pending.some(p=>p.type==='remove_watch' && p.ticker===t);
   let pxHtml, chgHtml, badgeHtml;
   if(q && q.price>0){
     const up=q.pct>0, dn=q.pct<0;
@@ -562,24 +614,34 @@ function wcardHtml(w, allAlerts){
   }else{
     pxHtml = 'lädt…'; chgHtml='<span class="chg flat">—</span>'; badgeHtml = `<span class="badge loading">lädt…</span>`;
   }
-  const alertsHtml = myAlerts.length ? `<div class="alerts">${myAlerts.map(a=>{
+  const chipsHtml = myAlerts.map(a=>{
     const cond = a.condition==='below' ? 'below' : 'above';
     const arrow = cond==='below' ? '▼ unter' : '▲ über';
-    // Alarm "getroffen"? (nur wenn Live-Kurs vorhanden, Vergleich in USD)
     let hit = '';
     if(q && q.price>0){
-      // Alarm-Preis ist immer in USD gespeichert (app.py: "intern immer USD").
-      // Aktuellen Kurs ebenfalls in USD bringen, unabhängig von der Notierungswährung.
       const curUsd = q.currency==='USD' ? q.price : (q.priceEur||q.price) * (_fxCache.v||1.14);
       const isHit = cond==='above' ? curUsd>=a.price : curUsd<=a.price;
       if(isHit) hit=' hit';
     }
-    return `<span class="alert-chip ${cond}${hit}">${arrow} ${a.currency||'USD'} ${a.price_input??a.price}</span>`;
-  }).join('')}</div>` : '';
+    const pend = removePendingFor(a) ? ' pending' : '';
+    const pendTag = removePendingFor(a) ? ' ⏳' : '';
+    return `<span class="alert-chip ${cond}${hit}${pend}" data-del-alert
+      data-tk="${t}" data-cond="${cond}" data-price="${a.price}"
+      data-price-input="${a.price_input??a.price}" data-currency="${a.currency||'USD'}"
+      >${arrow} ${a.currency||'USD'} ${a.price_input??a.price}${pendTag} ✕</span>`;
+  }).join('');
+  const pendingChipsHtml = myPendingAlerts.map(p=>{
+    const arrow = p.condition==='below' ? '▼ unter' : '▲ über';
+    return `<span class="alert-chip ${p.condition} pending">⏳ ${arrow} ${p.currency||'USD'} ${p.price_input}</span>`;
+  }).join('');
+  const alertsHtml = (chipsHtml||pendingChipsHtml)
+    ? `<div class="alerts">${chipsHtml}${pendingChipsHtml}</div>` : '';
+  const pendingTag = watchRemovePending ? '<span class="pending-tag">⏳ wird entfernt…</span>' : '';
   return `
-  <div class="wcard">
+  <div class="wcard${watchRemovePending?' pending':''}">
     <div class="row1" data-tk="${t}">
       <span class="tk">${t}</span>
+      ${pendingTag}
       <span class="dt">${w.dt||''}</span>
     </div>
     <div class="row2">
@@ -588,6 +650,10 @@ function wcardHtml(w, allAlerts){
       ${badgeHtml}
     </div>
     ${alertsHtml}
+    <div class="wcard-actions">
+      <button class="wt-mini-btn" data-add-alarm="${t}">+ Alarm</button>
+      <button class="wt-mini-btn danger" data-del-watch="${t}">Ticker entfernen</button>
+    </div>
   </div>`;
 }
 
@@ -903,6 +969,177 @@ function saveUrl(){
   // zurück zu Top50
   document.querySelector('.nav-btn[data-view="top50"]').click();
 }
+function saveGhToken(){
+  const t=document.getElementById('gh-token').value.trim();
+  if(!t){alert('Bitte ein Token eintragen');return;}
+  LS.set('ghToken', t);
+  document.getElementById('gh-token').value='';
+  document.getElementById('gh-token-status').innerHTML =
+    '<span style="color:var(--grn)">✓ Token gespeichert — Alarme/Ticker können jetzt bearbeitet werden</span>';
+  renderWatch();
+}
+
+// ═══ GitHub-Schreibzugriff (Warteschlange für PC-Sync) ═══════════
+// Feste Repo-Koordinaten — dasselbe Repo, aus dem die App auch liest.
+const GH_OWNER='jesuit2026', GH_REPO='Dashboard', GH_BRANCH='main';
+const GH_REQ_PATH='mobile_requests.json';
+
+function hasGhToken(){ return !!LS.get('ghToken',''); }
+
+// Base64 UTF-8-sicher (GitHub-API verlangt Base64 für den Datei-Inhalt)
+function b64EncodeUtf8(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+function b64DecodeUtf8(str){
+  return decodeURIComponent(escape(atob(str)));
+}
+
+// Fügt einen Request zur Warteschlange hinzu (GET-then-PUT mit SHA,
+// damit GitHub die Datei sauber aktualisiert statt einen Konflikt zu werfen).
+async function queueGhRequest(req){
+  const token = LS.get('ghToken','');
+  if(!token) throw new Error('kein Token');
+  const apiUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_REQ_PATH}`;
+  const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Accept': 'application/vnd.github+json'
+  };
+  let sha = undefined, data = {requests:[]};
+  try{
+    const getRes = await fetch(apiUrl+`?ref=${GH_BRANCH}&_cb=${Date.now()}`, {headers, cache:'no-store'});
+    if(getRes.ok){
+      const j = await getRes.json();
+      sha = j.sha;
+      data = JSON.parse(b64DecodeUtf8(j.content.replace(/\n/g,'')));
+      if(!Array.isArray(data.requests)) data.requests=[];
+    } else if(getRes.status!==404){
+      throw new Error('GET fehlgeschlagen: HTTP '+getRes.status);
+    }
+  }catch(e){
+    if(!(''+e).includes('fehlgeschlagen')) { /* Datei existiert evtl. noch nicht — ok, neu anlegen */ }
+    else throw e;
+  }
+  req.id = 'r'+Date.now()+Math.random().toString(36).slice(2,7);
+  req.ts = new Date().toISOString();
+  data.requests.push(req);
+  const body = {
+    message: `mobile: ${req.type} ${req.ticker||''}`.trim(),
+    content: b64EncodeUtf8(JSON.stringify(data, null, 1)),
+    branch: GH_BRANCH,
+  };
+  if(sha) body.sha = sha;
+  const putRes = await fetch(apiUrl, {
+    method:'PUT', headers:{...headers,'Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  });
+  if(!putRes.ok){
+    const errTxt = await putRes.text().catch(()=>'');
+    throw new Error(`Schreiben fehlgeschlagen: HTTP ${putRes.status} ${errTxt.slice(0,120)}`);
+  }
+  return req;
+}
+
+// Merkt sich lokal, welche Requests schon rausgeschickt wurden, damit die
+// Watch-Karten sofort (optimistisch) den "wartet auf PC-Sync"-Zustand zeigen,
+// bis der PC sie tatsächlich verarbeitet hat.
+function getPending(){ return LS.get('pendingRequests', []); }
+function addPending(req){
+  const p = getPending(); p.push(req); LS.set('pendingRequests', p);
+}
+function clearResolvedPending(){
+  // Ein Pending-Request gilt als erledigt, sobald watchData ihn widerspiegelt
+  // (Ticker/Alarm ist da bzw. weg) — dann aus der lokalen Merkliste entfernen.
+  const p = getPending();
+  const stillPending = p.filter(req=>{
+    const wl = watchData?.watchlist||[], al = watchData?.alerts||[];
+    if(req.type==='add_watch') return !wl.some(w=>w.t===req.ticker);
+    if(req.type==='remove_watch') return wl.some(w=>w.t===req.ticker);
+    if(req.type==='add_alert') return !al.some(a=>a.ticker===req.ticker && a.condition===req.condition && Math.abs((a.price||0)-(req.price_usd||0))<0.01);
+    if(req.type==='remove_alert') return al.some(a=>a.ticker===req.ticker && a.condition===req.condition && Math.abs((a.price||0)-(req.price_usd||0))<0.01);
+    return false;
+  });
+  if(stillPending.length!==p.length) LS.set('pendingRequests', stillPending);
+  return stillPending;
+}
+
+// ═══ Alarme & Watchlist bearbeiten (schreibt in die GitHub-Warteschlange) ═══
+function requireToken(){
+  if(hasGhToken()) return true;
+  if(confirm('Dafür wird ein GitHub-Token benötigt (Schreibzugriff).\nJetzt im Setup einrichten?')){
+    document.querySelector('.nav-btn[data-view="setup"]').click();
+  }
+  return false;
+}
+
+async function addWatchFlow(){
+  if(!requireToken()) return;
+  let t = prompt('Ticker-Symbol (z.B. NVDA):','');
+  if(!t) return;
+  t = t.trim().toUpperCase();
+  if(!/^[A-Z0-9.\-]{1,10}$/.test(t)){ alert('Das sieht nicht nach einem gültigen Ticker aus.'); return; }
+  if((watchData?.watchlist||[]).some(w=>w.t===t)){ alert(t+' ist schon in der Watchlist.'); return; }
+  const req = {type:'add_watch', ticker:t};
+  try{
+    const sent = await queueGhRequest(req);
+    addPending(sent);
+    renderWatch();
+  }catch(e){ alert('Fehler beim Senden: '+e.message); }
+}
+
+async function delWatchFlow(t){
+  if(!requireToken()) return;
+  if(!confirm(`${t} von der Watchlist entfernen? (inkl. aller Alarme dafür)`)) return;
+  const req = {type:'remove_watch', ticker:t};
+  try{
+    const sent = await queueGhRequest(req);
+    addPending(sent);
+    renderWatch();
+  }catch(e){ alert('Fehler beim Senden: '+e.message); }
+}
+
+async function addAlarmFlow(t){
+  if(!requireToken()) return;
+  const above = confirm(`Alarm für ${t}:\n\nOK = auslösen wenn Kurs ÜBER einem Wert steht\nAbbrechen = auslösen wenn Kurs UNTER einem Wert steht`);
+  const condition = above ? 'above' : 'below';
+  const priceStr = prompt(`Bei welchem Kurs (in USD)?`, '');
+  if(!priceStr) return;
+  const price = parseFloat(priceStr.replace(',','.'));
+  if(!(price>0)){ alert('Bitte eine gültige Zahl eingeben.'); return; }
+  const req = {type:'add_alert', ticker:t, condition, price_usd:price, price_input:price, currency:'USD'};
+  try{
+    const sent = await queueGhRequest(req);
+    addPending(sent);
+    renderWatch();
+  }catch(e){ alert('Fehler beim Senden: '+e.message); }
+}
+
+async function delAlarmFlow(t, condition, priceUsd, priceInput, currency){
+  if(!requireToken()) return;
+  const arrow = condition==='below' ? 'unter' : 'über';
+  if(!confirm(`Alarm ${t} ${arrow} ${currency} ${priceInput} löschen?`)) return;
+  const req = {type:'remove_alert', ticker:t, condition, price_usd:priceUsd, price_input:priceInput, currency};
+  try{
+    const sent = await queueGhRequest(req);
+    addPending(sent);
+    renderWatch();
+  }catch(e){ alert('Fehler beim Senden: '+e.message); }
+}
+
+// Klick-Delegation für die Watch-Ansicht — überlebt jedes Neu-Rendern
+document.getElementById('watch-list').addEventListener('click', e=>{
+  const addBtn = e.target.closest('[data-add-alarm]');
+  if(addBtn){ addAlarmFlow(addBtn.dataset.addAlarm); return; }
+  const delWatchBtn = e.target.closest('[data-del-watch]');
+  if(delWatchBtn){ delWatchFlow(delWatchBtn.dataset.delWatch); return; }
+  const delAlertChip = e.target.closest('[data-del-alert]');
+  if(delAlertChip){
+    delAlarmFlow(delAlertChip.dataset.tk, delAlertChip.dataset.cond,
+      parseFloat(delAlertChip.dataset.price), delAlertChip.dataset.priceInput,
+      delAlertChip.dataset.currency);
+    return;
+  }
+});
+
 function pasteJson(){
   const txt=prompt('mobile_screen.json Inhalt hier einfügen:');
   if(!txt)return;
@@ -950,9 +1187,17 @@ document.querySelector('main').addEventListener('click', e=>{
 // ─── Init ────────────────────────────────────────────────────
 document.getElementById('json-url').value = LS.get('jsonUrl','');
 document.getElementById('app-build').textContent = APP_BUILD;
+if(hasGhToken()){
+  document.getElementById('gh-token-status').innerHTML =
+    '<span style="color:var(--grn)">✓ Token gespeichert</span>';
+}
 loadScreen();
 loadWatchlist();
 refreshTimer=setInterval(()=>{ if(screenData||watchData) refreshQuotes(); }, REFRESH_MS);
+// Watchlist-Struktur (nicht nur Kurse) alle 3 Min. neu laden — damit
+// Pending-Status ("wartet auf PC-Sync") automatisch verschwindet, sobald
+// der PC eine Änderung übernommen und neu exportiert hat.
+setInterval(()=>{ loadWatchlist(); }, 180000);
 
 // Beim Wiedereinblenden (App aus Hintergrund) aktualisieren
 document.addEventListener('visibilitychange',()=>{
