@@ -281,7 +281,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.1';
+const APP_BUILD = '2026-07-21.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -846,19 +846,25 @@ async function openChart(ticker){
   document.getElementById('sheet-info').innerHTML='';
   try{
     const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1y`;
-    // Proxy-Kette: erst allorigins, dann corsproxy.io als Fallback
+    // Proxy-Kette: erst allorigins, dann corsproxy.io als Fallback.
+    // Jeder Versuch mit eigenem Timeout — sonst hängt "lädt…" ewig,
+    // falls ein Proxy nicht antwortet (kein natürliches fetch-Timeout).
     let j=null;
     const proxies=[
       'https://api.allorigins.win/raw?url=',
       'https://corsproxy.io/?url=',
     ];
     for(const px of proxies){
+      const ctrl=new AbortController();
+      const timer=setTimeout(()=>ctrl.abort(), 8000);
       try{
-        const res=await fetch(px+encodeURIComponent(yurl));
-        if(!res.ok) continue;
-        j=await res.json();
-        if(j?.chart?.result?.[0]) break;
+        const res=await fetch(px+encodeURIComponent(yurl), {signal:ctrl.signal});
+        if(res.ok){
+          j=await res.json();
+          if(j?.chart?.result?.[0]) break;
+        }
       }catch{}
+      finally{ clearTimeout(timer); }
     }
     const r=j?.chart?.result?.[0];
     if(!r) throw new Error('Yahoo lieferte keine Daten');
