@@ -330,7 +330,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.10';
+const APP_BUILD = '2026-07-21.11';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -1042,6 +1042,7 @@ async function openChart(ticker){
   document.getElementById('sheet-info').innerHTML='';
   _curTicker=ticker;
   _curInterval='day';
+  _hoverIdx=null;
   _chartCache={day:null, week:null};
   updateIntervalButtons();
   try{
@@ -1194,7 +1195,11 @@ function attachCrosshair(){
     _hoverIdx=idx;
     redrawChart();
   };
-  const onEnd=()=>{ _hoverIdx=null; redrawChart(); };
+  // Bewusst KEIN Zurücksetzen von _hoverIdx beim Loslassen — sonst
+  // verschwindet der Hinweis (O/H/L/C + Volumen) genau in dem Moment,
+  // in dem man den Finger hebt, um ihn in Ruhe zu lesen. Er bleibt jetzt
+  // stehen, bis man wieder auf dem Chart tippt/zieht oder ihn verlässt.
+  const onEnd=()=>{};
   cv.addEventListener('touchstart', onMove, {passive:false});
   cv.addEventListener('touchmove', onMove, {passive:false});
   cv.addEventListener('touchend', onEnd);
