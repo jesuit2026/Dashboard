@@ -330,7 +330,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.9';
+const APP_BUILD = '2026-07-21.10';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -1030,6 +1030,9 @@ async function fetchChartData(ticker, interval){
 
 async function openChart(ticker){
   document.getElementById('sheet').classList.add('on');
+  // History-Eintrag, damit der Android-Zurück-Button nur den Chart
+  // schließt statt die App zu verlassen (siehe popstate-Listener unten).
+  history.pushState({overlay:'chart'}, '');
   document.getElementById('sheet-tk').textContent=ticker;
   document.getElementById('sheet-px').textContent='lädt…';
   document.getElementById('ma-legend').innerHTML='';
@@ -1100,7 +1103,13 @@ function updateIntervalButtons(){
     b.classList.toggle('on', b.dataset.interval===_curInterval));
 }
 
-function closeSheet(){document.getElementById('sheet').classList.remove('on');}
+function closeSheet(){
+  document.getElementById('sheet').classList.remove('on');
+  // Falls über den X-Button geschlossen (nicht über den Zurück-Button):
+  // den offenen History-Eintrag sauber zurücknehmen, damit der Stack
+  // nicht "vollmüllt" und der nächste Zurück-Druck nicht ins Leere geht.
+  if(history.state && history.state.overlay==='chart') history.back();
+}
 
 function sma(arr,period){
   const out=new Array(arr.length).fill(null);
@@ -1538,9 +1547,11 @@ function addAlarmFlow(t){
   document.getElementById('alarm-price-input').value='';
   setAlarmDir('above');
   document.getElementById('alarm-modal').classList.add('on');
+  history.pushState({overlay:'alarm'}, '');
 }
 function closeAlarmModal(){
   document.getElementById('alarm-modal').classList.remove('on');
+  if(history.state && history.state.overlay==='alarm') history.back();
 }
 function setAlarmDir(dir){
   _alarmModalDir=dir;
@@ -1635,6 +1646,15 @@ document.querySelector('main').addEventListener('click', e=>{
     const tk = wcard.querySelector('.row1')?.dataset.tk;
     if(tk) openChart(tk);
   }
+});
+
+// ─── Zurück-Button/-Geste: offene Sheets/Modals schließen statt App
+// verlassen (Android-Hardware-Back bzw. Browser-Zurück-Geste feuert
+// 'popstate'; wir haben beim Öffnen jeweils einen History-Eintrag
+// gesetzt, siehe openChart()/addAlarmFlow()). ──────────────────────
+window.addEventListener('popstate', ()=>{
+  document.getElementById('sheet').classList.remove('on');
+  document.getElementById('alarm-modal').classList.remove('on');
 });
 
 // ─── Init ────────────────────────────────────────────────────
