@@ -189,6 +189,9 @@
     border-radius:8px;padding:7px 0;font-family:var(--mono);font-size:12px;font-weight:700}
   .zoom-btn.on{background:var(--acc);color:var(--bg);border-color:var(--acc)}
   .zoom-btn:active{opacity:.8}
+  #chart-hover-info{min-height:16px;font-family:var(--mono);font-size:11px;
+    color:var(--dim);padding:2px 4px 6px}
+  #chart-hover-info b{color:var(--txt)}
 </style>
 </head>
 <body>
@@ -271,6 +274,7 @@
   </div>
   <div class="sheet-body">
     <div class="chart-wrap">
+      <div id="chart-hover-info"></div>
       <canvas id="chart" height="260"></canvas>
       <div class="ma-legend" id="ma-legend"></div>
     </div>
@@ -292,7 +296,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.4';
+const APP_BUILD = '2026-07-21.5';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -886,14 +890,18 @@ async function openChart(ticker){
     if(!r) throw new Error('Yahoo lieferte keine Daten');
     const quote=r.indicators?.quote?.[0];
     if(!quote||!quote.close) throw new Error('keine Kursdaten');
-    // Kurse, Volumen UND Zeitstempel synchron anhand derselben Maske
-    // filtern (sonst verschieben sich Volumen-Balken gegenüber der
-    // Kurslinie, sobald einzelne Tage null-Werte haben).
-    const rawCloses=quote.close, rawVolumes=quote.volume||[], rawTs=r.timestamp||[];
+    // Kurse (OHLC), Volumen UND Zeitstempel synchron anhand derselben
+    // Maske filtern (sonst verschieben sich Kerzen/Volumen-Balken
+    // gegeneinander, sobald einzelne Tage null-Werte haben).
+    const rawCloses=quote.close, rawOpens=quote.open||[], rawHighs=quote.high||[],
+          rawLows=quote.low||[], rawVolumes=quote.volume||[], rawTs=r.timestamp||[];
     const idxs=[];
     for(let i=0;i<rawCloses.length;i++){ if(rawCloses[i]!=null) idxs.push(i); }
     if(idxs.length<2) throw new Error('zu wenige Datenpunkte');
     const closes=idxs.map(i=>rawCloses[i]);
+    const opens=idxs.map(i=>rawOpens[i]??rawCloses[i]);
+    const highs=idxs.map((i,k)=>Math.max(rawHighs[i]??rawCloses[i], closes[k], opens[k]));
+    const lows=idxs.map((i,k)=>Math.min(rawLows[i]??rawCloses[i], closes[k], opens[k]));
     const volumes=idxs.map(i=>rawVolumes[i]||0);
     const timestamps=idxs.map(i=>rawTs[i]);
 
@@ -922,7 +930,7 @@ async function openChart(ticker){
     const pxEl=document.getElementById('sheet-px');
     pxEl.textContent='€'+fmtPx(pxEur);
     pxEl.style.color=(px>=(meta.chartPreviousClose||px))?'var(--grn)':'var(--red)';
-    _chartState = {closes, volumes, timestamps, earnings: earningsMarks};
+    _chartState = {closes, opens, highs, lows, volumes, timestamps, earnings: earningsMarks};
     _chartRange = null;      // Standard: volle 1-Jahres-Ansicht
     setZoom('ALL');
   }catch(e){
@@ -957,18 +965,19 @@ let _hoverIdx = null;
 
 function sliceRange(){
   if(!_chartState) return null;
-  const {closes, volumes, timestamps, earnings} = _chartState;
-  if(!_chartRange) return {closes, volumes, timestamps, earnings};
+  const {closes, opens, highs, lows, volumes, timestamps, earnings} = _chartState;
+  if(!_chartRange) return {closes, opens, highs, lows, volumes, timestamps, earnings};
   const {from,to} = _chartRange;
-  const sc=closes.slice(from,to), sv=volumes.slice(from,to), st=timestamps.slice(from,to);
+  const sc=closes.slice(from,to), so=opens.slice(from,to), sh=highs.slice(from,to),
+        sl2=lows.slice(from,to), sv=volumes.slice(from,to), st=timestamps.slice(from,to);
   const se=(earnings||[]).filter(e=>e.ts>=st[0] && e.ts<=st[st.length-1]);
-  return {closes:sc, volumes:sv, timestamps:st, earnings:se};
+  return {closes:sc, opens:so, highs:sh, lows:sl2, volumes:sv, timestamps:st, earnings:se};
 }
 
 function redrawChart(){
   const sl=sliceRange();
   if(!sl || sl.closes.length<2) return;
-  drawChart(sl.closes, sl.volumes, sl.timestamps, sl.earnings, _hoverIdx);
+  drawChart(sl, _hoverIdx);
 }
 
 // Zeitfenster in Handelstagen (grobe Näherung: 21/Monat)
@@ -1021,7 +1030,8 @@ function attachCrosshair(){
 // übereinstimmen, sonst zeigt das Fadenkreuz auf den falschen Punkt.
 const CHART_PAD={l:8,r:52,t:16,b:8};
 
-function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
+function drawChart(sl, hoverIdx){
+  const {closes, opens, highs, lows, volumes, timestamps, earnings} = sl;
   const cv=document.getElementById('chart');
   const dpr=window.devicePixelRatio||1;
   const W=cv.clientWidth, H=340;              // höher: Platz für Volumen-Panel
@@ -1029,6 +1039,8 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
   cv.style.height=H+'px';
   const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
   ctx.clearRect(0,0,W,H);
+  // Finviz-artiger dunkler Hintergrund im Chart-Bereich
+  ctx.fillStyle='#0d1119'; ctx.fillRect(0,0,W,H);
 
   const n=closes.length;
   const pad=CHART_PAD;
@@ -1042,16 +1054,18 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
   const mas={};
   MA_PERIODS.forEach(p=>{ if(n>=p) mas[p]=sma(closes,p); });
 
-  // Wertebereich (Kurse + sichtbare MAs)
-  let allVals=[...closes];
+  // Wertebereich (High/Low + sichtbare MAs — Kerzen brauchen die vollen
+  // Tagesausschläge, nicht nur die Schlusskurse)
+  let allVals=[...highs, ...lows];
   Object.values(mas).forEach(m=>m.forEach(v=>{if(v!=null)allVals.push(v)}));
   const lo=Math.min(...allVals), hi=Math.max(...allVals);
   const range=hi-lo||1;
   const x=i=>n>1 ? pad.l+(i/(n-1))*cw : pad.l+cw/2;
   const y=v=>priceTop+priceH-((v-lo)/range)*priceH;
+  const candleW=Math.max(1.5,(cw/n)*0.62);
 
-  // ── Kurs-Grid + Preisachse rechts ──
-  ctx.strokeStyle='#1a2534'; ctx.lineWidth=1; ctx.font='9px monospace';
+  // ── Finviz-artiges Gitter: horizontal + vertikal ──
+  ctx.strokeStyle='#1c2433'; ctx.lineWidth=1; ctx.font='9px monospace';
   ctx.fillStyle='#5d7a9a'; ctx.textAlign='left';
   for(let g=0;g<=4;g++){
     const yy=priceTop+(priceH/4)*g;
@@ -1059,36 +1073,49 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
     const val=hi-(range/4)*g;
     ctx.fillText(val>=1000?val.toFixed(0):val.toFixed(1), pad.l+cw+4, yy+3);
   }
+  // vertikale Gitterlinien über Kurs+Volumen (grobes Raster, ~8 Spalten)
+  const VGRID=8;
+  for(let g=0;g<=VGRID;g++){
+    const xx=pad.l+(cw/VGRID)*g;
+    ctx.beginPath(); ctx.moveTo(xx,priceTop); ctx.lineTo(xx,volBot); ctx.stroke();
+  }
+  ctx.beginPath(); ctx.moveTo(pad.l,volTop); ctx.lineTo(pad.l+cw,volTop); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(pad.l,volBot); ctx.lineTo(pad.l+cw,volBot); ctx.stroke();
 
   // ── Earnings-Marker (gestrichelte Linie über Kurs+Volumen) ──
   // Best-effort aus Yahoo-Events — weniger umfangreich als die
   // Finnhub/TradingView-Daten am Desktop, aber ohne API-Key nutzbar.
-  let earningsDrawn=0;
   (earnings||[]).forEach(e=>{
-    // nächstliegenden Balken-Index zum Earnings-Datum finden
     let idx=-1, best=Infinity;
     for(let i=0;i<timestamps.length;i++){
       const d=Math.abs(timestamps[i]-e.ts);
       if(d<best){best=d; idx=i;}
     }
     if(idx<0) return;
-    earningsDrawn++;
     const ex=x(idx);
     const col = e.beat===true?'#00e87a':e.beat===false?'#ef5350':'#5d7a9a';
     ctx.strokeStyle=col; ctx.lineWidth=1; ctx.setLineDash([3,3]);
     ctx.beginPath(); ctx.moveTo(ex,priceTop); ctx.lineTo(ex,volBot); ctx.stroke();
     ctx.setLineDash([]);
-    // kleines Dreieck als Marker über der Kurszone
     ctx.fillStyle=col;
     ctx.beginPath();
     ctx.moveTo(ex-4,priceTop-2); ctx.lineTo(ex+4,priceTop-2); ctx.lineTo(ex,priceTop+5);
     ctx.closePath(); ctx.fill();
   });
 
-  // ── Kurslinie ──
-  ctx.strokeStyle='#c8d8f0'; ctx.lineWidth=1.6; ctx.beginPath();
-  closes.forEach((v,i)=>{i?ctx.lineTo(x(i),y(v)):ctx.moveTo(x(i),y(v));});
-  ctx.stroke();
+  // ── Candlesticks (Docht = Tages-Hoch/Tief, Körper = Open/Close) ──
+  for(let i=0;i<n;i++){
+    const up = closes[i]>=opens[i];
+    const col = up ? '#00e87a' : '#ef5350';
+    const cx = x(i);
+    ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=1;
+    // Docht (High-Low)
+    ctx.beginPath(); ctx.moveTo(cx,y(highs[i])); ctx.lineTo(cx,y(lows[i])); ctx.stroke();
+    // Körper (Open-Close)
+    const bodyTop=y(Math.max(opens[i],closes[i])), bodyBot=y(Math.min(opens[i],closes[i]));
+    const bh=Math.max(1, bodyBot-bodyTop);
+    ctx.fillRect(cx-candleW/2, bodyTop, candleW, bh);
+  }
 
   // ── MAs ──
   const legend=[];
@@ -1107,27 +1134,29 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
     legend.push({p,col,val:last});
   });
 
-  // ── Volumen-Panel ──
-  // Bedingung bewusst locker (nur "Array vorhanden"), damit ein paar
-  // Nullwerte nicht das ganze Panel verschwinden lassen — fehlt Yahoo
-  // die Daten wirklich komplett, steht stattdessen ein Hinweistext da.
+  // ── Volumen-Panel: Farbe nach Verhältnis zum 50-Tage-Ø, NICHT nach
+  // Tagesrichtung — grün wenn drüber, rot wenn drunter, Intensität
+  // je nach Abstand zum Durchschnitt. ──
   const hasVolData = Array.isArray(volumes) && volumes.length===n;
+  const avgVol = hasVolData ? sma(volumes, Math.min(50, volumes.length)) : [];
   if(hasVolData && volumes.some(v=>v>0)){
     const volMax = Math.max(...volumes, 1);
     const vy = v => volBot - (v/volMax)*volH;
-    // 50-Tage-Ø als Referenzlinie (IBD-Stil: >~1.4x Ø = auffällig hohes Volumen)
-    const avgVol = sma(volumes, Math.min(50, volumes.length));
     const barW = Math.max(1, (cw/n)*0.7);
     for(let i=0;i<n;i++){
       const v=volumes[i]||0;
-      const up = i>0 ? closes[i]>=closes[i-1] : true;
-      const isHigh = avgVol[i]!=null && v > avgVol[i]*1.4;
-      ctx.fillStyle = up ? (isHigh?'#00e87a':'rgba(0,232,122,.45)')
-                          : (isHigh?'#ef5350':'rgba(239,83,80,.45)');
+      const av=avgVol[i];
+      const ratio = av ? v/av : 1;
+      let col;
+      if(!av)               col='#5d7a9a';                    // noch kein Ø (Anfang der Serie)
+      else if(ratio>=1.4)   col='#00e87a';                     // deutlich über Ø
+      else if(ratio>=1)     col='rgba(0,232,122,.55)';         // leicht über Ø
+      else if(ratio>=0.6)   col='rgba(239,83,80,.55)';         // leicht unter Ø
+      else                  col='#ef5350';                     // deutlich unter Ø
+      ctx.fillStyle=col;
       const bx = x(i)-barW/2;
       ctx.fillRect(bx, vy(v), barW, volBot-vy(v));
     }
-    // Volumen-Achsenbeschriftung (oben = Max)
     ctx.fillStyle='#5d7a9a'; ctx.font='9px monospace'; ctx.textAlign='left';
     ctx.fillText(fmtVol(volMax), pad.l+cw+4, volTop+8);
     ctx.fillText('Vol', pad.l+cw+4, volBot);
@@ -1137,20 +1166,14 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
     ctx.textAlign='left';
   }
 
-  // Trennlinie zwischen Kurs- und Volumen-Panel
-  ctx.strokeStyle='#1a2534'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(pad.l,volTop-3); ctx.lineTo(pad.l+cw,volTop-3); ctx.stroke();
-
   // ── Fadenkreuz (bei Touch/Maus-Interaktion) ──────────────────────
-  // Vertikale + horizontale gestrichelte Linie, Preis rechts als Box
-  // (wie am Desktop), Datum unten.
+  // Preis rechts als Box (wie Desktop), OHLC+Volumen als Infozeile oben.
   if(hoverIdx!=null && hoverIdx>=0 && hoverIdx<n && closes[hoverIdx]!=null){
     const hx=x(hoverIdx), hv=closes[hoverIdx], hy=y(hv);
     ctx.strokeStyle='#5d7a9a'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
     ctx.beginPath(); ctx.moveTo(hx,priceTop); ctx.lineTo(hx,volBot); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(pad.l,hy); ctx.lineTo(pad.l+cw,hy); ctx.stroke();
     ctx.setLineDash([]);
-    // Preis-Box rechts (wie Desktop-Crosshair)
     const priceLbl = hv>=1000?hv.toFixed(0):hv.toFixed(2);
     ctx.font='10px monospace';
     const boxW=ctx.measureText(priceLbl).width+10;
@@ -1158,7 +1181,6 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
     ctx.fillRect(pad.l+cw+2, hy-8, boxW, 16);
     ctx.fillStyle='#0b0f17'; ctx.textAlign='left';
     ctx.fillText(priceLbl, pad.l+cw+6, hy+3);
-    // Datum-Box unten
     if(timestamps && timestamps[hoverIdx]){
       const d=new Date(timestamps[hoverIdx]*1000);
       const dLbl=`${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`;
@@ -1171,6 +1193,17 @@ function drawChart(closes, volumes, timestamps, earnings, hoverIdx){
       ctx.fillText(dLbl, dbx+dboxW/2, volBot+12);
       ctx.textAlign='left';
     }
+    // OHLC + Volumen-Infozeile (über dem Chart, wie Desktop-Hover-Panel)
+    const av=avgVol[hoverIdx];
+    const volPct = av ? Math.round((volumes[hoverIdx]/av)*100) : null;
+    const fmt=v=>v>=1000?v.toFixed(0):v.toFixed(2);
+    document.getElementById('chart-hover-info').innerHTML =
+      `O <b>${fmt(opens[hoverIdx])}</b> H <b>${fmt(highs[hoverIdx])}</b> `+
+      `L <b>${fmt(lows[hoverIdx])}</b> C <b>${fmt(closes[hoverIdx])}</b> &nbsp; `+
+      `Vol <b>${fmtVol(volumes[hoverIdx])}</b>`+
+      (volPct!=null ? ` <span style="color:${volPct>=100?'#00e87a':'#ef5350'}">(${volPct}% Ø)</span>` : '');
+  }else{
+    document.getElementById('chart-hover-info').innerHTML = '';
   }
 
   // Legende
@@ -1406,9 +1439,13 @@ document.querySelector('main').addEventListener('click', e=>{
     openChart(card.dataset.tk);
     return;
   }
-  const wrow = e.target.closest('.wcard .row1');
-  if(wrow && wrow.dataset.tk){
-    openChart(wrow.dataset.tk);
+  // Buttons/Alarm-Chips haben eigene Aktionen (siehe watch-list-Listener
+  // weiter unten) — die dürfen NICHT zusätzlich den Chart öffnen.
+  if(e.target.closest('[data-add-alarm],[data-del-watch],[data-del-alert]')) return;
+  const wcard = e.target.closest('.wcard');
+  if(wcard){
+    const tk = wcard.querySelector('.row1')?.dataset.tk;
+    if(tk) openChart(tk);
   }
 });
 
