@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-24.1';
+const APP_BUILD = '2026-07-24.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -890,11 +890,15 @@ function updateCardFailed(t){
 const PROXIES = ['https://api.allorigins.win/raw?url=', 'https://corsproxy.io/?url='];
 
 async function fetchJsonViaProxy(targetUrl, timeoutMs=8000){
+  // Cache-Buster IN der Ziel-URL (nicht nur beim Proxy-Wrapper) — sonst
+  // kann der kostenlose Proxy selbst eine ältere Antwort zwischenspeichern
+  // und ausliefern (z.B. "Börse zu", obwohl sie längst wieder offen ist).
+  const bustedUrl = targetUrl + (targetUrl.includes('?') ? '&' : '?') + '_cb=' + Date.now();
   for(const px of PROXIES){
     const ctrl=new AbortController();
     const timer=setTimeout(()=>ctrl.abort(), timeoutMs);
     try{
-      const res=await fetch(px+encodeURIComponent(targetUrl), {signal:ctrl.signal});
+      const res=await fetch(px+encodeURIComponent(bustedUrl), {signal:ctrl.signal, cache:'no-store'});
       if(res.ok) return await res.json();
     }catch{}
     finally{ clearTimeout(timer); }
