@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.13';
+const APP_BUILD = '2026-07-21.14';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -1235,14 +1235,35 @@ function setInfoTab(tab){
   loadInfoTab(tab);
 }
 
+// Persistenter Cache für Fundamental/News über App-Neustarts hinweg —
+// dieselbe "erst Cache, dann nur bei Bedarf neu laden"-Logik wie beim
+// Chart, nur mit Zeitablauf statt Delta (Kennzahlen/News ändern sich
+// nicht sekündlich, ein "Delta" ergibt hier keinen Sinn — aber ein
+// Neuladen bei jedem Tab-Wechsel ist trotzdem unnötig).
+const INFO_TTL = {fund: 30*60*1000, news: 15*60*1000};   // 30 / 15 Minuten
+function infoCacheKey(ticker, tab){ return `infocache_${ticker}_${tab}`; }
+
 async function loadInfoTab(tab){
   const el=document.getElementById('info-content');
+  const t=_curTicker;
+
+  // 1) In-Memory (sofort, für Tab-Wechsel innerhalb desselben Chart-Aufenthalts)
   if(_infoCache[tab]!==undefined && _infoCache[tab]!==null){
     el.innerHTML=_infoCache[tab];
     return;
   }
+  // 2) Persistenter Cache (localStorage, überlebt App-Neustart) — nur für
+  //    fund/news sinnvoll; Insider kommt eh direkt aus watchData.
+  if(INFO_TTL[tab]){
+    const cached = LS.get(infoCacheKey(t, tab), null);
+    if(cached && (Date.now()-cached.ts) < INFO_TTL[tab]){
+      _infoCache[tab]=cached.html;
+      el.innerHTML=cached.html;
+      return;
+    }
+  }
+
   el.innerHTML=`<div class="empty"><div class="ic">⏳</div><div class="msg">lädt…</div></div>`;
-  const t=_curTicker;
   try{
     let html;
     if(tab==='fund') html=await renderFundTab(t);
@@ -1250,8 +1271,18 @@ async function loadInfoTab(tab){
     else html=await renderNewsTab(t);
     if(_curTicker!==t || _curInfoTab!==tab) return;  // Ticker/Tab inzwischen gewechselt
     _infoCache[tab]=html;
+    if(INFO_TTL[tab]) LS.set(infoCacheKey(t, tab), {html, ts: Date.now()});
     el.innerHTML=html;
   }catch(e){
+    // Bei Fehler: falls noch ein (evtl. abgelaufener) Cache-Stand existiert,
+    // lieber den zeigen als eine leere Fehlerseite.
+    const stale = INFO_TTL[tab] ? LS.get(infoCacheKey(t, tab), null) : null;
+    if(stale){
+      el.innerHTML=stale.html+`<div class="sub" style="margin-top:8px;color:var(--ora)">
+        ⚠ Nicht aktualisiert (${e.message}) — zeige letzten Stand.</div>`;
+      _infoCache[tab]=el.innerHTML;
+      return;
+    }
     el.innerHTML=`<div class="empty"><div class="ic">⚠️</div><div class="msg">Konnte nicht geladen werden</div>
       <div class="sub">${e.message}</div></div>`;
   }
