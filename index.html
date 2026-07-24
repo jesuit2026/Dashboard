@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-21.12';
+const APP_BUILD = '2026-07-21.13';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
@@ -1011,10 +1011,39 @@ let _chartCache={day:null, week:null};   // pro Ticker-Öffnung neu
 
 // Lädt OHLC+Volumen+Earnings für ein gegebenes Intervall von Yahoo.
 // 'day' → 1 Jahr Tageskerzen, 'week' → 5 Jahre Wochenkerzen.
-async function fetchChartData(ticker, interval){
-  const yInterval = interval==='week' ? '1wk' : '1d';
-  const yRange    = interval==='week' ? '5y'  : '1y';
-  const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=${yInterval}&range=${yRange}&events=div,splits,earn`;
+// ═══ Chart-Daten-Cache (Delta-Fetch statt jedes Mal 1 Jahr neu laden) ═══
+// Grundprinzip des ganzen Projekts: lokal speichern, nur Deltas nachladen.
+// Galt bisher nicht fürs Chart — jeder Chart-Open hat das komplette Jahr
+// (bzw. 5 Jahre bei Wochenkerzen) neu von Yahoo geholt. Jetzt: einmal
+// vollständig laden, danach nur noch die Tage seit der letzten gecachten
+// Kerze. Cache liegt in localStorage, pro Ticker+Intervall.
+function chartCacheKey(ticker, interval){ return `chartcache_${ticker}_${interval}`; }
+function loadChartCache(ticker, interval){ return LS.get(chartCacheKey(ticker, interval), null); }
+function saveChartCache(ticker, interval, data){
+  LS.set(chartCacheKey(ticker, interval), {
+    closes:data.closes, opens:data.opens, highs:data.highs, lows:data.lows,
+    volumes:data.volumes, timestamps:data.timestamps, earnings:data.earnings,
+    meta:data.meta, cachedAt: Date.now()
+  });
+}
+// Fügt frisch geladene Kerzen (delta) in die gecachte Serie ein. Der letzte
+// gecachte Tag wird überschrieben (nicht nur angehängt) — der war beim
+// letzten Laden evtl. noch nicht abgeschlossen (Intraday-Stand).
+function mergeChartData(cached, delta){
+  if(!delta.timestamps.length) return cached;
+  const deltaStart = delta.timestamps[0];
+  let cutAt = cached.timestamps.findIndex(t=>t>=deltaStart);
+  if(cutAt===-1) cutAt = cached.timestamps.length;
+  const fields=['closes','opens','highs','lows','volumes','timestamps'];
+  const merged={};
+  fields.forEach(f=>{ merged[f] = cached[f].slice(0,cutAt).concat(delta[f]); });
+  merged.earnings = delta.earnings?.length ? delta.earnings : cached.earnings;
+  merged.meta = delta.meta;
+  return merged;
+}
+
+async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
+  const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=${yInterval}&period1=${period1}&period2=${period2}&events=div,splits,earn`;
   // Proxy-Kette: erst allorigins, dann corsproxy.io als Fallback.
   // Jeder Versuch mit eigenem Timeout — sonst hängt "lädt…" ewig,
   // falls ein Proxy nicht antwortet (kein natürliches fetch-Timeout).
@@ -1040,7 +1069,6 @@ async function fetchChartData(ticker, interval){
         rawLows=quote.low||[], rawVolumes=quote.volume||[], rawTs=r.timestamp||[];
   const idxs=[];
   for(let i=0;i<rawCloses.length;i++){ if(rawCloses[i]!=null) idxs.push(i); }
-  if(idxs.length<2) throw new Error('zu wenige Datenpunkte');
   const closes=idxs.map(i=>rawCloses[i]);
   const opens=idxs.map(i=>rawOpens[i]??rawCloses[i]);
   const highs=idxs.map((i,k)=>Math.max(rawHighs[i]??rawCloses[i], closes[k], opens[k]));
@@ -1069,6 +1097,27 @@ async function fetchChartData(ticker, interval){
   return {closes, opens, highs, lows, volumes, timestamps, earnings: earningsMarks, meta: r.meta};
 }
 
+async function fetchChartData(ticker, interval){
+  const yInterval = interval==='week' ? '1wk' : '1d';
+  const now = Math.floor(Date.now()/1000);
+  const cache = loadChartCache(ticker, interval);
+
+  let period1;
+  if(cache && cache.timestamps?.length){
+    // Delta: ab der letzten gecachten Kerze neu holen (überschreibt sie
+    // dabei — die war beim letzten Mal evtl. noch nicht abgeschlossen).
+    period1 = cache.timestamps[cache.timestamps.length-1];
+  }else{
+    // Erstes Laden: volle Historie wie bisher.
+    period1 = now - (interval==='week' ? 5*365*86400 : 366*86400);
+  }
+
+  const fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
+  const result = cache ? mergeChartData(cache, fresh) : fresh;
+  saveChartCache(ticker, interval, result);
+  return result;
+}
+
 async function openChart(ticker){
   document.getElementById('sheet').classList.add('on');
   // History-Eintrag, damit der Android-Zurück-Button nur den Chart
@@ -1092,8 +1141,27 @@ async function openChart(ticker){
   _curInfoTab='fund';
   document.querySelectorAll('.info-tab').forEach(b=>b.classList.toggle('on', b.dataset.itab==='fund'));
   loadInfoTab('fund');
+
+  // ── Sofort-Anzeige aus dem lokalen Cache (kein Netz nötig) ──────────
+  // Macht das Öffnen gefühlt instant, während im Hintergrund nur die
+  // fehlende(n) neue(n) Tageskerze(n) nachgeladen werden.
+  const cached = loadChartCache(ticker, 'day');
+  if(cached){
+    _chartCache.day = cached;
+    _chartState = cached;
+    _chartRange = null;
+    buildZoomButtons();
+    setZoom('3M');
+    if(cached.meta?.regularMarketPrice){
+      const pxEl=document.getElementById('sheet-px');
+      pxEl.textContent='€'+fmtPx(cached.meta.regularMarketPrice);
+      pxEl.style.color='var(--dim)';   // gedimmt = "noch nicht aktualisiert"
+    }
+  }
+
   try{
-    const data = await fetchChartData(ticker, 'day');
+    const data = await fetchChartData(ticker, 'day');   // holt nur das Delta, falls Cache vorhanden
+    if(_curTicker!==ticker) return;   // Nutzer hat inzwischen einen anderen Chart geöffnet
     _chartCache.day = data;
     const fx=await getFx();
     let px=data.meta.regularMarketPrice||data.closes[data.closes.length-1];
@@ -1106,6 +1174,12 @@ async function openChart(ticker){
     buildZoomButtons();
     setZoom('3M');     // Standard: 3 Monate auf Tageskerzen — gut lesbar
   }catch(e){
+    if(cached){
+      // Cache stand schon sichtbar da — kein hartes Fehlerbild, nur ein
+      // dezenter Hinweis, dass der Kurs evtl. nicht ganz aktuell ist.
+      document.getElementById('sheet-px').style.color='var(--ora)';
+      return;
+    }
     document.getElementById('sheet-px').textContent='—';
     document.getElementById('sheet-info').innerHTML=
       `<div class="empty"><div class="ic">📉</div>
