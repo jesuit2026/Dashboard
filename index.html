@@ -371,8 +371,9 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-24.2';
+const APP_BUILD = '2026-07-24.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
+const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
                     50:'#ff8c42',100:'#3b82f6',200:'#ec4899'};
@@ -511,20 +512,23 @@ async function loadScreen(){
   }
   setSync('lädt…','');
 
-  // Alle Direkt-Link-Varianten durchprobieren, jeweils auch über CORS-Proxy
+  // Alle Direkt-Link-Varianten durchprobieren, jeweils auch über beide
+  // CORS-Proxies (falls einer mal ausfällt — siehe PROXIES weiter unten).
   const directUrls = oneDriveDirectUrls(rawUrl);
   const attempts = [];
   for(const u of directUrls){
     attempts.push(withCacheBust(u));                                   // direkt
-    attempts.push(CORS_PROXY + encodeURIComponent(withCacheBust(u)));  // über Proxy
+    attempts.push(CORS_PROXY + encodeURIComponent(withCacheBust(u)));  // Proxy 1
+    attempts.push(PROXY2 + encodeURIComponent(withCacheBust(u)));      // Proxy 2
   }
 
   let lastErr = 'unbekannt';
   const diag = [];
   for(const url of attempts){
-    const isProxy = url.startsWith(CORS_PROXY);
-    const label = isProxy ? 'Proxy' : 'Direkt';
-    const short = url.replace(CORS_PROXY,'').slice(8,40);
+    const isProxy1 = url.startsWith(CORS_PROXY);
+    const isProxy2 = url.startsWith(PROXY2);
+    const label = isProxy1 ? 'Proxy 1' : isProxy2 ? 'Proxy 2' : 'Direkt';
+    const short = url.replace(CORS_PROXY,'').replace(PROXY2,'').slice(8,40);
     try{
       const res = await fetch(url, {redirect:'follow', cache:'no-store'});
       if(!res.ok){
@@ -587,6 +591,7 @@ async function loadWatchlist(){
   for(const u of directUrls){
     attempts.push(withCacheBust(u));
     attempts.push(CORS_PROXY+encodeURIComponent(withCacheBust(u)));
+    attempts.push(PROXY2+encodeURIComponent(withCacheBust(u)));
   }
 
   for(const url of attempts){
@@ -820,7 +825,28 @@ function fmtPx(p){
 }
 
 // ─── Live-Kurse holen (Yahoo chart endpoint via Proxy) ───────
+let _refreshInFlight = false;
+let _refreshQueued = false;
 async function refreshQuotes(){
+  // Verhindert, dass sich zwei Durchläufe überlappen (z.B. wenn ein
+  // Durchlauf mit vielen Tickern länger als das 60s-Intervall dauert,
+  // oder Screen- und Watchlist-Laden beim Start fast gleichzeitig
+  // auslösen) — das würde sonst unnötig doppelte Proxy-Last erzeugen.
+  // Ein währenddessen angefragter Durchlauf geht dabei nicht verloren,
+  // sondern wird direkt danach einmal nachgeholt.
+  if(_refreshInFlight){ _refreshQueued = true; return; }
+  _refreshInFlight = true;
+  try{
+    await _refreshQuotesInner();
+  }finally{
+    _refreshInFlight = false;
+    if(_refreshQueued){
+      _refreshQueued = false;
+      refreshQuotes();
+    }
+  }
+}
+async function _refreshQuotesInner(){
   if(!screenData?.views && !watchData?.watchlist) return;
   // ── Reihenfolge & Umfang ──────────────────────────────────────────
   // 1) Watchlist zuerst (klein, wichtig — verhungert nicht mehr hinten).
@@ -887,7 +913,7 @@ function updateCardFailed(t){
 // (allorigins.win ist offiziell "nur zum Testen, stark ratelimitiert").
 // Alle JSON-Abrufe (Kurse, Chart, Tradegate) laufen jetzt über dieselbe
 // Kette mit automatischem Fallback, statt sich auf einen zu verlassen.
-const PROXIES = ['https://api.allorigins.win/raw?url=', 'https://corsproxy.io/?url='];
+const PROXIES = [CORS_PROXY, PROXY2];
 
 async function fetchJsonViaProxy(targetUrl, timeoutMs=8000){
   // Cache-Buster IN der Ziel-URL (nicht nur beim Proxy-Wrapper) — sonst
@@ -1447,37 +1473,52 @@ function setZoom(key){
 }
 
 // Fadenkreuz per Touch/Maus — Preis rechts, Datum unten (wie am Desktop)
+// Gibt nur die LÄNGE des sichtbaren Bereichs zurück, ohne (wie sliceRange())
+// bei jedem Aufruf neue Arrays zu allozieren — wichtig, weil das während
+// des Ziehens auf dem Chart sehr oft aufgerufen wird.
+function visibleLen(){
+  if(!_chartState) return 0;
+  if(!_chartRange) return _chartState.closes.length;
+  return _chartRange.to - _chartRange.from;
+}
+
 function attachCrosshair(){
   const cv=document.getElementById('chart');
+  let cachedRect=null;   // während einer Geste gecacht — vermeidet Layout-
+                          // Reflow (getBoundingClientRect) bei jedem Event
   const idxFromClientX=(clientX)=>{
-    const sl=sliceRange();
-    if(!sl) return null;
-    const rect=cv.getBoundingClientRect();
-    const scaleX = rect.width>0 ? rect.width/cv.clientWidth : 1; // meist 1
-    const relX=(clientX-rect.left);
+    const n=visibleLen();
+    if(!n) return null;
+    if(!cachedRect) cachedRect=cv.getBoundingClientRect();
+    const relX=(clientX-cachedRect.left);
     const cw=cv.clientWidth-CHART_PAD.l-CHART_PAD.r;
     const frac=Math.min(1,Math.max(0,(relX-CHART_PAD.l)/cw));
-    return Math.round(frac*(sl.closes.length-1));
+    return Math.round(frac*(n-1));
   };
+  let raf=null;
   const onMove=(e)=>{
     const clientX = e.touches?.[0]?.clientX ?? e.clientX;
     if(clientX==null) return;
     e.preventDefault();
     const idx=idxFromClientX(clientX);
-    if(idx==null) return;
+    if(idx==null || idx===_hoverIdx) return;   // keine Änderung → nichts zu tun
     _hoverIdx=idx;
-    redrawChart();
+    // Mehrere touchmove-Events pro Frame zu EINEM Redraw bündeln, statt bei
+    // jedem einzelnen Event (können 60+/Sek. sein) neu zu zeichnen.
+    if(raf) return;
+    raf=requestAnimationFrame(()=>{ raf=null; redrawChart(); });
   };
+  const onStart=(e)=>{ cachedRect=cv.getBoundingClientRect(); onMove(e); };
   // Bewusst KEIN Zurücksetzen von _hoverIdx beim Loslassen — sonst
   // verschwindet der Hinweis (O/H/L/C + Volumen) genau in dem Moment,
   // in dem man den Finger hebt, um ihn in Ruhe zu lesen. Er bleibt jetzt
   // stehen, bis man wieder auf dem Chart tippt/zieht oder ihn verlässt.
-  const onEnd=()=>{};
-  cv.addEventListener('touchstart', onMove, {passive:false});
+  const onEnd=()=>{ cachedRect=null; };
+  cv.addEventListener('touchstart', onStart, {passive:false});
   cv.addEventListener('touchmove', onMove, {passive:false});
   cv.addEventListener('touchend', onEnd);
   cv.addEventListener('touchcancel', onEnd);
-  cv.addEventListener('mousedown', onMove);
+  cv.addEventListener('mousedown', onStart);
   cv.addEventListener('mousemove', e=>{ if(e.buttons===1) onMove(e); });
   cv.addEventListener('mouseup', onEnd);
   cv.addEventListener('mouseleave', onEnd);
@@ -1935,6 +1976,28 @@ window.addEventListener('popstate', ()=>{
   document.getElementById('alarm-modal').classList.remove('on');
 });
 
+// Räumt alte chartcache_*/infocache_*-Einträge auf — sonst bleibt jeder
+// je geöffnete Ticker für immer im localStorage, auch wenn man ihn nie
+// wieder ansieht. Läuft einmal beim Start, günstig (nur Metadaten lesen).
+function cleanupOldCaches(maxAgeDays=14){
+  const maxAgeMs = maxAgeDays*86400000;
+  const now = Date.now();
+  const toRemove=[];
+  try{
+    for(let i=0;i<localStorage.length;i++){
+      const key=localStorage.key(i);
+      if(!key || !(key.startsWith('chartcache_')||key.startsWith('infocache_')||key.startsWith('pendingRequests'))) continue;
+      if(key.startsWith('pendingRequests')) continue;  // klein, wird eh laufend geprüft
+      try{
+        const v=JSON.parse(localStorage.getItem(key));
+        const ts=v?.cachedAt ?? v?.ts;
+        if(ts && (now-ts)>maxAgeMs) toRemove.push(key);
+      }catch{ toRemove.push(key); }  // kaputter Eintrag → auch weg
+    }
+    toRemove.forEach(k=>localStorage.removeItem(k));
+  }catch{}
+}
+
 // ─── Init ────────────────────────────────────────────────────
 document.getElementById('json-url').value = LS.get('jsonUrl','');
 document.getElementById('app-build').textContent = APP_BUILD;
@@ -1945,6 +2008,7 @@ if(hasGhToken()){
 loadScreen();
 loadWatchlist();
 attachCrosshair();
+cleanupOldCaches();
 refreshTimer=setInterval(()=>{ if(screenData||watchData) refreshQuotes(); }, REFRESH_MS);
 // Watchlist-Struktur (nicht nur Kurse) alle 3 Min. neu laden — damit
 // Pending-Status ("wartet auf PC-Sync") automatisch verschwindet, sobald
