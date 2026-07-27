@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-24.3';
+const APP_BUILD = '2026-07-27.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -503,7 +503,15 @@ function withCacheBust(url){
 async function loadScreen(){
   const rawUrl = LS.get('jsonUrl','');
   const cached = LS.get('screenData',null);
-  if(cached){ screenData=cached; renderAll(); }
+  if(cached){
+    screenData=cached; renderAll();
+    // Sofort Kurse holen, statt darauf zu warten, dass der Netzwerk-
+    // Reload unten durchläuft — der kann fehlschlagen/lange dauern
+    // (z.B. nach langem Hintergrund-Zustand, Android hat die Seite
+    // dann oft neu geladen), und die App darf nicht dauerhaft auf
+    // "lädt…" hängen bleiben nur weil DAS speziell nicht klappt.
+    refreshQuotes();
+  }
 
   if(!rawUrl){
     setSync('kein Link — siehe Setup','warn');
@@ -578,7 +586,7 @@ async function loadScreen(){
 // GitHub-Repo geschrieben werden.
 async function loadWatchlist(){
   const cached = LS.get('watchData', null);
-  if(cached){ watchData = cached; renderWatch(); }
+  if(cached){ watchData = cached; renderWatch(); refreshQuotes(); }
 
   const rawUrl = LS.get('jsonUrl','');
   if(!rawUrl || !rawUrl.includes('mobile_screen.json')){
