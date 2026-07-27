@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-27.1';
+const APP_BUILD = '2026-07-27.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -461,6 +461,9 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
     document.getElementById('view-'+v).classList.add('on');
     // Tabs nur in Top50 zeigen
     document.getElementById('tabs').style.display = v==='top50'?'flex':'none';
+    // Beim Wechsel zu Watch sofort Kurse holen — sonst sieht man nur den
+    // Stand vom letzten 60s-Zyklus, der beim Reinschauen schon alt sein kann.
+    if(v==='watch') refreshQuotes();
   };
 });
 
