@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-27.2';
+const APP_BUILD = '2026-07-28.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -705,7 +705,21 @@ function renderWatch(){
 
 function wcardHtml(w, allAlerts, pending){
   const t = w.t;
-  const q = quotes[t];
+  // PC liefert den Preis direkt mit (zuverlässiger als der Proxy-Weg vom
+  // Handy aus) — der hat Vorrang. quotes[t] (Client-Fetch) ist nur noch
+  // ein Fallback für frisch hinzugefügte, noch nicht synchronisierte Ticker.
+  let q = null;
+  if(w.price>0){
+    const fx = watchData?.fx || 1.14;
+    const priceEur = w.currency==='USD' ? w.price/fx : w.price;
+    q = {
+      price:w.price, priceEur, currency:w.currency||'USD', pct:w.pct||0,
+      live:!!w.live, source: w.price_source==='DE' ? 'de' : 'us',
+      ts:(w.price_ts||0)*1000, fromPC:true
+    };
+  }else if(quotes[t]){
+    q = quotes[t];
+  }
   const myAlerts = allAlerts.filter(a=>(a.ticker||'').toUpperCase()===t.toUpperCase());
   const myPendingAlerts = pending.filter(p=>p.type==='add_alert' && p.ticker===t);
   const removePendingFor = (a)=> pending.some(p=>p.type==='remove_alert' && p.ticker===t &&
@@ -875,7 +889,12 @@ async function _refreshQuotesInner(){
     if(isin) isinMap[t] = isin;
     if(!seen.has(t)){ seen.add(t); tickers.push(t); }
   };
-  (watchData?.watchlist||[]).forEach(w=>addTicker(w.t, w.isin));
+  (watchData?.watchlist||[]).forEach(w=>{
+    // PC liefert jetzt zuverlässig einen Preis mit (siehe wcardHtml) —
+    // nur noch client-seitig abfragen, wenn das (noch) fehlt, z.B. bei
+    // einem gerade erst hinzugefügten, noch nicht synchronisierten Ticker.
+    if(!(w.price>0)) addTicker(w.t, w.isin);
+  });
   if(screenData?.views?.[curCat]){
     screenData.views[curCat].forEach(r=>addTicker(r.t, r.isin));
   }
