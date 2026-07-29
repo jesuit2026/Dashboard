@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "updated_at": 1785344739,
- "updated_iso": "2026-07-29T19:05:39",
+ "updated_at": 1785344868,
+ "updated_iso": "2026-07-29T19:07:48",
  "fx": 1.13882,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344731,
+   "price_ts": 1785344855,
    "insider": [
     {
      "date": "2026-06-11",
@@ -76,7 +76,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344732,
+   "price_ts": 1785344857,
    "insider": [
     {
      "date": "2026-06-02",
@@ -132,13 +132,13 @@
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
-   "price": 249.99,
+   "price": 249.9,
    "price_prev": 260.23,
-   "pct": -3.935,
+   "pct": -3.97,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344732,
+   "price_ts": 1785344858,
    "insider": [
     {
      "date": "2026-07-20",
@@ -194,13 +194,13 @@
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
-   "price": 26.85,
+   "price": 26.83,
    "price_prev": 28.45,
-   "pct": -5.624,
+   "pct": -5.694,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344732,
+   "price_ts": 1785344859,
    "insider": [
     {
      "date": "2026-07-01",
@@ -256,13 +256,13 @@
    "t": "ADTN",
    "dt": "2026-05-22 17:02",
    "isin": "US00486H1059",
-   "price": 8.46,
+   "price": 8.48,
    "price_prev": 9.01,
-   "pct": -6.104,
+   "pct": -5.882,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344732,
+   "price_ts": 1785344860,
    "insider": [
     {
      "date": "2026-07-01",
@@ -318,13 +318,13 @@
    "t": "GLW",
    "dt": "2026-05-22 17:03",
    "isin": "",
-   "price": 126.13,
+   "price": 125.98,
    "price_prev": 126.01,
-   "pct": 0.095,
+   "pct": -0.024,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344732,
+   "price_ts": 1785344834,
    "insider": [
     {
      "date": "2026-06-30",
@@ -380,13 +380,13 @@
    "t": "HIMS",
    "dt": "2026-05-22 17:03",
    "isin": "US4330001060",
-   "price": 26.19,
+   "price": 26.18,
    "price_prev": 29.32,
-   "pct": -10.675,
+   "pct": -10.709,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344722,
+   "price_ts": 1785344854,
    "insider": [
     {
      "date": "2026-07-17",
@@ -442,13 +442,13 @@
    "t": "HWM",
    "dt": "2026-05-22 17:04",
    "isin": "",
-   "price": 277.62,
+   "price": 277.51,
    "price_prev": 286.04,
-   "pct": -2.944,
+   "pct": -2.982,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344732,
+   "price_ts": 1785344862,
    "insider": [
     {
      "date": "2026-07-02",
@@ -504,13 +504,13 @@
    "t": "MRX",
    "dt": "2026-05-31 17:18",
    "isin": "BMG5T40M1045",
-   "price": 62.36,
+   "price": 62.44,
    "price_prev": 64.16,
-   "pct": -2.805,
+   "pct": -2.681,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344709,
+   "price_ts": 1785344842,
    "insider": [
     {
      "date": "2026-07-13",
@@ -572,20 +572,20 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344733,
+   "price_ts": 1785344863,
    "insider": []
   },
   {
    "t": "COHR",
    "dt": "2026-06-02 12:58",
    "isin": "US19247G1076",
-   "price": 225.59,
+   "price": 225.77,
    "price_prev": 243.33,
-   "pct": -7.29,
+   "pct": -7.216,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344733,
+   "price_ts": 1785344864,
    "insider": [
     {
      "date": "2026-07-22",
@@ -641,13 +641,13 @@
    "t": "MRVL",
    "dt": "2026-06-02 15:47",
    "isin": "",
-   "price": 166.35,
+   "price": 166.78,
    "price_prev": 174.47,
-   "pct": -4.654,
+   "pct": -4.408,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344714,
+   "price_ts": 1785344847,
    "insider": [
     {
      "date": "2026-07-16",
@@ -703,13 +703,13 @@
    "t": "ANET",
    "dt": "2026-06-10 12:40",
    "isin": "US0404132054",
-   "price": 159.78,
+   "price": 159.64,
    "price_prev": 169.71,
-   "pct": -5.851,
+   "pct": -5.934,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344734,
+   "price_ts": 1785344865,
    "insider": [
     {
      "date": "2026-07-20",
@@ -765,26 +765,26 @@
    "t": "ASML",
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
-   "price": 1553.57,
+   "price": 1553.98,
    "price_prev": 1582.95,
-   "pct": -1.856,
+   "pct": -1.83,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344735,
+   "price_ts": 1785344867,
    "insider": []
   },
   {
    "t": "VIAV",
    "dt": "2026-06-22 14:00",
    "isin": "US9255501051",
-   "price": 31.91,
+   "price": 31.92,
    "price_prev": 35.1,
-   "pct": -9.088,
+   "pct": -9.06,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785344737,
+   "price_ts": 1785344868,
    "insider": [
     {
      "date": "2026-05-28",
