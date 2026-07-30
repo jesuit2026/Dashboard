@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-28.1';
+const APP_BUILD = '2026-07-30.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -929,7 +929,13 @@ async function _refreshQuotesInner(){
 const _failedTickers = new Set();
 function updateCardFailed(t){
   document.querySelectorAll(`.px[data-tk="${cssEsc(t)}"]`).forEach(pxEl=>{
-    pxEl.textContent='Kein Kurs';
+    // Top-50-Karten (.card) haben einen Morgen-Kurs als sinnvollen
+    // Fallback — der bleibt stehen, nur der Badge zeigt den Fehler.
+    // Watch-Karten (.wcard) haben keinen Fallback-Preis, dort ersetzen
+    // wir den Text durch "Kein Kurs".
+    if(pxEl.closest('.wcard')){
+      pxEl.textContent='Kein Kurs';
+    }
     const row2=pxEl.parentElement;
     const badge=row2?.querySelector('.badge');
     if(badge){ badge.className='badge close'; badge.textContent='⚠ Fehler'; }
