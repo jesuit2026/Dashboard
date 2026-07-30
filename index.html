@@ -371,7 +371,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-30.1';
+const APP_BUILD = '2026-07-30.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -568,7 +568,14 @@ async function loadScreen(){
       renderAll();
       const age = data.computed_iso ? data.computed_iso.replace('T',' ').slice(0,16) : '?';
       const relAge = data.computed_at ? relTime(data.computed_at) : '';
-      setSync('PC-Stand: '+age+(relAge?' · '+relAge:'')+' ('+label+')', 'ok');
+      // Ab schema 3: Kurse werden separat vom PC nachgeführt (alle ~5 Min,
+      // nicht nur beim Screen-Lauf) — die Frische zeigt sich in
+      // prices_updated_at, das ist relevanter als der reine Screen-Zeitpunkt.
+      const priceAge = data.prices_updated_at ? relTime(data.prices_updated_at) : null;
+      const syncMsg = priceAge
+        ? `PC-Stand: ${age} · Kurse ${priceAge} (${label})`
+        : `PC-Stand: ${age}${relAge?' · '+relAge:''} (${label})`;
+      setSync(syncMsg, 'ok');
       refreshQuotes();
       return;
     }catch(e){
@@ -780,7 +787,21 @@ function wcardHtml(w, allAlerts, pending){
 }
 
 function cardHtml(r){
-  const q = quotes[r.t];
+  // PC liefert den Preis jetzt direkt mit (schema 3, zuverlässiger als der
+  // Proxy-Weg vom Handy aus). quotes[r.t] (Client-Fetch) ist nur noch
+  // Fallback für den Fall, dass der PC-Preis mal fehlt (z.B. ganz neuer
+  // Ticker, Datenlücke).
+  let q = null;
+  if(r.price>0){
+    const fx = screenData?.fx || 1.14;
+    const priceEur = (r.currency||'USD')==='USD' ? r.price/fx : r.price;
+    q = {
+      price:r.price, priceEur, currency:r.currency||'USD', pct:r.pct||0,
+      live:!!r.live, source: r.price_source==='DE' ? 'de' : 'us', ts:0
+    };
+  }else if(quotes[r.t]){
+    q = quotes[r.t];
+  }
   const rsClass = r.rs>=80?'hi':r.rs>=60?'mid':'lo';
   const setup = r.setup?`<span class="setup">${r.setup}</span>`:'';
   // Kurs/Änderung: live falls vorhanden, sonst Morgen-Fallback
@@ -896,7 +917,11 @@ async function _refreshQuotesInner(){
     if(!(w.price>0)) addTicker(w.t, w.isin);
   });
   if(screenData?.views?.[curCat]){
-    screenData.views[curCat].forEach(r=>addTicker(r.t, r.isin));
+    screenData.views[curCat].forEach(r=>{
+      // Gleiches Prinzip wie bei der Watchlist: PC liefert den Preis
+      // jetzt mit (schema 3) — nur nachfragen, wenn der fehlt.
+      if(!(r.price>0)) addTicker(r.t, r.isin);
+    });
   }
   const fx = await getFx();  // EUR/USD für Umrechnung
 
