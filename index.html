@@ -300,6 +300,17 @@
       <button onclick="saveGhToken()">Token speichern</button>
       <p id="gh-token-status" style="margin-top:6px"></p>
     </div>
+    <div class="cfg">
+      <h3>Live-Kurse unterwegs (Finnhub)</h3>
+      <p>Dein Finnhub-API-Key aus <b>config.py</b> — damit läuft der
+         Kurs-Abruf <b>direkt</b>, ganz ohne wackligen Proxy-Umweg
+         (Finnhub erlaubt Anfragen direkt aus dem Browser). Ohne Key
+         fällt die App auf Yahoo über Proxy zurück (unzuverlässiger).</p>
+      <input type="password" id="finnhub-key" placeholder="Finnhub API-Key" autocomplete="off"
+             autocapitalize="off" spellcheck="false">
+      <button onclick="saveFinnhubKey()">Key speichern</button>
+      <p id="finnhub-key-status" style="margin-top:6px"></p>
+    </div>
   </div>
 </main>
 
@@ -371,7 +382,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-30.2';
+const APP_BUILD = '2026-07-30.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1017,12 +1028,57 @@ function parseDeNum(v){
   return isNaN(n) ? 0 : n;
 }
 
-// Holt einen Echtzeit-Kurs (EUR) direkt von Tradegate für eine ISIN —
-// dieselbe Quelle wie am Desktop, unabhängig von Yahoo.
+// Direkter Fetch OHNE Proxy — für Quellen, die Browser-CORS erlauben
+// (Finnhub, meist auch Tradegate). Deutlich schneller & zuverlässiger
+// als der Umweg über einen kostenlosen Dritt-Proxy.
+async function fetchDirectJson(url, timeoutMs=6000){
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(), timeoutMs);
+  try{
+    const res=await fetch(url, {signal:ctrl.signal});
+    if(!res.ok) return null;
+    return await res.json();
+  }catch{ return null; }
+  finally{ clearTimeout(timer); }
+}
+
+// Grobe, nicht feiertagsbereinigte Näherung für "ist die US-Börse gerade
+// offen" — für die "Live"/"Schluss"-Badge-Einordnung bei Finnhub-Kursen
+// (die selbst keinen Marktstatus mitliefern). NYSE regulär: 9:30–16:00 ET,
+// Mo–Fr. ET-Offset grob (EDT/EST) über Monat geschätzt — reicht für die
+// Anzeige, ersetzt keine exakte Feiertagslogik wie am Desktop.
+function isUsMarketOpenApprox(){
+  const now = new Date();
+  const day = now.getUTCDay();               // 0=So, 6=Sa
+  if(day===0 || day===6) return false;
+  const month = now.getUTCMonth();           // 0-11
+  const isDst = month>=2 && month<=10;       // grob: März–Nov = Sommerzeit (EDT, UTC-4)
+  const etOffset = isDst ? 4 : 5;
+  const utcH = now.getUTCHours() + now.getUTCMinutes()/60;
+  const etH = utcH - etOffset;
+  const etHNorm = ((etH % 24) + 24) % 24;
+  return etHNorm >= 9.5 && etHNorm < 16;
+}
+
+// Live-Kurs DIREKT von Finnhub (kein Proxy nötig — siehe Setup-Tab für
+// den Key). Deutlich zuverlässiger als der Yahoo-Proxy-Umweg.
+async function fetchFinnhubQuote(ticker){
+  const key = LS.get('finnhubKey','');
+  if(!key) return null;
+  const d = await fetchDirectJson(
+    `https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(ticker)}&token=${encodeURIComponent(key)}`);
+  if(!d || !(d.c>0)) return null;
+  return {price:d.c, prev:d.pc>0?d.pc:d.c, currency:'USD'};
+}
+
+// Holt einen Echtzeit-Kurs (EUR) von Tradegate für eine ISIN — erst
+// DIREKT versuchen (kein Proxy nötig, meist erlaubt), sonst über den
+// Proxy-Pool als Fallback.
 async function fetchTradegateQuote(isin){
   if(!isin) return null;
   const tgUrl = `https://www.tradegate.de/refresh.php?isin=${isin}`;
-  const d = await fetchJsonViaProxy(tgUrl, 6000);
+  let d = await fetchDirectJson(tgUrl, 5000);
+  if(!d) d = await fetchJsonViaProxy(tgUrl, 6000);
   if(!d) return null;
   const last = parseDeNum(d.last), close = parseDeNum(d.close);
   const bid = parseDeNum(d.bid), ask = parseDeNum(d.ask);
@@ -1033,6 +1089,27 @@ async function fetchTradegateQuote(isin){
 }
 
 async function fetchQuote(ticker, fx, isin){
+  // ── Primärquelle: Finnhub DIREKT (kein Proxy, zuverlässig) ──────────
+  // Nur wenn ein Key im Setup hinterlegt ist. Sonst Yahoo-Fallback unten.
+  const fh = await fetchFinnhubQuote(ticker);
+  if(fh){
+    const isLive = isUsMarketOpenApprox();
+    let price=fh.price, prev=fh.prev, cur='USD', source='us';
+    // Wenn US-Börse zu: wie gehabt Tradegate/DE-Overlay versuchen
+    if(!isLive){
+      const tg = await fetchTradegateQuote(isin);
+      if(tg){ price=tg.price; prev=tg.prev; cur='EUR'; source='de'; }
+    }
+    let priceEur = cur==='USD' && fx>0 ? price/fx : price;
+    return {
+      price, priceEur, currency:cur,
+      pct: prev>0 ? (price/prev-1)*100 : 0,
+      live: source==='de' ? true : isLive, source, ts: Date.now()
+    };
+  }
+
+  // ── Fallback: Yahoo über Proxy-Pool (kein Finnhub-Key hinterlegt oder
+  // Finnhub grad nicht erreichbar) ────────────────────────────────────
   const meta = await fetchYahooQuoteMeta(ticker);
   if(!meta || !meta.regularMarketPrice) return null;
   let price = meta.regularMarketPrice;
@@ -1797,6 +1874,15 @@ function saveGhToken(){
   document.getElementById('gh-token-status').innerHTML =
     '<span style="color:var(--grn)">✓ Token gespeichert — Alarme/Ticker können jetzt bearbeitet werden</span>';
   renderWatch();
+}
+function saveFinnhubKey(){
+  const k=document.getElementById('finnhub-key').value.trim();
+  if(!k){alert('Bitte einen Key eintragen');return;}
+  LS.set('finnhubKey', k);
+  document.getElementById('finnhub-key').value='';
+  document.getElementById('finnhub-key-status').innerHTML =
+    '<span style="color:var(--grn)">✓ Key gespeichert — Kurse laufen jetzt direkt über Finnhub</span>';
+  refreshQuotes();
 }
 
 // ═══ GitHub-Schreibzugriff (Warteschlange für PC-Sync) ═══════════
