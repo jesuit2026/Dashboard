@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "updated_at": 1785492768,
- "updated_iso": "2026-07-31T12:12:48",
+ "updated_at": 1785492775,
+ "updated_iso": "2026-07-31T12:12:55",
  "fx": 1.15194,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492738,
+   "price_ts": 1785492734,
    "insider": []
   },
   {
@@ -79,7 +79,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492748,
+   "price_ts": 1785492745,
    "insider": []
   },
   {
@@ -105,7 +105,20 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492758,
+   "price_ts": 1785492755,
+   "insider": []
+  },
+  {
+   "t": "MRX",
+   "dt": "2026-05-31 17:18",
+   "isin": "BMG5T40M1045",
+   "price": 65.92,
+   "price_prev": 63.14,
+   "pct": 4.403,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1785492765,
    "insider": []
   },
   {
@@ -131,7 +144,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492768,
+   "price_ts": 1785492775,
    "insider": []
   },
   {
