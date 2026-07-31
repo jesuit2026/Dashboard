@@ -1,20 +1,20 @@
 {
  "schema": 2,
- "updated_at": 1785478906,
- "updated_iso": "2026-07-31T08:21:46",
+ "updated_at": 1785479086,
+ "updated_iso": "2026-07-31T08:24:46",
  "fx": 1.15194,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
    "isin": "",
-   "price": 29.883,
+   "price": 29.45,
    "price_prev": 26.64,
-   "pct": 12.173,
+   "pct": 10.548,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785478785,
+   "price_ts": 1785478929,
    "insider": [
     {
      "date": "2026-06-11",
@@ -70,13 +70,13 @@
    "t": "ARM",
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
-   "price": 220.5,
+   "price": 219.0,
    "price_prev": 209.5,
-   "pct": 5.251,
+   "pct": 4.535,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478904,
+   "price_ts": 1785479084,
    "insider": [
     {
      "date": "2026-06-02",
@@ -132,13 +132,13 @@
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
-   "price": 281.0,
+   "price": 285.0,
    "price_prev": 260.0,
-   "pct": 8.077,
+   "pct": 9.615,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478904,
+   "price_ts": 1785479084,
    "insider": [
     {
      "date": "2026-07-20",
@@ -194,13 +194,13 @@
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
-   "price": 24.88,
+   "price": 25.1,
    "price_prev": 24.04,
-   "pct": 3.494,
+   "pct": 4.409,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478904,
+   "price_ts": 1785479085,
    "insider": [
     {
      "date": "2026-07-01",
@@ -256,13 +256,13 @@
    "t": "ADTN",
    "dt": "2026-05-22 17:02",
    "isin": "US00486H1059",
-   "price": 7.366,
+   "price": 7.368,
    "price_prev": 7.35,
-   "pct": 0.218,
+   "pct": 0.245,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478905,
+   "price_ts": 1785479085,
    "insider": [
     {
      "date": "2026-07-24",
@@ -318,13 +318,13 @@
    "t": "GLW",
    "dt": "2026-05-22 17:03",
    "isin": "",
-   "price": 139.3449,
+   "price": 135.22,
    "price_prev": 124.05,
-   "pct": 12.33,
+   "pct": 9.004,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785478785,
+   "price_ts": 1785478918,
    "insider": [
     {
      "date": "2026-06-30",
@@ -380,13 +380,13 @@
    "t": "HIMS",
    "dt": "2026-05-22 17:03",
    "isin": "US4330001060",
-   "price": 23.8,
+   "price": 23.78,
    "price_prev": 23.44,
-   "pct": 1.536,
+   "pct": 1.451,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478905,
+   "price_ts": 1785479085,
    "insider": [
     {
      "date": "2026-07-17",
@@ -585,7 +585,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478905,
+   "price_ts": 1785479086,
    "insider": [
     {
      "date": "2026-07-22",
@@ -641,13 +641,13 @@
    "t": "MRVL",
    "dt": "2026-06-02 15:47",
    "isin": "",
-   "price": 159.1049,
-   "price_prev": 141.6251,
+   "price": 159.1229,
+   "price_prev": 141.6411,
    "pct": 12.342,
    "currency": "USD",
    "live": true,
    "price_source": "DE_CONV",
-   "price_ts": 1785478818,
+   "price_ts": 1785478907,
    "insider": [
     {
      "date": "2026-07-16",
@@ -709,7 +709,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478906,
+   "price_ts": 1785479086,
    "insider": [
     {
      "date": "2026-07-20",
@@ -765,13 +765,13 @@
    "t": "ASML",
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
-   "price": 1486.0,
+   "price": 1479.8,
    "price_prev": 1435.6,
-   "pct": 3.511,
+   "pct": 3.079,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478906,
+   "price_ts": 1785479086,
    "insider": []
   },
   {
@@ -784,7 +784,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785478906,
+   "price_ts": 1785479086,
    "insider": [
     {
      "date": "2026-05-28",
