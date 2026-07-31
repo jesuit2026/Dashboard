@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "updated_at": 1785492775,
- "updated_iso": "2026-07-31T12:12:55",
+ "updated_at": 1785492859,
+ "updated_iso": "2026-07-31T12:14:19",
  "fx": 1.15194,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492734,
+   "price_ts": 1785492833,
    "insider": []
   },
   {
@@ -27,7 +27,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492735,
+   "price_ts": 1785492834,
    "insider": []
   },
   {
@@ -40,7 +40,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492735,
+   "price_ts": 1785492834,
    "insider": []
   },
   {
@@ -53,7 +53,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492735,
+   "price_ts": 1785492834,
    "insider": []
   },
   {
@@ -66,7 +66,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492735,
+   "price_ts": 1785492834,
    "insider": []
   },
   {
@@ -79,7 +79,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492745,
+   "price_ts": 1785492842,
    "insider": []
   },
   {
@@ -92,7 +92,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492745,
+   "price_ts": 1785492842,
    "insider": []
   },
   {
@@ -105,33 +105,20 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492755,
-   "insider": []
-  },
-  {
-   "t": "MRX",
-   "dt": "2026-05-31 17:18",
-   "isin": "BMG5T40M1045",
-   "price": 65.92,
-   "price_prev": 63.14,
-   "pct": 4.403,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1785492765,
+   "price_ts": 1785492850,
    "insider": []
   },
   {
    "t": "COHR",
    "dt": "2026-06-02 12:58",
    "isin": "US19247G1076",
-   "price": 229.4,
+   "price": 229.5,
    "price_prev": 216.0,
-   "pct": 6.204,
+   "pct": 6.25,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492758,
+   "price_ts": 1785492850,
    "insider": []
   },
   {
@@ -144,7 +131,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785492775,
+   "price_ts": 1785492859,
    "insider": []
   },
   {
@@ -157,7 +144,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492768,
+   "price_ts": 1785492859,
    "insider": []
   },
   {
@@ -170,7 +157,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492768,
+   "price_ts": 1785492859,
    "insider": []
   },
   {
@@ -183,7 +170,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785492768,
+   "price_ts": 1785492859,
    "insider": []
   }
  ],
