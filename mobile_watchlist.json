@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "updated_at": 1785479534,
- "updated_iso": "2026-07-31T08:32:14",
+ "updated_at": 1785492687,
+ "updated_iso": "2026-07-31T12:11:27",
  "fx": 1.15194,
  "watchlist": [
   {
@@ -14,305 +14,60 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785479484,
-   "insider": [
-    {
-     "date": "2026-06-11",
-     "name": "Dambier Laura A.",
-     "type": "SELL",
-     "shares": 4000,
-     "value": 564148.9600000001,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "Kosiba John W JR",
-     "type": "SELL",
-     "shares": 1743,
-     "value": 12656704.4532,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "Kosiba John W JR",
-     "type": "SELL",
-     "shares": 5026,
-     "value": 12546250.404000001,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "McGahn Daniel P",
-     "type": "SELL",
-     "shares": 4609,
-     "value": 42844757.771900006,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "McGahn Daniel P",
-     "type": "SELL",
-     "shares": 11508,
-     "value": 42372977.985,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-08",
-     "name": "Kosiba John W JR",
-     "type": "SELL",
-     "shares": 1549,
-     "value": 14446509.662,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492650,
+   "insider": []
   },
   {
    "t": "ARM",
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
-   "price": 220.5,
-   "price_prev": 209.5,
-   "pct": 5.251,
+   "price": 241.54,
+   "price_prev": 224.89,
+   "pct": 7.404,
    "currency": "USD",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1785479485,
-   "insider": [
-    {
-     "date": "2026-06-02",
-     "name": "Bartels Laura Kathleen",
-     "type": "SELL",
-     "shares": 11306,
-     "value": 4765414.5,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-01",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 3922,
-     "value": 8544337.76,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-01",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 2644,
-     "value": 9395629.05,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-28",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 4200,
-     "value": 9327221.49,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-22",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 2300,
-     "value": 9581034.78,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-21",
-     "name": "Eaton Charlotte Claire",
-     "type": "SELL",
-     "shares": 5000,
-     "value": 0.0,
-     "signal_strength": "normal"
-    }
-   ]
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1785492662,
+   "insider": []
   },
   {
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
-   "price": 280.0,
+   "price": 284.0,
    "price_prev": 260.0,
-   "pct": 7.692,
+   "pct": 9.231,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479485,
-   "insider": [
-    {
-     "date": "2026-07-20",
-     "name": "Cota Germaine",
-     "type": "BUY",
-     "shares": 1451,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 661,
-     "value": 2083950,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 8333,
-     "value": 140129550,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 3505,
-     "value": 25859700,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "ALBA MANUEL",
-     "type": "SELL",
-     "shares": 336,
-     "value": 134250420.9987,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "ALBA MANUEL",
-     "type": "SELL",
-     "shares": 219,
-     "value": 134092035.5841,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492662,
+   "insider": []
   },
   {
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
-   "price": 24.98,
+   "price": 24.82,
    "price_prev": 24.04,
-   "pct": 3.91,
+   "pct": 3.245,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479485,
-   "insider": [
-    {
-     "date": "2026-07-01",
-     "name": "Malyala Vikranth",
-     "type": "SELL",
-     "shares": 507,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Malyala Vikranth",
-     "type": "SELL",
-     "shares": 1413,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Malyala Vikranth",
-     "type": "SELL",
-     "shares": 1220,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Malyala Vikranth",
-     "type": "SELL",
-     "shares": 4600,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Malyala Vikranth",
-     "type": "SELL",
-     "shares": 258,
-     "value": 1198240.4,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Malyala Vikranth",
-     "type": "BUY",
-     "shares": 507,
-     "value": 0,
-     "signal_strength": "mittel"
-    }
-   ]
+   "price_ts": 1785492662,
+   "insider": []
   },
   {
    "t": "ADTN",
    "dt": "2026-05-22 17:02",
    "isin": "US00486H1059",
-   "price": 7.442,
+   "price": 7.468,
    "price_prev": 7.35,
-   "pct": 1.252,
+   "pct": 1.605,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479485,
-   "insider": [
-    {
-     "date": "2026-07-24",
-     "name": "Glingener Christoph",
-     "type": "BUY",
-     "shares": 9384,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "DelSanto Anne",
-     "type": "BUY",
-     "shares": 4399,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-20",
-     "name": "Wilson James Denson Jr",
-     "type": "SELL",
-     "shares": 10469,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-20",
-     "name": "Wilson James Denson Jr",
-     "type": "SELL",
-     "shares": 9332,
-     "value": 2109037.44,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-08",
-     "name": "Glingener Christoph",
-     "type": "SELL",
-     "shares": 22277,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-08",
-     "name": "Glingener Christoph",
-     "type": "SELL",
-     "shares": 22277,
-     "value": 699675,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492662,
+   "insider": []
   },
   {
    "t": "GLW",
@@ -324,119 +79,21 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785479497,
-   "insider": [
-    {
-     "date": "2026-06-30",
-     "name": "Martin Kevin J",
-     "type": "BUY",
-     "shares": 137,
-     "value": 5168370.62,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-30",
-     "name": "Ferguson Roger W. Jr.",
-     "type": "BUY",
-     "shares": 161,
-     "value": 4271300.46,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-30",
-     "name": "BURNS STEPHANIE",
-     "type": "BUY",
-     "shares": 161,
-     "value": 6837605.67,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-30",
-     "name": "CUMMINGS ROBERT F JR",
-     "type": "BUY",
-     "shares": 161,
-     "value": 33400537.66,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-22",
-     "name": "Gullo Michelle L",
-     "type": "SELL",
-     "shares": 18378,
-     "value": 4040906.14,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-09",
-     "name": "WEEKS WENDELL P",
-     "type": "SELL",
-     "shares": 100000,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492667,
+   "insider": []
   },
   {
    "t": "HIMS",
    "dt": "2026-05-22 17:03",
    "isin": "US4330001060",
-   "price": 23.78,
+   "price": 23.76,
    "price_prev": 23.44,
-   "pct": 1.451,
+   "pct": 1.365,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479497,
-   "insider": [
-    {
-     "date": "2026-07-17",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-17",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 9096367.0493,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-17",
-     "name": "Okupe Oluyemi",
-     "type": "BUY",
-     "shares": 7163,
-     "value": 1460334.8399999999,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 10373821.3023,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Okupe Oluyemi",
-     "type": "BUY",
-     "shares": 7163,
-     "value": 1460334.8399999999,
-     "signal_strength": "mittel"
-    }
-   ]
+   "price_ts": 1785492667,
+   "insider": []
   },
   {
    "t": "HWM",
@@ -448,57 +105,8 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785479509,
-   "insider": [
-    {
-     "date": "2026-07-02",
-     "name": "CANTIE JOSEPH S",
-     "type": "BUY",
-     "shares": 134,
-     "value": 11920213.620000001,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-21",
-     "name": "Smith Gunner",
-     "type": "BUY",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-21",
-     "name": "Barner Sharon R",
-     "type": "BUY",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-21",
-     "name": "Alving Amy E",
-     "type": "BUY",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-21",
-     "name": "Miller Jody",
-     "type": "BUY",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-21",
-     "name": "CANTIE JOSEPH S",
-     "type": "BUY",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "mittel"
-    }
-   ]
+   "price_ts": 1785492672,
+   "insider": []
   },
   {
    "t": "MRX",
@@ -510,57 +118,8 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785479517,
-   "insider": [
-    {
-     "date": "2026-07-13",
-     "name": "Tonucci Paolo",
-     "type": "SELL",
-     "shares": 232,
-     "value": 84284195.43769999,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-13",
-     "name": "Tonucci Paolo",
-     "type": "SELL",
-     "shares": 4584,
-     "value": 83170195.64639999,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-13",
-     "name": "Tonucci Paolo",
-     "type": "SELL",
-     "shares": 11850,
-     "value": 82662646.9599,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-13",
-     "name": "Lowitt Ian T",
-     "type": "SELL",
-     "shares": 787,
-     "value": 183980402.3528,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-13",
-     "name": "Lowitt Ian T",
-     "type": "SELL",
-     "shares": 8957,
-     "value": 181400446.2051,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-13",
-     "name": "Lowitt Ian T",
-     "type": "SELL",
-     "shares": 27398,
-     "value": 179974135.37199998,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492677,
+   "insider": []
   },
   {
    "t": "IFS",
@@ -572,70 +131,21 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785479526,
+   "price_ts": 1785492682,
    "insider": []
   },
   {
    "t": "COHR",
    "dt": "2026-06-02 12:58",
    "isin": "US19247G1076",
-   "price": 231.0,
+   "price": 229.4,
    "price_prev": 216.0,
-   "pct": 6.944,
+   "pct": 6.204,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479526,
-   "insider": [
-    {
-     "date": "2026-07-22",
-     "name": "Luther Sherri R",
-     "type": "SELL",
-     "shares": 1000,
-     "value": 20693233.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-01",
-     "name": "Place Jeffrey B.",
-     "type": "SELL",
-     "shares": 2181,
-     "value": 6965551.260000001,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-03",
-     "name": "ANDERSON JAMES ROBERT",
-     "type": "SELL",
-     "shares": 25836,
-     "value": 71050717.82,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-12",
-     "name": "Luther Sherri R",
-     "type": "SELL",
-     "shares": 2000,
-     "value": 25538436.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-11",
-     "name": "Xia Howard H.",
-     "type": "SELL",
-     "shares": 2000,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-11",
-     "name": "Xia Howard H.",
-     "type": "SELL",
-     "shares": 500,
-     "value": 18509664,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492682,
+   "insider": []
   },
   {
    "t": "MRVL",
@@ -647,194 +157,47 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785479534,
-   "insider": [
-    {
-     "date": "2026-07-16",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 9013,
-     "value": 11384374.360000001,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-15",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 3399,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-15",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 11256,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-15",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 1757,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-15",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 3567,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-15",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 2462,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492687,
+   "insider": []
   },
   {
    "t": "ANET",
    "dt": "2026-06-10 12:40",
    "isin": "US0404132054",
-   "price": 151.5,
+   "price": 153.02,
    "price_prev": 148.34,
-   "pct": 2.13,
+   "pct": 3.155,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479534,
-   "insider": [
-    {
-     "date": "2026-07-20",
-     "name": "Duda Kenneth",
-     "type": "SELL",
-     "shares": 17333,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-20",
-     "name": "Duda Kenneth",
-     "type": "SELL",
-     "shares": 23,
-     "value": 79717760.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-20",
-     "name": "Duda Kenneth",
-     "type": "SELL",
-     "shares": 979,
-     "value": 79407185.0754,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-20",
-     "name": "Duda Kenneth",
-     "type": "SELL",
-     "shares": 5209,
-     "value": 79115094.2334,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-20",
-     "name": "Duda Kenneth",
-     "type": "SELL",
-     "shares": 3789,
-     "value": 79615931.0947,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-20",
-     "name": "Duda Kenneth",
-     "type": "SELL",
-     "shares": 37,
-     "value": 177773363.20000002,
-     "signal_strength": "normal"
-    }
-   ]
+   "price_ts": 1785492687,
+   "insider": []
   },
   {
    "t": "ASML",
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
-   "price": 1483.2,
+   "price": 1465.4,
    "price_prev": 1435.6,
-   "pct": 3.316,
+   "pct": 2.076,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479534,
+   "price_ts": 1785492687,
    "insider": []
   },
   {
    "t": "VIAV",
    "dt": "2026-06-22 14:00",
    "isin": "US9255501051",
-   "price": 31.11,
+   "price": 31.44,
    "price_prev": 30.38,
-   "pct": 2.403,
+   "pct": 3.489,
    "currency": "USD",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1785479534,
-   "insider": [
-    {
-     "date": "2026-05-28",
-     "name": "Petrucci Anthony Michael",
-     "type": "SELL",
-     "shares": 9017,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-28",
-     "name": "Petrucci Anthony Michael",
-     "type": "SELL",
-     "shares": 7303,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-28",
-     "name": "Petrucci Anthony Michael",
-     "type": "SELL",
-     "shares": 2196,
-     "value": 598609.05,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-28",
-     "name": "Petrucci Anthony Michael",
-     "type": "BUY",
-     "shares": 9017,
-     "value": 0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-05-28",
-     "name": "Petrucci Anthony Michael",
-     "type": "SELL",
-     "shares": 1779,
-     "value": 267858.76,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-28",
-     "name": "Petrucci Anthony Michael",
-     "type": "BUY",
-     "shares": 7303,
-     "value": 0,
-     "signal_strength": "mittel"
-    }
-   ]
+   "price_ts": 1785492687,
+   "insider": []
   }
  ],
  "alerts": []
