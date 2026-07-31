@@ -382,7 +382,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-31.1';
+const APP_BUILD = '2026-07-31.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -732,7 +732,7 @@ function wcardHtml(w, allAlerts, pending){
     const priceEur = w.currency==='USD' ? w.price/fx : w.price;
     q = {
       price:w.price, priceEur, currency:w.currency||'USD', pct:w.pct||0,
-      live:!!w.live, source: w.price_source==='DE' ? 'de' : 'us',
+      live:!!w.live, source: ['DE','TG','XFRA'].includes(w.price_source) ? 'de' : 'us',
       ts:(w.price_ts||0)*1000, fromPC:true
     };
   }else if(quotes[t]){
@@ -808,7 +808,7 @@ function cardHtml(r){
     const priceEur = (r.currency||'USD')==='USD' ? r.price/fx : r.price;
     q = {
       price:r.price, priceEur, currency:r.currency||'USD', pct:r.pct||0,
-      live:!!r.live, source: r.price_source==='DE' ? 'de' : 'us', ts:0
+      live:!!r.live, source: ['DE','TG','XFRA'].includes(r.price_source) ? 'de' : 'us', ts:0
     };
   }else if(quotes[r.t]){
     q = quotes[r.t];
