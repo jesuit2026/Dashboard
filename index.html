@@ -382,7 +382,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-30.3';
+const APP_BUILD = '2026-07-31.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1088,6 +1088,28 @@ async function fetchTradegateQuote(isin){
   return {price, prev, currency:'EUR'};
 }
 
+// DE-Overlay, wenn US-Börse zu ist: Yahoo-Xetra (TICKER.DE) zuerst — das
+// braucht KEINE ISIN, nur den Ticker selbst, und deckt daher deutlich mehr
+// Titel ab. Tradegate (braucht ISIN) nur noch als Verfeinerung, falls eine
+// bekannt ist — ISINs sind über kostenlose Quellen für alles außer
+// Mega-Caps praktisch nicht zuverlässig zu bekommen (siehe Recherche:
+// OpenFIGI gibt aus Lizenzgründen z.B. explizit keine ISINs raus).
+async function tryDeOverlay(ticker, isin){
+  const deMeta = await fetchYahooQuoteMeta(ticker+'.DE');
+  if(deMeta && deMeta.regularMarketPrice && deMeta.marketState==='REGULAR'){
+    return {
+      price: deMeta.regularMarketPrice,
+      prev: deMeta.chartPreviousClose || deMeta.previousClose || deMeta.regularMarketPrice,
+      currency: deMeta.currency || 'EUR'
+    };
+  }
+  if(isin){
+    const tg = await fetchTradegateQuote(isin);
+    if(tg) return tg;
+  }
+  return null;
+}
+
 async function fetchQuote(ticker, fx, isin){
   // ── Primärquelle: Finnhub DIREKT (kein Proxy, zuverlässig) ──────────
   // Nur wenn ein Key im Setup hinterlegt ist. Sonst Yahoo-Fallback unten.
@@ -1095,10 +1117,9 @@ async function fetchQuote(ticker, fx, isin){
   if(fh){
     const isLive = isUsMarketOpenApprox();
     let price=fh.price, prev=fh.prev, cur='USD', source='us';
-    // Wenn US-Börse zu: wie gehabt Tradegate/DE-Overlay versuchen
     if(!isLive){
-      const tg = await fetchTradegateQuote(isin);
-      if(tg){ price=tg.price; prev=tg.prev; cur='EUR'; source='de'; }
+      const de = await tryDeOverlay(ticker, isin);
+      if(de){ price=de.price; prev=de.prev; cur=de.currency; source='de'; }
     }
     let priceEur = cur==='USD' && fx>0 ? price/fx : price;
     return {
@@ -1124,19 +1145,8 @@ async function fetchQuote(ticker, fx, isin){
   // Desktop, zuverlässiger). Fallback: Yahoo-Xetra-Ticker (TICKER.DE),
   // falls keine ISIN vorliegt (z.B. alte, noch nicht neu exportierte Daten).
   if(!isLive && cur==='USD'){
-    const tg = await fetchTradegateQuote(isin);
-    if(tg){
-      price=tg.price; prev=tg.prev; cur='EUR'; isLive=true; source='de';
-    }else{
-      const deMeta = await fetchYahooQuoteMeta(ticker+'.DE');
-      if(deMeta && deMeta.regularMarketPrice && deMeta.marketState==='REGULAR'){
-        price = deMeta.regularMarketPrice;
-        prev  = deMeta.chartPreviousClose || deMeta.previousClose || price;
-        cur   = deMeta.currency || 'EUR';
-        isLive = true;
-        source = 'de';
-      }
-    }
+    const de = await tryDeOverlay(ticker, isin);
+    if(de){ price=de.price; prev=de.prev; cur=de.currency; isLive=true; source='de'; }
   }
 
   // In EUR umrechnen wenn USD
