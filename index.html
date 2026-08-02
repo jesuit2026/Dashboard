@@ -382,7 +382,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-31.2';
+const APP_BUILD = '2026-07-31.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -723,11 +723,13 @@ function renderWatch(){
 
 function wcardHtml(w, allAlerts, pending){
   const t = w.t;
-  // PC liefert den Preis direkt mit (zuverlässiger als der Proxy-Weg vom
-  // Handy aus) — der hat Vorrang. quotes[t] (Client-Fetch) ist nur noch
-  // ein Fallback für frisch hinzugefügte, noch nicht synchronisierte Ticker.
+  // Live-Abfrage (Finnhub/Tradegate/Yahoo direkt vom Handy) hat Vorrang,
+  // sobald sie da ist — der PC-Preis dient nur als Sofort-Anzeige beim
+  // Öffnen, bevor die erste Live-Antwort eingetroffen ist.
   let q = null;
-  if(w.price>0){
+  if(quotes[t]){
+    q = quotes[t];
+  }else if(w.price>0){
     const fx = watchData?.fx || 1.14;
     const priceEur = w.currency==='USD' ? w.price/fx : w.price;
     q = {
@@ -735,8 +737,6 @@ function wcardHtml(w, allAlerts, pending){
       live:!!w.live, source: ['DE','TG','XFRA'].includes(w.price_source) ? 'de' : 'us',
       ts:(w.price_ts||0)*1000, fromPC:true
     };
-  }else if(quotes[t]){
-    q = quotes[t];
   }
   const myAlerts = allAlerts.filter(a=>(a.ticker||'').toUpperCase()===t.toUpperCase());
   const myPendingAlerts = pending.filter(p=>p.type==='add_alert' && p.ticker===t);
@@ -798,20 +798,19 @@ function wcardHtml(w, allAlerts, pending){
 }
 
 function cardHtml(r){
-  // PC liefert den Preis jetzt direkt mit (schema 3, zuverlässiger als der
-  // Proxy-Weg vom Handy aus). quotes[r.t] (Client-Fetch) ist nur noch
-  // Fallback für den Fall, dass der PC-Preis mal fehlt (z.B. ganz neuer
-  // Ticker, Datenlücke).
+  // Live-Abfrage (Finnhub/Tradegate/Yahoo direkt vom Handy) hat Vorrang,
+  // sobald sie da ist — der PC-Preis dient nur als Sofort-Anzeige beim
+  // Öffnen, bevor die erste Live-Antwort eingetroffen ist.
   let q = null;
-  if(r.price>0){
+  if(quotes[r.t]){
+    q = quotes[r.t];
+  }else if(r.price>0){
     const fx = screenData?.fx || 1.14;
     const priceEur = (r.currency||'USD')==='USD' ? r.price/fx : r.price;
     q = {
       price:r.price, priceEur, currency:r.currency||'USD', pct:r.pct||0,
       live:!!r.live, source: ['DE','TG','XFRA'].includes(r.price_source) ? 'de' : 'us', ts:0
     };
-  }else if(quotes[r.t]){
-    q = quotes[r.t];
   }
   const rsClass = r.rs>=80?'hi':r.rs>=60?'mid':'lo';
   const setup = r.setup?`<span class="setup">${r.setup}</span>`:'';
@@ -922,16 +921,16 @@ async function _refreshQuotesInner(){
     if(!seen.has(t)){ seen.add(t); tickers.push(t); }
   };
   (watchData?.watchlist||[]).forEach(w=>{
-    // PC liefert jetzt zuverlässig einen Preis mit (siehe wcardHtml) —
-    // nur noch client-seitig abfragen, wenn das (noch) fehlt, z.B. bei
-    // einem gerade erst hinzugefügten, noch nicht synchronisierten Ticker.
-    if(!(w.price>0)) addTicker(w.t, w.isin);
+    // PC-Preis ist nur noch die SOFORT-Anzeige beim Öffnen — die Live-
+    // Abfrage läuft trotzdem immer und überschreibt ihn, sobald sie da
+    // ist (siehe wcardHtml: quotes[t] hat Vorrang vor w.price).
+    addTicker(w.t, w.isin);
   });
   if(screenData?.views?.[curCat]){
     screenData.views[curCat].forEach(r=>{
-      // Gleiches Prinzip wie bei der Watchlist: PC liefert den Preis
-      // jetzt mit (schema 3) — nur nachfragen, wenn der fehlt.
-      if(!(r.price>0)) addTicker(r.t, r.isin);
+      // Gleiches Prinzip: PC-Preis nur als Sofort-Anzeige, Live-Abfrage
+      // läuft trotzdem immer und hat Vorrang sobald da.
+      addTicker(r.t, r.isin);
     });
   }
   const fx = await getFx();  // EUR/USD für Umrechnung
@@ -1472,32 +1471,38 @@ async function loadInfoTab(tab){
 }
 
 // ── Fundamentaldaten: Yahoo quoteSummary (öffentlich, kein Key nötig) ──
-async function renderFundTab(ticker){
-  const modules='defaultKeyStatistics,financialData,summaryDetail';
-  const yurl=`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}?modules=${modules}`;
-  const j = await fetchJsonViaProxy(yurl);
-  const res0=j?.quoteSummary?.result?.[0];
-  if(!res0) throw new Error('keine Daten von Yahoo (alle Proxies fehlgeschlagen?)');
-  const ks=res0.defaultKeyStatistics||{}, fd=res0.financialData||{}, sd=res0.summaryDetail||{};
-  const rv=k=>k && typeof k==='object' && 'raw' in k ? k.raw : (k ?? null);
-
+function renderFundTab(ticker){
+  const w=(watchData?.watchlist||[]).find(x=>x.t===ticker);
+  if(!w){
+    return `<div class="empty"><div class="ic">📊</div>
+      <div class="msg">Nur für Watchlist-Titel verfügbar</div>
+      <div class="sub">Füge ${ticker} zur Watchlist hinzu, dann liefert der nächste
+      PC-Sync die Fundamentaldaten mit.</div></div>`;
+  }
+  const f = w.fundamentals;
+  if(!f){
+    return `<div class="empty"><div class="ic">⏳</div>
+      <div class="msg">Noch nicht synchronisiert</div>
+      <div class="sub">Der nächste PC-Sync (alle paar Minuten) bringt die
+      Fundamentaldaten mit.</div></div>`;
+  }
   const cells=[
-    ['KGV (TTM)', rv(sd.trailingPE), v=>v!=null?v.toFixed(1):'—'],
-    ['KGV (fwd.)', rv(sd.forwardPE), v=>v!=null?v.toFixed(1):'—'],
-    ['PEG', rv(ks.pegRatio), v=>v!=null?v.toFixed(2):'—'],
-    ['EPS (TTM)', rv(ks.trailingEps), v=>v!=null?'$'+v.toFixed(2):'—'],
-    ['Umsatzwachstum', rv(fd.revenueGrowth), v=>v!=null?pctFmt(v):'—', rv(fd.revenueGrowth)],
-    ['Gewinnwachstum', rv(fd.earningsGrowth), v=>v!=null?pctFmt(v):'—', rv(fd.earningsGrowth)],
-    ['Gewinnmarge', rv(fd.profitMargins), v=>v!=null?pctFmt(v):'—', rv(fd.profitMargins)],
-    ['Bruttomarge', rv(fd.grossMargins), v=>v!=null?pctFmt(v):'—', rv(fd.grossMargins)],
-    ['Marktkap.', rv(sd.marketCap), v=>v!=null?fmtVol(v):'—'],
-    ['52-Wo-Hoch', rv(sd.fiftyTwoWeekHigh), v=>v!=null?'$'+v.toFixed(2):'—'],
-    ['52-Wo-Tief', rv(sd.fiftyTwoWeekLow), v=>v!=null?'$'+v.toFixed(2):'—'],
-    ['Analysten-Ziel', rv(fd.targetMeanPrice), v=>v!=null?'$'+v.toFixed(2):'—'],
-    ['Inst. Besitz', rv(ks.heldPercentInstitutions), v=>v!=null?pctFmt(v):'—'],
-    ['Short-Float', rv(ks.shortPercentOfFloat), v=>v!=null?pctFmt(v):'—'],
-    ['Beta', rv(sd.beta), v=>v!=null?v.toFixed(2):'—'],
-    ['Div.-Rendite', rv(sd.dividendYield), v=>v!=null?pctFmt(v):'—'],
+    ['KGV (TTM)', f.trailingPE, v=>v!=null?v.toFixed(1):'—'],
+    ['KGV (fwd.)', f.forwardPE, v=>v!=null?v.toFixed(1):'—'],
+    ['PEG', f.pegRatio, v=>v!=null?v.toFixed(2):'—'],
+    ['EPS (TTM)', f.trailingEps, v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['Umsatzwachstum', f.revenueGrowth, v=>v!=null?pctFmt(v):'—', f.revenueGrowth],
+    ['Gewinnwachstum', f.earningsGrowth, v=>v!=null?pctFmt(v):'—', f.earningsGrowth],
+    ['Gewinnmarge', f.profitMargins, v=>v!=null?pctFmt(v):'—', f.profitMargins],
+    ['Bruttomarge', f.grossMargins, v=>v!=null?pctFmt(v):'—', f.grossMargins],
+    ['Marktkap.', f.marketCap, v=>v!=null?fmtVol(v):'—'],
+    ['52-Wo-Hoch', f.fiftyTwoWeekHigh, v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['52-Wo-Tief', f.fiftyTwoWeekLow, v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['Analysten-Ziel', f.targetMeanPrice, v=>v!=null?'$'+v.toFixed(2):'—'],
+    ['Inst. Besitz', f.heldPercentInstitutions, v=>v!=null?pctFmt(v):'—'],
+    ['Short-Float', f.shortPercentOfFloat, v=>v!=null?pctFmt(v):'—'],
+    ['Beta', f.beta, v=>v!=null?v.toFixed(2):'—'],
+    ['Div.-Rendite', f.dividendYield, v=>v!=null?pctFmt(v):'—'],
   ];
   return `<div class="fund-grid">${cells.map(([lbl,raw,fmt,colorVal])=>{
     const cls = colorVal!=null ? (colorVal>=0?'pos':'neg') : '';
