@@ -37,6 +37,16 @@
    "ticker": "HST",
    "id": "r17857776374307lr46",
    "ts": "2026-08-03T17:20:37.430Z"
+  },
+  {
+   "type": "add_alert",
+   "ticker": "HST",
+   "condition": "above",
+   "price_usd": 25.416754,
+   "price_input": 22.09,
+   "currency": "EUR",
+   "id": "r1785778006683w151b",
+   "ts": "2026-08-03T17:26:46.683Z"
   }
  ]
 }
