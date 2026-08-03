@@ -399,7 +399,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-03.2';
+const APP_BUILD = '2026-08-03.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -409,7 +409,20 @@ const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
 // ─── State ───────────────────────────────────────────────────
 let screenData = null;      // die geladene mobile_screen.json
 let watchData = null;       // die geladene mobile_watchlist.json
-let quotes = {};            // ticker -> {price, pct, live, ts}
+let quotes = {};   // ticker -> {price, pct, live, ts} — wird gleich nach LS's Definition befüllt
+// ── Persistenter Kurs-Cache ────────────────────────────────────
+// Android/Chrome killt Hintergrund-Tabs regelmäßig (kompletter Neustart
+// beim Zurückkommen) — ohne Zwischenspeicher wäre der zuletzt gesehene
+// Live-Kurs dann weg, obwohl er noch aktueller war als der PC-Preis.
+// Läuft gebündelt (max. 1x pro Sekunde), nicht bei jedem einzelnen Kurs.
+let _saveQuotesTimer = null;
+function saveQuotesCache(){
+  if(_saveQuotesTimer) return;
+  _saveQuotesTimer = setTimeout(()=>{
+    _saveQuotesTimer = null;
+    try{ LS.set('liveQuotesCache', quotes); }catch{}
+  }, 1000);
+}
 let curCat = 'buyable';
 let refreshTimer = null;
 
@@ -418,6 +431,9 @@ const LS = {
   get:(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return d}},
   set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}},
 };
+// Persistenter Kurs-Cache wieder einlesen — überlebt einen von Android/
+// Chrome erzwungenen Tab-Neustart im Hintergrund (siehe saveQuotesCache).
+quotes = LS.get('liveQuotesCache', quotes);
 
 // ─── Kategorie-Metadaten ───────────────────────────────────────
 // Bekannte Kategorien bekommen festes Icon/Farbe/Reihenfolge/Text.
@@ -1054,7 +1070,7 @@ async function _refreshQuotesInner(){
         const t = list[idx++];
         try{
           const q = await fetchQuote(t, fx, isinMap[t]);
-          if(q){ quotes[t]=q; _failedTickers.delete(t); updateCard(t); }
+          if(q){ quotes[t]=q; _failedTickers.delete(t); updateCard(t); saveQuotesCache(); }
           else{ _failedTickers.add(t); }
         }catch{ _failedTickers.add(t); }
         await sleep(80);
