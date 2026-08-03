@@ -388,7 +388,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-02.1';
+const APP_BUILD = '2026-08-03.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -735,10 +735,19 @@ function renderWatch(){
 const _priceAtAddCache = {};   // Ticker -> {price, currency} | 'pending' | 'failed'
 function priceAtAddCacheKey(ticker, dateOnly){ return `priceatadd_${ticker}_${dateOnly}`; }
 
-function ensurePriceAtAdd(ticker, dt){
+function ensurePriceAtAdd(ticker, dt, pcValue, pcCurrency){
   if(!dt || _priceAtAddCache[ticker]) return;
   const dateOnly = dt.split(' ')[0];   // "2026-05-21 18:53" -> "2026-05-21"
   if(!/^\d{4}-\d{2}-\d{2}$/.test(dateOnly)) return;
+  // 1) PC liefert den Wert jetzt direkt mit — kein Live-Abruf nötig, das
+  //    hat vorher beim Start unnötig mit den echten Live-Kursen um
+  //    dieselben Proxy-Ressourcen konkurriert und alles verlangsamt.
+  if(pcValue!=null){
+    _priceAtAddCache[ticker] = {price: pcValue, currency: pcCurrency||'USD'};
+    return;
+  }
+  // 2) Fallback: eigener (gecachter) Abruf — nur für Ticker, die der PC
+  //    noch nicht synchronisiert hat (z.B. gerade erst hinzugefügt).
   const persisted = LS.get(priceAtAddCacheKey(ticker, dateOnly), null);
   if(persisted){ _priceAtAddCache[ticker] = persisted; return; }
   _priceAtAddCache[ticker] = 'pending';
@@ -823,7 +832,7 @@ function wcardHtml(w, allAlerts, pending){
   // Kurs bei Bedarf im Hintergrund (siehe ensurePriceAtAdd oben).
   let sinceHtml = '';
   if(w.dt){
-    ensurePriceAtAdd(t, w.dt);
+    ensurePriceAtAdd(t, w.dt, w.price_at_add, w.price_at_add_currency);
     const cached = _priceAtAddCache[t];
     const dateOnly = w.dt.split(' ')[0];
     const [yy,mm,dd] = dateOnly.split('-');
