@@ -128,6 +128,12 @@
     font-family:var(--ui);font-size:13px;font-weight:700}
   .wt-add-btn:active{opacity:.8}
   .wcard-actions{display:flex;gap:8px;margin-top:9px}
+  .since-row{display:flex;justify-content:flex-end;align-items:baseline;gap:6px;
+    margin-top:2px;font-family:var(--mono);font-size:11.5px}
+  .since-lbl{color:var(--dim)}
+  .since-val{font-weight:700}
+  .since-val.pos{color:var(--grn)}
+  .since-val.neg{color:var(--red)}
   .wt-mini-btn{flex:1;background:var(--bg2);color:var(--txt2);border:1px solid var(--brd);
     border-radius:8px;padding:7px 6px;font-family:var(--ui);font-size:11.5px;font-weight:600}
   .wt-mini-btn:active{opacity:.8}
@@ -382,7 +388,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-31.4';
+const APP_BUILD = '2026-08-02.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -721,6 +727,41 @@ function renderWatch(){
   el.innerHTML = header + cards + pendingCards;
 }
 
+// ═══ "Seit [Hinzufügedatum]"-Veränderung (wie OnVista) ═══════════════
+// Holt EINMALIG den historischen Schlusskurs vom Tag, an dem der Ticker
+// zur Watchlist hinzugefügt wurde, und cacht ihn dauerhaft (das Datum
+// ändert sich ja nie wieder für diesen Ticker). Läuft im Hintergrund,
+// re-rendert die Watchlist danach einmal neu.
+const _priceAtAddCache = {};   // Ticker -> {price, currency} | 'pending' | 'failed'
+function priceAtAddCacheKey(ticker, dateOnly){ return `priceatadd_${ticker}_${dateOnly}`; }
+
+function ensurePriceAtAdd(ticker, dt){
+  if(!dt || _priceAtAddCache[ticker]) return;
+  const dateOnly = dt.split(' ')[0];   // "2026-05-21 18:53" -> "2026-05-21"
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(dateOnly)) return;
+  const persisted = LS.get(priceAtAddCacheKey(ticker, dateOnly), null);
+  if(persisted){ _priceAtAddCache[ticker] = persisted; return; }
+  _priceAtAddCache[ticker] = 'pending';
+  (async()=>{
+    try{
+      const d = new Date(dateOnly+'T12:00:00Z');
+      const period1 = Math.floor(d.getTime()/1000) - 2*86400;   // Puffer davor
+      const period2 = Math.floor(d.getTime()/1000) + 4*86400;   // Puffer danach (Wochenende/Feiertag)
+      const raw = await fetchYahooChartRaw(ticker, '1d', period1, period2);
+      if(raw?.closes?.length){
+        const result = {price: raw.closes[0], currency: raw.meta?.currency || 'USD'};
+        _priceAtAddCache[ticker] = result;
+        LS.set(priceAtAddCacheKey(ticker, dateOnly), result);
+      }else{
+        _priceAtAddCache[ticker] = 'failed';
+      }
+    }catch{
+      _priceAtAddCache[ticker] = 'failed';
+    }
+    renderWatch();   // einmalig neu rendern, sobald der Wert da ist
+  })();
+}
+
 function wcardHtml(w, allAlerts, pending){
   const t = w.t;
   // Live-Abfrage (Finnhub/Tradegate/Yahoo direkt vom Handy) hat Vorrang,
@@ -777,6 +818,30 @@ function wcardHtml(w, allAlerts, pending){
   const alertsHtml = (chipsHtml||pendingChipsHtml)
     ? `<div class="alerts">${chipsHtml}${pendingChipsHtml}</div>` : '';
   const pendingTag = watchRemovePending ? '<span class="pending-tag">⏳ wird entfernt…</span>' : '';
+
+  // "Seit [Hinzufügedatum]: X%" — wie OnVista. Holt sich den historischen
+  // Kurs bei Bedarf im Hintergrund (siehe ensurePriceAtAdd oben).
+  let sinceHtml = '';
+  if(w.dt){
+    ensurePriceAtAdd(t, w.dt);
+    const cached = _priceAtAddCache[t];
+    const dateOnly = w.dt.split(' ')[0];
+    const [yy,mm,dd] = dateOnly.split('-');
+    const dateFmt = (dd&&mm&&yy) ? `${dd}.${mm}.${yy}` : dateOnly;
+    if(cached && cached!=='pending' && cached!=='failed' && q && q.price>0){
+      // Beide Preise in derselben Währung vergleichen (Kauf-/Startpreis
+      // ist meist USD, aktueller Kurs kann bei DE-Overlay EUR sein).
+      const curInBaseCcy = q.currency===cached.currency ? q.price
+        : (q.currency==='EUR' ? q.price*(_fxCache.v||1.14) : q.price/(_fxCache.v||1.14));
+      const pct = cached.price>0 ? (curInBaseCcy/cached.price - 1)*100 : null;
+      if(pct!=null){
+        const cls = pct>0?'pos':pct<0?'neg':'';
+        sinceHtml = `<div class="since-row"><span class="since-lbl">seit ${dateFmt}</span>
+          <span class="since-val ${cls}">${pct>0?'+':''}${pct.toFixed(2)}%</span></div>`;
+      }
+    }
+  }
+
   return `
   <div class="wcard${watchRemovePending?' pending':''}">
     <div class="row1" data-tk="${t}">
@@ -789,6 +854,7 @@ function wcardHtml(w, allAlerts, pending){
       ${chgHtml}
       ${badgeHtml}
     </div>
+    ${sinceHtml}
     ${alertsHtml}
     <div class="wcard-actions">
       <button class="wt-mini-btn" data-add-alarm="${t}">+ Alarm</button>
