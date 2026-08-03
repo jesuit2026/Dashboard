@@ -382,7 +382,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-07-31.3';
+const APP_BUILD = '2026-07-31.4';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -905,58 +905,58 @@ async function refreshQuotes(){
 async function _refreshQuotesInner(){
   if(!screenData?.views && !watchData?.watchlist) return;
   // ── Reihenfolge & Umfang ──────────────────────────────────────────
-  // 1) Watchlist zuerst (klein, wichtig — verhungert nicht mehr hinten).
-  // 2) NUR die gerade sichtbare Top-50-Kategorie, nicht alle zusammen.
-  //    Bei einem breiten Screen (Top-50 + Trendsetter + bis zu 15
-  //    Sektor-Filter) wären das sonst potenziell hunderte Ticker auf
-  //    einmal — das hat den kostenlosen Proxy überlastet und alles
-  //    verlangsamt, auch die Watchlist. Wechselt man den Tab, holt
-  //    selectCat() gezielt die Kurse für die neue Kategorie nach.
-  const tickers = [];
-  const seen = new Set();
+  // ZWEI STRIKT GETRENNTE PHASEN (nicht mehr ein gemeinsamer Pool):
+  // 1) Watchlist — läuft IMMER vollständig durch, bevor Phase 2 startet.
+  // 2) NUR die gerade sichtbare Top-50-Kategorie.
+  // Grund: Bei einem gemeinsamen Pool konkurrierten Watchlist und die bis
+  // zu 100 Top-50-Ticker um dasselbe Finnhub-Rate-Limit-Budget (60/Min.
+  // im Gratis-Tarif) — welche Watchlist-Ticker dabei noch "dran kamen",
+  // war zufällig. Jetzt bekommt die (kleine) Watchlist immer Vorrang.
   const isinMap = {};   // Ticker -> ISIN (für Tradegate), falls vom PC exportiert
-  const addTicker = (t, isin) => {
-    if(!t) return;
-    if(isin) isinMap[t] = isin;
-    if(!seen.has(t)){ seen.add(t); tickers.push(t); }
-  };
+  const watchTickers = [];
+  const catTickers = [];
+  const seen = new Set();
   (watchData?.watchlist||[]).forEach(w=>{
-    // PC-Preis ist nur noch die SOFORT-Anzeige beim Öffnen — die Live-
-    // Abfrage läuft trotzdem immer und überschreibt ihn, sobald sie da
-    // ist (siehe wcardHtml: quotes[t] hat Vorrang vor w.price).
-    addTicker(w.t, w.isin);
+    if(!w.t || seen.has(w.t)) return;
+    seen.add(w.t);
+    if(w.isin) isinMap[w.t] = w.isin;
+    watchTickers.push(w.t);
   });
   if(screenData?.views?.[curCat]){
     screenData.views[curCat].forEach(r=>{
-      // Gleiches Prinzip: PC-Preis nur als Sofort-Anzeige, Live-Abfrage
-      // läuft trotzdem immer und hat Vorrang sobald da.
-      addTicker(r.t, r.isin);
+      if(!r.t || seen.has(r.t)) return;
+      seen.add(r.t);
+      if(r.isin) isinMap[r.t] = r.isin;
+      catTickers.push(r.t);
     });
   }
   const fx = await getFx();  // EUR/USD für Umrechnung
 
-  // ── Begrenzte Parallelität statt strikt seriell ──────────────────
+  // ── Begrenzte Parallelität pro Phase ──────────────────────────────
   // 4 gleichzeitige Anfragen: deutlich schneller als 1-nach-1, aber
-  // schont den kostenlosen Proxy trotzdem. Jede Anfrage hat ein
-  // Timeout — eine hängende Anfrage blockiert nicht mehr alle anderen.
-  const CONCURRENCY = 6;
-  let idx = 0;
-  async function worker(){
-    while(idx < tickers.length){
-      const t = tickers[idx++];
-      try{
-        const q = await fetchQuote(t, fx, isinMap[t]);
-        if(q){ quotes[t]=q; _failedTickers.delete(t); updateCard(t); }
-        else{ _failedTickers.add(t); }
-      }catch{ _failedTickers.add(t); }
-      await sleep(80);
+  // schont Proxy/Finnhub trotzdem. Jede Anfrage hat ein Timeout —
+  // eine hängende Anfrage blockiert nicht mehr alle anderen.
+  const CONCURRENCY = 4;
+  async function processPhase(list){
+    let idx = 0;
+    async function worker(){
+      while(idx < list.length){
+        const t = list[idx++];
+        try{
+          const q = await fetchQuote(t, fx, isinMap[t]);
+          if(q){ quotes[t]=q; _failedTickers.delete(t); updateCard(t); }
+          else{ _failedTickers.add(t); }
+        }catch{ _failedTickers.add(t); }
+        await sleep(80);
+      }
     }
+    await Promise.all(Array.from({length: Math.min(CONCURRENCY, list.length)}, worker));
+    list.forEach(t=>{ if(_failedTickers.has(t) && !quotes[t]) updateCardFailed(t); });
   }
-  await Promise.all(Array.from({length: Math.min(CONCURRENCY, tickers.length)}, worker));
 
-  // Für endgültig fehlgeschlagene Ticker "Kein Kurs" statt ewigem "lädt…"
-  // anzeigen — sonst sieht es aus, als würde es noch laufen.
-  tickers.forEach(t=>{ if(_failedTickers.has(t) && !quotes[t]) updateCardFailed(t); });
+  await processPhase(watchTickers);   // Phase 1: Watchlist zuerst, komplett
+  await processPhase(catTickers);     // Phase 2: erst danach Top-50
+
 
   // Watchlist neu rendern, damit Alarm-Chips ihren "getroffen"-Status aktualisieren
   if(watchData?.watchlist?.length) renderWatch();
@@ -1061,9 +1061,29 @@ function isUsMarketOpenApprox(){
 
 // Live-Kurs DIREKT von Finnhub (kein Proxy nötig — siehe Setup-Tab für
 // den Key). Deutlich zuverlässiger als der Yahoo-Proxy-Umweg.
+// ── Rate-Limiter für Finnhub (Gratis-Tarif: 60 Anfragen/Minute) ──────
+// Ohne das würden Top-50 (bis zu 100 Ticker) + Watchlist zusammen das
+// Limit ständig reißen — welche Ticker dabei "Pech" haben (429 Fehler),
+// wäre zufällig. Gleitendes 60-Sekunden-Fenster, max. 50 Anfragen
+// (bewusst etwas Puffer unter dem harten Limit von 60).
+const _finnhubCallTimes = [];
+async function finnhubRateLimit(){
+  const now = Date.now();
+  while(_finnhubCallTimes.length && now - _finnhubCallTimes[0] > 60000){
+    _finnhubCallTimes.shift();
+  }
+  if(_finnhubCallTimes.length >= 50){
+    const waitMs = 60000 - (now - _finnhubCallTimes[0]) + 50;
+    await sleep(Math.max(50, waitMs));
+    return finnhubRateLimit();   // Fenster danach erneut prüfen
+  }
+  _finnhubCallTimes.push(Date.now());
+}
+
 async function fetchFinnhubQuote(ticker){
   const key = LS.get('finnhubKey','');
   if(!key) return null;
+  await finnhubRateLimit();
   const d = await fetchDirectJson(
     `https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(ticker)}&token=${encodeURIComponent(key)}`);
   if(!d || !(d.c>0)) return null;
