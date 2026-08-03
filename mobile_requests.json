@@ -21,6 +21,16 @@
    "ticker": "KLARNA",
    "id": "r17849096433620ly7u",
    "ts": "2026-07-24T16:14:03.363Z"
+  },
+  {
+   "type": "add_alert",
+   "ticker": "SMCI",
+   "condition": "above",
+   "price_usd": 24.8,
+   "price_input": 24.8,
+   "currency": "USD",
+   "id": "r1785777454204aujx8",
+   "ts": "2026-08-03T17:17:34.204Z"
   }
  ]
 }
