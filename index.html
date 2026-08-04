@@ -399,7 +399,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-03.3';
+const APP_BUILD = '2026-08-04.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1831,7 +1831,7 @@ function drawChart(sl, hoverIdx){
   const {closes, opens, highs, lows, volumes, timestamps, earnings} = sl;
   const cv=document.getElementById('chart');
   const dpr=window.devicePixelRatio||1;
-  const W=cv.clientWidth, H=362;              // höher: Platz für Volumen-Panel + Datums-Box
+  const W=cv.clientWidth, H=380;              // höher: Platz für Volumen-Panel + Zeitleiste + Datums-Box
   cv.width=W*dpr; cv.height=H*dpr;
   cv.style.height=H+'px';
   const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
@@ -1878,6 +1878,27 @@ function drawChart(sl, hoverIdx){
   }
   ctx.beginPath(); ctx.moveTo(pad.l,volTop); ctx.lineTo(pad.l+cw,volTop); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(pad.l,volBot); ctx.lineTo(pad.l+cw,volBot); ctx.stroke();
+
+  // ── Zeitleiste unter dem Volumen-Panel ──
+  // Datumsbeschriftung an ausgewählten Gitterlinien (nicht an jeder der
+  // VGRID=8 Linien — das wäre zu eng), damit man Kerzen/Volumen-Spitzen
+  // zeitlich einordnen kann, ohne extra draufzutippen.
+  if(timestamps && timestamps.length){
+    ctx.fillStyle='#5d7a9a'; ctx.font='9px monospace'; ctx.textAlign='center';
+    const labelSteps = [0,2,4,6,8];   // von den 9 VGRID-Positionen (0..8) nur jede 2.
+    labelSteps.forEach(g=>{
+      const frac = g/VGRID;
+      const idx = Math.min(n-1, Math.round(frac*(n-1)));
+      const ts = timestamps[idx];
+      if(ts==null) return;
+      const dd = new Date(ts*1000);
+      const lbl = `${String(dd.getDate()).padStart(2,'0')}.${String(dd.getMonth()+1).padStart(2,'0')}`;
+      let xx = pad.l+(cw/VGRID)*g;
+      xx = Math.max(pad.l+14, Math.min(pad.l+cw-14, xx));   // nicht über den Rand hinaus
+      ctx.fillText(lbl, xx, volBot+13);
+    });
+    ctx.textAlign='left';
+  }
 
   // ── Earnings-Marker (gestrichelte Linie über Kurs+Volumen) ──
   // Best-effort aus Yahoo-Events — weniger umfangreich als die
@@ -1984,10 +2005,11 @@ function drawChart(sl, hoverIdx){
       ctx.font='9px monospace';
       const dboxW=ctx.measureText(dLbl).width+10;
       let dbx=hx-dboxW/2; dbx=Math.max(pad.l,Math.min(pad.l+cw-dboxW,dbx));
-      ctx.fillStyle='#1a2030'; ctx.fillRect(dbx, volBot+2, dboxW, 14);
-      ctx.strokeStyle='#253248'; ctx.strokeRect(dbx, volBot+2, dboxW, 14);
+      const dboxY = volBot+18;   // unterhalb der statischen Zeitleiste
+      ctx.fillStyle='#1a2030'; ctx.fillRect(dbx, dboxY, dboxW, 14);
+      ctx.strokeStyle='#253248'; ctx.strokeRect(dbx, dboxY, dboxW, 14);
       ctx.fillStyle='#c8d8f0'; ctx.textAlign='center';
-      ctx.fillText(dLbl, dbx+dboxW/2, volBot+12);
+      ctx.fillText(dLbl, dbx+dboxW/2, dboxY+10);
       ctx.textAlign='left';
     }
     // OHLC + Volumen-Infozeile (über dem Chart, wie Desktop-Hover-Panel)
