@@ -127,7 +127,11 @@
     border:1px dashed var(--brd2);border-radius:10px;padding:10px;
     font-family:var(--ui);font-size:13px;font-weight:700}
   .wt-add-btn:active{opacity:.8}
-  .wcard-actions{display:flex;gap:8px;margin-top:9px}
+  .wcard-actions{display:flex;gap:6px;margin-top:9px}
+  .wcard-actions .wt-mini-btn{padding:7px 3px;font-size:10.5px}
+  .note-row{margin-top:8px;padding:8px 10px;background:var(--bg2);border:1px solid var(--brd);
+    border-radius:8px;font-size:12px;color:var(--txt2);line-height:1.4;white-space:pre-wrap;
+    word-break:break-word}
   .since-row{display:flex;justify-content:flex-end;align-items:baseline;gap:6px;
     margin-top:2px;font-family:var(--mono);font-size:11.5px}
   .since-lbl{color:var(--dim)}
@@ -358,6 +362,24 @@
   </div>
 </div>
 
+<!-- ═══ NOTIZ-MODAL ═══ -->
+<div class="sheet" id="note-modal">
+  <div class="sheet-hd">
+    <button class="close" onclick="closeNoteModal()">✕</button>
+    <span class="st">Notiz für <span id="note-modal-tk"></span></span>
+  </div>
+  <div class="sheet-body">
+    <div class="cfg">
+      <textarea id="note-input" rows="6" placeholder="z.B. Kaufgrund, Kursziel, Beobachtungspunkt…"
+        style="width:100%;background:var(--bg2);border:1px solid var(--brd);border-radius:8px;
+        padding:10px;color:var(--txt);font-family:var(--ui);font-size:14px;resize:vertical"></textarea>
+      <button onclick="submitNoteModal()" style="margin-top:14px">Notiz speichern</button>
+      <button onclick="submitNoteModal(true)" style="margin-top:8px;background:none;color:var(--red);
+        border:1px solid var(--brd)">Notiz löschen</button>
+    </div>
+  </div>
+</div>
+
 <div class="sheet" id="sheet">
   <div class="sheet-hd">
     <button class="close" onclick="closeSheet()">✕</button>
@@ -399,7 +421,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-04.1';
+const APP_BUILD = '2026-08-04.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -902,6 +924,9 @@ function wcardHtml(w, allAlerts, pending){
     }
   }
 
+  const noteHtml = w.note
+    ? `<div class="note-row" data-add-note="${t}">📝 ${w.note.replace(/</g,'&lt;')}</div>` : '';
+
   return `
   <div class="wcard${watchRemovePending?' pending':''}">
     <div class="row1" data-tk="${t}">
@@ -916,8 +941,10 @@ function wcardHtml(w, allAlerts, pending){
     </div>
     ${sinceHtml}
     ${alertsHtml}
+    ${noteHtml}
     <div class="wcard-actions">
       <button class="wt-mini-btn" data-add-alarm="${t}">+ Alarm</button>
+      <button class="wt-mini-btn" data-add-note="${t}">${w.note?'📝 Notiz':'+ Notiz'}</button>
       <button class="wt-mini-btn danger" data-del-watch="${t}">Ticker entfernen</button>
     </div>
   </div>`;
@@ -2227,6 +2254,38 @@ async function submitAlarmModal(){
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
 
+// ═══ Notiz-Modal ═══════════════════════════════════════════════
+let _noteModalTk=null;
+function addNoteFlow(t){
+  if(!requireToken()) return;
+  _noteModalTk=t;
+  document.getElementById('note-modal-tk').textContent=t;
+  const w=(watchData?.watchlist||[]).find(x=>x.t===t);
+  document.getElementById('note-input').value = w?.note || '';
+  document.getElementById('note-modal').classList.add('on');
+  history.pushState({overlay:'note'}, '');
+}
+function closeNoteModal(){
+  document.getElementById('note-modal').classList.remove('on');
+  if(history.state && history.state.overlay==='note') history.back();
+}
+async function submitNoteModal(clear){
+  const t=_noteModalTk;
+  const note = clear ? '' : document.getElementById('note-input').value.trim();
+  const req = {type:'set_note', ticker:t, note};
+  try{
+    const sent = await queueGhRequest(req);
+    addPending(sent);
+    // Optimistisch sofort anzeigen, nicht erst nach PC-Sync warten —
+    // Notizen haben (anders als Alarme) keine "getroffen"-Prüfung, die
+    // echte PC-Daten bräuchte, daher unbedenklich sofort sichtbar.
+    const w=(watchData?.watchlist||[]).find(x=>x.t===t);
+    if(w) w.note = note;
+    renderWatch();
+    closeNoteModal();
+  }catch(e){ alert('Fehler beim Senden: '+e.message); }
+}
+
 async function delAlarmFlow(t, condition, priceUsd, priceInput, currency){
   if(!requireToken()) return;
   const arrow = condition==='below' ? 'unter' : 'über';
@@ -2243,6 +2302,8 @@ async function delAlarmFlow(t, condition, priceUsd, priceInput, currency){
 document.getElementById('watch-list').addEventListener('click', e=>{
   const addBtn = e.target.closest('[data-add-alarm]');
   if(addBtn){ addAlarmFlow(addBtn.dataset.addAlarm); return; }
+  const addNoteBtn = e.target.closest('[data-add-note]');
+  if(addNoteBtn){ addNoteFlow(addNoteBtn.dataset.addNote); return; }
   const delWatchBtn = e.target.closest('[data-del-watch]');
   if(delWatchBtn){ delWatchFlow(delWatchBtn.dataset.delWatch); return; }
   const delAlertChip = e.target.closest('[data-del-alert]');
@@ -2294,7 +2355,7 @@ document.querySelector('main').addEventListener('click', e=>{
   }
   // Buttons/Alarm-Chips haben eigene Aktionen (siehe watch-list-Listener
   // weiter unten) — die dürfen NICHT zusätzlich den Chart öffnen.
-  if(e.target.closest('[data-add-alarm],[data-del-watch],[data-del-alert]')) return;
+  if(e.target.closest('[data-add-alarm],[data-add-note],[data-del-watch],[data-del-alert]')) return;
   const wcard = e.target.closest('.wcard');
   if(wcard){
     const tk = wcard.querySelector('.row1')?.dataset.tk;
@@ -2309,6 +2370,7 @@ document.querySelector('main').addEventListener('click', e=>{
 window.addEventListener('popstate', ()=>{
   document.getElementById('sheet').classList.remove('on');
   document.getElementById('alarm-modal').classList.remove('on');
+  document.getElementById('note-modal').classList.remove('on');
 });
 
 // Räumt alte chartcache_*/infocache_*-Einträge auf — sonst bleibt jeder
