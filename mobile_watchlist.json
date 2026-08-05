@@ -1,20 +1,20 @@
 {
  "schema": 3,
- "updated_at": 1785949768,
- "updated_iso": "2026-08-05T19:09:28",
+ "updated_at": 1785949770,
+ "updated_iso": "2026-08-05T19:09:30",
  "fx": 1.15473,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
    "isin": "",
-   "price": 33.07,
+   "price": 33.06,
    "price_prev": 33.45,
-   "pct": -1.136,
+   "pct": -1.166,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949644,
+   "price_ts": 1785949649,
    "insider": [
     {
      "date": "2026-06-11",
@@ -100,7 +100,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949654,
+   "price_ts": 1785949660,
    "insider": [
     {
      "date": "2026-06-02",
@@ -186,7 +186,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949665,
+   "price_ts": 1785949672,
    "insider": [
     {
      "date": "2026-07-20",
@@ -272,7 +272,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949677,
+   "price_ts": 1785949683,
    "insider": [
     {
      "date": "2026-07-01",
@@ -349,92 +349,6 @@
    "price_at_add_currency": "USD"
   },
   {
-   "t": "GLW",
-   "dt": "2026-05-22 17:03",
-   "isin": "",
-   "price": 158.28,
-   "price_prev": 159.89,
-   "pct": -1.007,
-   "currency": "USD",
-   "live": true,
-   "price_source": "US",
-   "price_ts": 1785949688,
-   "insider": [
-    {
-     "date": "2026-06-30",
-     "name": "Martin Kevin J",
-     "type": "BUY",
-     "shares": 137,
-     "value": 5168370.62,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-30",
-     "name": "Ferguson Roger W. Jr.",
-     "type": "BUY",
-     "shares": 161,
-     "value": 4271300.46,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-30",
-     "name": "BURNS STEPHANIE",
-     "type": "BUY",
-     "shares": 161,
-     "value": 6837605.67,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-30",
-     "name": "CUMMINGS ROBERT F JR",
-     "type": "BUY",
-     "shares": 161,
-     "value": 33400537.66,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-06-22",
-     "name": "Gullo Michelle L",
-     "type": "SELL",
-     "shares": 18378,
-     "value": 4040906.14,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-09",
-     "name": "WEEKS WENDELL P",
-     "type": "SELL",
-     "shares": 100000,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ],
-   "fundamentals": {
-    "sector": "Technology",
-    "industry": "Electronic Components",
-    "marketCap": 136342945792,
-    "trailingPE": 66.92199,
-    "forwardPE": 36.710068,
-    "pegRatio": 1.07,
-    "trailingEps": 2.37,
-    "forwardEps": 4.32048,
-    "revenueGrowth": 0.166,
-    "earningsGrowth": 0.185,
-    "profitMargins": 0.111999996,
-    "grossMargins": 0.36395,
-    "returnOnEquity": 0.16813,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   },
-   "price_at_add": 180.4135,
-   "price_at_add_currency": "USD"
-  },
-  {
    "t": "HIMS",
    "dt": "2026-05-22 17:03",
    "isin": "US4330001060",
@@ -444,7 +358,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949699,
+   "price_ts": 1785949694,
    "insider": [
     {
      "date": "2026-07-17",
@@ -530,7 +444,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949709,
+   "price_ts": 1785949705,
    "insider": [
     {
      "date": "2026-07-02",
@@ -616,7 +530,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949717,
+   "price_ts": 1785949714,
    "insider": [
     {
      "date": "2026-07-22",
@@ -702,7 +616,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949725,
+   "price_ts": 1785949722,
    "insider": [
     {
      "date": "2026-08-03",
@@ -788,7 +702,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949732,
+   "price_ts": 1785949729,
    "insider": [
     {
      "date": "2026-07-20",
@@ -874,7 +788,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949743,
+   "price_ts": 1785949741,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -911,7 +825,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949755,
+   "price_ts": 1785949752,
    "insider": [
     {
      "date": "2026-07-15",
