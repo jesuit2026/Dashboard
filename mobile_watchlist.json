@@ -1,8 +1,8 @@
 {
  "schema": 3,
- "updated_at": 1785901634,
- "updated_iso": "2026-08-05T05:47:14",
- "fx": 1.15393,
+ "updated_at": 1785903570,
+ "updated_iso": "2026-08-05T06:19:30",
+ "fx": 1.15433,
  "watchlist": [
   {
    "t": "AMSC",
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901610,
+   "price_ts": 1785903534,
    "insider": [
     {
      "date": "2026-06-11",
@@ -79,12 +79,12 @@
     "profitMargins": 0.44729,
     "grossMargins": 0.30813,
     "returnOnEquity": 0.35561,
-    "fiftyTwoWeekHigh": 70.49,
-    "fiftyTwoWeekLow": 24.87,
-    "targetMeanPrice": 62.5,
-    "heldPercentInstitutions": 0.70664,
-    "shortPercentOfFloat": 0.0728,
-    "beta": 3.284,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   },
@@ -98,7 +98,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901614,
+   "price_ts": 1785903539,
    "insider": [
     {
      "date": "2026-06-02",
@@ -163,12 +163,12 @@
     "profitMargins": 0.20247999,
     "grossMargins": 0.97537005,
     "returnOnEquity": 0.13352999,
-    "fiftyTwoWeekHigh": 452.7,
-    "fiftyTwoWeekLow": 100.02,
-    "targetMeanPrice": 286.78918,
-    "heldPercentInstitutions": 0.95435995,
-    "shortPercentOfFloat": 0.12020001,
-    "beta": 3.909,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   },
@@ -182,7 +182,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901615,
+   "price_ts": 1785903544,
    "insider": [
     {
      "date": "2026-07-20",
@@ -247,12 +247,12 @@
     "profitMargins": 0.26724002,
     "grossMargins": 0.75988996,
     "returnOnEquity": 0.21110001,
-    "fiftyTwoWeekHigh": 499.476,
-    "fiftyTwoWeekLow": 97.89,
-    "targetMeanPrice": 317.92227,
-    "heldPercentInstitutions": 0.73396003,
-    "shortPercentOfFloat": 0.0732,
-    "beta": 3.843,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   },
@@ -266,7 +266,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901616,
+   "price_ts": 1785903549,
    "insider": [
     {
      "date": "2026-07-01",
@@ -350,7 +350,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901617,
+   "price_ts": 1785903554,
    "insider": [
     {
      "date": "2026-07-24",
@@ -415,12 +415,12 @@
     "profitMargins": -0.03182,
     "grossMargins": 0.38566002,
     "returnOnEquity": -0.04936,
-    "fiftyTwoWeekHigh": 19.98,
-    "fiftyTwoWeekLow": 7.11,
-    "targetMeanPrice": 18.5,
-    "heldPercentInstitutions": 1.0802,
-    "shortPercentOfFloat": 0.1785,
-    "beta": 1.493,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   },
@@ -434,7 +434,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901619,
+   "price_ts": 1785903559,
    "insider": [
     {
      "date": "2026-06-30",
@@ -499,13 +499,13 @@
     "profitMargins": 0.111999996,
     "grossMargins": 0.36395,
     "returnOnEquity": 0.16813,
-    "fiftyTwoWeekHigh": 271.78,
-    "fiftyTwoWeekLow": 63.07,
-    "targetMeanPrice": 191.4,
-    "heldPercentInstitutions": 0.7346,
-    "shortPercentOfFloat": 0.0252,
-    "beta": 1.148,
-    "dividendYield": 0.76
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
    }
   },
   {
@@ -518,7 +518,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901594,
+   "price_ts": 1785903563,
    "insider": [
     {
      "date": "2026-07-17",
@@ -583,12 +583,12 @@
     "profitMargins": -0.00559,
     "grossMargins": 0.72919,
     "returnOnEquity": -0.026589999,
-    "fiftyTwoWeekHigh": 65.299,
-    "fiftyTwoWeekLow": 13.74,
-    "targetMeanPrice": 29.23077,
-    "heldPercentInstitutions": 0.71167,
-    "shortPercentOfFloat": 0.3194,
-    "beta": 2.415,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   },
@@ -602,7 +602,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901620,
+   "price_ts": 1785903564,
    "insider": [
     {
      "date": "2026-07-02",
@@ -686,7 +686,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901621,
+   "price_ts": 1785903565,
    "insider": [
     {
      "date": "2026-07-20",
@@ -770,7 +770,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901622,
+   "price_ts": 1785903567,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -805,7 +805,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901624,
+   "price_ts": 1785903568,
    "insider": [
     {
      "date": "2026-05-28",
@@ -870,12 +870,12 @@
     "profitMargins": -0.040349998,
     "grossMargins": 0.6068,
     "returnOnEquity": -0.06995,
-    "fiftyTwoWeekHigh": 60.43,
-    "fiftyTwoWeekLow": 9.85,
-    "targetMeanPrice": 64.57143,
-    "heldPercentInstitutions": 0.96069,
-    "shortPercentOfFloat": 0.0678,
-    "beta": 1.234,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   },
@@ -889,7 +889,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901597,
+   "price_ts": 1785903569,
    "insider": [
     {
      "date": "2026-07-22",
@@ -954,11 +954,11 @@
     "profitMargins": 0.49005002,
     "grossMargins": 0.84796,
     "returnOnEquity": 0.38097,
-    "fiftyTwoWeekHigh": 207.52,
-    "fiftyTwoWeekLow": 106.37,
-    "targetMeanPrice": 185.68,
-    "heldPercentInstitutions": 0.62079,
-    "shortPercentOfFloat": 0.0364,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
    }
@@ -973,7 +973,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1785901625,
+   "price_ts": 1785903570,
    "insider": [
     {
      "date": "2026-07-15",
@@ -1038,13 +1038,13 @@
     "profitMargins": 0.40305,
     "grossMargins": 0.67944,
     "returnOnEquity": 0.34039003,
-    "fiftyTwoWeekHigh": 553.72,
-    "fiftyTwoWeekLow": 349.2,
-    "targetMeanPrice": 562.72644,
-    "heldPercentInstitutions": 0.75446,
-    "shortPercentOfFloat": 0.0124,
-    "beta": 1.099,
-    "dividendYield": 0.75
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
    }
   }
  ],
