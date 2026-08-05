@@ -1,20 +1,20 @@
 {
  "schema": 3,
- "updated_at": 1785949770,
- "updated_iso": "2026-08-05T19:09:30",
+ "updated_at": 1785949936,
+ "updated_iso": "2026-08-05T19:12:16",
  "fx": 1.15473,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
    "isin": "",
-   "price": 33.06,
+   "price": 33.08,
    "price_prev": 33.45,
-   "pct": -1.166,
+   "pct": -1.106,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949649,
+   "price_ts": 1785949925,
    "insider": [
     {
      "date": "2026-06-11",
@@ -94,13 +94,13 @@
    "t": "ARM",
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
-   "price": 278.14,
+   "price": 278.72,
    "price_prev": 280.56,
-   "pct": -0.863,
+   "pct": -0.656,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949660,
+   "price_ts": 1785949926,
    "insider": [
     {
      "date": "2026-06-02",
@@ -180,13 +180,13 @@
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
-   "price": 324.24,
+   "price": 323.47,
    "price_prev": 361.67,
-   "pct": -10.349,
+   "pct": -10.562,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949672,
+   "price_ts": 1785949927,
    "insider": [
     {
      "date": "2026-07-20",
@@ -266,13 +266,13 @@
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
-   "price": 31.2,
+   "price": 31.26,
    "price_prev": 31.69,
-   "pct": -1.546,
+   "pct": -1.357,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949683,
+   "price_ts": 1785949928,
    "insider": [
     {
      "date": "2026-07-01",
@@ -349,102 +349,16 @@
    "price_at_add_currency": "USD"
   },
   {
-   "t": "HIMS",
-   "dt": "2026-05-22 17:03",
-   "isin": "US4330001060",
-   "price": 31.26,
-   "price_prev": 32.16,
-   "pct": -2.799,
-   "currency": "USD",
-   "live": true,
-   "price_source": "US",
-   "price_ts": 1785949694,
-   "insider": [
-    {
-     "date": "2026-07-17",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-17",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 9096367.0493,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-17",
-     "name": "Okupe Oluyemi",
-     "type": "BUY",
-     "shares": 7163,
-     "value": 1460334.8399999999,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Okupe Oluyemi",
-     "type": "SELL",
-     "shares": 7163,
-     "value": 10373821.3023,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Okupe Oluyemi",
-     "type": "BUY",
-     "shares": 7163,
-     "value": 1460334.8399999999,
-     "signal_strength": "mittel"
-    }
-   ],
-   "fundamentals": {
-    "sector": "Healthcare",
-    "industry": "Drug Manufacturers - Specialty & Generic",
-    "marketCap": 7381185536,
-    "trailingPE": null,
-    "forwardPE": 24.438652,
-    "pegRatio": 2.15,
-    "trailingEps": -0.09,
-    "forwardEps": 1.3049,
-    "revenueGrowth": 0.038,
-    "earningsGrowth": null,
-    "profitMargins": -0.00559,
-    "grossMargins": 0.72919,
-    "returnOnEquity": -0.026589999,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   },
-   "price_at_add": 23.04,
-   "price_at_add_currency": "USD"
-  },
-  {
    "t": "HWM",
    "dt": "2026-05-22 17:04",
    "isin": "",
-   "price": 291.77,
+   "price": 291.69,
    "price_prev": 288.2,
-   "pct": 1.239,
+   "pct": 1.211,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949705,
+   "price_ts": 1785949930,
    "insider": [
     {
      "date": "2026-07-02",
@@ -524,13 +438,13 @@
    "t": "COHR",
    "dt": "2026-06-02 12:58",
    "isin": "US19247G1076",
-   "price": 333.88,
+   "price": 333.14,
    "price_prev": 323.73,
-   "pct": 3.135,
+   "pct": 2.907,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949714,
+   "price_ts": 1785949931,
    "insider": [
     {
      "date": "2026-07-22",
@@ -610,13 +524,13 @@
    "t": "MRVL",
    "dt": "2026-06-02 15:47",
    "isin": "",
-   "price": 215.02,
+   "price": 214.35,
    "price_prev": 218.59,
-   "pct": -1.633,
+   "pct": -1.94,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949722,
+   "price_ts": 1785949932,
    "insider": [
     {
      "date": "2026-08-03",
@@ -696,13 +610,13 @@
    "t": "ANET",
    "dt": "2026-06-10 12:40",
    "isin": "US0404132054",
-   "price": 199.37,
+   "price": 199.12,
    "price_prev": 190.51,
-   "pct": 4.651,
+   "pct": 4.519,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949729,
+   "price_ts": 1785949934,
    "insider": [
     {
      "date": "2026-07-20",
@@ -782,13 +696,13 @@
    "t": "ASML",
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
-   "price": 1695.48,
+   "price": 1691.62,
    "price_prev": 1711.89,
-   "pct": -0.959,
+   "pct": -1.184,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949741,
+   "price_ts": 1785949935,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -825,7 +739,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1785949752,
+   "price_ts": 1785949936,
    "insider": [
     {
      "date": "2026-07-15",
