@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1786178533,
- "updated_iso": "2026-08-08T10:42:13",
+ "updated_at": 1786178564,
+ "updated_iso": "2026-08-08T10:42:44",
  "fx": 1.12,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178523,
+   "price_ts": 1786178532,
    "insider": [
     {
      "date": "2026-06-12",
@@ -98,7 +98,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178524,
+   "price_ts": 1786178533,
    "insider": [
     {
      "date": "2026-06-04",
@@ -182,7 +182,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178526,
+   "price_ts": 1786178534,
    "insider": [
     {
      "date": "2026-07-22",
@@ -266,7 +266,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178527,
+   "price_ts": 1786178535,
    "insider": [
     {
      "date": "2026-07-02",
@@ -350,7 +350,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178528,
+   "price_ts": 1786178536,
    "insider": [
     {
      "date": "2026-07-06",
@@ -434,7 +434,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178529,
+   "price_ts": 1786178538,
    "insider": [
     {
      "date": "2026-07-24",
@@ -518,7 +518,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178530,
+   "price_ts": 1786178539,
    "insider": [
     {
      "date": "2026-08-03",
@@ -602,7 +602,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178532,
+   "price_ts": 1786178540,
    "insider": [
     {
      "date": "2026-08-07",
@@ -686,7 +686,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178533,
+   "price_ts": 1786178541,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -708,6 +708,90 @@
     "heldPercentInstitutions": null,
     "shortPercentOfFloat": null,
     "beta": null,
+    "dividendYield": null
+   }
+  },
+  {
+   "t": "PLTR",
+   "dt": "2026-08-08 10:42",
+   "isin": "",
+   "price": 171.995,
+   "price_prev": 171.995,
+   "pct": 7.416,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1786178542,
+   "insider": [
+    {
+     "date": "2026-08-07",
+     "name": "Stat Lauren Elaina Friedman",
+     "type": "SELL",
+     "shares": 3032,
+     "value": 500280.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-07-17",
+     "name": "Moore Alexander D.",
+     "type": "SELL",
+     "shares": 11800,
+     "value": 1578255.9,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-07-17",
+     "name": "Moore Alexander D.",
+     "type": "SELL",
+     "shares": 3100,
+     "value": 417120.19,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-07-17",
+     "name": "Moore Alexander D.",
+     "type": "SELL",
+     "shares": 1000,
+     "value": 135715.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-07-17",
+     "name": "Moore Alexander D.",
+     "type": "SELL",
+     "shares": 100,
+     "value": 13679.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-07-07",
+     "name": "Sankar Shyam",
+     "type": "OTHER",
+     "shares": 35000,
+     "value": 0,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "marketCap": 413350068224,
+    "trailingPE": 133.34108,
+    "forwardPE": 74.794754,
+    "pegRatio": 2.29,
+    "trailingEps": 1.29,
+    "forwardEps": 2.29976,
+    "revenueGrowth": 0.928,
+    "earningsGrowth": 2.154,
+    "profitMargins": 0.49005002,
+    "grossMargins": 0.84796,
+    "returnOnEquity": 0.38097,
+    "fiftyTwoWeekHigh": 207.52,
+    "fiftyTwoWeekLow": 106.37,
+    "targetMeanPrice": 189.90222,
+    "heldPercentInstitutions": 0.62387,
+    "shortPercentOfFloat": 0.0364,
+    "beta": 1.563,
     "dividendYield": null
    }
   }
