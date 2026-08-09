@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1786178564,
- "updated_iso": "2026-08-08T10:42:44",
+ "updated_at": 1786290049,
+ "updated_iso": "2026-08-09T17:40:49",
  "fx": 1.12,
  "watchlist": [
   {
@@ -10,11 +10,11 @@
    "isin": "",
    "price": 32.775,
    "price_prev": 32.775,
-   "pct": -0.561,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178532,
+   "price_ts": 1786289934,
    "insider": [
     {
      "date": "2026-06-12",
@@ -94,11 +94,11 @@
    "isin": "US0420682058",
    "price": 282.64,
    "price_prev": 282.64,
-   "pct": -1.378,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178533,
+   "price_ts": 1786289935,
    "insider": [
     {
      "date": "2026-06-04",
@@ -178,11 +178,11 @@
    "isin": "US04626A1034",
    "price": 334.03,
    "price_prev": 334.03,
-   "pct": 0.897,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178534,
+   "price_ts": 1786289935,
    "insider": [
     {
      "date": "2026-07-22",
@@ -262,11 +262,11 @@
    "isin": "US86800U3023",
    "price": 31.105,
    "price_prev": 31.105,
-   "pct": 5.871,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178535,
+   "price_ts": 1786289936,
    "insider": [
     {
      "date": "2026-07-02",
@@ -346,11 +346,11 @@
    "isin": "",
    "price": 281.9,
    "price_prev": 281.9,
-   "pct": -2.666,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178536,
+   "price_ts": 1786289937,
    "insider": [
     {
      "date": "2026-07-06",
@@ -430,11 +430,11 @@
    "isin": "US19247G1076",
    "price": 379.6,
    "price_prev": 379.6,
-   "pct": 13.554,
+   "pct": 0.137,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178538,
+   "price_ts": 1786289938,
    "insider": [
     {
      "date": "2026-07-24",
@@ -514,11 +514,11 @@
    "isin": "",
    "price": 218.63,
    "price_prev": 218.63,
-   "pct": 3.926,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178539,
+   "price_ts": 1786289939,
    "insider": [
     {
      "date": "2026-08-03",
@@ -602,7 +602,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178540,
+   "price_ts": 1786289940,
    "insider": [
     {
      "date": "2026-08-07",
@@ -682,11 +682,11 @@
    "isin": "NL0010273215",
    "price": 1741.115,
    "price_prev": 1741.115,
-   "pct": 2.129,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178541,
+   "price_ts": 1786289941,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -712,86 +712,78 @@
    }
   },
   {
-   "t": "PLTR",
-   "dt": "2026-08-08 10:42",
-   "isin": "",
-   "price": 171.995,
-   "price_prev": 171.995,
-   "pct": 7.416,
+   "t": "HST",
+   "dt": "2026-08-03 19:21",
+   "isin": "US44107P1049",
+   "price": 23.275,
+   "price_prev": 23.275,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786178542,
+   "price_ts": 1786289942,
    "insider": [
     {
-     "date": "2026-08-07",
-     "name": "Stat Lauren Elaina Friedman",
+     "date": "2026-05-27",
+     "name": "TYRRELL NATHAN S",
      "type": "SELL",
-     "shares": 3032,
-     "value": 500280.0,
+     "shares": 15569,
+     "value": 358087.0,
      "signal_strength": "normal"
     },
     {
-     "date": "2026-07-17",
-     "name": "Moore Alexander D.",
+     "date": "2026-05-27",
+     "name": "RAKOWICH WALTER C",
      "type": "SELL",
-     "shares": 11800,
-     "value": 1578255.9,
+     "shares": 3408,
+     "value": 78041.1552,
      "signal_strength": "normal"
     },
     {
-     "date": "2026-07-17",
-     "name": "Moore Alexander D.",
-     "type": "SELL",
-     "shares": 3100,
-     "value": 417120.19,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-17",
-     "name": "Moore Alexander D.",
-     "type": "SELL",
-     "shares": 1000,
-     "value": 135715.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-17",
-     "name": "Moore Alexander D.",
-     "type": "SELL",
-     "shares": 100,
-     "value": 13679.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-07",
-     "name": "Sankar Shyam",
+     "date": "2026-05-22",
+     "name": "RAKOWICH WALTER C",
      "type": "OTHER",
-     "shares": 35000,
+     "shares": 8520,
      "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-22",
+     "name": "BULLS HERMAN E",
+     "type": "OTHER",
+     "shares": 8520,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-15",
+     "name": "OTTINGER JOSEPH",
+     "type": "SELL",
+     "shares": 46,
+     "value": 990.8399999999999,
      "signal_strength": "normal"
     }
    ],
    "fundamentals": {
-    "sector": "Technology",
-    "industry": "Software - Infrastructure",
-    "marketCap": 413350068224,
-    "trailingPE": 133.34108,
-    "forwardPE": 74.794754,
-    "pegRatio": 2.29,
-    "trailingEps": 1.29,
-    "forwardEps": 2.29976,
-    "revenueGrowth": 0.928,
-    "earningsGrowth": 2.154,
-    "profitMargins": 0.49005002,
-    "grossMargins": 0.84796,
-    "returnOnEquity": 0.38097,
-    "fiftyTwoWeekHigh": 207.52,
-    "fiftyTwoWeekLow": 106.37,
-    "targetMeanPrice": 189.90222,
-    "heldPercentInstitutions": 0.62387,
-    "shortPercentOfFloat": 0.0364,
-    "beta": 1.563,
+    "sector": "Real Estate",
+    "industry": "REIT - Hotel & Motel",
+    "marketCap": 17375375360,
+    "trailingPE": 17.037415,
+    "forwardPE": 24.610138,
+    "pegRatio": 4.14,
+    "trailingEps": 1.47,
+    "forwardEps": 1.01767,
+    "revenueGrowth": 0.028,
+    "earningsGrowth": 1.053,
+    "profitMargins": 0.16367,
+    "grossMargins": 0.28978002,
+    "returnOnEquity": 0.1487,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
     "dividendYield": null
    }
   }
