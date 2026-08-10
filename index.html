@@ -421,7 +421,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-04.2';
+const APP_BUILD = '2026-08-04.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -2343,7 +2343,7 @@ document.querySelector('main').addEventListener('touchstart',e=>{
 document.querySelector('main').addEventListener('touchend',e=>{
   const dy=e.changedTouches[0].clientY-touchStartY;
   const main=document.querySelector('main');
-  if(dy>80 && main.scrollTop<=0){ loadScreen(); loadWatchlist(); }
+  if(dy>80 && main.scrollTop<=0){ checkForAppUpdate(); loadScreen(); loadWatchlist(); }
 },{passive:true});
 
 // ─── Karten-Klick via Event-Delegation (überlebt Neu-Rendern) ────
@@ -2395,6 +2395,27 @@ function cleanupOldCaches(maxAgeDays=14){
   }catch{}
 }
 
+// ── Automatischer Update-Check beim Start ─────────────────────────
+// Android/Chrome (v.a. als installierte PWA) zeigt nach einem Update oft
+// noch eine alte, gecachte Version der Seite selbst — nicht nur alte
+// Daten. Das lässt sich vom Handy aus schwer manuell erkennen ("sieht ja
+// aus wie die App"). Deshalb: bei jedem Start die tatsächlich im Repo
+// liegende index.html mit Cache-Buster abrufen und den Build-Stempel
+// vergleichen — weicht er ab, läuft eine noch ältere Version als gerade
+// angezeigt, dann hart neu laden (holt garantiert die aktuelle Version).
+async function checkForAppUpdate(){
+  try{
+    const res = await fetch('index.html?_cb='+Date.now(), {cache:'no-store'});
+    if(!res.ok) return;
+    const text = await res.text();
+    const m = text.match(/APP_BUILD = '([^']+)'/);
+    if(m && m[1] && m[1]!==APP_BUILD){
+      console.log('Neue Version verfügbar ('+m[1]+' statt '+APP_BUILD+') — lade neu…');
+      location.reload();
+    }
+  }catch{}
+}
+
 // ─── Init ────────────────────────────────────────────────────
 document.getElementById('json-url').value = LS.get('jsonUrl','');
 document.getElementById('app-build').textContent = APP_BUILD;
@@ -2402,6 +2423,7 @@ if(hasGhToken()){
   document.getElementById('gh-token-status').innerHTML =
     '<span style="color:var(--grn)">✓ Token gespeichert</span>';
 }
+checkForAppUpdate();
 loadScreen();
 loadWatchlist();
 attachCrosshair();
@@ -2414,7 +2436,10 @@ setInterval(()=>{ loadWatchlist(); }, 180000);
 
 // Beim Wiedereinblenden (App aus Hintergrund) aktualisieren
 document.addEventListener('visibilitychange',()=>{
-  if(!document.hidden && (screenData||watchData)) refreshQuotes();
+  if(!document.hidden){
+    checkForAppUpdate();
+    if(screenData||watchData) refreshQuotes();
+  }
 });
 
 // Service Worker registrieren (macht die App auf Android installierbar —
