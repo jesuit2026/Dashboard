@@ -1,70 +1,13 @@
 {
  "schema": 3,
- "updated_at": 1786423733,
- "updated_iso": "2026-08-11T06:48:53",
- "fx": 1.12,
+ "updated_at": 1786471714,
+ "updated_iso": "2026-08-11T20:08:34",
+ "fx": 1.14,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
-   "isin": "",
-   "price": 30.97,
-   "price_prev": 30.97,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423725,
-   "insider": [
-    {
-     "date": "2026-06-12",
-     "name": "Dambier Laura A.",
-     "type": "SELL",
-     "shares": 4000,
-     "value": 150520.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "Kosiba John W JR",
-     "type": "SELL",
-     "shares": 5026,
-     "value": 187603.99420000002,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "Kosiba John W JR",
-     "type": "SELL",
-     "shares": 1743,
-     "value": 65975.3388,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "McGahn Daniel P",
-     "type": "SELL",
-     "shares": 11508,
-     "value": 429047.01,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-11",
-     "name": "McGahn Daniel P",
-     "type": "SELL",
-     "shares": 4609,
-     "value": 174455.71990000003,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-10",
-     "name": "Kosiba John W JR",
-     "type": "SELL",
-     "shares": 3286,
-     "value": 136371.3002,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
@@ -91,64 +34,7 @@
   {
    "t": "ARM",
    "dt": "2026-05-21 18:53",
-   "isin": "US0420682058",
-   "price": 267.97,
-   "price_prev": 267.97,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423726,
-   "insider": [
-    {
-     "date": "2026-06-04",
-     "name": "Bartels Laura Kathleen",
-     "type": "SELL",
-     "shares": 11306,
-     "value": 4439866.2,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-03",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 2644,
-     "value": 1014582.12,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-03",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 3922,
-     "value": 1629669.44,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-01",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 4200,
-     "value": 1444002.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-26",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 2300,
-     "value": 703386.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-22",
-     "name": "Abbey William",
-     "type": "SELL",
-     "shares": 4655,
-     "value": 1336124.65,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -175,64 +61,7 @@
   {
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
-   "isin": "US04626A1034",
-   "price": 317.37,
-   "price_prev": 317.37,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423727,
-   "insider": [
-    {
-     "date": "2026-08-10",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 1029,
-     "value": 318258.381,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 2447,
-     "value": 756830.183,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 194,
-     "value": 60002.066,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 269,
-     "value": 83759.068,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 640,
-     "value": 199278.08000000002,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "Dyckerhoff Stefan A",
-     "type": "SELL",
-     "shares": 51,
-     "value": 15879.972000000002,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -259,64 +88,7 @@
   {
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
-   "isin": "US86800U3023",
-   "price": 31.45,
-   "price_prev": 31.45,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423727,
-   "insider": [
-    {
-     "date": "2026-07-02",
-     "name": "Liu Liang Chiu-Chu Sara",
-     "type": "OTHER",
-     "shares": 830,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-02",
-     "name": "Liu Liang Chiu-Chu Sara",
-     "type": "SELL",
-     "shares": 448,
-     "value": 12387.199999999999,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-02",
-     "name": "Liu Liang Chiu-Chu Sara",
-     "type": "OTHER",
-     "shares": 510,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-02",
-     "name": "Liu Liang Chiu-Chu Sara",
-     "type": "SELL",
-     "shares": 276,
-     "value": 7631.4,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-02",
-     "name": "Liu Liang Chiu-Chu Sara",
-     "type": "OTHER",
-     "shares": 273,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-02",
-     "name": "Liu Liang Chiu-Chu Sara",
-     "type": "SELL",
-     "shares": 148,
-     "value": 4092.2,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Computer Hardware",
@@ -343,64 +115,7 @@
   {
    "t": "HWM",
    "dt": "2026-05-22 17:04",
-   "isin": "",
-   "price": 283.46,
-   "price_prev": 283.46,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423728,
-   "insider": [
-    {
-     "date": "2026-07-06",
-     "name": "CANTIE JOSEPH S",
-     "type": "OTHER",
-     "shares": 134,
-     "value": 36234.94,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-26",
-     "name": "Smith Gunner",
-     "type": "OTHER",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-26",
-     "name": "SCHMIDT ULRICH",
-     "type": "OTHER",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-26",
-     "name": "Miller Jody",
-     "type": "OTHER",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-26",
-     "name": "LEDUC ROBERT F",
-     "type": "OTHER",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-26",
-     "name": "CANTIE JOSEPH S",
-     "type": "OTHER",
-     "shares": 731,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": null,
     "industry": null,
@@ -427,40 +142,7 @@
   {
    "t": "COHR",
    "dt": "2026-06-02 12:58",
-   "isin": "US19247G1076",
-   "price": 325.12,
-   "price_prev": 325.12,
-   "pct": 0.018,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423729,
-   "insider": [
-    {
-     "date": "2026-07-24",
-     "name": "Luther Sherri R",
-     "type": "SELL",
-     "shares": 1000,
-     "value": 306680.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-06",
-     "name": "Place Jeffrey B.",
-     "type": "SELL",
-     "shares": 2181,
-     "value": 860339.0700000001,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-05",
-     "name": "ANDERSON JAMES ROBERT",
-     "type": "SELL",
-     "shares": 25836,
-     "value": 11029130.04,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Scientific & Technical Instruments",
@@ -487,64 +169,7 @@
   {
    "t": "MRVL",
    "dt": "2026-06-02 15:47",
-   "isin": "",
-   "price": 209.0,
-   "price_prev": 209.0,
-   "pct": 0.168,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423730,
-   "insider": [
-    {
-     "date": "2026-08-03",
-     "name": "Koopmans Chris",
-     "type": "SELL",
-     "shares": 10000,
-     "value": 1805000.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-16",
-     "name": "Bharathi Sandeep",
-     "type": "OTHER",
-     "shares": 2462,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-16",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 1297,
-     "value": 267519.22,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-16",
-     "name": "Bharathi Sandeep",
-     "type": "OTHER",
-     "shares": 3567,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-16",
-     "name": "Bharathi Sandeep",
-     "type": "SELL",
-     "shares": 1879,
-     "value": 387562.54,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-16",
-     "name": "Bharathi Sandeep",
-     "type": "OTHER",
-     "shares": 1757,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -571,64 +196,7 @@
   {
    "t": "ANET",
    "dt": "2026-06-10 12:40",
-   "isin": "US0404132054",
-   "price": 191.475,
-   "price_prev": 191.475,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423730,
-   "insider": [
-    {
-     "date": "2026-08-10",
-     "name": "BECHTOLSHEIM ANDREAS",
-     "type": "SELL",
-     "shares": 2015,
-     "value": 382860.6795,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "BECHTOLSHEIM ANDREAS",
-     "type": "SELL",
-     "shares": 5534,
-     "value": 1056295.6091999998,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "BECHTOLSHEIM ANDREAS",
-     "type": "SELL",
-     "shares": 37099,
-     "value": 7127370.8424,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "BECHTOLSHEIM ANDREAS",
-     "type": "SELL",
-     "shares": 50337,
-     "value": 9708240.4713,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "BECHTOLSHEIM ANDREAS",
-     "type": "SELL",
-     "shares": 8162,
-     "value": 1582046.9896,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-10",
-     "name": "BECHTOLSHEIM ANDREAS",
-     "type": "SELL",
-     "shares": 3185,
-     "value": 620630.0555,
-     "signal_strength": "normal"
-    }
-   ],
+   "insider": [],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Computer Hardware",
@@ -655,14 +223,6 @@
   {
    "t": "ASML",
    "dt": "2026-06-16 16:07",
-   "isin": "NL0010273215",
-   "price": 1733.9,
-   "price_prev": 1733.9,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423731,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -688,78 +248,29 @@
    }
   },
   {
-   "t": "HST",
-   "dt": "2026-08-03 19:21",
-   "isin": "US44107P1049",
-   "price": 22.67,
-   "price_prev": 22.67,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786423732,
-   "insider": [
-    {
-     "date": "2026-05-27",
-     "name": "TYRRELL NATHAN S",
-     "type": "SELL",
-     "shares": 15569,
-     "value": 358087.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-27",
-     "name": "RAKOWICH WALTER C",
-     "type": "SELL",
-     "shares": 3408,
-     "value": 78041.1552,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-22",
-     "name": "RAKOWICH WALTER C",
-     "type": "OTHER",
-     "shares": 8520,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-22",
-     "name": "BULLS HERMAN E",
-     "type": "OTHER",
-     "shares": 8520,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-05-15",
-     "name": "OTTINGER JOSEPH",
-     "type": "SELL",
-     "shares": 46,
-     "value": 990.8399999999999,
-     "signal_strength": "normal"
-    }
-   ],
+   "t": "PLTR",
+   "dt": "2026-08-08 10:42",
+   "insider": [],
    "fundamentals": {
-    "sector": "Real Estate",
-    "industry": "REIT - Hotel & Motel",
-    "marketCap": 17375375360,
-    "trailingPE": 17.037415,
-    "forwardPE": 24.610138,
-    "pegRatio": 4.14,
-    "trailingEps": 1.47,
-    "forwardEps": 1.01767,
-    "revenueGrowth": 0.028,
-    "earningsGrowth": 1.053,
-    "profitMargins": 0.16367,
-    "grossMargins": 0.28978002,
-    "returnOnEquity": 0.1487,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "marketCap": 422481690624,
+    "trailingPE": 150.26495,
+    "forwardPE": 75.96878,
+    "pegRatio": 2.41,
+    "trailingEps": 1.17,
+    "forwardEps": 2.31424,
+    "revenueGrowth": 0.928,
+    "earningsGrowth": 2.154,
+    "profitMargins": 0.49005002,
+    "grossMargins": 0.84796,
+    "returnOnEquity": 0.38097,
+    "fiftyTwoWeekHigh": 207.52,
+    "fiftyTwoWeekLow": 106.37,
+    "targetMeanPrice": 191.68,
+    "heldPercentInstitutions": 0.62598,
+    "shortPercentOfFloat": 0.0364,
+    "beta": 1.563,
     "dividendYield": null
    }
   }
