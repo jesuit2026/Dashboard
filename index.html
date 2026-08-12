@@ -248,9 +248,13 @@
   .news-row:last-child{border-bottom:none}
   .news-row .ntitle{font-size:13px;color:var(--txt);line-height:1.4;margin-bottom:3px}
   .news-row .nmeta{font-size:10.5px;color:var(--dim);font-family:var(--mono)}
-  #chart-hover-info{min-height:16px;font-family:var(--mono);font-size:11px;
-    color:var(--dim);padding:2px 4px 6px}
-  #chart-hover-info b{color:var(--txt)}
+  #chart-hover-info{min-height:20px;font-family:var(--mono);font-size:12px;
+    color:var(--dim);padding:8px 10px;margin-bottom:6px;background:var(--bg2);
+    border:1px solid var(--brd);border-radius:8px;display:flex;flex-wrap:wrap;
+    gap:2px 12px;align-items:baseline}
+  #chart-hover-info:empty{display:none}
+  #chart-hover-info b{color:var(--txt);font-size:13px}
+  #chart-hover-info .hi-hint{color:var(--dim);font-style:italic}
 </style>
 </head>
 <body>
@@ -331,6 +335,17 @@
              autocapitalize="off" spellcheck="false">
       <button onclick="saveFinnhubKey()">Key speichern</button>
       <p id="finnhub-key-status" style="margin-top:6px"></p>
+    </div>
+    <div class="cfg">
+      <h3>Alarm-Benachrichtigungen</h3>
+      <p>Erlaube Benachrichtigungen, damit ein getroffener Alarm dich auch
+         bemerkbar macht, wenn du gerade nicht in der App bist (Handy-
+         Benachrichtigung + Vibration). Funktioniert, solange die App im
+         Hintergrund läuft — bei komplett beendeter App (aus den letzten
+         Apps entfernt) kommt keine Meldung mehr, dafür bräuchte es einen
+         eigenen Push-Server.</p>
+      <button onclick="requestNotifyPermission()">Benachrichtigungen erlauben</button>
+      <p id="notify-status" style="margin-top:6px"></p>
     </div>
   </div>
 </main>
@@ -421,7 +436,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-04.3';
+const APP_BUILD = '2026-08-11.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1113,6 +1128,7 @@ async function _refreshQuotesInner(){
 
   // Watchlist neu rendern, damit Alarm-Chips ihren "getroffen"-Status aktualisieren
   if(watchData?.watchlist?.length) renderWatch();
+  checkAlertHitsAndNotify();
 }
 const _failedTickers = new Set();
 function updateCardFailed(t){
@@ -1481,7 +1497,7 @@ async function openChart(ticker){
   document.getElementById('sheet-tk').textContent=ticker;
   document.getElementById('sheet-px').textContent='lädt…';
   document.getElementById('ma-legend').innerHTML='';
-  document.getElementById('chart-hover-info').innerHTML='';
+  document.getElementById('chart-hover-info').innerHTML='<span class="hi-hint">Auf eine Kerze tippen für Hoch/Tief/Kurs/Volumen…</span>';
   const ctx=document.getElementById('chart').getContext('2d');
   ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
   document.getElementById('sheet-info').innerHTML='';
@@ -2095,6 +2111,70 @@ function saveFinnhubKey(){
   refreshQuotes();
 }
 
+// ═══ Alarm-Benachrichtigungen (Notification + Vibration) ═══════════
+function requestNotifyPermission(){
+  if(!('Notification' in window)){
+    document.getElementById('notify-status').innerHTML =
+      '<span style="color:var(--red)">✗ Dieser Browser unterstützt keine Benachrichtigungen</span>';
+    return;
+  }
+  Notification.requestPermission().then(perm=>{
+    const el=document.getElementById('notify-status');
+    if(perm==='granted'){
+      el.innerHTML='<span style="color:var(--grn)">✓ Benachrichtigungen aktiv</span>';
+    }else{
+      el.innerHTML='<span style="color:var(--ora)">Nicht erlaubt — in den Handy-Einstellungen für diese Seite nachträglich aktivierbar</span>';
+    }
+  });
+}
+function updateNotifyStatus(){
+  const el=document.getElementById('notify-status');
+  if(!('Notification' in window)) return;
+  if(Notification.permission==='granted'){
+    el.innerHTML='<span style="color:var(--grn)">✓ Benachrichtigungen aktiv</span>';
+  }else if(Notification.permission==='denied'){
+    el.innerHTML='<span style="color:var(--red)">✗ Blockiert — in den Handy-Einstellungen für diese Seite manuell erlauben</span>';
+  }
+}
+
+// Merkt sich, für welche Alarme schon eine Benachrichtigung raus ist —
+// sonst würde bei jedem 60s-Refresh-Zyklus erneut gemeldet, solange der
+// Kurs über/unter der Schwelle bleibt. Persistiert, überlebt einen
+// App-Neustart. Wird zurückgesetzt, sobald der Kurs die Schwelle wieder
+// verlässt — ein erneutes Überschreiten meldet also wieder neu.
+function alertNotifyKey(ticker, condition, price){ return `${ticker}_${condition}_${price}`; }
+function checkAlertHitsAndNotify(){
+  if(!watchData?.alerts?.length) return;
+  const notified = LS.get('notifiedAlerts', {});
+  let changed=false;
+  watchData.alerts.forEach(a=>{
+    const t=(a.ticker||'').toUpperCase();
+    const q=quotes[t];
+    if(!q || !(q.price>0)) return;
+    const curUsd = q.currency==='USD' ? q.price : (q.priceEur||q.price) * (_fxCache.v||1.14);
+    const isHit = a.condition==='above' ? curUsd>=a.price : curUsd<=a.price;
+    const key = alertNotifyKey(t, a.condition, a.price);
+    if(isHit && !notified[key]){
+      notified[key]=true; changed=true;
+      fireAlertNotification(t, a);
+    }else if(!isHit && notified[key]){
+      delete notified[key]; changed=true;   // Schwelle wieder verlassen -> beim nächsten Mal erneut melden
+    }
+  });
+  if(changed) LS.set('notifiedAlerts', notified);
+}
+function fireAlertNotification(ticker, a){
+  const arrow = a.condition==='below' ? 'unter' : 'über';
+  const title = `🔔 ${ticker}: Alarm ausgelöst`;
+  const body = `Kurs ${arrow} ${a.currency||'USD'} ${a.price_input??a.price}`;
+  try{
+    if('Notification' in window && Notification.permission==='granted'){
+      new Notification(title, {body, tag:'alarm-'+ticker, icon:'icon-192.png'});
+    }
+  }catch{}
+  try{ if(navigator.vibrate) navigator.vibrate([200,100,200,100,200]); }catch{}
+}
+
 // ═══ GitHub-Schreibzugriff (Warteschlange für PC-Sync) ═══════════
 // Feste Repo-Koordinaten — dasselbe Repo, aus dem die App auch liest.
 const GH_OWNER='jesuit2026', GH_REPO='Dashboard', GH_BRANCH='main';
@@ -2424,6 +2504,7 @@ if(hasGhToken()){
     '<span style="color:var(--grn)">✓ Token gespeichert</span>';
 }
 checkForAppUpdate();
+updateNotifyStatus();
 loadScreen();
 loadWatchlist();
 attachCrosshair();
