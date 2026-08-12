@@ -210,9 +210,11 @@
   .zoom-btn:active{opacity:.8}
   .interval-row{display:flex;gap:6px;margin-bottom:8px}
   .interval-btn{flex:1;background:var(--panel);color:var(--txt2);border:1px solid var(--brd);
-    border-radius:8px;padding:9px 0;font-family:var(--ui);font-size:13px;font-weight:700}
+    border-radius:8px;padding:9px 0;font-family:var(--ui);font-size:12px;font-weight:700}
   .interval-btn.on{background:var(--pur);color:#fff;border-color:var(--pur)}
   .interval-btn:active{opacity:.8}
+  .ccy-btn{margin-left:4px}
+  .ccy-btn.on{background:#00d4ff;color:#0b0f17;border-color:#00d4ff}
   .dir-row{display:flex;gap:8px}
   .dir-btn{flex:1;background:var(--panel);border:1px solid var(--brd);border-radius:10px;
     padding:14px 0;font-family:var(--ui);font-size:15px;font-weight:700;color:var(--dim)}
@@ -410,6 +412,8 @@
     <div class="interval-row">
       <button class="interval-btn on" data-interval="day" onclick="setInterval_('day')">Tag</button>
       <button class="interval-btn" data-interval="week" onclick="setInterval_('week')">Woche</button>
+      <button class="interval-btn ccy-btn on" data-ccy="EUR" onclick="setChartCurrency('EUR')">€ EUR</button>
+      <button class="interval-btn ccy-btn" data-ccy="USD" onclick="setChartCurrency('USD')">$ USD</button>
     </div>
     <div class="zoom-row" id="zoom-row"></div>
     <div id="sheet-info"></div>
@@ -436,7 +440,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-11.1';
+const APP_BUILD = '2026-08-11.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -877,7 +881,6 @@ function wcardHtml(w, allAlerts, pending){
     };
   }
   const myAlerts = allAlerts.filter(a=>(a.ticker||'').toUpperCase()===t.toUpperCase());
-  const myPendingAlerts = pending.filter(p=>p.type==='add_alert' && p.ticker===t);
   const removePendingFor = (a)=> pending.some(p=>p.type==='remove_alert' && p.ticker===t &&
     p.condition===a.condition && Math.abs((p.price_usd||0)-(a.price||0))<0.01);
   const watchRemovePending = pending.some(p=>p.type==='remove_watch' && p.ticker===t);
@@ -908,12 +911,7 @@ function wcardHtml(w, allAlerts, pending){
       data-price-input="${a.price_input??a.price}" data-currency="${a.currency||'USD'}"
       >${arrow} ${a.currency||'USD'} ${a.price_input??a.price}${pendTag} ✕</span>`;
   }).join('');
-  const pendingChipsHtml = myPendingAlerts.map(p=>{
-    const arrow = p.condition==='below' ? '▼ unter' : '▲ über';
-    return `<span class="alert-chip ${p.condition} pending">⏳ ${arrow} ${p.currency||'USD'} ${p.price_input}</span>`;
-  }).join('');
-  const alertsHtml = (chipsHtml||pendingChipsHtml)
-    ? `<div class="alerts">${chipsHtml}${pendingChipsHtml}</div>` : '';
+  const alertsHtml = chipsHtml ? `<div class="alerts">${chipsHtml}</div>` : '';
   const pendingTag = watchRemovePending ? '<span class="pending-tag">⏳ wird entfernt…</span>' : '';
 
   // "Seit [Hinzufügedatum]: X%" — wie OnVista. Holt sich den historischen
@@ -1592,8 +1590,28 @@ async function setInterval_(interval){
 }
 
 function updateIntervalButtons(){
-  document.querySelectorAll('.interval-btn').forEach(b=>
+  document.querySelectorAll('.interval-btn[data-interval]').forEach(b=>
     b.classList.toggle('on', b.dataset.interval===_curInterval));
+}
+
+// ═══ Chart-Währung (€/$) ═══════════════════════════════════════════
+let _chartDisplayCcy = 'EUR';   // Standard: EUR, wie überall sonst in der App
+function setChartCurrency(ccy){
+  _chartDisplayCcy = ccy;
+  document.querySelectorAll('.ccy-btn').forEach(b=>
+    b.classList.toggle('on', b.dataset.ccy===ccy));
+  redrawChart();
+}
+// Rechnet einen Kurs von der Herkunftswährung der Chart-Daten in die
+// aktuell gewählte Anzeige-Währung um (meist USD-Quelle -> EUR-Anzeige,
+// oder umgekehrt, falls schon mal DE-Daten geladen wurden).
+function convChartVal(v, nativeCcy){
+  if(v==null) return v;
+  if(!nativeCcy || nativeCcy===_chartDisplayCcy) return v;
+  const fx = _fxCache.v || 1.14;   // USD pro EUR
+  if(nativeCcy==='USD' && _chartDisplayCcy==='EUR') return v/fx;
+  if(nativeCcy==='EUR' && _chartDisplayCcy==='USD') return v*fx;
+  return v;
 }
 
 // ═══ Info-Box: Fundamentaldaten / Insider / News ═══════════════════
@@ -1786,7 +1804,17 @@ function sliceRange(){
 function redrawChart(){
   const sl=sliceRange();
   if(!sl || sl.closes.length<2) return;
-  drawChart(sl, _hoverIdx);
+  const nativeCcy = _chartState?.meta?.currency || 'USD';
+  if(nativeCcy !== _chartDisplayCcy){
+    const conv = v=>convChartVal(v, nativeCcy);
+    drawChart({
+      ...sl,
+      closes: sl.closes.map(conv), opens: sl.opens.map(conv),
+      highs: sl.highs.map(conv), lows: sl.lows.map(conv),
+    }, _hoverIdx);
+  }else{
+    drawChart(sl, _hoverIdx);
+  }
 }
 
 // Zeitfenster in Handelstagen (grobe Näherung: 21/Monat)
@@ -2055,17 +2083,27 @@ function drawChart(sl, hoverIdx){
       ctx.fillText(dLbl, dbx+dboxW/2, dboxY+10);
       ctx.textAlign='left';
     }
-    // OHLC + Volumen-Infozeile (über dem Chart, wie Desktop-Hover-Panel)
+    // Kurs- + Volumen-Infozeile (über dem Chart, wie Desktop-Hover-Panel)
+    // — bewusst mit klaren deutschen Labels statt O/H/L/C-Kürzeln, und mit
+    // Ø-Volumen als echter Zahl (nicht nur %), damit "wie weit über
+    // Durchschnitt" direkt nachvollziehbar ist.
     const av=avgVol[hoverIdx];
     const volPct = av ? Math.round((volumes[hoverIdx]/av)*100) : null;
     const fmt=v=>v>=1000?v.toFixed(0):v.toFixed(2);
+    const volColor = volPct!=null ? (volPct>=100?'#00e87a':'#ef5350') : '#5d7a9a';
     document.getElementById('chart-hover-info').innerHTML =
-      `O <b>${fmt(opens[hoverIdx])}</b> H <b>${fmt(highs[hoverIdx])}</b> `+
-      `L <b>${fmt(lows[hoverIdx])}</b> C <b>${fmt(closes[hoverIdx])}</b> &nbsp; `+
-      `Vol <b>${fmtVol(volumes[hoverIdx])}</b>`+
-      (volPct!=null ? ` <span style="color:${volPct>=100?'#00e87a':'#ef5350'}">(${volPct}% Ø)</span>` : '');
+      `<span>Kurs <b>${fmt(closes[hoverIdx])}</b></span>`+
+      `<span>Tief <b>${fmt(lows[hoverIdx])}</b></span>`+
+      `<span>Hoch <b>${fmt(highs[hoverIdx])}</b></span>`+
+      `<span>Start <b>${fmt(opens[hoverIdx])}</b></span>`+
+      `<span style="flex-basis:100%;height:0"></span>`+
+      `<span>Volumen <b>${fmtVol(volumes[hoverIdx])}</b></span>`+
+      (av ? `<span>Ø Volumen <b>${fmtVol(av)}</b></span>` : '')+
+      `<span>Bereichs-Max <b>${fmtVol(volMax)}</b></span>`+
+      (volPct!=null ? `<span style="color:${volColor}">${volPct}% des Ø</span>` : '');
   }else{
-    document.getElementById('chart-hover-info').innerHTML = '';
+    document.getElementById('chart-hover-info').innerHTML =
+      '<span class="hi-hint">Auf eine Kerze tippen für Hoch/Tief/Kurs/Volumen…</span>';
   }
 
   // Legende
@@ -2329,6 +2367,11 @@ async function submitAlarmModal(){
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
+    // Sofort als echten Alarm anzeigen — nicht erst auf den PC-Sync warten.
+    if(watchData){
+      if(!watchData.alerts) watchData.alerts=[];
+      watchData.alerts.push({ticker:t, name:t, condition, price:priceUsd, price_input:priceEur, currency:'EUR'});
+    }
     renderWatch();
     closeAlarmModal();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
@@ -2374,6 +2417,13 @@ async function delAlarmFlow(t, condition, priceUsd, priceInput, currency){
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
+    // Sofort aus der Anzeige entfernen — nicht erst warten, bis der PC
+    // die Warteschlange verarbeitet hat (kann je nach PC-Takt dauern).
+    if(watchData?.alerts){
+      watchData.alerts = watchData.alerts.filter(a=>
+        !((a.ticker||'').toUpperCase()===t.toUpperCase() && a.condition===condition
+          && Math.abs((a.price||0)-priceUsd)<0.01));
+    }
     renderWatch();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
