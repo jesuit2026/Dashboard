@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1786507636,
- "updated_iso": "2026-08-12T06:07:16",
+ "updated_at": 1786507647,
+ "updated_iso": "2026-08-12T06:07:27",
  "fx": 1.12,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507589,
+   "price_ts": 1786507585,
    "insider": [
     {
      "date": "2026-06-12",
@@ -100,7 +100,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507590,
+   "price_ts": 1786507586,
    "insider": [
     {
      "date": "2026-08-11",
@@ -186,7 +186,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507590,
+   "price_ts": 1786507587,
    "insider": [
     {
      "date": "2026-08-10",
@@ -272,7 +272,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507591,
+   "price_ts": 1786507588,
    "insider": [
     {
      "date": "2026-07-02",
@@ -358,7 +358,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507592,
+   "price_ts": 1786507589,
    "insider": [
     {
      "date": "2026-07-06",
@@ -444,7 +444,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507593,
+   "price_ts": 1786507589,
    "insider": [
     {
      "date": "2026-08-10",
@@ -530,7 +530,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786507594,
+   "price_ts": 1786507590,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -555,6 +555,84 @@
     "dividendYield": null
    },
    "price_at_add": 1890.2155,
+   "price_at_add_currency": "USD"
+  },
+  {
+   "t": "HST",
+   "dt": "2026-08-03 19:21",
+   "isin": "US44107P1049",
+   "price": 22.29,
+   "price_prev": 22.29,
+   "pct": -0.845,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1786507591,
+   "insider": [
+    {
+     "date": "2026-05-27",
+     "name": "TYRRELL NATHAN S",
+     "type": "SELL",
+     "shares": 15569,
+     "value": 358087.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-27",
+     "name": "RAKOWICH WALTER C",
+     "type": "SELL",
+     "shares": 3408,
+     "value": 78041.1552,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-22",
+     "name": "RAKOWICH WALTER C",
+     "type": "OTHER",
+     "shares": 8520,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-22",
+     "name": "BULLS HERMAN E",
+     "type": "OTHER",
+     "shares": 8520,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-15",
+     "name": "OTTINGER JOSEPH",
+     "type": "SELL",
+     "shares": 46,
+     "value": 990.8399999999999,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": "Real Estate",
+    "industry": "REIT - Hotel & Motel",
+    "marketCap": 17375375360,
+    "trailingPE": 17.037415,
+    "forwardPE": 24.610138,
+    "pegRatio": 4.14,
+    "trailingEps": 1.47,
+    "forwardEps": 1.01767,
+    "revenueGrowth": 0.028,
+    "earningsGrowth": 1.053,
+    "profitMargins": 0.16367,
+    "grossMargins": 0.28978002,
+    "returnOnEquity": 0.1487,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   },
+   "price_at_add": 25.09,
    "price_at_add_currency": "USD"
   }
  ],
