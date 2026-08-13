@@ -1,13 +1,70 @@
 {
  "schema": 3,
- "updated_at": 1786643857,
- "updated_iso": "2026-08-13T19:57:37",
- "fx": 1.14,
+ "updated_at": 1786644339,
+ "updated_iso": "2026-08-13T20:05:39",
+ "fx": 1.12,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
-   "insider": [],
+   "isin": "",
+   "price": 32.245,
+   "price_prev": 32.245,
+   "pct": -0.232,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1786644235,
+   "insider": [
+    {
+     "date": "2026-06-12",
+     "name": "Dambier Laura A.",
+     "type": "SELL",
+     "shares": 4000,
+     "value": 150520.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "Kosiba John W JR",
+     "type": "SELL",
+     "shares": 5026,
+     "value": 187603.99420000002,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "Kosiba John W JR",
+     "type": "SELL",
+     "shares": 1743,
+     "value": 65975.3388,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "McGahn Daniel P",
+     "type": "SELL",
+     "shares": 11508,
+     "value": 429047.01,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "McGahn Daniel P",
+     "type": "SELL",
+     "shares": 4609,
+     "value": 174455.71990000003,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-10",
+     "name": "Kosiba John W JR",
+     "type": "SELL",
+     "shares": 3286,
+     "value": 136371.3002,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
@@ -22,19 +79,78 @@
     "profitMargins": 0.44729,
     "grossMargins": 0.30813,
     "returnOnEquity": 0.35561,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 70.49,
+    "fiftyTwoWeekLow": 24.87,
+    "targetMeanPrice": 61.75,
+    "heldPercentInstitutions": 0.72886,
+    "shortPercentOfFloat": 0.0756,
+    "beta": 3.284,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 47.09,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ARM",
    "dt": "2026-05-21 18:53",
-   "insider": [],
+   "isin": "US0420682058",
+   "price": 282.76,
+   "price_prev": 282.76,
+   "pct": 4.036,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1786644236,
+   "insider": [
+    {
+     "date": "2026-08-11",
+     "name": "Sine Jeffrey",
+     "type": "SELL",
+     "shares": 9572,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-04",
+     "name": "Bartels Laura Kathleen",
+     "type": "SELL",
+     "shares": 11306,
+     "value": 4439866.2,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-03",
+     "name": "Abbey William",
+     "type": "SELL",
+     "shares": 2644,
+     "value": 1014582.12,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-03",
+     "name": "Abbey William",
+     "type": "SELL",
+     "shares": 3922,
+     "value": 1629669.44,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-01",
+     "name": "Abbey William",
+     "type": "SELL",
+     "shares": 4200,
+     "value": 1444002.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-26",
+     "name": "Abbey William",
+     "type": "SELL",
+     "shares": 2300,
+     "value": 703386.0,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -49,19 +165,78 @@
     "profitMargins": 0.20247999,
     "grossMargins": 0.97537005,
     "returnOnEquity": 0.13352999,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 452.7,
+    "fiftyTwoWeekLow": 100.02,
+    "targetMeanPrice": 287.79474,
+    "heldPercentInstitutions": 0.95347,
+    "shortPercentOfFloat": 0.1161,
+    "beta": 3.909,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 223.15,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
-   "insider": [],
+   "isin": "US04626A1034",
+   "price": 327.37,
+   "price_prev": 327.37,
+   "pct": 2.664,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1786644237,
+   "insider": [
+    {
+     "date": "2026-08-10",
+     "name": "Dyckerhoff Stefan A",
+     "type": "SELL",
+     "shares": 1029,
+     "value": 318258.381,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-10",
+     "name": "Dyckerhoff Stefan A",
+     "type": "SELL",
+     "shares": 2447,
+     "value": 756830.183,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-10",
+     "name": "Dyckerhoff Stefan A",
+     "type": "SELL",
+     "shares": 194,
+     "value": 60002.066,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-10",
+     "name": "Dyckerhoff Stefan A",
+     "type": "SELL",
+     "shares": 269,
+     "value": 83759.068,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-10",
+     "name": "Dyckerhoff Stefan A",
+     "type": "SELL",
+     "shares": 640,
+     "value": 199278.08000000002,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-10",
+     "name": "Dyckerhoff Stefan A",
+     "type": "SELL",
+     "shares": 51,
+     "value": 15879.972000000002,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -76,19 +251,78 @@
     "profitMargins": 0.26724002,
     "grossMargins": 0.75988996,
     "returnOnEquity": 0.21110001,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 499.476,
+    "fiftyTwoWeekLow": 97.89,
+    "targetMeanPrice": 391.77274,
+    "heldPercentInstitutions": 0.75709,
+    "shortPercentOfFloat": 0.0689,
+    "beta": 3.843,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 244.26,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
-   "insider": [],
+   "isin": "US86800U3023",
+   "price": 39.7,
+   "price_prev": 39.7,
+   "pct": 5.641,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1786644239,
+   "insider": [
+    {
+     "date": "2026-08-12",
+     "name": "Thauberger Matthew",
+     "type": "OTHER",
+     "shares": 740,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-12",
+     "name": "Thauberger Matthew",
+     "type": "SELL",
+     "shares": 377,
+     "value": 11860.42,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-12",
+     "name": "Thauberger Matthew",
+     "type": "OTHER",
+     "shares": 430,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-12",
+     "name": "Thauberger Matthew",
+     "type": "SELL",
+     "shares": 219,
+     "value": 6889.74,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-12",
+     "name": "Malyala Vikranth",
+     "type": "OTHER",
+     "shares": 2110,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-12",
+     "name": "Malyala Vikranth",
+     "type": "SELL",
+     "shares": 1074,
+     "value": 33788.04,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Computer Hardware",
@@ -103,19 +337,78 @@
     "profitMargins": 0.03701,
     "grossMargins": 0.08394,
     "returnOnEquity": 0.17877,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 58.78,
+    "fiftyTwoWeekLow": 19.48,
+    "targetMeanPrice": 37.8125,
+    "heldPercentInstitutions": 0.66912,
+    "shortPercentOfFloat": 0.18450001,
+    "beta": 1.967,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 30.56,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "HWM",
    "dt": "2026-05-22 17:04",
-   "insider": [],
+   "isin": "",
+   "price": 283.305,
+   "price_prev": 283.305,
+   "pct": 0.516,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1786644241,
+   "insider": [
+    {
+     "date": "2026-07-06",
+     "name": "CANTIE JOSEPH S",
+     "type": "OTHER",
+     "shares": 134,
+     "value": 36234.94,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-26",
+     "name": "Smith Gunner",
+     "type": "OTHER",
+     "shares": 731,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-26",
+     "name": "SCHMIDT ULRICH",
+     "type": "OTHER",
+     "shares": 731,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-26",
+     "name": "Miller Jody",
+     "type": "OTHER",
+     "shares": 731,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-26",
+     "name": "LEDUC ROBERT F",
+     "type": "OTHER",
+     "shares": 731,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-05-26",
+     "name": "CANTIE JOSEPH S",
+     "type": "OTHER",
+     "shares": 731,
+     "value": 0,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": null,
     "industry": null,
@@ -130,18 +423,28 @@
     "profitMargins": null,
     "grossMargins": null,
     "returnOnEquity": null,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   }
+    "fiftyTwoWeekHigh": 310.0,
+    "fiftyTwoWeekLow": 169.45,
+    "targetMeanPrice": 334.428,
+    "heldPercentInstitutions": 0.93188006,
+    "shortPercentOfFloat": 0.0174,
+    "beta": 1.212,
+    "dividendYield": 0.2
+   },
+   "price_at_add": 261.0838,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ASML",
    "dt": "2026-06-16 16:07",
+   "isin": "NL0010273215",
+   "price": 1866.775,
+   "price_prev": 1866.775,
+   "pct": 3.049,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1786644242,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -157,14 +460,16 @@
     "profitMargins": 0.29713,
     "grossMargins": 0.52603,
     "returnOnEquity": 0.52236,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   }
+    "fiftyTwoWeekHigh": 1999.96,
+    "fiftyTwoWeekLow": 716.2,
+    "targetMeanPrice": 2170.0632,
+    "heldPercentInstitutions": 0.20021,
+    "shortPercentOfFloat": 0.0028,
+    "beta": 1.365,
+    "dividendYield": 0.5
+   },
+   "price_at_add": 1890.2155,
+   "price_at_add_currency": "USD"
   }
  ],
  "alerts": []
