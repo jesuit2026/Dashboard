@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1786549264,
- "updated_iso": "2026-08-12T17:41:04",
+ "updated_at": 1786643857,
+ "updated_iso": "2026-08-13T19:57:37",
  "fx": 1.14,
  "watchlist": [
   {
@@ -130,33 +130,6 @@
     "profitMargins": null,
     "grossMargins": null,
     "returnOnEquity": null,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   }
-  },
-  {
-   "t": "ANET",
-   "dt": "2026-06-10 12:40",
-   "insider": [],
-   "fundamentals": {
-    "sector": "Technology",
-    "industry": "Computer Hardware",
-    "marketCap": 213240348672,
-    "trailingPE": 57.798637,
-    "forwardPE": 37.907192,
-    "pegRatio": 2.15,
-    "trailingEps": 2.93,
-    "forwardEps": 4.46749,
-    "revenueGrowth": 0.351,
-    "earningsGrowth": 0.25,
-    "profitMargins": 0.38317,
-    "grossMargins": 0.63537,
-    "returnOnEquity": 0.31520998,
     "fiftyTwoWeekHigh": null,
     "fiftyTwoWeekLow": null,
     "targetMeanPrice": null,
