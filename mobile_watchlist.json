@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1786692233,
- "updated_iso": "2026-08-14T09:23:53",
+ "updated_at": 1786692237,
+ "updated_iso": "2026-08-14T09:23:57",
  "fx": 1.12,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786692227,
+   "price_ts": 1786692233,
    "insider": [
     {
      "date": "2026-06-12",
@@ -100,7 +100,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786692228,
+   "price_ts": 1786692234,
    "insider": [
     {
      "date": "2026-08-11",
@@ -186,7 +186,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786692229,
+   "price_ts": 1786692235,
    "insider": [
     {
      "date": "2026-08-10",
@@ -272,7 +272,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786692230,
+   "price_ts": 1786692236,
    "insider": [
     {
      "date": "2026-08-12",
@@ -358,7 +358,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786692230,
+   "price_ts": 1786692236,
    "insider": [
     {
      "date": "2026-07-06",
@@ -444,7 +444,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786692231,
+   "price_ts": 1786692237,
    "insider": [
     {
      "date": "2026-08-10",
@@ -530,7 +530,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1786692232,
+   "price_ts": 1786692237,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -556,90 +556,6 @@
    },
    "price_at_add": 1890.2155,
    "price_at_add_currency": "USD"
-  },
-  {
-   "t": "STT",
-   "dt": "2026-08-14 09:23",
-   "isin": "",
-   "price": 189.89,
-   "price_prev": 189.89,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1786692233,
-   "insider": [
-    {
-     "date": "2026-08-04",
-     "name": "Schaefer Elizabeth",
-     "type": "SELL",
-     "shares": 500,
-     "value": 90595.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-28",
-     "name": "Hu W. Bradford",
-     "type": "SELL",
-     "shares": 9758,
-     "value": 1800546.1600000001,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-23",
-     "name": "Horgan Kathryn M",
-     "type": "SELL",
-     "shares": 5523,
-     "value": 1017170.9099999999,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-07-23",
-     "name": "O HANLEY RONALD P",
-     "type": "SELL",
-     "shares": 14553,
-     "value": 2680226.01,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-15",
-     "name": "Horgan Kathryn M",
-     "type": "SELL",
-     "shares": 5500,
-     "value": 895290.0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-06-09",
-     "name": "RICHARDS MICHAEL L",
-     "type": "SELL",
-     "shares": 1500,
-     "value": 243209.99999999997,
-     "signal_strength": "normal"
-    }
-   ],
-   "fundamentals": {
-    "sector": "Financial Services",
-    "industry": "Asset Management",
-    "marketCap": 50731917312,
-    "trailingPE": 16.314487,
-    "forwardPE": 12.068245,
-    "pegRatio": 0.78,
-    "trailingEps": 11.32,
-    "forwardEps": 15.30297,
-    "revenueGrowth": -0.028,
-    "earningsGrowth": -0.241,
-    "profitMargins": 0.23005,
-    "grossMargins": 0.0,
-    "returnOnEquity": 0.12437,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   }
   }
  ],
  "alerts": []
