@@ -103,6 +103,16 @@
    "currency": "EUR",
    "id": "r1786632514734qgc5i",
    "ts": "2026-08-13T14:48:34.734Z"
+  },
+  {
+   "type": "add_alert",
+   "ticker": "AMSC",
+   "condition": "above",
+   "price_usd": 31.69358,
+   "price_input": 27.4,
+   "currency": "EUR",
+   "id": "r1786730655770pzv0l",
+   "ts": "2026-08-14T18:04:15.770Z"
   }
  ]
 }
