@@ -560,15 +560,6 @@
  ],
  "alerts": [
   {
-   "ticker": "COHR",
-   "name": "COHR",
-   "condition": "above",
-   "price": 250.39,
-   "price_input": 250.39,
-   "currency": "USD",
-   "created": "2026-07-21 10:59"
-  },
-  {
    "ticker": "HST",
    "name": "HST",
    "condition": "above",
@@ -578,22 +569,13 @@
    "created": "2026-08-03 17:26"
   },
   {
-   "ticker": "SMCI",
-   "name": "SMCI",
+   "ticker": "ARM",
+   "name": "ARM",
    "condition": "above",
-   "price": 39.4842,
-   "price_input": 34,
+   "price": 277.2639,
+   "price_input": 239,
    "currency": "EUR",
-   "created": "2026-08-17 07:43"
-  },
-  {
-   "ticker": "SMCI",
-   "name": "SMCI",
-   "condition": "above",
-   "price": 39.4298,
-   "price_input": 34,
-   "currency": "EUR",
-   "created": "2026-08-17 12:24"
+   "created": "2026-08-17 14:26"
   }
  ]
 }
