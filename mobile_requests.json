@@ -63,6 +63,16 @@
    "currency": "EUR",
    "id": "r17869694582315pgic",
    "ts": "2026-08-17T12:24:18.231Z"
+  },
+  {
+   "type": "remove_alert",
+   "ticker": "SMCI",
+   "condition": "above",
+   "price_usd": 24.8,
+   "price_input": "24.8",
+   "currency": "USD",
+   "id": "r1786969474001hulvl",
+   "ts": "2026-08-17T12:24:34.001Z"
   }
  ]
 }
