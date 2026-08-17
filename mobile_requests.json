@@ -63,6 +63,16 @@
    "currency": "EUR",
    "id": "r17869739840470sl5g",
    "ts": "2026-08-17T13:39:44.047Z"
+  },
+  {
+   "type": "add_alert",
+   "ticker": "ARM",
+   "condition": "above",
+   "price_usd": 277.2639,
+   "price_input": 239,
+   "currency": "EUR",
+   "id": "r17869768147948ru71",
+   "ts": "2026-08-17T14:26:54.794Z"
   }
  ]
 }
