@@ -10,7 +10,7 @@
    "isin": "",
    "price": 31.97,
    "price_prev": 31.97,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -21,7 +21,7 @@
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -94,7 +94,7 @@
    "t": "ARM",
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
-   "price": 245.0,
+   "price": 245,
    "price_prev": 241.5,
    "pct": 1.449,
    "currency": "EUR",
@@ -139,7 +139,7 @@
      "name": "Abbey William",
      "type": "SELL",
      "shares": 4200,
-     "value": 1444002.0,
+     "value": 1444002,
      "signal_strength": "normal"
     },
     {
@@ -147,7 +147,7 @@
      "name": "Abbey William",
      "type": "SELL",
      "shares": 2300,
-     "value": 703386.0,
+     "value": 703386,
      "signal_strength": "normal"
     }
    ],
@@ -180,8 +180,8 @@
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
-   "price": 292.0,
-   "price_prev": 279.0,
+   "price": 292,
+   "price_prev": 279,
    "pct": 4.659,
    "currency": "EUR",
    "live": true,
@@ -354,7 +354,7 @@
    "isin": "",
    "price": 289.22,
    "price_prev": 289.22,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -423,7 +423,7 @@
     "profitMargins": null,
     "grossMargins": null,
     "returnOnEquity": null,
-    "fiftyTwoWeekHigh": 310.0,
+    "fiftyTwoWeekHigh": 310,
     "fiftyTwoWeekLow": 169.45,
     "targetMeanPrice": 335.328,
     "heldPercentInstitutions": 0.93531996,
@@ -569,15 +569,6 @@
    "created": "2026-07-21 10:59"
   },
   {
-   "ticker": "SMCI",
-   "name": "SMCI",
-   "condition": "above",
-   "price": 24.8,
-   "price_input": 24.8,
-   "currency": "USD",
-   "created": "2026-08-03 17:17"
-  },
-  {
    "ticker": "HST",
    "name": "HST",
    "condition": "above",
@@ -587,40 +578,22 @@
    "created": "2026-08-03 17:26"
   },
   {
-   "ticker": "ASML",
-   "name": "ASML",
+   "ticker": "SMCI",
+   "name": "SMCI",
    "condition": "above",
-   "price": 1645.956312,
-   "price_input": 1430.52,
+   "price": 39.4842,
+   "price_input": 34,
    "currency": "EUR",
-   "created": "2026-08-03 17:27"
+   "created": "2026-08-17 07:43"
   },
   {
-   "ticker": "ASML",
-   "name": "ASML",
+   "ticker": "SMCI",
+   "name": "SMCI",
    "condition": "above",
-   "price": 1846.88,
-   "price_input": 1600,
+   "price": 39.4298,
+   "price_input": 34,
    "currency": "EUR",
-   "created": "2026-08-13 14:47"
-  },
-  {
-   "ticker": "ASML",
-   "name": "ASML",
-   "condition": "above",
-   "price": 1847.2,
-   "price_input": 1600,
-   "currency": "EUR",
-   "created": "2026-08-13 14:48"
-  },
-  {
-   "ticker": "AMSC",
-   "name": "AMSC",
-   "condition": "above",
-   "price": 31.3578,
-   "price_input": 27,
-   "currency": "EUR",
-   "created": "2026-08-17 07:33"
+   "created": "2026-08-17 12:24"
   }
  ]
 }
