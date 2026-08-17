@@ -440,7 +440,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-11.3';
+const APP_BUILD = '2026-08-11.4';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -681,7 +681,12 @@ async function loadScreen(){
 // GitHub-Repo geschrieben werden.
 async function loadWatchlist(){
   const cached = LS.get('watchData', null);
-  if(cached){ watchData = cached; renderWatch(); refreshQuotes(); }
+  if(cached){
+    watchData = cached;
+    applyPendingToWatchData();   // nur anzeigen, NICHT auflösen (Cache ist nicht vertrauenswürdig dafür)
+    renderWatch();
+    refreshQuotes();
+  }
 
   const rawUrl = LS.get('jsonUrl','');
   if(!rawUrl || !rawUrl.includes('mobile_screen.json')){
@@ -704,7 +709,11 @@ async function loadWatchlist(){
       const text = await res.text();
       let data; try{ data = JSON.parse(text); }catch{ continue; }
       if(!('watchlist' in data)) continue;
-      watchData = data; LS.set('watchData', data);
+      // Auflösung NUR gegen diese echten, unverfälschten Server-Daten —
+      // erst DANACH watchData setzen und die noch offenen Anfragen mergen.
+      const stillPending = resolvePendingAgainst(data);
+      watchData = data;
+      mergePendingIntoWatchData(stillPending);
       renderWatch();
       refreshQuotes();
       return;
@@ -788,7 +797,6 @@ function renderAll(){
 
 // ─── Watchlist-Rendering ───────────────────────────────────────
 function renderWatch(){
-  clearResolvedPending();
   const el = document.getElementById('watch-list');
   const list = watchData?.watchlist || [];
   const alerts = watchData?.alerts || [];
@@ -2280,12 +2288,16 @@ function getPending(){ return LS.get('pendingRequests', []); }
 function addPending(req){
   const p = getPending(); p.push(req); LS.set('pendingRequests', p);
 }
-function clearResolvedPending(){
-  // Ein Pending-Request gilt als erledigt, sobald watchData ihn widerspiegelt
-  // (Ticker/Alarm ist da bzw. weg) — dann aus der lokalen Merkliste entfernen.
+// Bestimmt anhand ECHTER, frisch vom Server geladener Daten, welche
+// Pending-Requests der PC schon wirklich verarbeitet hat. WICHTIG: darf
+// NUR gegen unverfälschte Server-Antworten geprüft werden — nicht gegen
+// watchData, nachdem wir selbst optimistisch etwas reingeschrieben haben
+// (sonst hält sich die App für "bestätigt", obwohl der PC noch gar
+// nichts weiß — genau der Bug, der Alarme beim Neustart verschwinden ließ).
+function resolvePendingAgainst(rawData){
   const p = getPending();
+  const wl = rawData?.watchlist||[], al = rawData?.alerts||[];
   const stillPending = p.filter(req=>{
-    const wl = watchData?.watchlist||[], al = watchData?.alerts||[];
     if(req.type==='add_watch') return !wl.some(w=>w.t===req.ticker);
     if(req.type==='remove_watch') return wl.some(w=>w.t===req.ticker);
     if(req.type==='add_alert') return !al.some(a=>a.ticker===req.ticker && a.condition===req.condition && Math.abs((a.price||0)-(req.price_usd||0))<0.01);
@@ -2294,6 +2306,42 @@ function clearResolvedPending(){
   });
   if(stillPending.length!==p.length) LS.set('pendingRequests', stillPending);
   return stillPending;
+}
+// Trägt eine Liste von Pending-Requests in watchData ein (rein additiv/
+// entfernend für die ANZEIGE) — rührt die Pending-Warteschlange selbst
+// NICHT an. Wird nach jedem Setzen von watchData aufgerufen (Cache,
+// frisch vom Netz, oder eigene optimistische Änderung).
+function mergePendingIntoWatchData(pendingList){
+  if(!watchData || !pendingList?.length) return;
+  if(!watchData.watchlist) watchData.watchlist=[];
+  if(!watchData.alerts) watchData.alerts=[];
+  pendingList.forEach(req=>{
+    if(req.type==='add_watch'){
+      if(!watchData.watchlist.some(w=>w.t===req.ticker)){
+        watchData.watchlist.push({t:req.ticker, dt:(req.ts||'').slice(0,16).replace('T',' ')});
+      }
+    }else if(req.type==='remove_watch'){
+      watchData.watchlist = watchData.watchlist.filter(w=>w.t!==req.ticker);
+      watchData.alerts = watchData.alerts.filter(a=>a.ticker!==req.ticker);
+    }else if(req.type==='add_alert'){
+      const dup = watchData.alerts.some(a=>a.ticker===req.ticker && a.condition===req.condition
+        && Math.abs((a.price||0)-(req.price_usd||0))<0.01);
+      if(!dup){
+        watchData.alerts.push({ticker:req.ticker, name:req.ticker, condition:req.condition,
+          price:req.price_usd, price_input:req.price_input, currency:req.currency});
+      }
+    }else if(req.type==='remove_alert'){
+      watchData.alerts = watchData.alerts.filter(a=>!(a.ticker===req.ticker && a.condition===req.condition
+        && Math.abs((a.price||0)-(req.price_usd||0))<0.01));
+    }
+  });
+  LS.set('watchData', watchData);
+}
+// Bequemlichkeits-Wrapper: alle AKTUELL bekannten Pending-Requests (ohne
+// sie aufzulösen) in watchData eintragen — für Cache-Laden und eigene
+// optimistische Änderungen, wo eine Auflösungsprüfung nicht sinnvoll ist.
+function applyPendingToWatchData(){
+  mergePendingIntoWatchData(getPending());
 }
 
 // ═══ Alarme & Watchlist bearbeiten (schreibt in die GitHub-Warteschlange) ═══
@@ -2316,6 +2364,7 @@ async function addWatchFlow(){
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
+    applyPendingToWatchData();
     renderWatch();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
@@ -2327,6 +2376,7 @@ async function delWatchFlow(t){
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
+    applyPendingToWatchData();
     renderWatch();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
@@ -2367,11 +2417,10 @@ async function submitAlarmModal(){
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
-    // Sofort als echten Alarm anzeigen — nicht erst auf den PC-Sync warten.
-    if(watchData){
-      if(!watchData.alerts) watchData.alerts=[];
-      watchData.alerts.push({ticker:t, name:t, condition, price:priceUsd, price_input:priceEur, currency:'EUR'});
-    }
+    // Sofort als echten Alarm anzeigen — nicht erst auf den PC-Sync warten,
+    // und überlebt jetzt auch ein Verlassen+Zurückkommen der App (siehe
+    // applyPendingToWatchData, wird bei jedem Laden erneut angewendet).
+    applyPendingToWatchData();
     renderWatch();
     closeAlarmModal();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
@@ -2417,13 +2466,9 @@ async function delAlarmFlow(t, condition, priceUsd, priceInput, currency){
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
-    // Sofort aus der Anzeige entfernen — nicht erst warten, bis der PC
-    // die Warteschlange verarbeitet hat (kann je nach PC-Takt dauern).
-    if(watchData?.alerts){
-      watchData.alerts = watchData.alerts.filter(a=>
-        !((a.ticker||'').toUpperCase()===t.toUpperCase() && a.condition===condition
-          && Math.abs((a.price||0)-priceUsd)<0.01));
-    }
+    // Sofort aus der Anzeige entfernen — überlebt jetzt auch ein Verlassen
+    // + Zurückkommen der App, bis der PC die Löschung wirklich verarbeitet hat.
+    applyPendingToWatchData();
     renderWatch();
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
