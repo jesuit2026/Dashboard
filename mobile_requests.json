@@ -103,6 +103,16 @@
    "currency": "EUR",
    "id": "r1786969481477szhrr",
    "ts": "2026-08-17T12:24:41.477Z"
+  },
+  {
+   "type": "remove_alert",
+   "ticker": "ASML",
+   "condition": "above",
+   "price_usd": 1847.2,
+   "price_input": "1600",
+   "currency": "EUR",
+   "id": "r17869694827478wfqi",
+   "ts": "2026-08-17T12:24:42.747Z"
   }
  ]
 }
