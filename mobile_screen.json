@@ -3,7 +3,7 @@
  "computed_at": 1786692447,
  "computed_iso": "2026-08-14T09:27:27",
  "universe_size": 422,
- "fx": 1.15982,
+ "fx": 1.15969,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -3277,8 +3277,8 @@
     "score": 0.5179,
     "pct_from_high": -11.3,
     "isin": "",
-    "price": 277.2,
-    "pct": 8.8,
+    "price": 279.25,
+    "pct": 9.604,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -6950,5 +6950,5 @@
   "sector_14": "#14 Electrical Equipment",
   "sector_15": "#15 Semiconductors"
  },
- "prices_updated_at": 1786968434
+ "prices_updated_at": 1786969574
 }
