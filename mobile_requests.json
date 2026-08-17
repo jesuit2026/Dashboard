@@ -1,16 +1,6 @@
 {
  "requests": [
   {
-   "type": "add_alert",
-   "ticker": "COHR",
-   "condition": "above",
-   "price_usd": 250.39,
-   "price_input": 250.39,
-   "currency": "USD",
-   "id": "r1784631568978kuns6",
-   "ts": "2026-07-21T10:59:28.978Z"
-  },
-  {
    "type": "remove_watch",
    "ticker": "COHR",
    "id": "r17846352952592z98y",
@@ -23,40 +13,10 @@
    "ts": "2026-07-24T16:14:03.363Z"
   },
   {
-   "type": "add_alert",
-   "ticker": "SMCI",
-   "condition": "above",
-   "price_usd": 24.8,
-   "price_input": 24.8,
-   "currency": "USD",
-   "id": "r1785777454204aujx8",
-   "ts": "2026-08-03T17:17:34.204Z"
-  },
-  {
    "type": "add_watch",
    "ticker": "HST",
    "id": "r17857776374307lr46",
    "ts": "2026-08-03T17:20:37.430Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "HST",
-   "condition": "above",
-   "price_usd": 25.416754,
-   "price_input": 22.09,
-   "currency": "EUR",
-   "id": "r1785778006683w151b",
-   "ts": "2026-08-03T17:26:46.683Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "ASML",
-   "condition": "above",
-   "price_usd": 1645.956312,
-   "price_input": 1430.52,
-   "currency": "EUR",
-   "id": "r1785778020983t286d",
-   "ts": "2026-08-03T17:27:00.983Z"
   },
   {
    "type": "remove_watch",
@@ -83,66 +43,6 @@
    "note": "",
    "id": "r1786538097740duomn",
    "ts": "2026-08-12T12:34:57.740Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "ASML",
-   "condition": "above",
-   "price_usd": 1846.88,
-   "price_input": 1600,
-   "currency": "EUR",
-   "id": "r17866324249285hs0c",
-   "ts": "2026-08-13T14:47:04.928Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "ASML",
-   "condition": "above",
-   "price_usd": 1847.2,
-   "price_input": 1600,
-   "currency": "EUR",
-   "id": "r1786632514734qgc5i",
-   "ts": "2026-08-13T14:48:34.734Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "AMSC",
-   "condition": "above",
-   "price_usd": 31.69358,
-   "price_input": 27.4,
-   "currency": "EUR",
-   "id": "r1786730655770pzv0l",
-   "ts": "2026-08-14T18:04:15.770Z"
-  },
-  {
-   "type": "remove_alert",
-   "ticker": "AMSC",
-   "condition": "above",
-   "price_usd": 31.69358,
-   "price_input": "27.4",
-   "currency": "EUR",
-   "id": "r1786730679731pc633",
-   "ts": "2026-08-14T18:04:39.731Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "AMSC",
-   "condition": "above",
-   "price_usd": 31.3578,
-   "price_input": 27,
-   "currency": "EUR",
-   "id": "r1786952019094lgs2g",
-   "ts": "2026-08-17T07:33:39.094Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "AMSC",
-   "condition": "above",
-   "price_usd": 31.3524,
-   "price_input": 27,
-   "currency": "EUR",
-   "id": "r1786952469225je7mu",
-   "ts": "2026-08-17T07:41:09.225Z"
   }
  ]
 }
