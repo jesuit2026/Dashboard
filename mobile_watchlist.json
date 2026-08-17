@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1786967553,
- "updated_iso": "2026-08-17T13:52:33",
+ "updated_at": 1786969283,
+ "updated_iso": "2026-08-17T14:21:23",
  "fx": 1.12,
  "watchlist": [
   {
@@ -14,7 +14,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786967544,
+   "price_ts": 1786969280,
    "insider": [
     {
      "date": "2026-06-12",
@@ -94,13 +94,13 @@
    "t": "ARM",
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
-   "price": 246.5,
+   "price": 245.0,
    "price_prev": 241.5,
-   "pct": 2.07,
+   "pct": 1.449,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1786967544,
+   "price_ts": 1786969280,
    "insider": [
     {
      "date": "2026-08-11",
@@ -186,7 +186,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1786967545,
+   "price_ts": 1786969280,
    "insider": [
     {
      "date": "2026-08-10",
@@ -266,13 +266,13 @@
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
-   "price": 34.12,
+   "price": 33.82,
    "price_prev": 34.44,
-   "pct": -0.929,
+   "pct": -1.8,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1786967545,
+   "price_ts": 1786969280,
    "insider": [
     {
      "date": "2026-08-12",
@@ -358,7 +358,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1786967545,
+   "price_ts": 1786969281,
    "insider": [
     {
      "date": "2026-07-06",
@@ -438,13 +438,13 @@
    "t": "ANET",
    "dt": "2026-06-10 12:40",
    "isin": "US0404132054",
-   "price": 173.3,
+   "price": 173.34,
    "price_prev": 171.86,
-   "pct": 0.838,
+   "pct": 0.861,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1786967545,
+   "price_ts": 1786969281,
    "insider": [
     {
      "date": "2026-08-14",
@@ -524,13 +524,13 @@
    "t": "ASML",
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
-   "price": 1619.0,
+   "price": 1616.4,
    "price_prev": 1591.6,
-   "pct": 1.722,
+   "pct": 1.558,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1786967546,
+   "price_ts": 1786969281,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
