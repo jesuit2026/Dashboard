@@ -6901,8 +6901,8 @@
     "score": 0.4034,
     "pct_from_high": -13.2,
     "isin": "",
-    "price": 393.02,
-    "pct": 0.0,
+    "price": 395.82,
+    "pct": 0.712,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -6950,5 +6950,5 @@
   "sector_14": "#14 Electrical Equipment",
   "sector_15": "#15 Semiconductors"
  },
- "prices_updated_at": 1786970471
+ "prices_updated_at": 1786970775
 }
