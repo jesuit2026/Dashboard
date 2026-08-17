@@ -194,5 +194,69 @@
    }
   }
  ],
- "alerts": []
+ "alerts": [
+  {
+   "ticker": "COHR",
+   "name": "COHR",
+   "condition": "above",
+   "price": 250.39,
+   "price_input": 250.39,
+   "currency": "USD",
+   "created": "2026-07-21 10:59"
+  },
+  {
+   "ticker": "SMCI",
+   "name": "SMCI",
+   "condition": "above",
+   "price": 24.8,
+   "price_input": 24.8,
+   "currency": "USD",
+   "created": "2026-08-03 17:17"
+  },
+  {
+   "ticker": "HST",
+   "name": "HST",
+   "condition": "above",
+   "price": 25.416754,
+   "price_input": 22.09,
+   "currency": "EUR",
+   "created": "2026-08-03 17:26"
+  },
+  {
+   "ticker": "ASML",
+   "name": "ASML",
+   "condition": "above",
+   "price": 1645.956312,
+   "price_input": 1430.52,
+   "currency": "EUR",
+   "created": "2026-08-03 17:27"
+  },
+  {
+   "ticker": "ASML",
+   "name": "ASML",
+   "condition": "above",
+   "price": 1846.88,
+   "price_input": 1600,
+   "currency": "EUR",
+   "created": "2026-08-13 14:47"
+  },
+  {
+   "ticker": "ASML",
+   "name": "ASML",
+   "condition": "above",
+   "price": 1847.2,
+   "price_input": 1600,
+   "currency": "EUR",
+   "created": "2026-08-13 14:48"
+  },
+  {
+   "ticker": "AMSC",
+   "name": "AMSC",
+   "condition": "above",
+   "price": 31.3578,
+   "price_input": 27,
+   "currency": "EUR",
+   "created": "2026-08-17 07:33"
+  }
+ ]
 }
