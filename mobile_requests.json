@@ -43,36 +43,6 @@
    "note": "",
    "id": "r1786538097740duomn",
    "ts": "2026-08-12T12:34:57.740Z"
-  },
-  {
-   "type": "remove_alert",
-   "ticker": "SMCI",
-   "condition": "above",
-   "price_usd": 39.4842,
-   "price_input": "34",
-   "currency": "EUR",
-   "id": "r1786973982822wwm8x",
-   "ts": "2026-08-17T13:39:42.823Z"
-  },
-  {
-   "type": "remove_alert",
-   "ticker": "SMCI",
-   "condition": "above",
-   "price_usd": 39.4298,
-   "price_input": "34",
-   "currency": "EUR",
-   "id": "r17869739840470sl5g",
-   "ts": "2026-08-17T13:39:44.047Z"
-  },
-  {
-   "type": "add_alert",
-   "ticker": "ARM",
-   "condition": "above",
-   "price_usd": 277.2639,
-   "price_input": 239,
-   "currency": "EUR",
-   "id": "r17869768147948ru71",
-   "ts": "2026-08-17T14:26:54.794Z"
   }
  ]
 }
