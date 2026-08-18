@@ -43,6 +43,16 @@
    "note": "",
    "id": "r1786538097740duomn",
    "ts": "2026-08-12T12:34:57.740Z"
+  },
+  {
+   "type": "add_alert",
+   "ticker": "ANET",
+   "condition": "above",
+   "price_usd": 200.28209999999999,
+   "price_input": 173,
+   "currency": "EUR",
+   "id": "r1787025830925yf67y",
+   "ts": "2026-08-18T04:03:50.925Z"
   }
  ]
 }
