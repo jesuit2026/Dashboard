@@ -203,15 +203,6 @@
    "price_input": 22.09,
    "currency": "EUR",
    "created": "2026-08-03 17:26"
-  },
-  {
-   "ticker": "ANET",
-   "name": "ANET",
-   "condition": "above",
-   "price": 200.28209999999999,
-   "price_input": 173,
-   "currency": "EUR",
-   "created": "2026-08-18 04:03"
   }
  ]
 }
