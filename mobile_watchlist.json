@@ -567,15 +567,6 @@
    "price_input": 22.09,
    "currency": "EUR",
    "created": "2026-08-03 17:26"
-  },
-  {
-   "ticker": "ARM",
-   "name": "ARM",
-   "condition": "above",
-   "price": 277.2639,
-   "price_input": 239,
-   "currency": "EUR",
-   "created": "2026-08-17 14:26"
   }
  ]
 }
