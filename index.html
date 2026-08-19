@@ -440,7 +440,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-19.1';
+const APP_BUILD = '2026-08-19.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1209,7 +1209,7 @@ async function fetchDirectJson(url, timeoutMs=6000){
   const ctrl=new AbortController();
   const timer=setTimeout(()=>ctrl.abort(), timeoutMs);
   try{
-    const res=await fetch(url, {signal:ctrl.signal});
+    const res=await fetch(url, {signal:ctrl.signal, cache:'no-store'});
     if(!res.ok) return null;
     return await res.json();
   }catch{ return null; }
@@ -1274,9 +1274,13 @@ async function fetchTradegateQuote(isin){
   // fusioniert und läuft jetzt primär unter tradegatebsx.com — die alte
   // Domain (tradegate.de) bleibt als Rückfalloption, falls sie noch
   // funktioniert oder umleitet.
+  // Cache-Buster direkt in der URL (nicht nur im Proxy-Wrapper) — schützt
+  // auch den DIREKT-Versuch (fetchDirectJson hat von sich aus keinen)
+  // vor einer möglichen Zwischenspeicherung, egal auf welchem Weg.
+  const cb = Date.now();
   const urls = [
-    `https://www.tradegatebsx.com/refresh.php?isin=${isin}`,
-    `https://www.tradegate.de/refresh.php?isin=${isin}`,
+    `https://www.tradegatebsx.com/refresh.php?isin=${isin}&_cb=${cb}`,
+    `https://www.tradegate.de/refresh.php?isin=${isin}&_cb=${cb}`,
   ];
   for(const tgUrl of urls){
     let d = await fetchDirectJson(tgUrl, 5000);
