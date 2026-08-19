@@ -448,7 +448,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-19.5';
+const APP_BUILD = '2026-08-19.6';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1046,8 +1046,9 @@ function cardHtml(r){
 // Relative Zeit ("vor 3 Std", "vor 12 Min") — macht sofort klar, dass das
 // der PC-Berechnungszeitpunkt ist, nicht die aktuelle Uhrzeit.
 function relTime(unixSec){
-  const diffMin = Math.round((Date.now()/1000 - unixSec)/60);
-  if(diffMin < 1) return 'gerade eben';
+  const diffSec = Math.round(Date.now()/1000 - unixSec);
+  if(diffSec < 60) return diffSec<=0 ? 'vor 0 Sek' : `vor ${diffSec} Sek`;
+  const diffMin = Math.round(diffSec/60);
   if(diffMin < 60) return `vor ${diffMin} Min`;
   const diffH = Math.round(diffMin/60);
   if(diffH < 48) return `vor ${diffH} Std`;
