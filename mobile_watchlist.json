@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787139322,
- "updated_iso": "2026-08-19T13:35:22",
+ "updated_at": 1787139700,
+ "updated_iso": "2026-08-19T13:41:40",
  "fx": 1.14,
  "watchlist": [
   {
@@ -191,6 +191,34 @@
     "profitMargins": 0.29713,
     "grossMargins": 0.52603,
     "returnOnEquity": 0.52236,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   }
+  },
+  {
+   "t": "KLAR",
+   "dt": "2026-08-19 13:41",
+   "name": "Klarna Group Plc",
+   "insider": [],
+   "fundamentals": {
+    "sector": null,
+    "industry": null,
+    "marketCap": null,
+    "trailingPE": null,
+    "forwardPE": null,
+    "pegRatio": null,
+    "trailingEps": null,
+    "forwardEps": null,
+    "revenueGrowth": null,
+    "earningsGrowth": null,
+    "profitMargins": null,
+    "grossMargins": null,
+    "returnOnEquity": null,
     "fiftyTwoWeekHigh": null,
     "fiftyTwoWeekLow": null,
     "targetMeanPrice": null,
