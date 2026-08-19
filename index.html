@@ -443,7 +443,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-19.3';
+const APP_BUILD = '2026-08-19.4';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1564,9 +1564,8 @@ async function openChart(ticker){
     buildZoomButtons();
     setZoom('3M');
     if(cached.meta?.regularMarketPrice){
-      const pxEl=document.getElementById('sheet-px');
-      pxEl.textContent='€'+fmtPx(cached.meta.regularMarketPrice);
-      pxEl.style.color='var(--dim)';   // gedimmt = "noch nicht aktualisiert"
+      updateSheetPxHeader();
+      document.getElementById('sheet-px').style.color='var(--dim)';   // gedimmt = "noch nicht aktualisiert"
     }
   }
 
@@ -1574,13 +1573,8 @@ async function openChart(ticker){
     const data = await fetchChartData(ticker, 'day');   // holt nur das Delta, falls Cache vorhanden
     if(_curTicker!==ticker) return;   // Nutzer hat inzwischen einen anderen Chart geöffnet
     _chartCache.day = data;
-    const fx=await getFx();
-    let px=data.meta.regularMarketPrice||data.closes[data.closes.length-1];
-    let pxEur = (data.meta.currency==='USD'&&fx>0) ? px/fx : px;
-    const pxEl=document.getElementById('sheet-px');
-    pxEl.textContent='€'+fmtPx(pxEur);
-    pxEl.style.color=(px>=(data.meta.chartPreviousClose||px))?'var(--grn)':'var(--red)';
     _chartState = data;
+    updateSheetPxHeader();
     _chartRange = null;
     buildZoomButtons();
     setZoom('3M');     // Standard: 3 Monate auf Tageskerzen — gut lesbar
@@ -1619,13 +1613,8 @@ async function setInterval_(interval){
     }
   }
   const data=_chartCache[interval];
-  const fx=await getFx();
-  let px=data.meta.regularMarketPrice||data.closes[data.closes.length-1];
-  let pxEur=(data.meta.currency==='USD'&&fx>0) ? px/fx : px;
-  const pxEl=document.getElementById('sheet-px');
-  pxEl.textContent='€'+fmtPx(pxEur);
-  pxEl.style.color=(px>=(data.meta.chartPreviousClose||px))?'var(--grn)':'var(--red)';
   _chartState=data;
+  updateSheetPxHeader();
   _chartRange=null;
   buildZoomButtons();
   setZoom(interval==='week' ? '1J' : '3M');
@@ -1643,6 +1632,7 @@ function setChartCurrency(ccy){
   document.querySelectorAll('.ccy-btn').forEach(b=>
     b.classList.toggle('on', b.dataset.ccy===ccy));
   redrawChart();
+  updateSheetPxHeader();   // Kopfzeilen-Preis (oben) muss mitwechseln
 }
 // Rechnet einen Kurs von der Herkunftswährung der Chart-Daten in die
 // aktuell gewählte Anzeige-Währung um (meist USD-Quelle -> EUR-Anzeige,
@@ -1654,6 +1644,22 @@ function convChartVal(v, nativeCcy){
   if(nativeCcy==='USD' && _chartDisplayCcy==='EUR') return v/fx;
   if(nativeCcy==='EUR' && _chartDisplayCcy==='USD') return v*fx;
   return v;
+}
+// Kopfzeilen-Preis (oben im Chart-Sheet) — berücksichtigt die aktuell
+// gewählte Chart-Währung (€/$), genau wie die Kerzen selbst. Vorher fest
+// auf € verdrahtet, unabhängig vom €/$-Umschalter — das war der Bug.
+function updateSheetPxHeader(){
+  if(!_chartState?.meta) return;
+  const nativeCcy = _chartState.meta.currency || 'USD';
+  const nativePx = _chartState.meta.regularMarketPrice
+    ?? _chartState.closes?.[_chartState.closes.length-1];
+  if(nativePx==null) return;
+  const prevClose = _chartState.meta.chartPreviousClose ?? nativePx;
+  const displayPx = convChartVal(nativePx, nativeCcy);
+  const sym = _chartDisplayCcy==='EUR' ? '€' : '$';
+  const pxEl=document.getElementById('sheet-px');
+  pxEl.textContent = sym+fmtPx(displayPx);
+  pxEl.style.color = (nativePx>=prevClose) ? 'var(--grn)' : 'var(--red)';
 }
 
 // ═══ Info-Box: Fundamentaldaten / Insider / News ═══════════════════
