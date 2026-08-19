@@ -67,6 +67,9 @@
   .card:active{transform:scale(.99);border-color:var(--acc)}
   .card .row1{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
   .tk{font-family:var(--mono);font-weight:800;font-size:17px;color:var(--txt)}
+  .wname{font-family:var(--ui);font-size:12px;color:var(--dim);margin-left:2px}
+  .age-row{display:flex;justify-content:flex-end;margin-top:1px}
+  .px-age{font-family:var(--mono);font-size:10px;color:var(--dim)}
   .nm{font-size:11px;color:var(--dim);flex:1;overflow:hidden;text-overflow:ellipsis;
     white-space:nowrap}
   .rs{font-family:var(--mono);font-size:12px;font-weight:700;padding:1px 6px;
@@ -440,7 +443,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-19.2';
+const APP_BUILD = '2026-08-19.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -892,12 +895,13 @@ function wcardHtml(w, allAlerts, pending){
   const removePendingFor = (a)=> pending.some(p=>p.type==='remove_alert' && p.ticker===t &&
     p.condition===a.condition && Math.abs((p.price_usd||0)-(a.price||0))<0.01);
   const watchRemovePending = pending.some(p=>p.type==='remove_watch' && p.ticker===t);
-  let pxHtml, chgHtml, badgeHtml;
+  let pxHtml, chgHtml, badgeHtml, ageHtml='';
   if(q && q.price>0){
     const up=q.pct>0, dn=q.pct<0;
     pxHtml = `€${fmtPx(q.priceEur||q.price)}`;
     chgHtml = `<span class="chg ${up?'up':dn?'dn':'flat'}">${q.pct>0?'+':''}${q.pct.toFixed(2)}%</span>`;
     badgeHtml = badgeHtmlFor(q);
+    ageHtml = ageHtmlFor(q);
   }else if(_failedTickers.has(t)){
     pxHtml = 'Kein Kurs'; chgHtml='<span class="chg flat">—</span>'; badgeHtml = `<span class="badge close">⚠ Fehler</span>`;
   }else{
@@ -952,6 +956,7 @@ function wcardHtml(w, allAlerts, pending){
   <div class="wcard${watchRemovePending?' pending':''}">
     <div class="row1" data-tk="${t}">
       <span class="tk">${t}</span>
+      ${w.name && w.name!==t ? `<span class="wname">${w.name}</span>` : ''}
       ${pendingTag}
       <span class="dt">${w.dt||''}</span>
     </div>
@@ -960,6 +965,7 @@ function wcardHtml(w, allAlerts, pending){
       ${chgHtml}
       ${badgeHtml}
     </div>
+    ${ageHtml ? `<div class="age-row">${ageHtml}</div>` : ''}
     ${sinceHtml}
     ${alertsHtml}
     ${noteHtml}
@@ -989,12 +995,13 @@ function cardHtml(r){
   const rsClass = r.rs>=80?'hi':r.rs>=60?'mid':'lo';
   const setup = r.setup?`<span class="setup">${r.setup}</span>`:'';
   // Kurs/Änderung: live falls vorhanden, sonst Morgen-Fallback
-  let pxHtml, chgHtml, badgeHtml;
+  let pxHtml, chgHtml, badgeHtml, ageHtml='';
   if(q && q.price>0){
     const up=q.pct>0, dn=q.pct<0;
     pxHtml = `€${fmtPx(q.priceEur||q.price)}`;
     chgHtml = `<span class="chg ${up?'up':dn?'dn':'flat'}">${q.pct>0?'+':''}${q.pct.toFixed(2)}%</span>`;
     badgeHtml = badgeHtmlFor(q);
+    ageHtml = ageHtmlFor(q);
   }else{
     pxHtml = `€${fmtPx(r.price_morning||0)}`;
     chgHtml = `<span class="chg flat">${r.day_change_pct>0?'+':''}${(r.day_change_pct||0).toFixed(2)}%</span>`;
@@ -1020,6 +1027,7 @@ function cardHtml(r){
       ${chgHtml}
       ${badgeHtml}
     </div>
+    ${ageHtml ? `<div class="age-row">${ageHtml}</div>` : ''}
     <div class="metrics">
       ${setup}
       <span class="metric"><b>Pivot</b> <span class="v ${pdClass}">${pd==null?'—':(pd>0?'+':'')+pd+'%'}</span></span>
@@ -1046,6 +1054,12 @@ function badgeHtmlFor(q){
   if(q.live && q.source==='de') return `<span class="badge xetra"><span class="dot"></span>DE</span>`;
   if(q.live) return `<span class="badge live"><span class="dot"></span>Live</span>`;
   return `<span class="badge close">Schluss</span>`;
+}
+// Zeigt, wie alt der angezeigte Kurs ist (wie am Desktop-Dashboard) —
+// q.ts ist in Millisekunden, relTime() braucht Sekunden.
+function ageHtmlFor(q){
+  if(!q || !q.ts) return '';
+  return `<span class="px-age">${relTime(q.ts/1000)}</span>`;
 }
 
 function fmtPx(p){
@@ -1406,6 +1420,12 @@ function updateCard(t){
       const lbl = q.live && q.source==='de' ? 'DE' : q.live ? 'Live' : 'Schluss';
       badge.className='badge '+cls;
       badge.innerHTML = q.live ? `<span class="dot"></span>${lbl}` : lbl;
+    }
+    // Kurs-Alter (wie am Desktop-Dashboard) — sitzt direkt unter row2
+    const ageRow = row2.nextElementSibling;
+    if(ageRow && ageRow.classList.contains('age-row')){
+      const ageEl = ageRow.querySelector('.px-age');
+      if(ageEl && q.ts) ageEl.textContent = relTime(q.ts/1000);
     }
   });
 }
@@ -2341,7 +2361,7 @@ function mergePendingIntoWatchData(pendingList){
       const dup = watchData.alerts.some(a=>a.ticker===req.ticker && a.condition===req.condition
         && Math.abs((a.price||0)-(req.price_usd||0))<0.01);
       if(!dup){
-        watchData.alerts.push({ticker:req.ticker, name:req.ticker, condition:req.condition,
+        watchData.alerts.push({ticker:req.ticker, name:req.name||req.ticker, condition:req.condition,
           price:req.price_usd, price_input:req.price_input, currency:req.currency});
       }
     }else if(req.type==='remove_alert'){
@@ -2427,7 +2447,9 @@ async function submitAlarmModal(){
   // daher hier einmalig mit dem aktuellen Kurs umrechnen.
   const fx = await getFx();
   const priceUsd = priceEur * fx;
-  const req = {type:'add_alert', ticker:t, condition, price_usd:priceUsd, price_input:priceEur, currency:'EUR'};
+  const _wEntry = (watchData?.watchlist||[]).find(x=>x.t===t);
+  const req = {type:'add_alert', ticker:t, name:_wEntry?.name||t, condition,
+    price_usd:priceUsd, price_input:priceEur, currency:'EUR'};
   try{
     const sent = await queueGhRequest(req);
     addPending(sent);
