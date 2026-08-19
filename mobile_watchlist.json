@@ -10,7 +10,7 @@
    "isin": "",
    "price": 31.01,
    "price_prev": 31.01,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -21,7 +21,7 @@
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -94,8 +94,8 @@
    "t": "ARM",
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
-   "price": 220.0,
-   "price_prev": 219.0,
+   "price": 220,
+   "price_prev": 219,
    "pct": 0.457,
    "currency": "EUR",
    "live": true,
@@ -180,8 +180,8 @@
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
-   "price": 265.0,
-   "price_prev": 263.0,
+   "price": 265,
+   "price_prev": 263,
    "pct": 0.76,
    "currency": "EUR",
    "live": true,
@@ -354,7 +354,7 @@
    "isin": "",
    "price": 292.71,
    "price_prev": 292.71,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -423,7 +423,7 @@
     "profitMargins": null,
     "grossMargins": null,
     "returnOnEquity": null,
-    "fiftyTwoWeekHigh": 310.0,
+    "fiftyTwoWeekHigh": 310,
     "fiftyTwoWeekLow": 169.45,
     "targetMeanPrice": 335.328,
     "heldPercentInstitutions": 0.93571,
@@ -567,6 +567,15 @@
    "price_input": 22.09,
    "currency": "EUR",
    "created": "2026-08-03 17:26"
+  },
+  {
+   "ticker": "SMCI",
+   "name": "SMCI",
+   "condition": "above",
+   "price": 36.5715,
+   "price_input": 31.5,
+   "currency": "EUR",
+   "created": "2026-08-19 11:04"
   }
  ]
 }
