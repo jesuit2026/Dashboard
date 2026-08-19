@@ -125,11 +125,16 @@
   .alert-chip.pending{opacity:.55;border-style:dashed}
   .alert-chip[data-del-alert]{cursor:pointer}
 
-  .watch-header{padding:10px 13px 4px}
-  .wt-add-btn{width:100%;background:var(--panel);color:var(--acc);
+  .watch-header{padding:10px 13px 4px;display:flex;gap:8px}
+  .wt-add-btn{flex:1;background:var(--panel);color:var(--acc);
     border:1px dashed var(--brd2);border-radius:10px;padding:10px;
     font-family:var(--ui);font-size:13px;font-weight:700}
   .wt-add-btn:active{opacity:.8}
+  .wt-refresh-btn{background:var(--panel);color:var(--txt2);
+    border:1px solid var(--brd);border-radius:10px;padding:10px 12px;
+    font-family:var(--ui);font-size:13px;font-weight:700;white-space:nowrap}
+  .wt-refresh-btn:active{opacity:.8}
+  .wt-refresh-btn:disabled{opacity:.5}
   .wcard-actions{display:flex;gap:6px;margin-top:9px}
   .wcard-actions .wt-mini-btn{padding:7px 3px;font-size:10.5px}
   .note-row{margin-top:8px;padding:8px 10px;background:var(--bg2);border:1px solid var(--brd);
@@ -443,7 +448,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-19.4';
+const APP_BUILD = '2026-08-19.5';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -805,9 +810,10 @@ function renderWatch(){
   const alerts = watchData?.alerts || [];
   const pending = getPending();
 
-  // Kopfzeile mit "+ Ticker" — nur sinnvoll nutzbar mit gespeichertem Token
+  // Kopfzeile mit "+ Ticker" und "Kurse aktualisieren"
   const header = `<div class="watch-header">
     <button class="wt-add-btn" onclick="addWatchFlow()">+ Ticker zur Watchlist</button>
+    <button class="wt-refresh-btn" id="watch-refresh-btn" onclick="refreshWatchlistOnly()">⟳ Kurse aktualisieren</button>
   </div>`;
 
   // Pending "add_watch"-Einträge, die noch nicht in watchData stehen, als
@@ -1090,6 +1096,59 @@ async function refreshQuotes(){
     }
   }
 }
+// Eine "Phase" (Liste von Tickern) parallel abarbeiten — 4 gleichzeitige
+// Anfragen, schont Proxy/Finnhub. Eigenständig, damit sowohl der volle
+// Zwei-Phasen-Refresh (Watchlist dann Top-50) als auch ein gezielter
+// Nur-Watchlist-Refresh (Button in der Watch-Ansicht) dieselbe Logik nutzen.
+async function processTickerPhase(list, isinMap, fx){
+  const CONCURRENCY = 4;
+  let idx = 0;
+  async function worker(){
+    while(idx < list.length){
+      const t = list[idx++];
+      try{
+        const q = await fetchQuote(t, fx, isinMap[t]);
+        if(q){ quotes[t]=q; _failedTickers.delete(t); updateCard(t); saveQuotesCache(); }
+        else{ _failedTickers.add(t); }
+      }catch{ _failedTickers.add(t); }
+      await sleep(80);
+    }
+  }
+  await Promise.all(Array.from({length: Math.min(CONCURRENCY, list.length)}, worker));
+  list.forEach(t=>{ if(_failedTickers.has(t) && !quotes[t]) updateCardFailed(t); });
+}
+
+// Gezielter Refresh NUR der Watchlist (nicht die komplette Top-50-
+// Kategorie mit) — für den "Kurse aktualisieren"-Button in der Watch-
+// Ansicht. fetchQuote() selbst kümmert sich schon darum, ob US oder DE
+// gerade offen ist (Finnhub direkt bei US-Handelszeit, Tradegate/Yahoo-
+// Xetra-Overlay wenn US zu und DE offen).
+let _watchRefreshInFlight = false;
+async function refreshWatchlistOnly(){
+  if(_watchRefreshInFlight || !watchData?.watchlist?.length) return;
+  _watchRefreshInFlight = true;
+  const btn = document.getElementById('watch-refresh-btn');
+  if(btn){ btn.disabled=true; btn.textContent='⟳ Aktualisiere…'; }
+  try{
+    const isinMap = {};
+    const tickers = [];
+    const seen = new Set();
+    watchData.watchlist.forEach(w=>{
+      if(!w.t || seen.has(w.t)) return;
+      seen.add(w.t);
+      if(w.isin) isinMap[w.t] = w.isin;
+      tickers.push(w.t);
+    });
+    const fx = await getFx();
+    await processTickerPhase(tickers, isinMap, fx);
+    renderWatch();
+    checkAlertHitsAndNotify();
+  }finally{
+    _watchRefreshInFlight = false;
+    if(btn){ btn.disabled=false; btn.textContent='⟳ Kurse aktualisieren'; }
+  }
+}
+
 async function _refreshQuotesInner(){
   if(!screenData?.views && !watchData?.watchlist) return;
   // ── Reihenfolge & Umfang ──────────────────────────────────────────
@@ -1120,30 +1179,10 @@ async function _refreshQuotesInner(){
   }
   const fx = await getFx();  // EUR/USD für Umrechnung
 
-  // ── Begrenzte Parallelität pro Phase ──────────────────────────────
-  // 4 gleichzeitige Anfragen: deutlich schneller als 1-nach-1, aber
-  // schont Proxy/Finnhub trotzdem. Jede Anfrage hat ein Timeout —
-  // eine hängende Anfrage blockiert nicht mehr alle anderen.
-  const CONCURRENCY = 4;
-  async function processPhase(list){
-    let idx = 0;
-    async function worker(){
-      while(idx < list.length){
-        const t = list[idx++];
-        try{
-          const q = await fetchQuote(t, fx, isinMap[t]);
-          if(q){ quotes[t]=q; _failedTickers.delete(t); updateCard(t); saveQuotesCache(); }
-          else{ _failedTickers.add(t); }
-        }catch{ _failedTickers.add(t); }
-        await sleep(80);
-      }
-    }
-    await Promise.all(Array.from({length: Math.min(CONCURRENCY, list.length)}, worker));
-    list.forEach(t=>{ if(_failedTickers.has(t) && !quotes[t]) updateCardFailed(t); });
-  }
-
-  await processPhase(watchTickers);   // Phase 1: Watchlist zuerst, komplett
-  await processPhase(catTickers);     // Phase 2: erst danach Top-50
+  // Nutzt die gemeinsame processTickerPhase() (siehe oben) — dieselbe
+  // Logik wie der gezielte Watchlist-Only-Refresh, kein doppelter Code.
+  await processTickerPhase(watchTickers, isinMap, fx);   // Phase 1: Watchlist zuerst, komplett
+  await processTickerPhase(catTickers, isinMap, fx);     // Phase 2: erst danach Top-50
 
 
   // Watchlist neu rendern, damit Alarm-Chips ihren "getroffen"-Status aktualisieren
