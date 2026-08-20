@@ -101,6 +101,12 @@
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
   .metrics{display:flex;gap:12px;font-family:var(--mono);font-size:11px;flex-wrap:wrap}
+  .add-watch-btn{width:100%;margin-top:10px;background:var(--panel);color:var(--acc);
+    border:1px dashed var(--brd2);border-radius:8px;padding:8px;
+    font-family:var(--ui);font-size:12px;font-weight:700}
+  .add-watch-btn:active{opacity:.8}
+  .add-watch-btn.on{color:var(--grn);border-style:solid;border-color:var(--grn);opacity:.7}
+  .add-watch-btn:disabled{opacity:.7}
   .metric{color:var(--dim)}
   .metric b{color:var(--txt2);font-weight:600}
   .metric .v{font-weight:700}
@@ -448,7 +454,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-20.1';
+const APP_BUILD = '2026-08-20.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1021,6 +1027,7 @@ function cardHtml(r){
   const e50 = r.ext_gd50;
   const e50Class = e50==null?'':(e50<=10?'pos':e50<=15?'warn':'neg');
   const e200 = r.sma200_pct;
+  const isOnWatch = (watchData?.watchlist||[]).some(w=>w.t===r.t);
   return `
   <div class="card" data-tk="${r.t}">
     <div class="row1">
@@ -1040,6 +1047,9 @@ function cardHtml(r){
       <span class="metric"><b>GD50</b> <span class="v ${e50Class}">${e50==null?'—':(e50>0?'+':'')+e50+'%'}</span></span>
       <span class="metric"><b>GD200</b> <span class="v ${e200>0?'pos':'neg'}">${e200==null?'—':(e200>0?'+':'')+e200+'%'}</span></span>
     </div>
+    <button class="add-watch-btn${isOnWatch?' on':''}" data-add-watch="${r.t}" ${isOnWatch?'disabled':''}>
+      ${isOnWatch?'✓ Auf Watch':'+ Zur Watchlist'}
+    </button>
   </div>`;
 }
 
@@ -2433,10 +2443,13 @@ function requireToken(){
   return false;
 }
 
-async function addWatchFlow(){
+async function addWatchFlow(presetTicker){
   if(!requireToken()) return;
-  let t = prompt('Ticker-Symbol (z.B. NVDA):','');
-  if(!t) return;
+  let t = presetTicker;
+  if(!t){
+    t = prompt('Ticker-Symbol (z.B. NVDA):','');
+    if(!t) return;
+  }
   t = t.trim().toUpperCase();
   if(!/^[A-Z0-9.\-]{1,10}$/.test(t)){ alert('Das sieht nicht nach einem gültigen Ticker aus.'); return; }
   if((watchData?.watchlist||[]).some(w=>w.t===t)){ alert(t+' ist schon in der Watchlist.'); return; }
@@ -2446,6 +2459,12 @@ async function addWatchFlow(){
     addPending(sent);
     applyPendingToWatchData();
     renderWatch();
+    if(presetTicker){
+      // Kurze Rückmeldung direkt auf der Top-50-Karte, damit klar ist,
+      // dass es geklappt hat, ohne extra zum Watch-Tab wechseln zu müssen.
+      const btn = document.querySelector(`.card[data-tk="${cssEsc(t)}"] .add-watch-btn`);
+      if(btn){ btn.textContent='✓ Auf Watch'; btn.disabled=true; }
+    }
   }catch(e){ alert('Fehler beim Senden: '+e.message); }
 }
 
@@ -2605,6 +2624,8 @@ document.querySelector('main').addEventListener('touchend',e=>{
 
 // ─── Karten-Klick via Event-Delegation (überlebt Neu-Rendern) ────
 document.querySelector('main').addEventListener('click', e=>{
+  const addWatchBtn = e.target.closest('[data-add-watch]');
+  if(addWatchBtn){ addWatchFlow(addWatchBtn.dataset.addWatch); return; }
   const card = e.target.closest('.card');
   if(card && card.dataset.tk){
     openChart(card.dataset.tk);
