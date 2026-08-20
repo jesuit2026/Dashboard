@@ -448,7 +448,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-19.6';
+const APP_BUILD = '2026-08-20.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -556,7 +556,7 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
     document.getElementById('tabs').style.display = v==='top50'?'flex':'none';
     // Beim Wechsel zu Watch sofort Kurse holen — sonst sieht man nur den
     // Stand vom letzten 60s-Zyklus, der beim Reinschauen schon alt sein kann.
-    if(v==='watch') refreshQuotes();
+    if(v==='watch') refreshWatchlistOnly();
   };
 });
 
@@ -2686,7 +2686,10 @@ loadScreen();
 loadWatchlist();
 attachCrosshair();
 cleanupOldCaches();
-refreshTimer=setInterval(()=>{ if(screenData||watchData) refreshQuotes(); }, REFRESH_MS);
+refreshTimer=setInterval(()=>{
+  if(_watchRefreshInFlight) return;   // manueller Refresh hat Vorrang, Auto-Refresh wartet
+  if(screenData||watchData) refreshQuotes();
+}, REFRESH_MS);
 // Watchlist-Struktur (nicht nur Kurse) alle 3 Min. neu laden — damit
 // Pending-Status ("wartet auf PC-Sync") automatisch verschwindet, sobald
 // der PC eine Änderung übernommen und neu exportiert hat.
