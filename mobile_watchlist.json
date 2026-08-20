@@ -210,15 +210,6 @@
    "price_input": 22.09,
    "currency": "EUR",
    "created": "2026-08-03 17:26"
-  },
-  {
-   "ticker": "SMCI",
-   "name": "SMCI",
-   "condition": "above",
-   "price": 36.5715,
-   "price_input": 31.5,
-   "currency": "EUR",
-   "created": "2026-08-19 11:04"
   }
  ]
 }
