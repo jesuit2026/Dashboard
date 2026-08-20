@@ -25,6 +25,14 @@
    "ticker": "KLARNA",
    "id": "r17872439902107uwap",
    "ts": "2026-08-20T16:39:50.210Z"
+  },
+  {
+   "type": "remove_alert",
+   "ticker": "SMCI",
+   "condition": "above",
+   "price_usd": 36.5715,
+   "id": "r1787248047629manual",
+   "ts": "2026-08-20T17:47:27.629402Z"
   }
  ]
 }
