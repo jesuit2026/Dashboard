@@ -1,12 +1,13 @@
 {
  "schema": 3,
- "updated_at": 1787198330,
- "updated_iso": "2026-08-20T05:58:50",
+ "updated_at": 1787290905,
+ "updated_iso": "2026-08-21T07:41:45",
  "fx": 1.14,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
+   "isin": "",
    "name": "American Superconductor Corp /De/",
    "insider": [],
    "fundamentals": {
@@ -30,11 +31,14 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 47.09,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ARM",
    "dt": "2026-05-21 18:53",
+   "isin": "",
    "name": "Arm Holdings Plc /Uk",
    "insider": [],
    "fundamentals": {
@@ -58,11 +62,14 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 223.15,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
+   "isin": "",
    "name": "Astera Labs, Inc.",
    "insider": [],
    "fundamentals": {
@@ -86,11 +93,14 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 244.26,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
+   "isin": "",
    "name": "Super Micro Computer, Inc.",
    "insider": [],
    "fundamentals": {
@@ -114,11 +124,14 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 30.56,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "HWM",
    "dt": "2026-05-22 17:04",
+   "isin": "",
    "name": "Howmet Aerospace Inc.",
    "insider": [],
    "fundamentals": {
@@ -142,11 +155,14 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 261.0838,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ANET",
    "dt": "2026-06-10 12:40",
+   "isin": "",
    "name": "Arista Networks, Inc.",
    "insider": [],
    "fundamentals": {
@@ -170,11 +186,14 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 156.4,
+   "price_at_add_currency": "USD"
   },
   {
    "t": "ASML",
    "dt": "2026-06-16 16:07",
+   "isin": "",
    "name": "Asml Holding Nv",
    "insider": [],
    "fundamentals": {
@@ -198,18 +217,15 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
-  },
-  {
-   "t": "HST",
-   "dt": "2026-08-03 17:20",
-   "note": ""
+   },
+   "price_at_add": 1890.2155,
+   "price_at_add_currency": "USD"
   }
  ],
  "alerts": [
   {
    "ticker": "HST",
-   "name": "HST",
+   "name": "Host Hotels & Resorts, Inc.",
    "condition": "above",
    "price": 25.416754,
    "price_input": 22.09,
