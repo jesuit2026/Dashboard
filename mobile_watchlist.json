@@ -1,15 +1,70 @@
 {
  "schema": 3,
- "updated_at": 1787290905,
- "updated_iso": "2026-08-21T07:41:45",
- "fx": 1.14,
+ "updated_at": 1787583927,
+ "updated_iso": "2026-08-24T17:05:27",
+ "fx": 1.12,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
    "isin": "",
-   "name": "American Superconductor Corp /De/",
-   "insider": [],
+   "price": 28.42,
+   "price_prev": 28.42,
+   "pct": -5.314,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1787583857,
+   "insider": [
+    {
+     "date": "2026-06-12",
+     "name": "Dambier Laura A.",
+     "type": "SELL",
+     "shares": 4000,
+     "value": 150520.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "Kosiba John W JR",
+     "type": "SELL",
+     "shares": 5026,
+     "value": 187603.99420000002,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "Kosiba John W JR",
+     "type": "SELL",
+     "shares": 1743,
+     "value": 65975.3388,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "McGahn Daniel P",
+     "type": "SELL",
+     "shares": 11508,
+     "value": 429047.01,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-11",
+     "name": "McGahn Daniel P",
+     "type": "SELL",
+     "shares": 4609,
+     "value": 174455.71990000003,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-10",
+     "name": "Kosiba John W JR",
+     "type": "SELL",
+     "shares": 3286,
+     "value": 136371.3002,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
@@ -24,12 +79,12 @@
     "profitMargins": 0.44729,
     "grossMargins": 0.30813,
     "returnOnEquity": 0.35561,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 70.49,
+    "fiftyTwoWeekLow": 24.87,
+    "targetMeanPrice": 61.75,
+    "heldPercentInstitutions": 0.74391997,
+    "shortPercentOfFloat": 0.0756,
+    "beta": 3.284,
     "dividendYield": null
    },
    "price_at_add": 47.09,
@@ -38,9 +93,64 @@
   {
    "t": "ARM",
    "dt": "2026-05-21 18:53",
-   "isin": "",
-   "name": "Arm Holdings Plc /Uk",
-   "insider": [],
+   "isin": "US0420682058",
+   "price": 236.64,
+   "price_prev": 236.64,
+   "pct": -15.055,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1787583859,
+   "insider": [
+    {
+     "date": "2026-08-18",
+     "name": "Bartels Laura Kathleen",
+     "type": "OTHER",
+     "shares": 862,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-18",
+     "name": "Bartels Laura Kathleen",
+     "type": "OTHER",
+     "shares": 819,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-18",
+     "name": "Bartels Laura Kathleen",
+     "type": "SELL",
+     "shares": 856,
+     "value": 232344.08000000002,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-11",
+     "name": "Sine Jeffrey",
+     "type": "SELL",
+     "shares": 9572,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-04",
+     "name": "Bartels Laura Kathleen",
+     "type": "SELL",
+     "shares": 11306,
+     "value": 4439866.2,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-03",
+     "name": "Abbey William",
+     "type": "SELL",
+     "shares": 2644,
+     "value": 1014582.12,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -55,12 +165,12 @@
     "profitMargins": 0.20247999,
     "grossMargins": 0.97537005,
     "returnOnEquity": 0.13352999,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 452.7,
+    "fiftyTwoWeekLow": 100.02,
+    "targetMeanPrice": 285.72308,
+    "heldPercentInstitutions": 0.96261,
+    "shortPercentOfFloat": 0.1161,
+    "beta": 3.909,
     "dividendYield": null
    },
    "price_at_add": 223.15,
@@ -69,9 +179,64 @@
   {
    "t": "ALAB",
    "dt": "2026-05-21 18:53",
-   "isin": "",
-   "name": "Astera Labs, Inc.",
-   "insider": [],
+   "isin": "US04626A1034",
+   "price": 271.355,
+   "price_prev": 271.355,
+   "pct": -15.936,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1787583861,
+   "insider": [
+    {
+     "date": "2026-08-19",
+     "name": "Gajendra Sanjay",
+     "type": "SELL",
+     "shares": 578,
+     "value": 203516.74779999998,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Gajendra Sanjay",
+     "type": "SELL",
+     "shares": 1049,
+     "value": 368453.1727,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Gajendra Sanjay",
+     "type": "SELL",
+     "shares": 1984,
+     "value": 692799.7056,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Gajendra Sanjay",
+     "type": "SELL",
+     "shares": 1057,
+     "value": 367883.565,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Gajendra Sanjay",
+     "type": "SELL",
+     "shares": 3500,
+     "value": 1214551.0999999999,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Gajendra Sanjay",
+     "type": "SELL",
+     "shares": 2525,
+     "value": 873972.4425,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Semiconductors",
@@ -86,12 +251,12 @@
     "profitMargins": 0.26724002,
     "grossMargins": 0.75988996,
     "returnOnEquity": 0.21110001,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 499.476,
+    "fiftyTwoWeekLow": 97.89,
+    "targetMeanPrice": 389.9527,
+    "heldPercentInstitutions": 0.75904,
+    "shortPercentOfFloat": 0.0689,
+    "beta": 3.843,
     "dividendYield": null
    },
    "price_at_add": 244.26,
@@ -100,9 +265,64 @@
   {
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
-   "isin": "",
-   "name": "Super Micro Computer, Inc.",
-   "insider": [],
+   "isin": "US86800U3023",
+   "price": 34.68,
+   "price_prev": 34.68,
+   "pct": -11.463,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1787583862,
+   "insider": [
+    {
+     "date": "2026-08-19",
+     "name": "Xiao Jin",
+     "type": "OTHER",
+     "shares": 4000,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Xiao Jin",
+     "type": "SELL",
+     "shares": 1436,
+     "value": 54970.08,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "WEIGAND DAVID E",
+     "type": "OTHER",
+     "shares": 6500,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "WEIGAND DAVID E",
+     "type": "SELL",
+     "shares": 3308,
+     "value": 126630.24,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Thauberger Matthew",
+     "type": "OTHER",
+     "shares": 2250,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-19",
+     "name": "Thauberger Matthew",
+     "type": "SELL",
+     "shares": 1145,
+     "value": 43830.6,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": "Technology",
     "industry": "Computer Hardware",
@@ -117,12 +337,12 @@
     "profitMargins": 0.03701,
     "grossMargins": 0.08394,
     "returnOnEquity": 0.17877,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 58.78,
+    "fiftyTwoWeekLow": 19.48,
+    "targetMeanPrice": 42.375,
+    "heldPercentInstitutions": 0.70522004,
+    "shortPercentOfFloat": 0.18450001,
+    "beta": 1.967,
     "dividendYield": null
    },
    "price_at_add": 30.56,
@@ -132,8 +352,23 @@
    "t": "HWM",
    "dt": "2026-05-22 17:04",
    "isin": "",
-   "name": "Howmet Aerospace Inc.",
-   "insider": [],
+   "price": 265.88,
+   "price_prev": 265.88,
+   "pct": -2.12,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1787583864,
+   "insider": [
+    {
+     "date": "2026-07-06",
+     "name": "CANTIE JOSEPH S",
+     "type": "OTHER",
+     "shares": 134,
+     "value": 36234.94,
+     "signal_strength": "normal"
+    }
+   ],
    "fundamentals": {
     "sector": null,
     "industry": null,
@@ -148,53 +383,28 @@
     "profitMargins": null,
     "grossMargins": null,
     "returnOnEquity": null,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
+    "fiftyTwoWeekHigh": 310.0,
+    "fiftyTwoWeekLow": 170.81,
+    "targetMeanPrice": 336.628,
+    "heldPercentInstitutions": 0.93355006,
+    "shortPercentOfFloat": 0.0174,
+    "beta": 1.212,
+    "dividendYield": 0.21
    },
    "price_at_add": 261.0838,
    "price_at_add_currency": "USD"
   },
   {
-   "t": "ANET",
-   "dt": "2026-06-10 12:40",
-   "isin": "",
-   "name": "Arista Networks, Inc.",
-   "insider": [],
-   "fundamentals": {
-    "sector": "Technology",
-    "industry": "Computer Hardware",
-    "marketCap": 213240348672,
-    "trailingPE": 57.798637,
-    "forwardPE": 37.907192,
-    "pegRatio": 2.15,
-    "trailingEps": 2.93,
-    "forwardEps": 4.46749,
-    "revenueGrowth": 0.351,
-    "earningsGrowth": 0.25,
-    "profitMargins": 0.38317,
-    "grossMargins": 0.63537,
-    "returnOnEquity": 0.31520998,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   },
-   "price_at_add": 156.4,
-   "price_at_add_currency": "USD"
-  },
-  {
    "t": "ASML",
    "dt": "2026-06-16 16:07",
-   "isin": "",
-   "name": "Asml Holding Nv",
+   "isin": "NL0010273215",
+   "price": 1733.46,
+   "price_prev": 1733.46,
+   "pct": -1.773,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1787583865,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -210,32 +420,17 @@
     "profitMargins": 0.29713,
     "grossMargins": 0.52603,
     "returnOnEquity": 0.52236,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
+    "fiftyTwoWeekHigh": 1999.96,
+    "fiftyTwoWeekLow": 716.2,
+    "targetMeanPrice": 2194.8875,
+    "heldPercentInstitutions": 0.20382,
+    "shortPercentOfFloat": 0.0028,
+    "beta": 1.365,
+    "dividendYield": 0.51
    },
    "price_at_add": 1890.2155,
    "price_at_add_currency": "USD"
-  },
-  {
-   "t": "HST",
-   "dt": "2026-08-03 17:20",
-   "note": ""
   }
  ],
- "alerts": [
-  {
-   "ticker": "HST",
-   "name": "Host Hotels & Resorts, Inc.",
-   "condition": "above",
-   "price": 25.416754,
-   "price_input": 22.09,
-   "currency": "EUR",
-   "created": "2026-08-03 17:26"
-  }
- ]
+ "alerts": []
 }
