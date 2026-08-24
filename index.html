@@ -454,7 +454,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-20.2';
+const APP_BUILD = '2026-08-20.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -2374,7 +2374,21 @@ async function queueGhRequest(req){
 // Merkt sich lokal, welche Requests schon rausgeschickt wurden, damit die
 // Watch-Karten sofort (optimistisch) den "wartet auf PC-Sync"-Zustand zeigen,
 // bis der PC sie tatsächlich verarbeitet hat.
-function getPending(){ return LS.get('pendingRequests', []); }
+function getPending(){
+  const p = LS.get('pendingRequests', []);
+  // Pending-Einträge, die älter als 6 Std. sind, gelten als verwaist —
+  // z.B. wenn die zugehörige Server-Anfrage manuell entfernt wurde (kann
+  // vorkommen), würde sie sonst NIE als "erledigt" erkannt und ewig immer
+  // wieder in die Anzeige gemischt werden (genau das war der KLARNA-Bug).
+  const MAX_AGE_MS = 6*60*60*1000;
+  const now = Date.now();
+  const fresh = p.filter(req=>{
+    const ts = req.ts ? Date.parse(req.ts) : 0;
+    return !ts || (now - ts) < MAX_AGE_MS;
+  });
+  if(fresh.length !== p.length) LS.set('pendingRequests', fresh);
+  return fresh;
+}
 function addPending(req){
   const p = getPending(); p.push(req); LS.set('pendingRequests', p);
 }
