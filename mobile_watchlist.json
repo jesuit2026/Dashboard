@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787593329,
- "updated_iso": "2026-08-24T19:42:09",
+ "updated_at": 1787593446,
+ "updated_iso": "2026-08-24T19:44:06",
  "fx": 1.14,
  "watchlist": [
   {
@@ -126,37 +126,6 @@
     "dividendYield": null
    },
    "price_at_add": 30.56,
-   "price_at_add_currency": "USD"
-  },
-  {
-   "t": "HWM",
-   "dt": "2026-05-22 17:04",
-   "isin": "",
-   "name": "Howmet Aerospace Inc.",
-   "insider": [],
-   "fundamentals": {
-    "sector": null,
-    "industry": null,
-    "marketCap": 110287626240,
-    "trailingPE": 63.954754,
-    "forwardPE": 45.609253,
-    "pegRatio": null,
-    "trailingEps": null,
-    "forwardEps": null,
-    "revenueGrowth": null,
-    "earningsGrowth": null,
-    "profitMargins": null,
-    "grossMargins": null,
-    "returnOnEquity": null,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   },
-   "price_at_add": 261.0838,
    "price_at_add_currency": "USD"
   },
   {
