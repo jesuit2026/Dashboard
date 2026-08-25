@@ -3,7 +3,7 @@
  "computed_at": 1787642339,
  "computed_iso": "2026-08-25T09:18:59",
  "universe_size": 41,
- "fx": 1.16754,
+ "fx": 1.16741,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -24,8 +24,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.713,
     "pct_from_high": -1.2,
-    "price": 345.15,
-    "pct": -0.234,
+    "price": 345.485,
+    "pct": -0.137,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -47,8 +47,8 @@
     "breakout_vol_ratio": 1.19,
     "score": 0.6585,
     "pct_from_high": -3.5,
-    "price": 95.37,
-    "pct": 0.221,
+    "price": 95.415,
+    "pct": 0.268,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -70,8 +70,8 @@
     "breakout_vol_ratio": 1.0,
     "score": 0.6502,
     "pct_from_high": -1.1,
-    "price": 31.83,
-    "pct": -1.118,
+    "price": 31.82,
+    "pct": -1.149,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -93,8 +93,8 @@
     "breakout_vol_ratio": 0.49,
     "score": 0.6496,
     "pct_from_high": 0.0,
-    "price": 24.03,
-    "pct": 0.797,
+    "price": 24.045,
+    "pct": 0.86,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -116,8 +116,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6417,
     "pct_from_high": -1.7,
-    "price": 359.565,
-    "pct": -0.842,
+    "price": 359.735,
+    "pct": -0.796,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -139,8 +139,8 @@
     "breakout_vol_ratio": 0.23,
     "score": 0.6344,
     "pct_from_high": 0.0,
-    "price": 158.81,
-    "pct": 0.382,
+    "price": 158.76,
+    "pct": 0.351,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -208,8 +208,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6029,
     "pct_from_high": -2.3,
-    "price": 31.615,
-    "pct": -1.725,
+    "price": 31.645,
+    "pct": -1.632,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -231,8 +231,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5983,
     "pct_from_high": -1.5,
-    "price": 41.795,
-    "pct": -1.357,
+    "price": 41.805,
+    "pct": -1.333,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -254,8 +254,8 @@
     "breakout_vol_ratio": 0.85,
     "score": 0.5916,
     "pct_from_high": 0.0,
-    "price": 190.0,
-    "pct": -0.066,
+    "price": 190.03,
+    "pct": -0.05,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -277,8 +277,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5838,
     "pct_from_high": -0.7,
-    "price": 59.08,
-    "pct": -5.229,
+    "price": 59.35,
+    "pct": -4.796,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -300,8 +300,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5554,
     "pct_from_high": 0.0,
-    "price": 38.3,
-    "pct": -0.312,
+    "price": 38.29,
+    "pct": -0.338,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -323,8 +323,8 @@
     "breakout_vol_ratio": 2.05,
     "score": 0.5529,
     "pct_from_high": 0.0,
-    "price": 30.69,
-    "pct": -0.13,
+    "price": 30.795,
+    "pct": 0.212,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -346,8 +346,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5307,
     "pct_from_high": -2.6,
-    "price": 23.26,
-    "pct": -1.794,
+    "price": 23.29,
+    "pct": -1.668,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -369,8 +369,8 @@
     "breakout_vol_ratio": 0.96,
     "score": 0.53,
     "pct_from_high": -7.5,
-    "price": 29.885,
-    "pct": 0.963,
+    "price": 29.93,
+    "pct": 1.115,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -392,8 +392,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5265,
     "pct_from_high": -1.1,
-    "price": 54.78,
-    "pct": 0.146,
+    "price": 54.815,
+    "pct": 0.21,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -415,8 +415,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5179,
     "pct_from_high": -2.7,
-    "price": 64.93,
-    "pct": -1.517,
+    "price": 65.085,
+    "pct": -1.282,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -438,8 +438,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5173,
     "pct_from_high": -4.9,
-    "price": 35.925,
-    "pct": -1.44,
+    "price": 35.96,
+    "pct": -1.344,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -486,8 +486,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6329,
     "pct_from_high": -0.6,
-    "price": 26.19,
-    "pct": -1.244,
+    "price": 26.255,
+    "pct": -0.999,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -509,8 +509,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5025,
     "pct_from_high": -2.6,
-    "price": 103.63,
-    "pct": -0.861,
+    "price": 103.64,
+    "pct": -0.851,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -578,8 +578,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5531,
     "pct_from_high": -1.7,
-    "price": 130.43,
-    "pct": 2.178,
+    "price": 130.02,
+    "pct": 1.857,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -647,8 +647,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.3931,
     "pct_from_high": -17.7,
-    "price": 13.965,
-    "pct": -2.953,
+    "price": 13.98,
+    "pct": -2.849,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -670,8 +670,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5901,
     "pct_from_high": -3.9,
-    "price": 71.43,
-    "pct": 2.762,
+    "price": 70.85,
+    "pct": 1.928,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -693,8 +693,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5125,
     "pct_from_high": -7.7,
-    "price": 67.81,
-    "pct": -0.382,
+    "price": 67.53,
+    "pct": -0.793,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -716,8 +716,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5914,
     "pct_from_high": -6.2,
-    "price": 385.06,
-    "pct": 0.296,
+    "price": 385.26,
+    "pct": 0.348,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -762,8 +762,8 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6495,
     "pct_from_high": -9.9,
-    "price": 33.23,
-    "pct": 1.574,
+    "price": 33.135,
+    "pct": 1.284,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -833,8 +833,8 @@
     "breakout_vol_ratio": 2.05,
     "score": 0.5529,
     "pct_from_high": 0.0,
-    "price": 30.69,
-    "pct": -0.13,
+    "price": 30.795,
+    "pct": 0.212,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -843,5 +843,5 @@
   "trendsetter": []
  },
  "view_labels": {},
- "prices_updated_at": 1787667605
+ "prices_updated_at": 1787667847
 }
