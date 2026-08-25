@@ -3,7 +3,7 @@
  "computed_at": 1787642339,
  "computed_iso": "2026-08-25T09:18:59",
  "universe_size": 41,
- "fx": 1.16632,
+ "fx": 1.167,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -27,7 +27,7 @@
     "price": 345.96,
     "pct": 0.0,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -47,10 +47,10 @@
     "breakout_vol_ratio": 1.19,
     "score": 0.6585,
     "pct_from_high": -3.5,
-    "price": 95.16,
-    "pct": 1.256,
+    "price": 95.18,
+    "pct": -2.199,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -70,10 +70,10 @@
     "breakout_vol_ratio": 1.0,
     "score": 0.6502,
     "pct_from_high": -1.1,
-    "price": 32.19,
-    "pct": 0.0,
+    "price": 32.18,
+    "pct": -1.62,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -93,11 +93,11 @@
     "breakout_vol_ratio": 0.49,
     "score": 0.6496,
     "pct_from_high": 0.0,
-    "price": 23.84,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 20.4,
+    "pct": -0.488,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "MPC",
@@ -116,11 +116,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6417,
     "pct_from_high": -1.7,
-    "price": 362.62,
-    "pct": 0.837,
-    "currency": "USD",
+    "price": 308.8,
+    "pct": -0.707,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "ROKU",
@@ -139,11 +139,11 @@
     "breakout_vol_ratio": 0.23,
     "score": 0.6344,
     "pct_from_high": 0.0,
-    "price": 158.205,
+    "price": 135.68,
     "pct": 0.0,
-    "currency": "USD",
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "TECK",
@@ -162,11 +162,11 @@
     "breakout_vol_ratio": 1.61,
     "score": 0.6033,
     "pct_from_high": -0.4,
-    "price": 70.19,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 59.75,
+    "pct": -0.748,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "PSX",
@@ -185,11 +185,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6031,
     "pct_from_high": -1.0,
-    "price": 241.94,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 203.4,
+    "pct": -1.976,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "CVE",
@@ -209,9 +209,9 @@
     "score": 0.6029,
     "pct_from_high": -2.3,
     "price": 32.17,
-    "pct": 0.0,
+    "pct": -2.308,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -232,9 +232,9 @@
     "score": 0.5983,
     "pct_from_high": -1.5,
     "price": 42.37,
-    "pct": 0.391,
+    "pct": -1.143,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -254,11 +254,11 @@
     "breakout_vol_ratio": 0.85,
     "score": 0.5916,
     "pct_from_high": 0.0,
-    "price": 190.125,
-    "pct": -1.347,
+    "price": 162.9906,
+    "pct": 0.079,
     "currency": "USD",
     "live": true,
-    "price_source": "US"
+    "price_source": "DE_CONV"
    },
    {
     "t": "DAR",
@@ -277,10 +277,10 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5838,
     "pct_from_high": -0.7,
-    "price": 62.34,
-    "pct": 0.0,
+    "price": 62.32,
+    "pct": -5.202,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -300,11 +300,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5554,
     "pct_from_high": 0.0,
-    "price": 38.42,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 33.5,
+    "pct": 1.515,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "SBLK",
@@ -323,11 +323,11 @@
     "breakout_vol_ratio": 2.05,
     "score": 0.5529,
     "pct_from_high": 0.0,
-    "price": 30.73,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 26.24,
+    "pct": -0.38,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "PR",
@@ -349,7 +349,7 @@
     "price": 23.685,
     "pct": 0.0,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -370,9 +370,9 @@
     "score": 0.53,
     "pct_from_high": -7.5,
     "price": 29.6,
-    "pct": 0.458,
+    "pct": -1.53,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -395,7 +395,7 @@
     "price": 54.7,
     "pct": 0.0,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -418,7 +418,7 @@
     "price": 65.93,
     "pct": 0.0,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -441,7 +441,7 @@
     "price": 36.45,
     "pct": 0.0,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -461,10 +461,10 @@
     "breakout_vol_ratio": 1.4,
     "score": 0.4738,
     "pct_from_high": -5.8,
-    "price": 129.32,
-    "pct": 0.0,
+    "price": 129.24,
+    "pct": -0.278,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    }
   ],
@@ -489,7 +489,7 @@
     "price": 26.58,
     "pct": 0.226,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -509,10 +509,10 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5025,
     "pct_from_high": -2.6,
-    "price": 104.06,
-    "pct": -0.45,
+    "price": 104.09,
+    "pct": -0.058,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -532,11 +532,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5753,
     "pct_from_high": -2.4,
-    "price": 116.025,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 100.0,
+    "pct": 0.503,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "MATX",
@@ -555,11 +555,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.6021,
     "pct_from_high": -0.4,
-    "price": 223.02,
-    "pct": 0.331,
-    "currency": "USD",
+    "price": 192.0,
+    "pct": 0.524,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "INCY",
@@ -581,7 +581,7 @@
     "price": 127.99,
     "pct": 0.266,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -601,11 +601,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.518,
     "pct_from_high": -3.6,
-    "price": 30.21,
-    "pct": 0.717,
-    "currency": "USD",
+    "price": 26.2,
+    "pct": 0.769,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "KNSA",
@@ -627,7 +627,7 @@
     "price": 79.35,
     "pct": 0.551,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -647,11 +647,11 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.3931,
     "pct_from_high": -17.7,
-    "price": 14.39,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 12.075,
+    "pct": -2.227,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "MRX",
@@ -673,7 +673,7 @@
     "price": 70.53,
     "pct": 1.467,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -696,7 +696,7 @@
     "price": 68.07,
     "pct": 0.0,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -716,10 +716,10 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5914,
     "pct_from_high": -6.2,
-    "price": 386.325,
-    "pct": 0.625,
+    "price": 386.61,
+    "pct": 2.04,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -739,10 +739,10 @@
     "breakout_vol_ratio": 0.0,
     "score": 0.5623,
     "pct_from_high": -11.1,
-    "price": 246.33,
-    "pct": 3.775,
+    "price": 247.66,
+    "pct": 1.947,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -765,7 +765,7 @@
     "price": 33.415,
     "pct": 2.14,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    },
    {
@@ -788,7 +788,7 @@
     "price": 244.195,
     "pct": -1.768,
     "currency": "USD",
-    "live": true,
+    "live": false,
     "price_source": "US"
    }
   ],
@@ -810,11 +810,11 @@
     "breakout_vol_ratio": 1.61,
     "score": 0.6033,
     "pct_from_high": -0.4,
-    "price": 70.19,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 59.75,
+    "pct": -0.748,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    },
    {
     "t": "SBLK",
@@ -833,15 +833,15 @@
     "breakout_vol_ratio": 2.05,
     "score": 0.5529,
     "pct_from_high": 0.0,
-    "price": 30.73,
-    "pct": 0.0,
-    "currency": "USD",
+    "price": 26.24,
+    "pct": -0.38,
+    "currency": "EUR",
     "live": true,
-    "price_source": "US"
+    "price_source": "TG"
    }
   ],
   "trendsetter": []
  },
  "view_labels": {},
- "prices_updated_at": 1787644435
+ "prices_updated_at": 1787658619
 }
