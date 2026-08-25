@@ -3,7 +3,7 @@
  "computed_at": 1787642339,
  "computed_iso": "2026-08-25T09:18:59",
  "universe_size": 41,
- "fx": 1.16659,
+ "fx": 1.16604,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -140,7 +140,7 @@
     "score": 0.6344,
     "pct_from_high": 0.0,
     "price": 158.205,
-    "pct": -0.233,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -186,7 +186,7 @@
     "score": 0.6031,
     "pct_from_high": -1.0,
     "price": 241.94,
-    "pct": 0.403,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -209,7 +209,7 @@
     "score": 0.6029,
     "pct_from_high": -2.3,
     "price": 32.17,
-    "pct": -0.047,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -278,7 +278,7 @@
     "score": 0.5838,
     "pct_from_high": -0.7,
     "price": 62.34,
-    "pct": -8.094,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -301,7 +301,7 @@
     "score": 0.5554,
     "pct_from_high": 0.0,
     "price": 38.42,
-    "pct": -0.685,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -324,7 +324,7 @@
     "score": 0.5529,
     "pct_from_high": 0.0,
     "price": 30.73,
-    "pct": 0.245,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -347,7 +347,7 @@
     "score": 0.5307,
     "pct_from_high": -2.6,
     "price": 23.685,
-    "pct": 1.893,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -393,7 +393,7 @@
     "score": 0.5265,
     "pct_from_high": -1.1,
     "price": 54.7,
-    "pct": 1.128,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -416,7 +416,7 @@
     "score": 0.5179,
     "pct_from_high": -2.7,
     "price": 65.93,
-    "pct": 1.423,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -439,7 +439,7 @@
     "score": 0.5173,
     "pct_from_high": -4.9,
     "price": 36.45,
-    "pct": 1.816,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -462,7 +462,7 @@
     "score": 0.4738,
     "pct_from_high": -5.8,
     "price": 129.32,
-    "pct": 0.705,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -834,7 +834,7 @@
     "score": 0.5529,
     "pct_from_high": 0.0,
     "price": 30.73,
-    "pct": 0.245,
+    "pct": 0.0,
     "currency": "USD",
     "live": true,
     "price_source": "US"
@@ -843,5 +843,5 @@
   "trendsetter": []
  },
  "view_labels": {},
- "prices_updated_at": 1787642737
+ "prices_updated_at": 1787643775
 }
