@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787647726,
- "updated_iso": "2026-08-25T10:48:46",
+ "updated_at": 1787658676,
+ "updated_iso": "2026-08-25T13:51:16",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787647655,
+   "price_ts": 1787658623,
    "insider": [
     {
      "date": "2026-06-12",
@@ -96,13 +96,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 207.5,
+   "price": 211.0,
    "price_prev": 205.0,
-   "pct": 1.22,
+   "pct": 2.927,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787647657,
+   "price_ts": 1787658624,
    "insider": [
     {
      "date": "2026-08-18",
@@ -183,13 +183,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 245.0,
+   "price": 244.0,
    "price_prev": 238.0,
-   "pct": 2.941,
+   "pct": 2.521,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787647658,
+   "price_ts": 1787658626,
    "insider": [
     {
      "date": "2026-08-19",
@@ -270,13 +270,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 30.68,
+   "price": 30.74,
    "price_prev": 30.16,
-   "pct": 1.724,
+   "pct": 1.923,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787647658,
+   "price_ts": 1787658628,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1501.8,
+   "price": 1512.0,
    "price_prev": 1492.8,
-   "pct": 0.603,
+   "pct": 1.286,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787647658,
+   "price_ts": 1787658630,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -388,6 +388,44 @@
     "dividendYield": 0.51
    },
    "price_at_add": 1890.2155,
+   "price_at_add_currency": "USD"
+  },
+  {
+   "t": "WDRN",
+   "dt": "2026-08-25 13:49",
+   "isin": "US97717Y1881",
+   "name": "WDRN",
+   "price": 26.55,
+   "price_prev": 26.55,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1787658635,
+   "insider": [],
+   "fundamentals": {
+    "sector": null,
+    "industry": null,
+    "marketCap": null,
+    "trailingPE": null,
+    "forwardPE": null,
+    "pegRatio": null,
+    "trailingEps": null,
+    "forwardEps": null,
+    "revenueGrowth": null,
+    "earningsGrowth": null,
+    "profitMargins": null,
+    "grossMargins": null,
+    "returnOnEquity": null,
+    "fiftyTwoWeekHigh": 34.99,
+    "fiftyTwoWeekLow": 24.44,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   },
+   "price_at_add": 26.57,
    "price_at_add_currency": "USD"
   }
  ],
