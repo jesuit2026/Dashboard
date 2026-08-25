@@ -11,7 +11,7 @@
    "name": "American Superconductor Corp /De/",
    "price": 28.93,
    "price_prev": 28.93,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -22,7 +22,7 @@
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -96,8 +96,8 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 211.0,
-   "price_prev": 205.0,
+   "price": 211,
+   "price_prev": 205,
    "pct": 2.927,
    "currency": "EUR",
    "live": true,
@@ -183,8 +183,8 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 244.0,
-   "price_prev": 238.0,
+   "price": 244,
+   "price_prev": 238,
    "pct": 2.521,
    "currency": "EUR",
    "live": true,
@@ -357,7 +357,7 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1512.0,
+   "price": 1512,
    "price_prev": 1492.8,
    "pct": 1.286,
    "currency": "EUR",
@@ -397,7 +397,7 @@
    "name": "WDRN",
    "price": 26.55,
    "price_prev": 26.55,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -427,6 +427,11 @@
    },
    "price_at_add": 26.57,
    "price_at_add_currency": "USD"
+  },
+  {
+   "t": "RELY",
+   "dt": "2026-08-25 12:32",
+   "note": ""
   }
  ],
  "alerts": []
