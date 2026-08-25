@@ -1,3 +1,10 @@
 {
- "requests": []
+ "requests": [
+  {
+   "type": "add_watch",
+   "ticker": "ENVA",
+   "id": "r1787661579759wohdo",
+   "ts": "2026-08-25T12:39:39.759Z"
+  }
+ ]
 }
