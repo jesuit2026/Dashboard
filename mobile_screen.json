@@ -73,8 +73,8 @@
     "score": 0.6541,
     "pct_from_high": 0.0,
     "isin": "US36162J1060",
-    "price": 28.15,
-    "pct": 0.107,
+    "price": 28.145,
+    "pct": 0.089,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -97,8 +97,8 @@
     "score": 0.6419,
     "pct_from_high": -1.0,
     "isin": "US56585A1025",
-    "price": 310.1,
-    "pct": -0.257,
+    "price": 310.2,
+    "pct": -0.225,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -193,8 +193,8 @@
     "score": 0.6073,
     "pct_from_high": -0.5,
     "isin": "US7185461040",
-    "price": 207.3,
-    "pct": -0.289,
+    "price": 207.4,
+    "pct": -0.241,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -217,11 +217,11 @@
     "score": 0.586,
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 160.32,
-    "pct": -0.657,
-    "currency": "EUR",
+    "price": 161.3448,
+    "pct": 0.16,
+    "currency": "USD",
     "live": true,
-    "price_source": "TG"
+    "price_source": "DE_CONV"
    },
    {
     "t": "TECK",
@@ -313,8 +313,8 @@
     "score": 0.5041,
     "pct_from_high": -4.7,
     "isin": "",
-    "price": 19.4725,
-    "pct": -0.269,
+    "price": 19.4775,
+    "pct": -0.243,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -848,8 +848,8 @@
     "score": 0.6419,
     "pct_from_high": -1.0,
     "isin": "US56585A1025",
-    "price": 310.1,
-    "pct": -0.257,
+    "price": 310.2,
+    "pct": -0.225,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -920,8 +920,8 @@
     "score": 0.6073,
     "pct_from_high": -0.5,
     "isin": "US7185461040",
-    "price": 207.3,
-    "pct": -0.289,
+    "price": 207.4,
+    "pct": -0.241,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1064,8 +1064,8 @@
     "score": 0.5041,
     "pct_from_high": -4.7,
     "isin": "",
-    "price": 19.4725,
-    "pct": -0.269,
+    "price": 19.4775,
+    "pct": -0.243,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1396,5 +1396,5 @@
   "sector_3": "#3 Financial Services",
   "sector_4": "#4 Biotechnology"
  },
- "prices_updated_at": 1787819043
+ "prices_updated_at": 1787819349
 }
