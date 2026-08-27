@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787817843,
- "updated_iso": "2026-08-27T10:04:03",
+ "updated_at": 1787818762,
+ "updated_iso": "2026-08-27T10:19:22",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787817828,
+   "price_ts": 1787818742,
    "insider": [
     {
      "date": "2026-06-12",
@@ -96,13 +96,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 224.5,
+   "price": 226.0,
    "price_prev": 216.0,
-   "pct": 3.935,
+   "pct": 4.63,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787817832,
+   "price_ts": 1787818746,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787817835,
+   "price_ts": 1787818749,
    "insider": [
     {
      "date": "2026-08-19",
@@ -270,13 +270,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 33.16,
+   "price": 33.44,
    "price_prev": 32.1,
-   "pct": 3.302,
+   "pct": 4.174,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787817838,
+   "price_ts": 1787818754,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1521.4,
+   "price": 1524.0,
    "price_prev": 1498.6,
-   "pct": 1.521,
+   "pct": 1.695,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787817838,
+   "price_ts": 1787818754,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -395,13 +395,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "US69608A1088",
    "name": "Palantir Technologies Inc.",
-   "price": 151.94,
+   "price": 151.8,
    "price_prev": 152.32,
-   "pct": -0.249,
+   "pct": -0.341,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787817839,
+   "price_ts": 1787818758,
    "insider": [
     {
      "date": "2026-08-24",
