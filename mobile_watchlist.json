@@ -1,28 +1,28 @@
 {
  "schema": 3,
- "updated_at": 1787908312,
- "updated_iso": "2026-08-28T11:11:52",
+ "updated_at": 1787819496,
+ "updated_iso": "2026-08-27T10:31:36",
  "fx": 1.12,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
-   "isin": "",
+   "isin": "US0301112076",
    "name": "American Superconductor Corp /De/",
-   "price": 29.84,
-   "price_prev": 29.84,
-   "pct": 1.204,
+   "price": 29.485,
+   "price_prev": 29.485,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908246,
+   "price_ts": 1787819484,
    "insider": [
     {
      "date": "2026-06-12",
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -83,7 +83,7 @@
     "fiftyTwoWeekHigh": 70.49,
     "fiftyTwoWeekLow": 24.87,
     "targetMeanPrice": 61.75,
-    "heldPercentInstitutions": 0.74357,
+    "heldPercentInstitutions": 0.74346,
     "shortPercentOfFloat": 0.0744,
     "beta": 3.284,
     "dividendYield": null
@@ -96,13 +96,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 217.0,
-   "price_prev": 219.5,
-   "pct": -1.139,
+   "price": 225,
+   "price_prev": 216,
+   "pct": 4.167,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908249,
+   "price_ts": 1787819487,
    "insider": [
     {
      "date": "2026-08-18",
@@ -170,7 +170,7 @@
     "fiftyTwoWeekHigh": 452.7,
     "fiftyTwoWeekLow": 100.02,
     "targetMeanPrice": 286.44104,
-    "heldPercentInstitutions": 0.96182996,
+    "heldPercentInstitutions": 0.96185,
     "shortPercentOfFloat": 0.1257,
     "beta": 3.909,
     "dividendYield": null
@@ -183,13 +183,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 257.0,
-   "price_prev": 261.0,
-   "pct": -1.533,
+   "price": 262,
+   "price_prev": 249,
+   "pct": 5.221,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908250,
+   "price_ts": 1787819489,
    "insider": [
     {
      "date": "2026-08-19",
@@ -257,7 +257,7 @@
     "fiftyTwoWeekHigh": 499.476,
     "fiftyTwoWeekLow": 97.89,
     "targetMeanPrice": 389.9527,
-    "heldPercentInstitutions": 0.75913,
+    "heldPercentInstitutions": 0.75912005,
     "shortPercentOfFloat": 0.066199996,
     "beta": 3.843,
     "dividendYield": null
@@ -270,13 +270,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 32.6,
-   "price_prev": 33.02,
-   "pct": -1.272,
+   "price": 33.52,
+   "price_prev": 32.1,
+   "pct": 4.424,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908250,
+   "price_ts": 1787819491,
    "insider": [
     {
      "date": "2026-08-19",
@@ -344,7 +344,7 @@
     "fiftyTwoWeekHigh": 58.78,
     "fiftyTwoWeekLow": 19.48,
     "targetMeanPrice": 42.375,
-    "heldPercentInstitutions": 0.70585996,
+    "heldPercentInstitutions": 0.70584,
     "shortPercentOfFloat": 0.1841,
     "beta": 1.967,
     "dividendYield": null
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1488.0,
-   "price_prev": 1485.2,
-   "pct": 0.189,
+   "price": 1528,
+   "price_prev": 1498.6,
+   "pct": 1.962,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908250,
+   "price_ts": 1787819491,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -381,8 +381,8 @@
     "returnOnEquity": 0.52236,
     "fiftyTwoWeekHigh": 1999.96,
     "fiftyTwoWeekLow": 716.2,
-    "targetMeanPrice": 2153.8706,
-    "heldPercentInstitutions": 0.20377001,
+    "targetMeanPrice": 2156.1309,
+    "heldPercentInstitutions": 0.20384,
     "shortPercentOfFloat": 0.0034999999,
     "beta": 1.365,
     "dividendYield": 0.52
@@ -393,15 +393,15 @@
   {
    "t": "PLTR",
    "dt": "2026-08-27 09:46",
-   "isin": "",
+   "isin": "US69608A1088",
    "name": "Palantir Technologies Inc.",
-   "price": 185.28,
-   "price_prev": 185.28,
-   "pct": 4.389,
+   "price": 177.49,
+   "price_prev": 177.49,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908252,
+   "price_ts": 1787819493,
    "insider": [
     {
      "date": "2026-08-24",
@@ -469,7 +469,7 @@
     "fiftyTwoWeekHigh": 207.52,
     "fiftyTwoWeekLow": 106.37,
     "targetMeanPrice": 191.68,
-    "heldPercentInstitutions": 0.64865994,
+    "heldPercentInstitutions": 0.64858,
     "shortPercentOfFloat": 0.0318,
     "beta": 1.563,
     "dividendYield": null
@@ -478,179 +478,25 @@
    "price_at_add_currency": "USD"
   },
   {
-   "t": "CRM",
-   "dt": "2026-08-28 11:09",
-   "isin": "",
-   "name": "Salesforce, Inc.",
-   "price": 252.19,
-   "price_prev": 252.19,
-   "pct": 20.262,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1787908253,
-   "insider": [
-    {
-     "date": "2026-08-24",
-     "name": "Milano Miguel",
-     "type": "OTHER",
-     "shares": 1662,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-24",
-     "name": "Milano Miguel",
-     "type": "SELL",
-     "shares": 678,
-     "value": 141817.25999999998,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-24",
-     "name": "Niles Sabastian",
-     "type": "OTHER",
-     "shares": 1662,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-24",
-     "name": "Niles Sabastian",
-     "type": "SELL",
-     "shares": 920,
-     "value": 192436.4,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-24",
-     "name": "SACHIN J. MEHRA",
-     "type": "OTHER",
-     "shares": 441,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-24",
-     "name": "MUNOZ OSCAR",
-     "type": "OTHER",
-     "shares": 441,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ],
-   "fundamentals": {
-    "sector": "Technology",
-    "industry": "Software - Application",
-    "marketCap": 207437152256,
-    "trailingPE": 18.837818,
-    "forwardPE": 15.976091,
-    "pegRatio": 0.85,
-    "trailingEps": 13.38,
-    "forwardEps": 15.7767,
-    "revenueGrowth": 0.133,
-    "earningsGrowth": 0.522,
-    "profitMargins": 0.18733,
-    "grossMargins": 0.77643996,
-    "returnOnEquity": 0.16908,
-    "fiftyTwoWeekHigh": 269.11,
-    "fiftyTwoWeekLow": 146.32,
-    "targetMeanPrice": 244.02213,
-    "heldPercentInstitutions": 0.88008004,
-    "shortPercentOfFloat": 0.0374,
-    "beta": 1.152,
-    "dividendYield": 0.86
-   },
-   "price_at_add": 205.62,
-   "price_at_add_currency": "USD"
+   "t": "SALESFORCE",
+   "dt": "2026-08-28 08:44",
+   "note": ""
   },
   {
    "t": "TENB",
-   "dt": "2026-08-28 11:10",
-   "isin": "US88025T1025",
-   "name": "Tenable Holdings, Inc.",
-   "price": 32.2,
-   "price_prev": 32.3,
-   "pct": -0.31,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1787908254,
-   "insider": [
-    {
-     "date": "2026-08-25",
-     "name": "Thurmond Mark C.",
-     "type": "OTHER",
-     "shares": 1162,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-25",
-     "name": "Thurmond Mark C.",
-     "type": "SELL",
-     "shares": 562,
-     "value": 19074.28,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-25",
-     "name": "Thurmond Mark C.",
-     "type": "OTHER",
-     "shares": 2267,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-25",
-     "name": "Thurmond Mark C.",
-     "type": "SELL",
-     "shares": 1097,
-     "value": 37232.18,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-25",
-     "name": "Thurmond Mark C.",
-     "type": "OTHER",
-     "shares": 6095,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-25",
-     "name": "Thurmond Mark C.",
-     "type": "SELL",
-     "shares": 2947,
-     "value": 100021.18,
-     "signal_strength": "normal"
-    }
-   ],
-   "fundamentals": {
-    "sector": "Technology",
-    "industry": "Software - Infrastructure",
-    "marketCap": 4143465984,
-    "trailingPE": 537.4285,
-    "forwardPE": 17.220543,
-    "pegRatio": 1.25,
-    "trailingEps": 0.07,
-    "forwardEps": 2.1846,
-    "revenueGrowth": 0.086,
-    "earningsGrowth": null,
-    "profitMargins": 0.0064600003,
-    "grossMargins": 0.78051,
-    "returnOnEquity": 0.02456,
-    "fiftyTwoWeekHigh": 43.67,
-    "fiftyTwoWeekLow": 15.73,
-    "targetMeanPrice": 35.35,
-    "heldPercentInstitutions": 1.0825801,
-    "shortPercentOfFloat": 0.1118,
-    "beta": 0.938,
-    "dividendYield": null
-   },
-   "price_at_add": 33.66,
-   "price_at_add_currency": "USD"
+   "dt": "2026-08-28 09:05",
+   "note": ""
   }
  ],
- "alerts": []
+ "alerts": [
+  {
+   "ticker": "TENB",
+   "name": "TENB",
+   "condition": "above",
+   "price": 38.435100000000006,
+   "price_input": 33,
+   "currency": "EUR",
+   "created": "2026-08-28 09:11"
+  }
+ ]
 }
