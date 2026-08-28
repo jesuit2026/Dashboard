@@ -22,7 +22,7 @@
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -96,7 +96,7 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 217.0,
+   "price": 217,
    "price_prev": 219.5,
    "pct": -1.139,
    "currency": "EUR",
@@ -183,8 +183,8 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 257.0,
-   "price_prev": 261.0,
+   "price": 257,
+   "price_prev": 261,
    "pct": -1.533,
    "currency": "EUR",
    "live": true,
@@ -652,5 +652,15 @@
    "price_at_add_currency": "USD"
   }
  ],
- "alerts": []
+ "alerts": [
+  {
+   "ticker": "TENB",
+   "name": "TENB",
+   "condition": "above",
+   "price": 38.435100000000006,
+   "price_input": 33,
+   "currency": "EUR",
+   "created": "2026-08-28 09:11"
+  }
+ ]
 }
