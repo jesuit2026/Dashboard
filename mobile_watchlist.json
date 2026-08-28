@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787908301,
- "updated_iso": "2026-08-28T11:11:41",
+ "updated_at": 1787908312,
+ "updated_iso": "2026-08-28T11:11:52",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908203,
+   "price_ts": 1787908246,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908206,
+   "price_ts": 1787908249,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908206,
+   "price_ts": 1787908250,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908207,
+   "price_ts": 1787908250,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1487.2,
+   "price": 1488.0,
    "price_prev": 1485.2,
-   "pct": 0.135,
+   "pct": 0.189,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908207,
+   "price_ts": 1787908250,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908208,
+   "price_ts": 1787908252,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908210,
+   "price_ts": 1787908253,
    "insider": [
     {
      "date": "2026-08-24",
@@ -562,6 +562,93 @@
     "dividendYield": 0.86
    },
    "price_at_add": 205.62,
+   "price_at_add_currency": "USD"
+  },
+  {
+   "t": "TENB",
+   "dt": "2026-08-28 11:10",
+   "isin": "US88025T1025",
+   "name": "Tenable Holdings, Inc.",
+   "price": 32.2,
+   "price_prev": 32.3,
+   "pct": -0.31,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1787908254,
+   "insider": [
+    {
+     "date": "2026-08-25",
+     "name": "Thurmond Mark C.",
+     "type": "OTHER",
+     "shares": 1162,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-25",
+     "name": "Thurmond Mark C.",
+     "type": "SELL",
+     "shares": 562,
+     "value": 19074.28,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-25",
+     "name": "Thurmond Mark C.",
+     "type": "OTHER",
+     "shares": 2267,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-25",
+     "name": "Thurmond Mark C.",
+     "type": "SELL",
+     "shares": 1097,
+     "value": 37232.18,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-25",
+     "name": "Thurmond Mark C.",
+     "type": "OTHER",
+     "shares": 6095,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-25",
+     "name": "Thurmond Mark C.",
+     "type": "SELL",
+     "shares": 2947,
+     "value": 100021.18,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "marketCap": 4143465984,
+    "trailingPE": 537.4285,
+    "forwardPE": 17.220543,
+    "pegRatio": 1.25,
+    "trailingEps": 0.07,
+    "forwardEps": 2.1846,
+    "revenueGrowth": 0.086,
+    "earningsGrowth": null,
+    "profitMargins": 0.0064600003,
+    "grossMargins": 0.78051,
+    "returnOnEquity": 0.02456,
+    "fiftyTwoWeekHigh": 43.67,
+    "fiftyTwoWeekLow": 15.73,
+    "targetMeanPrice": 35.35,
+    "heldPercentInstitutions": 1.0825801,
+    "shortPercentOfFloat": 0.1118,
+    "beta": 0.938,
+    "dividendYield": null
+   },
+   "price_at_add": 33.66,
    "price_at_add_currency": "USD"
   }
  ],
