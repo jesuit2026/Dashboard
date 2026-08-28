@@ -478,25 +478,10 @@
    "price_at_add_currency": "USD"
   },
   {
-   "t": "SALESFORCE",
-   "dt": "2026-08-28 08:44",
-   "note": ""
-  },
-  {
    "t": "TENB",
    "dt": "2026-08-28 09:05",
    "note": ""
   }
  ],
- "alerts": [
-  {
-   "ticker": "TENB",
-   "name": "TENB",
-   "condition": "above",
-   "price": 38.435100000000006,
-   "price_input": 33,
-   "currency": "EUR",
-   "created": "2026-08-28 09:11"
-  }
- ]
+ "alerts": []
 }
