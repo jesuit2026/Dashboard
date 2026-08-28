@@ -1,3 +1,10 @@
 {
- "requests": []
+ "requests": [
+  {
+   "type": "remove_watch",
+   "ticker": "SALESFORCE",
+   "id": "r1787908375369uxxzx",
+   "ts": "2026-08-28T09:12:55.369Z"
+  }
+ ]
 }
