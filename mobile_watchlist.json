@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787908273,
- "updated_iso": "2026-08-28T11:11:13",
+ "updated_at": 1787908301,
+ "updated_iso": "2026-08-28T11:11:41",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908163,
+   "price_ts": 1787908203,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908165,
+   "price_ts": 1787908206,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908166,
+   "price_ts": 1787908206,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908167,
+   "price_ts": 1787908207,
    "insider": [
     {
      "date": "2026-08-19",
@@ -363,7 +363,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787908167,
+   "price_ts": 1787908207,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908168,
+   "price_ts": 1787908208,
    "insider": [
     {
      "date": "2026-08-24",
@@ -475,6 +475,93 @@
     "dividendYield": null
    },
    "price_at_add": 172.73,
+   "price_at_add_currency": "USD"
+  },
+  {
+   "t": "CRM",
+   "dt": "2026-08-28 11:09",
+   "isin": "",
+   "name": "Salesforce, Inc.",
+   "price": 252.19,
+   "price_prev": 252.19,
+   "pct": 20.262,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1787908210,
+   "insider": [
+    {
+     "date": "2026-08-24",
+     "name": "Milano Miguel",
+     "type": "OTHER",
+     "shares": 1662,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-24",
+     "name": "Milano Miguel",
+     "type": "SELL",
+     "shares": 678,
+     "value": 141817.25999999998,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-24",
+     "name": "Niles Sabastian",
+     "type": "OTHER",
+     "shares": 1662,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-24",
+     "name": "Niles Sabastian",
+     "type": "SELL",
+     "shares": 920,
+     "value": 192436.4,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-24",
+     "name": "SACHIN J. MEHRA",
+     "type": "OTHER",
+     "shares": 441,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-24",
+     "name": "MUNOZ OSCAR",
+     "type": "OTHER",
+     "shares": 441,
+     "value": 0,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "marketCap": 207437152256,
+    "trailingPE": 18.837818,
+    "forwardPE": 15.976091,
+    "pegRatio": 0.85,
+    "trailingEps": 13.38,
+    "forwardEps": 15.7767,
+    "revenueGrowth": 0.133,
+    "earningsGrowth": 0.522,
+    "profitMargins": 0.18733,
+    "grossMargins": 0.77643996,
+    "returnOnEquity": 0.16908,
+    "fiftyTwoWeekHigh": 269.11,
+    "fiftyTwoWeekLow": 146.32,
+    "targetMeanPrice": 244.02213,
+    "heldPercentInstitutions": 0.88008004,
+    "shortPercentOfFloat": 0.0374,
+    "beta": 1.152,
+    "dividendYield": 0.86
+   },
+   "price_at_add": 205.62,
    "price_at_add_currency": "USD"
   }
  ],
