@@ -11,7 +11,7 @@
    "name": "American Superconductor Corp /De/",
    "price": 29.485,
    "price_prev": 29.485,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -22,7 +22,7 @@
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -96,8 +96,8 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 225.0,
-   "price_prev": 216.0,
+   "price": 225,
+   "price_prev": 216,
    "pct": 4.167,
    "currency": "EUR",
    "live": true,
@@ -183,8 +183,8 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 262.0,
-   "price_prev": 249.0,
+   "price": 262,
+   "price_prev": 249,
    "pct": 5.221,
    "currency": "EUR",
    "live": true,
@@ -357,7 +357,7 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1528.0,
+   "price": 1528,
    "price_prev": 1498.6,
    "pct": 1.962,
    "currency": "EUR",
@@ -397,7 +397,7 @@
    "name": "Palantir Technologies Inc.",
    "price": 177.49,
    "price_prev": 177.49,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -476,6 +476,11 @@
    },
    "price_at_add": 172.73,
    "price_at_add_currency": "USD"
+  },
+  {
+   "t": "SALESFORCE",
+   "dt": "2026-08-28 08:44",
+   "note": ""
   }
  ],
  "alerts": []
