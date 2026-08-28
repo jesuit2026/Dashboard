@@ -1,28 +1,28 @@
 {
  "schema": 3,
- "updated_at": 1787819496,
- "updated_iso": "2026-08-27T10:31:36",
+ "updated_at": 1787908273,
+ "updated_iso": "2026-08-28T11:11:13",
  "fx": 1.12,
  "watchlist": [
   {
    "t": "AMSC",
    "dt": "2026-05-21 18:53",
-   "isin": "US0301112076",
+   "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 29.485,
-   "price_prev": 29.485,
-   "pct": 0,
+   "price": 29.84,
+   "price_prev": 29.84,
+   "pct": 1.204,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787819484,
+   "price_ts": 1787908163,
    "insider": [
     {
      "date": "2026-06-12",
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520,
+     "value": 150520.0,
      "signal_strength": "normal"
     },
     {
@@ -83,7 +83,7 @@
     "fiftyTwoWeekHigh": 70.49,
     "fiftyTwoWeekLow": 24.87,
     "targetMeanPrice": 61.75,
-    "heldPercentInstitutions": 0.74346,
+    "heldPercentInstitutions": 0.74357,
     "shortPercentOfFloat": 0.0744,
     "beta": 3.284,
     "dividendYield": null
@@ -96,13 +96,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 225,
-   "price_prev": 216,
-   "pct": 4.167,
+   "price": 217.0,
+   "price_prev": 219.5,
+   "pct": -1.139,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787819487,
+   "price_ts": 1787908165,
    "insider": [
     {
      "date": "2026-08-18",
@@ -170,7 +170,7 @@
     "fiftyTwoWeekHigh": 452.7,
     "fiftyTwoWeekLow": 100.02,
     "targetMeanPrice": 286.44104,
-    "heldPercentInstitutions": 0.96185,
+    "heldPercentInstitutions": 0.96182996,
     "shortPercentOfFloat": 0.1257,
     "beta": 3.909,
     "dividendYield": null
@@ -183,13 +183,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 262,
-   "price_prev": 249,
-   "pct": 5.221,
+   "price": 257.0,
+   "price_prev": 261.0,
+   "pct": -1.533,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787819489,
+   "price_ts": 1787908166,
    "insider": [
     {
      "date": "2026-08-19",
@@ -257,7 +257,7 @@
     "fiftyTwoWeekHigh": 499.476,
     "fiftyTwoWeekLow": 97.89,
     "targetMeanPrice": 389.9527,
-    "heldPercentInstitutions": 0.75912005,
+    "heldPercentInstitutions": 0.75913,
     "shortPercentOfFloat": 0.066199996,
     "beta": 3.843,
     "dividendYield": null
@@ -270,13 +270,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 33.52,
-   "price_prev": 32.1,
-   "pct": 4.424,
+   "price": 32.6,
+   "price_prev": 33.02,
+   "pct": -1.272,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787819491,
+   "price_ts": 1787908167,
    "insider": [
     {
      "date": "2026-08-19",
@@ -344,7 +344,7 @@
     "fiftyTwoWeekHigh": 58.78,
     "fiftyTwoWeekLow": 19.48,
     "targetMeanPrice": 42.375,
-    "heldPercentInstitutions": 0.70584,
+    "heldPercentInstitutions": 0.70585996,
     "shortPercentOfFloat": 0.1841,
     "beta": 1.967,
     "dividendYield": null
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1528,
-   "price_prev": 1498.6,
-   "pct": 1.962,
+   "price": 1487.2,
+   "price_prev": 1485.2,
+   "pct": 0.135,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1787819491,
+   "price_ts": 1787908167,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -381,8 +381,8 @@
     "returnOnEquity": 0.52236,
     "fiftyTwoWeekHigh": 1999.96,
     "fiftyTwoWeekLow": 716.2,
-    "targetMeanPrice": 2156.1309,
-    "heldPercentInstitutions": 0.20384,
+    "targetMeanPrice": 2153.8706,
+    "heldPercentInstitutions": 0.20377001,
     "shortPercentOfFloat": 0.0034999999,
     "beta": 1.365,
     "dividendYield": 0.52
@@ -393,15 +393,15 @@
   {
    "t": "PLTR",
    "dt": "2026-08-27 09:46",
-   "isin": "US69608A1088",
+   "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 177.49,
-   "price_prev": 177.49,
-   "pct": 0,
+   "price": 185.28,
+   "price_prev": 185.28,
+   "pct": 4.389,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787819493,
+   "price_ts": 1787908168,
    "insider": [
     {
      "date": "2026-08-24",
@@ -469,23 +469,13 @@
     "fiftyTwoWeekHigh": 207.52,
     "fiftyTwoWeekLow": 106.37,
     "targetMeanPrice": 191.68,
-    "heldPercentInstitutions": 0.64858,
+    "heldPercentInstitutions": 0.64865994,
     "shortPercentOfFloat": 0.0318,
     "beta": 1.563,
     "dividendYield": null
    },
    "price_at_add": 172.73,
    "price_at_add_currency": "USD"
-  },
-  {
-   "t": "SALESFORCE",
-   "dt": "2026-08-28 08:44",
-   "note": ""
-  },
-  {
-   "t": "TENB",
-   "dt": "2026-08-28 09:05",
-   "note": ""
   }
  ],
  "alerts": []
