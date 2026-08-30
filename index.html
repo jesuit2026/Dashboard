@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-25.2';
+const APP_BUILD = '2026-08-25.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1915,10 +1915,33 @@ function renderInsiderTab(ticker){
 }
 
 // ── News: Yahoo Such-Endpoint (öffentlich, liefert u.a. News-Treffer) ──
+// News DIREKT von Finnhub (kein Proxy nötig) — dieselbe Begründung wie
+// beim Chart: die kostenlosen CORS-Proxies sind fürs Testen gedacht,
+// nicht für Dauerbetrieb, und fielen deshalb irgendwann komplett aus.
+async function fetchFinnhubNews(ticker){
+  const key = LS.get('finnhubKey','');
+  if(!key) return null;
+  const to = new Date();
+  const from = new Date(to.getTime() - 30*86400000);   // letzte 30 Tage
+  const fmt = d => d.toISOString().slice(0,10);
+  await finnhubRateLimit();
+  const url = `https://finnhub.io/api/v1/company-news?symbol=${encodeURIComponent(ticker)}`+
+    `&from=${fmt(from)}&to=${fmt(to)}&token=${encodeURIComponent(key)}`;
+  const d = await fetchDirectJson(url, 8000);
+  if(!Array.isArray(d) || !d.length) return null;
+  return d.slice(0,8).map(n=>({
+    title: n.headline, link: n.url, publisher: n.source,
+    providerPublishTime: n.datetime,
+  }));
+}
+
 async function renderNewsTab(ticker){
-  const yurl=`https://query1.finance.yahoo.com/v1/finance/search?q=${ticker}&newsCount=8&quotesCount=0`;
-  const j = await fetchJsonViaProxy(yurl);
-  const news=j?.news||[];
+  let news = await fetchFinnhubNews(ticker);
+  if(!news){
+    const yurl=`https://query1.finance.yahoo.com/v1/finance/search?q=${ticker}&newsCount=8&quotesCount=0`;
+    const j = await fetchJsonViaProxy(yurl);
+    news = j?.news||[];
+  }
   if(!news.length){
     return `<div class="empty"><div class="ic">📰</div><div class="msg">Keine News gefunden</div></div>`;
   }
