@@ -3,7 +3,7 @@
  "computed_at": 1787908634,
  "computed_iso": "2026-08-28T11:17:14",
  "universe_size": 1,
- "fx": 1.16469,
+ "fx": 1.15875,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -26,16 +26,16 @@
     "score": 0.5362,
     "pct_from_high": -3.9,
     "isin": "US0404132054",
-    "price": 172.02,
-    "pct": -0.336,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 195.44,
+    "pct": 0.0,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "breakout": [],
   "trendsetter": []
  },
  "view_labels": {},
- "prices_updated_at": 1787908741
+ "prices_updated_at": 1788106698
 }
