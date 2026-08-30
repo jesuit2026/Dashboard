@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1787908437,
- "updated_iso": "2026-08-28T11:13:57",
+ "updated_at": 1788106504,
+ "updated_iso": "2026-08-30T18:15:04",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,20 +9,20 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 29.84,
-   "price_prev": 29.84,
-   "pct": 1.204,
+   "price": 28.47,
+   "price_prev": 28.47,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908433,
+   "price_ts": 1788106414,
    "insider": [
     {
      "date": "2026-06-12",
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520,
+     "value": 150520.0,
      "signal_strength": "normal"
     },
     {
@@ -83,7 +83,7 @@
     "fiftyTwoWeekHigh": 70.49,
     "fiftyTwoWeekLow": 24.87,
     "targetMeanPrice": 61.75,
-    "heldPercentInstitutions": 0.74357,
+    "heldPercentInstitutions": 0.74364,
     "shortPercentOfFloat": 0.0744,
     "beta": 3.284,
     "dividendYield": null
@@ -96,13 +96,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 217,
-   "price_prev": 219.5,
-   "pct": -1.139,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1787908433,
+   "price": 238.82,
+   "price_prev": 238.82,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788106415,
    "insider": [
     {
      "date": "2026-08-18",
@@ -170,7 +170,7 @@
     "fiftyTwoWeekHigh": 452.7,
     "fiftyTwoWeekLow": 100.02,
     "targetMeanPrice": 286.44104,
-    "heldPercentInstitutions": 0.96182996,
+    "heldPercentInstitutions": 0.96182,
     "shortPercentOfFloat": 0.1257,
     "beta": 3.909,
     "dividendYield": null
@@ -183,13 +183,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 257,
-   "price_prev": 261,
-   "pct": -1.533,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1787908434,
+   "price": 289.89,
+   "price_prev": 289.89,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788106416,
    "insider": [
     {
      "date": "2026-08-19",
@@ -257,7 +257,7 @@
     "fiftyTwoWeekHigh": 499.476,
     "fiftyTwoWeekLow": 97.89,
     "targetMeanPrice": 389.9527,
-    "heldPercentInstitutions": 0.75913,
+    "heldPercentInstitutions": 0.75916,
     "shortPercentOfFloat": 0.066199996,
     "beta": 3.843,
     "dividendYield": null
@@ -270,13 +270,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 32.6,
-   "price_prev": 33.02,
-   "pct": -1.272,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1787908434,
+   "price": 37.08,
+   "price_prev": 37.08,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788106417,
    "insider": [
     {
      "date": "2026-08-19",
@@ -344,7 +344,7 @@
     "fiftyTwoWeekHigh": 58.78,
     "fiftyTwoWeekLow": 19.48,
     "targetMeanPrice": 42.375,
-    "heldPercentInstitutions": 0.70585996,
+    "heldPercentInstitutions": 0.70587,
     "shortPercentOfFloat": 0.1841,
     "beta": 1.967,
     "dividendYield": null
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1487.8,
-   "price_prev": 1485.2,
-   "pct": 0.175,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1787908434,
+   "price": 1696.17,
+   "price_prev": 1696.17,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788106419,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -381,7 +381,7 @@
     "returnOnEquity": 0.52236,
     "fiftyTwoWeekHigh": 1999.96,
     "fiftyTwoWeekLow": 716.2,
-    "targetMeanPrice": 2153.8706,
+    "targetMeanPrice": 2142.8894,
     "heldPercentInstitutions": 0.20377001,
     "shortPercentOfFloat": 0.0034999999,
     "beta": 1.365,
@@ -395,13 +395,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 185.28,
-   "price_prev": 185.28,
-   "pct": 4.389,
+   "price": 186.24,
+   "price_prev": 186.24,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908436,
+   "price_ts": 1788106420,
    "insider": [
     {
      "date": "2026-08-24",
@@ -469,7 +469,7 @@
     "fiftyTwoWeekHigh": 207.52,
     "fiftyTwoWeekLow": 106.37,
     "targetMeanPrice": 191.68,
-    "heldPercentInstitutions": 0.64865994,
+    "heldPercentInstitutions": 0.64865,
     "shortPercentOfFloat": 0.0318,
     "beta": 1.563,
     "dividendYield": null
@@ -482,13 +482,13 @@
    "dt": "2026-08-28 11:10",
    "isin": "US88025T1025",
    "name": "Tenable Holdings, Inc.",
-   "price": 32.2,
-   "price_prev": 32.3,
-   "pct": -0.31,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1787908436,
+   "price": 37.65,
+   "price_prev": 37.65,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788106421,
    "insider": [
     {
      "date": "2026-08-25",
@@ -556,7 +556,7 @@
     "fiftyTwoWeekHigh": 43.67,
     "fiftyTwoWeekLow": 15.73,
     "targetMeanPrice": 35.35,
-    "heldPercentInstitutions": 1.0825801,
+    "heldPercentInstitutions": 1.08254,
     "shortPercentOfFloat": 0.1118,
     "beta": 0.938,
     "dividendYield": null
@@ -569,14 +569,22 @@
    "dt": "2026-08-28 11:13",
    "isin": "",
    "name": "Salesforce, Inc.",
-   "price": 252.19,
-   "price_prev": 252.19,
-   "pct": 20.262,
+   "price": 256.01,
+   "price_prev": 256.01,
+   "pct": 0.0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1787908437,
+   "price_ts": 1788106422,
    "insider": [
+    {
+     "date": "2026-08-28",
+     "name": "Harris Parker",
+     "type": "SELL",
+     "shares": 16000,
+     "value": 0,
+     "signal_strength": "normal"
+    },
     {
      "date": "2026-08-24",
      "name": "Milano Miguel",
@@ -616,14 +624,6 @@
      "shares": 441,
      "value": 0,
      "signal_strength": "normal"
-    },
-    {
-     "date": "2026-08-24",
-     "name": "MUNOZ OSCAR",
-     "type": "OTHER",
-     "shares": 441,
-     "value": 0,
-     "signal_strength": "normal"
     }
    ],
    "fundamentals": {
@@ -642,11 +642,11 @@
     "returnOnEquity": 0.16908,
     "fiftyTwoWeekHigh": 269.11,
     "fiftyTwoWeekLow": 146.32,
-    "targetMeanPrice": 244.02213,
-    "heldPercentInstitutions": 0.88008004,
+    "targetMeanPrice": 262.54135,
+    "heldPercentInstitutions": 0.87609,
     "shortPercentOfFloat": 0.0374,
     "beta": 1.152,
-    "dividendYield": 0.86
+    "dividendYield": 0.7
    },
    "price_at_add": 205.62,
    "price_at_add_currency": "USD"
@@ -655,7 +655,7 @@
  "alerts": [
   {
    "ticker": "TENB",
-   "name": "TENB",
+   "name": "Tenable Holdings, Inc.",
    "condition": "above",
    "price": 38.435100000000006,
    "price_input": 33,
