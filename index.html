@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-25.1';
+const APP_BUILD = '2026-08-25.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const MA_PERIODS = [10,20,30,40,50,100,200];
@@ -1541,6 +1541,35 @@ function mergeChartData(cached, delta){
   return merged;
 }
 
+// Historische Kerzen DIREKT von Finnhub (kein Proxy nötig — wie schon bei
+// den Live-Kursen). Grund: die kostenlosen CORS-Proxies (allorigins.win/
+// corsproxy.io) sind laut deren eigener Doku "nur zum Testen, stark
+// rate-limitiert" — genau das führte dazu, dass irgendwann JEDER Chart
+// nicht mehr lud, nicht nur einzelne Ticker. Finnhub erlaubt direkte
+// Browser-Anfragen, genau wie bei fetchFinnhubQuote.
+async function fetchFinnhubCandles(ticker, yInterval, period1, period2){
+  const key = LS.get('finnhubKey','');
+  if(!key) return null;
+  const resolution = yInterval==='1wk' ? 'W' : 'D';
+  await finnhubRateLimit();
+  const url = `https://finnhub.io/api/v1/stock/candle?symbol=${encodeURIComponent(ticker)}`+
+    `&resolution=${resolution}&from=${period1}&to=${period2}&token=${encodeURIComponent(key)}`;
+  const d = await fetchDirectJson(url, 8000);
+  if(!d || d.s!=='ok' || !d.c?.length) return null;
+  const closes=d.c, opens=d.o||closes, highs=d.h||closes, lows=d.l||closes,
+        volumes=d.v||closes.map(()=>0), timestamps=d.t||[];
+  const n = closes.length;
+  const meta = {
+    regularMarketPrice: closes[n-1],
+    chartPreviousClose: closes[n-2] ?? closes[n-1],
+    currency: 'USD',   // Finnhub-Gratis-Tarif deckt US-Börsen ab
+  };
+  // Keine Earnings-Termine aus Finnhub-Kerzen — kommen stattdessen aus
+  // getPcEarningsMarks() (PC-Export) bzw. bleiben leer, falls der Ticker
+  // nicht auf der Watchlist steht.
+  return {closes, opens, highs, lows, volumes, timestamps, earnings: [], meta};
+}
+
 async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
   const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=${yInterval}&period1=${period1}&period2=${period2}&events=div,splits,earn`;
   const j = await fetchJsonViaProxy(yurl);
@@ -1595,7 +1624,11 @@ async function fetchChartData(ticker, interval){
     period1 = now - (interval==='week' ? 5*365*86400 : 366*86400);
   }
 
-  const fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
+  // Finnhub zuerst (kein Proxy nötig, zuverlässiger) — Yahoo/Proxy nur
+  // noch als Rückfalloption, falls kein Finnhub-Key gesetzt ist oder
+  // Finnhub für diesen Zeitraum/Ticker mal nichts liefert.
+  let fresh = await fetchFinnhubCandles(ticker, yInterval, period1, now);
+  if(!fresh) fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
   const result = cache ? mergeChartData(cache, fresh) : fresh;
   saveChartCache(ticker, interval, result);
   return result;
