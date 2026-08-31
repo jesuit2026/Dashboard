@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788168700,
- "updated_iso": "2026-08-31T11:31:40",
+ "updated_at": 1788168871,
+ "updated_iso": "2026-08-31T11:34:31",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168687,
+   "price_ts": 1788168853,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168688,
+   "price_ts": 1788168855,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168689,
+   "price_ts": 1788168856,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168690,
+   "price_ts": 1788168858,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1477.2,
+   "price": 1477.0,
    "price_prev": 1466.0,
-   "pct": 0.764,
+   "pct": 0.75,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168693,
+   "price_ts": 1788168860,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168694,
+   "price_ts": 1788168862,
    "insider": [
     {
      "date": "2026-08-24",
@@ -482,13 +482,13 @@
    "dt": "2026-08-28 11:10",
    "isin": "US88025T1025",
    "name": "Tenable Holdings, Inc.",
-   "price": 37.65,
-   "price_prev": 37.65,
+   "price": 32.5,
+   "price_prev": 32.5,
    "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1788168696,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1788168865,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168697,
+   "price_ts": 1788168866,
    "insider": [
     {
      "date": "2026-08-28",
@@ -654,15 +654,15 @@
   {
    "t": "WK",
    "dt": "2026-08-31 10:46",
-   "isin": "",
+   "isin": "US98139A1051",
    "name": "Workiva Inc",
-   "price": 79.1,
-   "price_prev": 79.1,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1788168698,
+   "price": 67.3,
+   "price_prev": 68.3,
+   "pct": -1.464,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1788168866,
    "insider": [
     {
      "date": "2026-08-21",
@@ -727,12 +727,12 @@
     "profitMargins": 0.04871,
     "grossMargins": 0.8021,
     "returnOnEquity": null,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
+    "fiftyTwoWeekHigh": 97.095,
+    "fiftyTwoWeekLow": 43.34,
+    "targetMeanPrice": 79.7,
+    "heldPercentInstitutions": 1.00875,
+    "shortPercentOfFloat": 0.098400004,
+    "beta": 0.442,
     "dividendYield": null
    },
    "price_at_add": 79.15,
