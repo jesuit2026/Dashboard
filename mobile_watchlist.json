@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788168126,
- "updated_iso": "2026-08-31T11:22:06",
+ "updated_at": 1788168351,
+ "updated_iso": "2026-08-31T11:25:51",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168115,
+   "price_ts": 1788168340,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168116,
+   "price_ts": 1788168341,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168118,
+   "price_ts": 1788168343,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168119,
+   "price_ts": 1788168344,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1478.8,
+   "price": 1478.0,
    "price_prev": 1466.0,
-   "pct": 0.873,
+   "pct": 0.819,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168119,
+   "price_ts": 1788168344,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168121,
+   "price_ts": 1788168345,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168122,
+   "price_ts": 1788168346,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168123,
+   "price_ts": 1788168348,
    "insider": [
     {
      "date": "2026-08-28",
@@ -662,7 +662,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168124,
+   "price_ts": 1788168349,
    "insider": [
     {
      "date": "2026-08-21",
