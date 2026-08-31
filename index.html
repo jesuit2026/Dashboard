@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-25.5';
+const APP_BUILD = '2026-08-25.6';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1616,8 +1616,8 @@ async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
   return {closes, opens, highs, lows, volumes, timestamps, earnings: earningsMarks, meta: r.meta};
 }
 
-// PC liefert jetzt zuverlässige Chart-Historie mit (yfinance, direkt vom
-// PC — kein Proxy nötig). Nur für Watchlist-Titel verfügbar (siehe
+// PC liefert zuverlässige Chart-Historie mit (yfinance, direkt vom PC —
+// kein Proxy nötig). Nur für Watchlist-Titel verfügbar (siehe
 // mobile_sync.py). Wandelt das PC-Format {t,o,h,l,c,v} ins intern
 // genutzte Format um.
 function getPcChartData(ticker, interval){
@@ -1642,41 +1642,61 @@ function getPcChartData(ticker, interval){
   };
 }
 
+// Reiner Netzwerk-Live-Abruf (Yahoo/Proxy) — ohne den PC-Daten-Kurzschluss
+// von fetchChartData(). Wird separat aufgerufen, damit auch bei
+// vorhandenen PC-Daten trotzdem ein Live-Nachladen passiert (siehe
+// refreshLiveChartInBackground) — sonst wäre der heutige Handelstag nur
+// so aktuell wie der letzte PC-Export (alle paar Stunden), und "Volumen-
+// Zuwachs heute erkennen" bräuchte echte Live-Daten, nicht nur die
+// PC-Historie von vorhin.
+async function fetchLiveChartData(ticker, interval){
+  const yInterval = interval==='week' ? '1wk' : '1d';
+  const now = Math.floor(Date.now()/1000);
+  const cache = loadChartCache(ticker, interval);
+  let period1;
+  if(cache && cache.timestamps?.length){
+    period1 = cache.timestamps[cache.timestamps.length-1];
+  }else{
+    period1 = now - (interval==='week' ? 5*365*86400 : 366*86400);
+  }
+  const fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
+  const result = cache ? mergeChartData(cache, fresh) : fresh;
+  saveChartCache(ticker, interval, result);
+  return result;
+}
+
+// Holt die Live-Daten NACH der PC-Sofort-Anzeige im Hintergrund nach und
+// aktualisiert den Chart, sobald sie da sind — damit der heutige
+// Handelstag (inkl. Volumen) wirklich live bleibt, nicht nur so aktuell
+// wie der letzte PC-Export. Schlägt's fehl, bleibt einfach die PC-
+// Anzeige stehen (kein Fehlerbild, es wird ja schon was Sinnvolles gezeigt).
+async function refreshLiveChartInBackground(ticker, interval){
+  try{
+    const live = await fetchLiveChartData(ticker, interval);
+    if(_curTicker!==ticker || _curInterval!==interval) return;   // Nutzer ist inzwischen weg
+    _chartCache[interval] = live;
+    _chartState = live;
+    const pcMarks = getPcEarningsMarks(ticker);
+    if(pcMarks) _chartState.earnings = pcMarks;
+    updateSheetPxHeader();
+    document.getElementById('sheet-px').style.color =
+      (live.meta.regularMarketPrice >= (live.meta.chartPreviousClose||live.meta.regularMarketPrice)) ? 'var(--grn)' : 'var(--red)';
+    redrawChart();
+  }catch{
+    // Live-Nachladen fehlgeschlagen — PC-Daten bleiben stehen, das reicht.
+  }
+}
+
 async function fetchChartData(ticker, interval){
-  // PC-Daten zuerst probieren (zuverlässig, kein Proxy nötig) — nur für
-  // Watchlist-Titel verfügbar. Fehlt das (z.B. Top-50-Titel ohne
-  // Watchlist-Eintrag), der bisherige Proxy-Weg als Rückfalloption.
+  // PC-Daten sofort anzeigen (schnell, zuverlässig, nie leer) — das
+  // Live-Nachladen für den heutigen Handelstag übernimmt der Aufrufer
+  // separat über refreshLiveChartInBackground().
   const pcData = getPcChartData(ticker, interval);
   if(pcData){
     saveChartCache(ticker, interval, pcData);
     return pcData;
   }
-
-  const yInterval = interval==='week' ? '1wk' : '1d';
-  const now = Math.floor(Date.now()/1000);
-  const cache = loadChartCache(ticker, interval);
-
-  let period1;
-  if(cache && cache.timestamps?.length){
-    // Delta: ab der letzten gecachten Kerze neu holen (überschreibt sie
-    // dabei — die war beim letzten Mal evtl. noch nicht abgeschlossen).
-    period1 = cache.timestamps[cache.timestamps.length-1];
-  }else{
-    // Erstes Laden: volle Historie wie bisher.
-    period1 = now - (interval==='week' ? 5*365*86400 : 366*86400);
-  }
-
-  // WICHTIG: Finnhub sperrt den Chart-Endpunkt (/stock/candle) im
-  // Gratis-Tarif ("You don't have access to this resource" — bestätigt
-  // im offiziellen Finnhub-Bugtracker, betrifft alle kostenlosen Keys).
-  // Ein Versuch dort würde nur Zeit und das begrenzte Anfragen-Kontingent
-  // verschwenden, ohne je zu klappen — deshalb hier bewusst NICHT mehr
-  // probiert, direkt der (jetzt robustere) Yahoo-Weg: zwei Hostnamen
-  // (query1/query2) über drei verschiedene Proxies.
-  const fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
-  const result = cache ? mergeChartData(cache, fresh) : fresh;
-  saveChartCache(ticker, interval, result);
-  return result;
+  return fetchLiveChartData(ticker, interval);
 }
 
 // PC liefert jetzt zuverlässige Earnings-Termine mit (statt nur dem
@@ -1741,6 +1761,10 @@ async function openChart(ticker){
     _chartRange = null;
     buildZoomButtons();
     setZoom('3M');     // Standard: 3 Monate auf Tageskerzen — gut lesbar
+    // Danach IMMER zusätzlich live nachladen (auch wenn PC-Daten schon
+    // angezeigt werden) — der heutige Handelstag (Kurs, Volumen) soll
+    // wirklich live sein, nicht nur so aktuell wie der letzte PC-Export.
+    refreshLiveChartInBackground(ticker, 'day');
   }catch(e){
     if(cached){
       // Cache stand schon sichtbar da — kein hartes Fehlerbild, nur ein
@@ -1783,6 +1807,7 @@ async function setInterval_(interval){
   _chartRange=null;
   buildZoomButtons();
   setZoom(interval==='week' ? '1J' : '3M');
+  refreshLiveChartInBackground(_curTicker, interval);
 }
 
 function updateIntervalButtons(){
