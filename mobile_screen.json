@@ -3,7 +3,7 @@
  "computed_at": 1788164159,
  "computed_iso": "2026-08-31T10:15:59",
  "universe_size": 2,
- "fx": 1.15875,
+ "fx": 1.16009,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -61,5 +61,6 @@
   ],
   "trendsetter": []
  },
- "view_labels": {}
+ "view_labels": {},
+ "prices_updated_at": 1788164199
 }
