@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788166916,
- "updated_iso": "2026-08-31T11:01:56",
+ "updated_at": 1788168103,
+ "updated_iso": "2026-08-31T11:21:43",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166897,
+   "price_ts": 1788168088,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166899,
+   "price_ts": 1788168089,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166901,
+   "price_ts": 1788168090,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166902,
+   "price_ts": 1788168091,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1478.2,
+   "price": 1478.8,
    "price_prev": 1466.0,
-   "pct": 0.832,
+   "pct": 0.873,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788166903,
+   "price_ts": 1788168094,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166904,
+   "price_ts": 1788168095,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166906,
+   "price_ts": 1788168096,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166908,
+   "price_ts": 1788168097,
    "insider": [
     {
      "date": "2026-08-28",
@@ -662,7 +662,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788166909,
+   "price_ts": 1788168099,
    "insider": [
     {
      "date": "2026-08-21",
@@ -714,18 +714,18 @@
     }
    ],
    "fundamentals": {
-    "sector": null,
-    "industry": null,
-    "marketCap": null,
-    "trailingPE": null,
-    "forwardPE": null,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "marketCap": 4307065344,
+    "trailingPE": 94.2262,
+    "forwardPE": 19.548567,
     "pegRatio": null,
-    "trailingEps": null,
-    "forwardEps": null,
-    "revenueGrowth": null,
+    "trailingEps": 0.84,
+    "forwardEps": 4.04889,
+    "revenueGrowth": 0.186,
     "earningsGrowth": null,
-    "profitMargins": null,
-    "grossMargins": null,
+    "profitMargins": 0.04871,
+    "grossMargins": 0.8021,
     "returnOnEquity": null,
     "fiftyTwoWeekHigh": null,
     "fiftyTwoWeekLow": null,
@@ -734,7 +734,56 @@
     "shortPercentOfFloat": null,
     "beta": null,
     "dividendYield": null
-   }
+   },
+   "price_at_add": 79.15,
+   "price_at_add_currency": "USD"
+  },
+  {
+   "t": "EXPD",
+   "dt": "2026-08-31 11:21",
+   "isin": "US3021301094",
+   "name": "Expeditors International Of Washington Inc",
+   "price": 165.4,
+   "price_prev": 164.85,
+   "pct": 0.334,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1788168099,
+   "insider": [
+    {
+     "date": "2026-08-07",
+     "name": "Gulyas Diane H.",
+     "type": "SELL",
+     "shares": 1400,
+     "value": 249984.0,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "marketCap": 23035639808,
+    "trailingPE": 25.794762,
+    "forwardPE": 22.35355,
+    "pegRatio": 3.0,
+    "trailingEps": 6.87,
+    "forwardEps": 7.9276,
+    "revenueGrowth": 0.321,
+    "earningsGrowth": 0.515,
+    "profitMargins": 0.07634,
+    "grossMargins": 0.13549,
+    "returnOnEquity": 0.4267,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   },
+   "price_at_add": 190.97,
+   "price_at_add_currency": "USD"
   }
  ],
  "alerts": [
