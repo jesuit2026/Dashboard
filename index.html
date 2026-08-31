@@ -458,9 +458,10 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-25.3';
+const APP_BUILD = '2026-08-25.4';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
+const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
 const MA_PERIODS = [10,20,30,40,50,100,200];
 const MA_COLORS  = {10:'#00d4ff',20:'#a78bfa',30:'#26a69a',40:'#f5a623',
                     50:'#ff8c42',100:'#3b82f6',200:'#ec4899'};
@@ -1245,7 +1246,7 @@ function updateCardFailed(t){
 // (allorigins.win ist offiziell "nur zum Testen, stark ratelimitiert").
 // Alle JSON-Abrufe (Kurse, Chart, Tradegate) laufen jetzt über dieselbe
 // Kette mit automatischem Fallback, statt sich auf einen zu verlassen.
-const PROXIES = [CORS_PROXY, PROXY2];
+const PROXIES = [CORS_PROXY, PROXY2, PROXY3];
 
 async function fetchJsonViaProxy(targetUrl, timeoutMs=8000){
   // Cache-Buster IN der Ziel-URL (nicht nur beim Proxy-Wrapper) — sonst
@@ -1571,8 +1572,14 @@ async function fetchFinnhubCandles(ticker, yInterval, period1, period2){
 }
 
 async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
-  const yurl=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=${yInterval}&period1=${period1}&period2=${period2}&events=div,splits,earn`;
-  const j = await fetchJsonViaProxy(yurl);
+  // query1 UND query2 probieren — Yahoo betreibt beide Hostnamen parallel,
+  // oft ist nur einer davon mal überlastet/blockiert, nicht beide gleichzeitig.
+  let j = null;
+  for(const host of ['query1.finance.yahoo.com', 'query2.finance.yahoo.com']){
+    const yurl=`https://${host}/v8/finance/chart/${ticker}?interval=${yInterval}&period1=${period1}&period2=${period2}&events=div,splits,earn`;
+    j = await fetchJsonViaProxy(yurl);
+    if(j?.chart?.result?.[0]) break;
+  }
   const r=j?.chart?.result?.[0];
   if(!r) throw new Error('Yahoo lieferte keine Daten');
   const quote=r.indicators?.quote?.[0];
@@ -1624,11 +1631,14 @@ async function fetchChartData(ticker, interval){
     period1 = now - (interval==='week' ? 5*365*86400 : 366*86400);
   }
 
-  // Finnhub zuerst (kein Proxy nötig, zuverlässiger) — Yahoo/Proxy nur
-  // noch als Rückfalloption, falls kein Finnhub-Key gesetzt ist oder
-  // Finnhub für diesen Zeitraum/Ticker mal nichts liefert.
-  let fresh = await fetchFinnhubCandles(ticker, yInterval, period1, now);
-  if(!fresh) fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
+  // WICHTIG: Finnhub sperrt den Chart-Endpunkt (/stock/candle) im
+  // Gratis-Tarif ("You don't have access to this resource" — bestätigt
+  // im offiziellen Finnhub-Bugtracker, betrifft alle kostenlosen Keys).
+  // Ein Versuch dort würde nur Zeit und das begrenzte Anfragen-Kontingent
+  // verschwenden, ohne je zu klappen — deshalb hier bewusst NICHT mehr
+  // probiert, direkt der (jetzt robustere) Yahoo-Weg: zwei Hostnamen
+  // (query1/query2) über drei verschiedene Proxies.
+  const fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
   const result = cache ? mergeChartData(cache, fresh) : fresh;
   saveChartCache(ticker, interval, result);
   return result;
