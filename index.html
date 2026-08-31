@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-25.4';
+const APP_BUILD = '2026-08-25.5';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1616,7 +1616,42 @@ async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
   return {closes, opens, highs, lows, volumes, timestamps, earnings: earningsMarks, meta: r.meta};
 }
 
+// PC liefert jetzt zuverlässige Chart-Historie mit (yfinance, direkt vom
+// PC — kein Proxy nötig). Nur für Watchlist-Titel verfügbar (siehe
+// mobile_sync.py). Wandelt das PC-Format {t,o,h,l,c,v} ins intern
+// genutzte Format um.
+function getPcChartData(ticker, interval){
+  const w = (watchData?.watchlist||[]).find(x=>x.t===ticker);
+  const rows = interval==='week' ? w?.chart_weekly : w?.chart_daily;
+  if(!rows?.length) return null;
+  const sorted = rows.slice().sort((a,b)=>a.t-b.t);
+  const closes=[], opens=[], highs=[], lows=[], volumes=[], timestamps=[];
+  sorted.forEach(r=>{
+    closes.push(r.c); opens.push(r.o); highs.push(r.h); lows.push(r.l);
+    volumes.push(r.v||0); timestamps.push(r.t);
+  });
+  const n=closes.length;
+  const pcMarks = getPcEarningsMarks(ticker) || [];
+  return {
+    closes, opens, highs, lows, volumes, timestamps, earnings: pcMarks,
+    meta: {
+      regularMarketPrice: closes[n-1],
+      chartPreviousClose: closes[n-2] ?? closes[n-1],
+      currency: 'USD',
+    },
+  };
+}
+
 async function fetchChartData(ticker, interval){
+  // PC-Daten zuerst probieren (zuverlässig, kein Proxy nötig) — nur für
+  // Watchlist-Titel verfügbar. Fehlt das (z.B. Top-50-Titel ohne
+  // Watchlist-Eintrag), der bisherige Proxy-Weg als Rückfalloption.
+  const pcData = getPcChartData(ticker, interval);
+  if(pcData){
+    saveChartCache(ticker, interval, pcData);
+    return pcData;
+  }
+
   const yInterval = interval==='week' ? '1wk' : '1d';
   const now = Math.floor(Date.now()/1000);
   const cache = loadChartCache(ticker, interval);
