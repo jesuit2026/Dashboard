@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788168103,
- "updated_iso": "2026-08-31T11:21:43",
+ "updated_at": 1788168116,
+ "updated_iso": "2026-08-31T11:21:56",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168088,
+   "price_ts": 1788168105,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168089,
+   "price_ts": 1788168106,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168090,
+   "price_ts": 1788168107,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168091,
+   "price_ts": 1788168108,
    "insider": [
     {
      "date": "2026-08-19",
@@ -363,7 +363,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168094,
+   "price_ts": 1788168108,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168095,
+   "price_ts": 1788168109,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168096,
+   "price_ts": 1788168111,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168097,
+   "price_ts": 1788168112,
    "insider": [
     {
      "date": "2026-08-28",
@@ -662,7 +662,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168099,
+   "price_ts": 1788168113,
    "insider": [
     {
      "date": "2026-08-21",
@@ -749,7 +749,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168099,
+   "price_ts": 1788168113,
    "insider": [
     {
      "date": "2026-08-07",
