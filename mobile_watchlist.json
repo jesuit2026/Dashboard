@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788168360,
- "updated_iso": "2026-08-31T11:26:00",
+ "updated_at": 1788168363,
+ "updated_iso": "2026-08-31T11:26:03",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168349,
+   "price_ts": 1788168350,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168350,
+   "price_ts": 1788168351,
    "insider": [
     {
      "date": "2026-08-18",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168353,
+   "price_ts": 1788168354,
    "insider": [
     {
      "date": "2026-08-19",
@@ -363,7 +363,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168353,
+   "price_ts": 1788168354,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -662,7 +662,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168358,
+   "price_ts": 1788168359,
    "insider": [
     {
      "date": "2026-08-21",
@@ -736,6 +736,93 @@
     "dividendYield": null
    },
    "price_at_add": 79.15,
+   "price_at_add_currency": "USD"
+  },
+  {
+   "t": "PAGP",
+   "dt": "2026-08-31 11:25",
+   "isin": "",
+   "name": "Plains Gp Holdings Lp",
+   "price": 27.985,
+   "price_prev": 27.985,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788168360,
+   "insider": [
+    {
+     "date": "2026-08-17",
+     "name": "PAA GP Holdings LLC",
+     "type": "OTHER",
+     "shares": 59200,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-17",
+     "name": "Ziemba Lawrence Michael",
+     "type": "OTHER",
+     "shares": 7400,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-17",
+     "name": "SHACKOULS BOBBY S",
+     "type": "OTHER",
+     "shares": 7400,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-17",
+     "name": "RAYMOND JOHN T",
+     "type": "OTHER",
+     "shares": 7400,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-17",
+     "name": "Pruner Alexandra",
+     "type": "OTHER",
+     "shares": 7400,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-17",
+     "name": "PETERSEN GARY R",
+     "type": "OTHER",
+     "shares": 7400,
+     "value": 0,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": "Energy",
+    "industry": "Oil & Gas Midstream",
+    "marketCap": 5850640896,
+    "trailingPE": 32.19231,
+    "forwardPE": 11.5430765,
+    "pegRatio": 0.67,
+    "trailingEps": 0.78,
+    "forwardEps": 2.17533,
+    "revenueGrowth": 0.663,
+    "earningsGrowth": 12.133,
+    "profitMargins": 0.01059,
+    "grossMargins": 0.0555,
+    "returnOnEquity": 0.08309,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   },
+   "price_at_add": 27.97,
    "price_at_add_currency": "USD"
   }
  ],
