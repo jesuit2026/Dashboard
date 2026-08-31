@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788168351,
- "updated_iso": "2026-08-31T11:25:51",
+ "updated_at": 1788168360,
+ "updated_iso": "2026-08-31T11:26:00",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168340,
+   "price_ts": 1788168349,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168341,
+   "price_ts": 1788168350,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168343,
+   "price_ts": 1788168352,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168344,
+   "price_ts": 1788168353,
    "insider": [
     {
      "date": "2026-08-19",
@@ -363,7 +363,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168344,
+   "price_ts": 1788168353,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168345,
+   "price_ts": 1788168355,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168346,
+   "price_ts": 1788168356,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168348,
+   "price_ts": 1788168357,
    "insider": [
     {
      "date": "2026-08-28",
@@ -662,7 +662,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168349,
+   "price_ts": 1788168358,
    "insider": [
     {
      "date": "2026-08-21",
