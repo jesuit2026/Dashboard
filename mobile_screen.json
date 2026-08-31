@@ -52,8 +52,8 @@
     "score": 0.6539,
     "pct_from_high": -3.9,
     "isin": "US34959E1091",
-    "price": 142.82,
-    "pct": -0.307,
+    "price": 143.18,
+    "pct": -0.056,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -62,5 +62,5 @@
   "trendsetter": []
  },
  "view_labels": {},
- "prices_updated_at": 1788164199
+ "prices_updated_at": 1788164644
 }
