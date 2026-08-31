@@ -26,8 +26,8 @@
     "score": 0.8884,
     "pct_from_high": -7.7,
     "isin": "US24703L2025",
-    "price": 392.45,
-    "pct": -0.292,
+    "price": 394.15,
+    "pct": 0.14,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -52,8 +52,8 @@
     "score": 0.6539,
     "pct_from_high": -3.9,
     "isin": "US34959E1091",
-    "price": 143.18,
-    "pct": -0.056,
+    "price": 143.12,
+    "pct": -0.098,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -62,5 +62,5 @@
   "trendsetter": []
  },
  "view_labels": {},
- "prices_updated_at": 1788164644
+ "prices_updated_at": 1788165004
 }
