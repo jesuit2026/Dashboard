@@ -11,7 +11,7 @@
    "name": "American Superconductor Corp /De/",
    "price": 28.47,
    "price_prev": 28.47,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -22,7 +22,7 @@
      "name": "Dambier Laura A.",
      "type": "SELL",
      "shares": 4000,
-     "value": 150520.0,
+     "value": 150520,
      "signal_strength": "normal"
     },
     {
@@ -98,7 +98,7 @@
    "name": "Arm Holdings Plc /Uk",
    "price": 238.82,
    "price_prev": 238.82,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -185,7 +185,7 @@
    "name": "Astera Labs, Inc.",
    "price": 289.89,
    "price_prev": 289.89,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -272,7 +272,7 @@
    "name": "Super Micro Computer, Inc.",
    "price": 37.08,
    "price_prev": 37.08,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -357,8 +357,8 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1477.0,
-   "price_prev": 1466.0,
+   "price": 1477,
+   "price_prev": 1466,
    "pct": 0.75,
    "currency": "EUR",
    "live": true,
@@ -397,7 +397,7 @@
    "name": "Palantir Technologies Inc.",
    "price": 186.24,
    "price_prev": 186.24,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -484,7 +484,7 @@
    "name": "Tenable Holdings, Inc.",
    "price": 32.5,
    "price_prev": 32.5,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
@@ -571,7 +571,7 @@
    "name": "Salesforce, Inc.",
    "price": 256.01,
    "price_prev": 256.01,
-   "pct": 0.0,
+   "pct": 0,
    "currency": "USD",
    "live": false,
    "price_source": "US",
@@ -685,7 +685,7 @@
      "name": "Herz Robert H",
      "type": "SELL",
      "shares": 1500,
-     "value": 76845.0,
+     "value": 76845,
      "signal_strength": "normal"
     },
     {
@@ -739,15 +739,5 @@
    "price_at_add_currency": "USD"
   }
  ],
- "alerts": [
-  {
-   "ticker": "TENB",
-   "name": "Tenable Holdings, Inc.",
-   "condition": "above",
-   "price": 38.435100000000006,
-   "price_input": 33,
-   "currency": "EUR",
-   "created": "2026-08-28 09:11"
-  }
- ]
+ "alerts": []
 }
