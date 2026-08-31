@@ -891,8 +891,8 @@
     "score": 0.6114,
     "pct_from_high": -7.0,
     "isin": "US5011471027",
-    "price": 302.7,
-    "pct": -0.264,
+    "price": 302.75,
+    "pct": -0.247,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1910,8 +1910,8 @@
     "score": 0.6114,
     "pct_from_high": -7.0,
     "isin": "US5011471027",
-    "price": 302.7,
-    "pct": -0.264,
+    "price": 302.75,
+    "pct": -0.247,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2022,5 +2022,6 @@
   "sector_3": "#3 Financial Services",
   "sector_4": "#4 Biotechnology",
   "sector_5": "#5 Banking"
- }
+ },
+ "prices_updated_at": 1788167913
 }
