@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788108237,
- "updated_iso": "2026-08-30T18:43:57",
+ "updated_at": 1788166108,
+ "updated_iso": "2026-08-31T10:48:28",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108228,
+   "price_ts": 1788165991,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108229,
+   "price_ts": 1788165992,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108230,
+   "price_ts": 1788165993,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108231,
+   "price_ts": 1788165994,
    "insider": [
     {
      "date": "2026-08-19",
@@ -357,13 +357,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1696.17,
-   "price_prev": 1696.17,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1788108231,
+   "price": 1477.2,
+   "price_prev": 1466.0,
+   "pct": 0.764,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1788165996,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108232,
+   "price_ts": 1788165997,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108234,
+   "price_ts": 1788165998,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788108234,
+   "price_ts": 1788166000,
    "insider": [
     {
      "date": "2026-08-28",
@@ -650,6 +650,91 @@
    },
    "price_at_add": 205.62,
    "price_at_add_currency": "USD"
+  },
+  {
+   "t": "WK",
+   "dt": "2026-08-31 10:46",
+   "isin": "",
+   "name": "Workiva Inc",
+   "price": 79.1,
+   "price_prev": 79.1,
+   "pct": 0.0,
+   "currency": "USD",
+   "live": false,
+   "price_source": "US",
+   "price_ts": 1788166001,
+   "insider": [
+    {
+     "date": "2026-08-21",
+     "name": "Ziegler Brandon",
+     "type": "SELL",
+     "shares": 6571,
+     "value": 499198.87,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-08-20",
+     "name": "VANDERPLOEG MARTIN J.",
+     "type": "SELL",
+     "shares": 2780,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-08",
+     "name": "Herz Robert H",
+     "type": "SELL",
+     "shares": 1500,
+     "value": 76845.0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-03",
+     "name": "PEEK MARK S",
+     "type": "OTHER",
+     "shares": 4070,
+     "value": 0,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-03",
+     "name": "VANDERPLOEG MARTIN J.",
+     "type": "SELL",
+     "shares": 28942,
+     "value": 1529005.8599999999,
+     "signal_strength": "normal"
+    },
+    {
+     "date": "2026-06-03",
+     "name": "VANDERPLOEG MARTIN J.",
+     "type": "OTHER",
+     "shares": 4070,
+     "value": 0,
+     "signal_strength": "normal"
+    }
+   ],
+   "fundamentals": {
+    "sector": null,
+    "industry": null,
+    "marketCap": null,
+    "trailingPE": null,
+    "forwardPE": null,
+    "pegRatio": null,
+    "trailingEps": null,
+    "forwardEps": null,
+    "revenueGrowth": null,
+    "earningsGrowth": null,
+    "profitMargins": null,
+    "grossMargins": null,
+    "returnOnEquity": null,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   }
   }
  ],
  "alerts": [
