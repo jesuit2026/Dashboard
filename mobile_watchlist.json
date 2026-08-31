@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1788168116,
- "updated_iso": "2026-08-31T11:21:56",
+ "updated_at": 1788168126,
+ "updated_iso": "2026-08-31T11:22:06",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168105,
+   "price_ts": 1788168115,
    "insider": [
     {
      "date": "2026-06-12",
@@ -102,7 +102,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168106,
+   "price_ts": 1788168116,
    "insider": [
     {
      "date": "2026-08-18",
@@ -189,7 +189,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168107,
+   "price_ts": 1788168118,
    "insider": [
     {
      "date": "2026-08-19",
@@ -276,7 +276,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168108,
+   "price_ts": 1788168119,
    "insider": [
     {
      "date": "2026-08-19",
@@ -363,7 +363,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1788168108,
+   "price_ts": 1788168119,
    "insider": [],
    "fundamentals": {
     "sector": "Technology",
@@ -401,7 +401,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168109,
+   "price_ts": 1788168121,
    "insider": [
     {
      "date": "2026-08-24",
@@ -488,7 +488,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168111,
+   "price_ts": 1788168122,
    "insider": [
     {
      "date": "2026-08-25",
@@ -575,7 +575,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168112,
+   "price_ts": 1788168123,
    "insider": [
     {
      "date": "2026-08-28",
@@ -662,7 +662,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1788168113,
+   "price_ts": 1788168124,
    "insider": [
     {
      "date": "2026-08-21",
@@ -736,53 +736,6 @@
     "dividendYield": null
    },
    "price_at_add": 79.15,
-   "price_at_add_currency": "USD"
-  },
-  {
-   "t": "EXPD",
-   "dt": "2026-08-31 11:21",
-   "isin": "US3021301094",
-   "name": "Expeditors International Of Washington Inc",
-   "price": 165.4,
-   "price_prev": 164.85,
-   "pct": 0.334,
-   "currency": "EUR",
-   "live": true,
-   "price_source": "TG",
-   "price_ts": 1788168113,
-   "insider": [
-    {
-     "date": "2026-08-07",
-     "name": "Gulyas Diane H.",
-     "type": "SELL",
-     "shares": 1400,
-     "value": 249984.0,
-     "signal_strength": "normal"
-    }
-   ],
-   "fundamentals": {
-    "sector": "Industrials",
-    "industry": "Integrated Freight & Logistics",
-    "marketCap": 23035639808,
-    "trailingPE": 25.794762,
-    "forwardPE": 22.35355,
-    "pegRatio": 3.0,
-    "trailingEps": 6.87,
-    "forwardEps": 7.9276,
-    "revenueGrowth": 0.321,
-    "earningsGrowth": 0.515,
-    "profitMargins": 0.07634,
-    "grossMargins": 0.13549,
-    "returnOnEquity": 0.4267,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   },
-   "price_at_add": 190.97,
    "price_at_add_currency": "USD"
   }
  ],
