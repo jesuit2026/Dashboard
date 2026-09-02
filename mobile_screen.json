@@ -2115,11 +2115,11 @@
     "score": 0.449,
     "pct_from_high": -10.6,
     "isin": "US90138F1021",
-    "price": 195.45,
-    "pct": -0.913,
-    "currency": "EUR",
+    "price": 227.03,
+    "pct": -0.693,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG"
+    "price_source": "US"
    }
   ],
   "breakout": [
@@ -3837,11 +3837,11 @@
     "score": 0.449,
     "pct_from_high": -10.6,
     "isin": "US90138F1021",
-    "price": 195.45,
-    "pct": -0.913,
-    "currency": "EUR",
+    "price": 227.03,
+    "pct": -0.693,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG"
+    "price_source": "US"
    },
    {
     "t": "FIVN",
@@ -6806,5 +6806,5 @@
   "sector_14": "#14 Telecommunication",
   "sector_15": "#15 Health Care"
  },
- "prices_updated_at": 1788382855
+ "prices_updated_at": 1788383455
 }
