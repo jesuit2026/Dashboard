@@ -3,7 +3,7 @@
  "computed_at": 1788337179,
  "computed_iso": "2026-09-02T10:19:39",
  "universe_size": 270,
- "fx": 1.15929,
+ "fx": 1.15915,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -97,11 +97,11 @@
     "score": 0.5936,
     "pct_from_high": -0.2,
     "isin": "US69318G1067",
-    "price": 65.9,
-    "pct": 1.855,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 75.47,
+    "pct": 0.667,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DK",
@@ -121,11 +121,11 @@
     "score": 0.5603,
     "pct_from_high": -1.4,
     "isin": "US24665A1034",
-    "price": 61.7,
-    "pct": -2.466,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 71.44,
+    "pct": -2.617,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FIVN",
@@ -145,11 +145,11 @@
     "score": 0.5595,
     "pct_from_high": -1.6,
     "isin": "US3383071012",
-    "price": 28.98,
-    "pct": -1.294,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 33.62,
+    "pct": -1.205,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VLO",
@@ -193,11 +193,11 @@
     "score": 0.553,
     "pct_from_high": 0.0,
     "isin": "US56585A1025",
-    "price": 337.7,
-    "pct": 2.179,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 387.24,
+    "pct": 1.176,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NSIT",
@@ -217,11 +217,11 @@
     "score": 0.5472,
     "pct_from_high": -1.9,
     "isin": "US45765U1034",
-    "price": 133.0,
-    "pct": 0.0,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 151.74,
+    "pct": -1.522,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CHEF",
@@ -241,11 +241,11 @@
     "score": 0.5469,
     "pct_from_high": 0.0,
     "isin": "US1630861011",
-    "price": 97.75,
-    "pct": -2.25,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 113.435,
+    "pct": -1.813,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ATAI",
@@ -265,11 +265,11 @@
     "score": 0.5423,
     "pct_from_high": -1.3,
     "isin": "US04650F1012",
-    "price": 6.3,
-    "pct": -0.787,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 7.35,
+    "pct": 0.068,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FRO",
@@ -289,11 +289,11 @@
     "score": 0.541,
     "pct_from_high": -0.3,
     "isin": "CY0200352116",
-    "price": 39.43,
-    "pct": 3.328,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 45.43,
+    "pct": 2.586,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PTEN",
@@ -313,11 +313,11 @@
     "score": 0.5358,
     "pct_from_high": 0.0,
     "isin": "US7034811015",
-    "price": 11.1,
-    "pct": 0.452,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 13.16,
+    "pct": 2.812,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PSX",
@@ -337,11 +337,11 @@
     "score": 0.5322,
     "pct_from_high": 0.0,
     "isin": "US7185461040",
-    "price": 222.3,
-    "pct": 2.254,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 256.01,
+    "pct": 1.603,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CVE",
@@ -361,11 +361,11 @@
     "score": 0.518,
     "pct_from_high": 0.0,
     "isin": "CA15135U1093",
-    "price": 28.255,
-    "pct": -1.172,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 32.805,
+    "pct": -1.011,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "EQNR",
@@ -385,11 +385,11 @@
     "score": 0.5178,
     "pct_from_high": 0.0,
     "isin": "US29446M1027",
-    "price": 37.6,
-    "pct": -1.571,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 43.575,
+    "pct": -1.481,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "OGN",
@@ -409,11 +409,11 @@
     "score": 0.5171,
     "pct_from_high": -0.1,
     "isin": "US68622V1061",
-    "price": 11.875,
-    "pct": -0.042,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 13.78,
+    "pct": 0.145,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HALO",
@@ -433,11 +433,11 @@
     "score": 0.5167,
     "pct_from_high": -1.5,
     "isin": "US40637H1095",
-    "price": 94.46,
-    "pct": 1.614,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 109.59,
+    "pct": 1.741,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "WT",
@@ -457,11 +457,11 @@
     "score": 0.5165,
     "pct_from_high": -2.1,
     "isin": "US97717P1049",
-    "price": 20.5,
-    "pct": -3.302,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 23.74,
+    "pct": -3.102,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "APA",
@@ -481,11 +481,11 @@
     "score": 0.514,
     "pct_from_high": -0.1,
     "isin": "US03743Q1085",
-    "price": 38.83,
-    "pct": 1.543,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 44.69,
+    "pct": 0.846,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "near": [
@@ -507,11 +507,11 @@
     "score": 0.3969,
     "pct_from_high": -13.5,
     "isin": "US92333F1012",
-    "price": 12.75,
-    "pct": -2.299,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 14.72,
+    "pct": -2.71,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "AXGN",
@@ -531,11 +531,11 @@
     "score": 0.5343,
     "pct_from_high": -3.6,
     "isin": "US05463X1063",
-    "price": 41.7,
-    "pct": -3.091,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 48.205,
+    "pct": -3.29,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BBVA",
@@ -603,11 +603,11 @@
     "score": 0.5927,
     "pct_from_high": -2.6,
     "isin": "US89422G1076",
-    "price": 57.5,
-    "pct": 0.877,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 67.21,
+    "pct": 2.306,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "INSW",
@@ -627,11 +627,11 @@
     "score": 0.5512,
     "pct_from_high": -0.3,
     "isin": "MHY410531021",
-    "price": 87.6,
-    "pct": 1.801,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 101.29,
+    "pct": 1.646,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FTI",
@@ -651,11 +651,11 @@
     "score": 0.4938,
     "pct_from_high": -1.9,
     "isin": "GB00BDSFG982",
-    "price": 69.12,
-    "pct": 2.279,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 79.69,
+    "pct": 1.814,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ROKU",
@@ -675,11 +675,11 @@
     "score": 0.54,
     "pct_from_high": -2.6,
     "isin": "US77543R1023",
-    "price": 136.08,
-    "pct": 1.386,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 157.73,
+    "pct": 1.401,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "LFST",
@@ -747,11 +747,11 @@
     "score": 0.5024,
     "pct_from_high": -1.0,
     "isin": "US2372661015",
-    "price": 58.64,
-    "pct": 0.377,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 67.66,
+    "pct": -0.022,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HNGE",
@@ -843,11 +843,11 @@
     "score": 0.5458,
     "pct_from_high": -3.9,
     "isin": "US5011471027",
-    "price": 320.0,
-    "pct": 1.943,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 369.195,
+    "pct": 1.606,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "GSAT",
@@ -867,11 +867,11 @@
     "score": 0.4798,
     "pct_from_high": -3.7,
     "isin": "US3789735079",
-    "price": 70.4,
-    "pct": 0.0,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 81.45,
+    "pct": 0.111,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TGT",
@@ -915,11 +915,11 @@
     "score": 0.6427,
     "pct_from_high": -6.4,
     "isin": "US14167L1035",
-    "price": 43.0,
-    "pct": 1.415,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 49.63,
+    "pct": 1.348,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "WHD",
@@ -963,11 +963,11 @@
     "score": 0.5018,
     "pct_from_high": -1.5,
     "isin": "MHY2065G1219",
-    "price": 16.94,
-    "pct": -0.353,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 20.08,
+    "pct": 1.929,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "MRK",
@@ -1011,11 +1011,11 @@
     "score": 0.493,
     "pct_from_high": -3.9,
     "isin": "US9282541013",
-    "price": 54.0,
-    "pct": -4.425,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 62.74,
+    "pct": -3.906,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "RVMD",
@@ -1035,11 +1035,11 @@
     "score": 0.6368,
     "pct_from_high": -5.2,
     "isin": "US76155X1000",
-    "price": 181.05,
-    "pct": 0.028,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 209.13,
+    "pct": -0.334,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "MATX",
@@ -1059,11 +1059,11 @@
     "score": 0.554,
     "pct_from_high": -2.5,
     "isin": "US57686G1058",
-    "price": 188.5,
-    "pct": -0.789,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 218.74,
+    "pct": -0.16,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NTRA",
@@ -1083,11 +1083,11 @@
     "score": 0.4837,
     "pct_from_high": -5.3,
     "isin": "US6323071042",
-    "price": 280.3,
-    "pct": 1.228,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 325.13,
+    "pct": 1.318,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PCVX",
@@ -1107,11 +1107,11 @@
     "score": 0.4632,
     "pct_from_high": -4.0,
     "isin": "US92243G1085",
-    "price": 53.5,
-    "pct": 1.905,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 61.6,
+    "pct": 1.324,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TGTX",
@@ -1131,11 +1131,11 @@
     "score": 0.5035,
     "pct_from_high": -4.8,
     "isin": "US88322Q1085",
-    "price": 48.7,
-    "pct": 0.62,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 56.935,
+    "pct": 1.335,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "RHI",
@@ -1179,11 +1179,11 @@
     "score": 0.4858,
     "pct_from_high": -6.6,
     "isin": "US92645B1035",
-    "price": 96.25,
-    "pct": -1.786,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 111.4,
+    "pct": -1.538,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "RELY",
@@ -1227,11 +1227,11 @@
     "score": 0.4816,
     "pct_from_high": -6.9,
     "isin": "",
-    "price": 175.4695,
-    "pct": -5.031,
+    "price": 203.405,
+    "pct": 6.222,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NESR",
@@ -1275,11 +1275,11 @@
     "score": 0.4817,
     "pct_from_high": -4.3,
     "isin": "",
-    "price": 158.0795,
-    "pct": 0.687,
+    "price": 183.24,
+    "pct": 0.425,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "THC",
@@ -1323,11 +1323,11 @@
     "score": 0.493,
     "pct_from_high": -5.4,
     "isin": "US1598641074",
-    "price": 251.7,
-    "pct": 3.283,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 291.61,
+    "pct": 3.294,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FTNT",
@@ -1347,11 +1347,11 @@
     "score": 0.4871,
     "pct_from_high": -6.3,
     "isin": "US34959E1091",
-    "price": 133.3057,
-    "pct": -4.991,
+    "price": 154.52,
+    "pct": -4.496,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CXW",
@@ -1371,11 +1371,11 @@
     "score": 0.5244,
     "pct_from_high": -3.8,
     "isin": "US21871N1019",
-    "price": 28.4,
-    "pct": 0.0,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 32.61,
+    "pct": -0.275,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CGON",
@@ -1443,11 +1443,11 @@
     "score": 0.4569,
     "pct_from_high": -6.0,
     "isin": "US29786A1060",
-    "price": 70.4,
-    "pct": -0.198,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 81.76,
+    "pct": -0.024,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "GH",
@@ -1467,11 +1467,11 @@
     "score": 0.5115,
     "pct_from_high": -3.8,
     "isin": "US40131M1099",
-    "price": 136.02,
-    "pct": -4.144,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 163.02,
+    "pct": -0.842,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "KYMR",
@@ -1515,11 +1515,11 @@
     "score": 0.4349,
     "pct_from_high": -11.8,
     "isin": "IL0011684185",
-    "price": 78.08,
-    "pct": -1.414,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 91.72,
+    "pct": -0.033,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "GKOS",
@@ -1563,11 +1563,11 @@
     "score": 0.5375,
     "pct_from_high": -3.5,
     "isin": "US4448591028",
-    "price": 352.0,
-    "pct": 2.924,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 401.1,
+    "pct": 1.562,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DYN",
@@ -1611,11 +1611,11 @@
     "score": 0.4464,
     "pct_from_high": -6.6,
     "isin": "CA45245E1097",
-    "price": 44.7,
-    "pct": 1.131,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 51.675,
+    "pct": 1.046,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ADPT",
@@ -1635,11 +1635,11 @@
     "score": 0.507,
     "pct_from_high": -8.0,
     "isin": "US00650F1093",
-    "price": 21.17,
-    "pct": 0.762,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 24.64,
+    "pct": 1.316,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CAKE",
@@ -1707,11 +1707,11 @@
     "score": 0.4698,
     "pct_from_high": -7.8,
     "isin": "US1096411004",
-    "price": 199.0,
-    "pct": -1.436,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 230.93,
+    "pct": -1.234,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PTGX",
@@ -1731,11 +1731,11 @@
     "score": 0.4924,
     "pct_from_high": -7.8,
     "isin": "US74366E1029",
-    "price": 128.0,
-    "pct": 0.787,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 145.87,
+    "pct": -0.291,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ILMN",
@@ -1755,11 +1755,11 @@
     "score": 0.4514,
     "pct_from_high": -9.0,
     "isin": "US4523271090",
-    "price": 181.86,
-    "pct": 1.7,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 213.35,
+    "pct": 2.973,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SN",
@@ -1803,11 +1803,11 @@
     "score": 0.4,
     "pct_from_high": -13.1,
     "isin": "VGG1110E1079",
-    "price": 13.765,
-    "pct": 1.288,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 15.69,
+    "pct": -0.349,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PGEN",
@@ -1851,11 +1851,11 @@
     "score": 0.4833,
     "pct_from_high": -8.5,
     "isin": "US6974351057",
-    "price": 283.3458,
-    "pct": -7.523,
+    "price": 328.45,
+    "pct": -9.283,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SSRM",
@@ -1875,11 +1875,11 @@
     "score": 0.4291,
     "pct_from_high": -8.6,
     "isin": "CA7847301032",
-    "price": 31.94,
-    "pct": 3.332,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 37.745,
+    "pct": 5.374,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DNTH",
@@ -1899,11 +1899,11 @@
     "score": 0.5648,
     "pct_from_high": -7.8,
     "isin": "US2528281080",
-    "price": 92.0,
-    "pct": -0.541,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 106.46,
+    "pct": -0.178,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PSNL",
@@ -1923,11 +1923,11 @@
     "score": 0.5455,
     "pct_from_high": -7.2,
     "isin": "US71535D1063",
-    "price": 14.69,
-    "pct": -0.272,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 16.745,
+    "pct": -1.846,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PRAX",
@@ -1995,11 +1995,11 @@
     "score": 0.4637,
     "pct_from_high": -11.7,
     "isin": "US55955D1000",
-    "price": 21.465,
-    "pct": 8.739,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 24.875,
+    "pct": 8.719,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "AVT",
@@ -2019,11 +2019,11 @@
     "score": 0.4288,
     "pct_from_high": -9.4,
     "isin": "US0538071038",
-    "price": 77.5,
-    "pct": 0.0,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 89.995,
+    "pct": 0.711,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TXG",
@@ -2043,11 +2043,11 @@
     "score": 0.7114,
     "pct_from_high": -7.9,
     "isin": "US88025U1097",
-    "price": 53.33,
-    "pct": 3.053,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 61.65,
+    "pct": 2.784,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CGAU",
@@ -2067,11 +2067,11 @@
     "score": 0.4503,
     "pct_from_high": -10.3,
     "isin": "CA1520061021",
-    "price": 19.29,
-    "pct": 2.661,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 22.25,
+    "pct": 2.205,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "WTTR",
@@ -2118,7 +2118,7 @@
     "price": 195.45,
     "pct": -0.913,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG"
    }
   ],
@@ -2141,11 +2141,11 @@
     "score": 0.5331,
     "pct_from_high": 0.0,
     "isin": "US4234521015",
-    "price": 41.5,
-    "pct": 4.062,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 47.655,
+    "pct": 3.149,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CLMT",
@@ -2241,11 +2241,11 @@
     "score": 0.5299,
     "pct_from_high": -3.8,
     "isin": "US6792951054",
-    "price": 140.7327,
-    "pct": -1.946,
+    "price": 163.18,
+    "pct": -1.994,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FTNT",
@@ -2265,11 +2265,11 @@
     "score": 0.4871,
     "pct_from_high": -6.3,
     "isin": "US34959E1091",
-    "price": 133.3057,
-    "pct": -4.991,
+    "price": 154.52,
+    "pct": -4.496,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "RELY",
@@ -2339,11 +2339,11 @@
     "score": 0.8888,
     "pct_from_high": -11.6,
     "isin": "US60770K1079",
-    "price": 130.02,
-    "pct": -2.299,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 150.82,
+    "pct": -2.154,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SLS",
@@ -2363,11 +2363,11 @@
     "score": 0.8838,
     "pct_from_high": -14.4,
     "isin": "US81642T2096",
-    "price": 12.25,
-    "pct": 6.987,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 14.14,
+    "pct": 6.798,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TWST",
@@ -2387,11 +2387,11 @@
     "score": 0.6607,
     "pct_from_high": -13.8,
     "isin": "US90184D1000",
-    "price": 109.95,
-    "pct": -3.595,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 131.0,
+    "pct": -0.829,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "IOVA",
@@ -2435,11 +2435,11 @@
     "score": 0.6427,
     "pct_from_high": -6.4,
     "isin": "US14167L1035",
-    "price": 43.0,
-    "pct": 1.415,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 49.63,
+    "pct": 1.348,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PRAX",
@@ -2483,11 +2483,11 @@
     "score": 0.6368,
     "pct_from_high": -5.2,
     "isin": "US76155X1000",
-    "price": 181.05,
-    "pct": 0.028,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 209.13,
+    "pct": -0.334,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DNTH",
@@ -2507,11 +2507,11 @@
     "score": 0.5648,
     "pct_from_high": -7.8,
     "isin": "US2528281080",
-    "price": 92.0,
-    "pct": -0.541,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 106.46,
+    "pct": -0.178,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "APGE",
@@ -2555,11 +2555,11 @@
     "score": 0.5927,
     "pct_from_high": -2.6,
     "isin": "US89422G1076",
-    "price": 57.5,
-    "pct": 0.877,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 67.21,
+    "pct": 2.306,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "KYMR",
@@ -2603,11 +2603,11 @@
     "score": 0.4637,
     "pct_from_high": -13.7,
     "isin": "IL0011407140",
-    "price": 37.9,
-    "pct": 1.229,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 44.46,
+    "pct": 2.419,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PGEN",
@@ -2651,11 +2651,11 @@
     "score": 0.4924,
     "pct_from_high": -7.8,
     "isin": "US74366E1029",
-    "price": 128.0,
-    "pct": 0.787,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 145.87,
+    "pct": -0.291,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CGON",
@@ -2699,11 +2699,11 @@
     "score": 0.5035,
     "pct_from_high": -4.8,
     "isin": "US88322Q1085",
-    "price": 48.7,
-    "pct": 0.62,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 56.935,
+    "pct": 1.335,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "KRYS",
@@ -2723,11 +2723,11 @@
     "score": 0.5458,
     "pct_from_high": -3.9,
     "isin": "US5011471027",
-    "price": 320.0,
-    "pct": 1.943,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 369.195,
+    "pct": 1.606,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HALO",
@@ -2747,11 +2747,11 @@
     "score": 0.5167,
     "pct_from_high": -1.5,
     "isin": "US40637H1095",
-    "price": 94.46,
-    "pct": 1.614,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 109.59,
+    "pct": 1.741,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DYN",
@@ -2795,11 +2795,11 @@
     "score": 0.4,
     "pct_from_high": -13.1,
     "isin": "VGG1110E1079",
-    "price": 13.765,
-    "pct": 1.288,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 15.69,
+    "pct": -0.349,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PCVX",
@@ -2819,11 +2819,11 @@
     "score": 0.4632,
     "pct_from_high": -4.0,
     "isin": "US92243G1085",
-    "price": 53.5,
-    "pct": 1.905,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 61.6,
+    "pct": 1.324,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SRRK",
@@ -2843,11 +2843,11 @@
     "score": 0.4343,
     "pct_from_high": -7.0,
     "isin": "US80706P1030",
-    "price": 49.1,
-    "pct": 1.867,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 56.105,
+    "pct": 0.394,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "AMGN",
@@ -2867,11 +2867,11 @@
     "score": 0.479,
     "pct_from_high": -1.3,
     "isin": "US0311621009",
-    "price": 379.4,
-    "pct": 0.357,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 442.83,
+    "pct": 1.073,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "INCY",
@@ -2939,11 +2939,11 @@
     "score": 0.4788,
     "pct_from_high": -0.3,
     "isin": "US30161Q1040",
-    "price": 50.52,
-    "pct": 2.892,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 58.545,
+    "pct": 2.909,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BCRX",
@@ -2987,11 +2987,11 @@
     "score": 0.5018,
     "pct_from_high": -2.5,
     "isin": "US09062X1037",
-    "price": 192.84,
-    "pct": 3.411,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 222.755,
+    "pct": 3.132,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ASND",
@@ -3035,11 +3035,11 @@
     "score": 0.4496,
     "pct_from_high": -2.3,
     "isin": "US00287Y1091",
-    "price": 225.5,
-    "pct": 0.535,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 261.675,
+    "pct": 0.636,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BMRN",
@@ -3059,11 +3059,11 @@
     "score": 0.4075,
     "pct_from_high": -7.6,
     "isin": "US09061G1013",
-    "price": 56.48,
-    "pct": 0.857,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 67.01,
+    "pct": 3.299,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_3": [
@@ -3085,11 +3085,11 @@
     "score": 0.7114,
     "pct_from_high": -7.9,
     "isin": "US88025U1097",
-    "price": 53.33,
-    "pct": 3.053,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 61.65,
+    "pct": 2.784,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ABCL",
@@ -3109,11 +3109,11 @@
     "score": 0.6247,
     "pct_from_high": -9.7,
     "isin": "CA00288U1066",
-    "price": 9.36,
-    "pct": -3.901,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 11.36,
+    "pct": 0.665,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PSNL",
@@ -3133,11 +3133,11 @@
     "score": 0.5455,
     "pct_from_high": -7.2,
     "isin": "US71535D1063",
-    "price": 14.69,
-    "pct": -0.272,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 16.745,
+    "pct": -1.846,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CRL",
@@ -3157,11 +3157,11 @@
     "score": 0.493,
     "pct_from_high": -5.4,
     "isin": "US1598641074",
-    "price": 251.7,
-    "pct": 3.283,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 291.61,
+    "pct": 3.294,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ILMN",
@@ -3181,11 +3181,11 @@
     "score": 0.4514,
     "pct_from_high": -9.0,
     "isin": "US4523271090",
-    "price": 181.86,
-    "pct": 1.7,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 213.35,
+    "pct": 2.973,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ADPT",
@@ -3205,11 +3205,11 @@
     "score": 0.507,
     "pct_from_high": -8.0,
     "isin": "US00650F1093",
-    "price": 21.17,
-    "pct": 0.762,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 24.64,
+    "pct": 1.316,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_4": [
@@ -3279,11 +3279,11 @@
     "score": 0.4605,
     "pct_from_high": -1.6,
     "isin": "US8086251076",
-    "price": 109.875,
-    "pct": 0.388,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 127.295,
+    "pct": 0.485,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_5": [
@@ -3401,11 +3401,11 @@
     "score": 0.5423,
     "pct_from_high": -1.3,
     "isin": "US04650F1012",
-    "price": 6.3,
-    "pct": -0.787,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 7.35,
+    "pct": 0.068,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "EWTX",
@@ -3449,11 +3449,11 @@
     "score": 0.5171,
     "pct_from_high": -0.1,
     "isin": "US68622V1061",
-    "price": 11.875,
-    "pct": -0.042,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 13.78,
+    "pct": 0.145,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "MRK",
@@ -3521,11 +3521,11 @@
     "score": 0.4967,
     "pct_from_high": -5.0,
     "isin": "US8816242098",
-    "price": 32.4,
-    "pct": 3.514,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 37.47,
+    "pct": 3.537,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VTRS",
@@ -3545,11 +3545,11 @@
     "score": 0.4864,
     "pct_from_high": -6.1,
     "isin": "US92556V1061",
-    "price": 14.75,
-    "pct": 2.644,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 17.09,
+    "pct": 2.581,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BMY",
@@ -3593,11 +3593,11 @@
     "score": 0.477,
     "pct_from_high": -0.7,
     "isin": "US4781601046",
-    "price": 238.05,
-    "pct": 1.644,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 275.42,
+    "pct": 1.52,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NVS",
@@ -3617,11 +3617,11 @@
     "score": 0.4429,
     "pct_from_high": -2.5,
     "isin": "US66987V1098",
-    "price": 140.5,
-    "pct": 0.357,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 162.43,
+    "pct": 0.732,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_6": [
@@ -3643,11 +3643,11 @@
     "score": 0.5245,
     "pct_from_high": -17.6,
     "isin": "US55024U1097",
-    "price": 750.0,
-    "pct": 0.04,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 870.415,
+    "pct": 0.225,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VISN",
@@ -3691,11 +3691,11 @@
     "score": 0.4735,
     "pct_from_high": 0.0,
     "isin": "US6200763075",
-    "price": 415.7,
-    "pct": -1.958,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 479.08,
+    "pct": -2.485,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_7": [
@@ -3717,11 +3717,11 @@
     "score": 0.6367,
     "pct_from_high": 0.0,
     "isin": "US76680R2067",
-    "price": 62.32,
-    "pct": 2.097,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 72.64,
+    "pct": 2.744,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HPE",
@@ -3765,11 +3765,11 @@
     "score": 0.4833,
     "pct_from_high": -8.5,
     "isin": "US6974351057",
-    "price": 283.3458,
-    "pct": -7.523,
+    "price": 328.45,
+    "pct": -9.283,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CRWD",
@@ -3789,11 +3789,11 @@
     "score": 0.4816,
     "pct_from_high": -6.9,
     "isin": "",
-    "price": 175.4695,
-    "pct": -5.031,
+    "price": 203.405,
+    "pct": 6.222,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ZETA",
@@ -3813,11 +3813,11 @@
     "score": 0.5813,
     "pct_from_high": 0.0,
     "isin": "US98956A1051",
-    "price": 26.3,
-    "pct": -3.486,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 30.43,
+    "pct": -3.642,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TWLO",
@@ -3840,7 +3840,7 @@
     "price": 195.45,
     "pct": -0.913,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG"
    },
    {
@@ -3861,11 +3861,11 @@
     "score": 0.5595,
     "pct_from_high": -1.6,
     "isin": "US3383071012",
-    "price": 28.98,
-    "pct": -1.294,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 33.62,
+    "pct": -1.205,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NTAP",
@@ -3885,11 +3885,11 @@
     "score": 0.4111,
     "pct_from_high": -11.6,
     "isin": "US64110D1046",
-    "price": 157.02,
-    "pct": -0.645,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 180.57,
+    "pct": -1.384,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HPQ",
@@ -3909,11 +3909,11 @@
     "score": 0.4879,
     "pct_from_high": 0.0,
     "isin": "US40434L1052",
-    "price": 27.7,
-    "pct": 2.479,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 32.0,
+    "pct": 2.139,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NET",
@@ -3933,11 +3933,11 @@
     "score": 0.3791,
     "pct_from_high": -13.7,
     "isin": "",
-    "price": 235.2647,
-    "pct": -4.221,
+    "price": 272.5,
+    "pct": -4.009,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "S",
@@ -3957,11 +3957,11 @@
     "score": 0.3826,
     "pct_from_high": -13.5,
     "isin": "US81730H1095",
-    "price": 16.83,
-    "pct": -5.396,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 19.67,
+    "pct": -4.561,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "P",
@@ -4005,11 +4005,11 @@
     "score": 0.3964,
     "pct_from_high": -6.7,
     "isin": "US92343E1029",
-    "price": 250.0,
-    "pct": 0.402,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 290.28,
+    "pct": 0.624,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_8": [
@@ -4031,11 +4031,11 @@
     "score": 0.554,
     "pct_from_high": -2.5,
     "isin": "US57686G1058",
-    "price": 188.5,
-    "pct": -0.789,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 218.74,
+    "pct": -0.16,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SBLK",
@@ -4055,11 +4055,11 @@
     "score": 0.5067,
     "pct_from_high": -0.3,
     "isin": "MHY8162K2046",
-    "price": 27.32,
-    "pct": 1.978,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 31.82,
+    "pct": 2.447,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ZIM",
@@ -4079,11 +4079,11 @@
     "score": 0.4496,
     "pct_from_high": -6.3,
     "isin": "IL0065100930",
-    "price": 24.0,
-    "pct": 3.004,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 28.04,
+    "pct": 3.89,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "KEX",
@@ -4177,11 +4177,11 @@
     "score": 0.5936,
     "pct_from_high": -0.2,
     "isin": "US69318G1067",
-    "price": 65.9,
-    "pct": 1.855,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 75.47,
+    "pct": 0.667,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DK",
@@ -4201,11 +4201,11 @@
     "score": 0.5603,
     "pct_from_high": -1.4,
     "isin": "US24665A1034",
-    "price": 61.7,
-    "pct": -2.466,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 71.44,
+    "pct": -2.617,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VLO",
@@ -4249,11 +4249,11 @@
     "score": 0.6039,
     "pct_from_high": 0.0,
     "isin": "US4039491000",
-    "price": 92.34,
-    "pct": 2.943,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 106.08,
+    "pct": 2.039,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "MPC",
@@ -4273,11 +4273,11 @@
     "score": 0.553,
     "pct_from_high": 0.0,
     "isin": "US56585A1025",
-    "price": 337.7,
-    "pct": 2.179,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 387.24,
+    "pct": 1.176,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "INSW",
@@ -4297,11 +4297,11 @@
     "score": 0.5512,
     "pct_from_high": -0.3,
     "isin": "MHY410531021",
-    "price": 87.6,
-    "pct": 1.801,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 101.29,
+    "pct": 1.646,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FRO",
@@ -4321,11 +4321,11 @@
     "score": 0.541,
     "pct_from_high": -0.3,
     "isin": "CY0200352116",
-    "price": 39.43,
-    "pct": 3.328,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 45.43,
+    "pct": 2.586,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PARR",
@@ -4369,11 +4369,11 @@
     "score": 0.5358,
     "pct_from_high": 0.0,
     "isin": "US7034811015",
-    "price": 11.1,
-    "pct": 0.452,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 13.16,
+    "pct": 2.812,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PSX",
@@ -4393,11 +4393,11 @@
     "score": 0.5322,
     "pct_from_high": 0.0,
     "isin": "US7185461040",
-    "price": 222.3,
-    "pct": 2.254,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 256.01,
+    "pct": 1.603,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "WTTR",
@@ -4441,11 +4441,11 @@
     "score": 0.5331,
     "pct_from_high": 0.0,
     "isin": "US4234521015",
-    "price": 41.5,
-    "pct": 4.062,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 47.655,
+    "pct": 3.149,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CVE",
@@ -4465,11 +4465,11 @@
     "score": 0.518,
     "pct_from_high": 0.0,
     "isin": "CA15135U1093",
-    "price": 28.255,
-    "pct": -1.172,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 32.805,
+    "pct": -1.011,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "EQNR",
@@ -4489,11 +4489,11 @@
     "score": 0.5178,
     "pct_from_high": 0.0,
     "isin": "US29446M1027",
-    "price": 37.6,
-    "pct": -1.571,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 43.575,
+    "pct": -1.481,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "APA",
@@ -4513,11 +4513,11 @@
     "score": 0.514,
     "pct_from_high": -0.1,
     "isin": "US03743Q1085",
-    "price": 38.83,
-    "pct": 1.543,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 44.69,
+    "pct": 0.846,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DHT",
@@ -4537,11 +4537,11 @@
     "score": 0.5018,
     "pct_from_high": -1.5,
     "isin": "MHY2065G1219",
-    "price": 16.94,
-    "pct": -0.353,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 20.08,
+    "pct": 1.929,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FTI",
@@ -4561,11 +4561,11 @@
     "score": 0.4938,
     "pct_from_high": -1.9,
     "isin": "GB00BDSFG982",
-    "price": 69.12,
-    "pct": 2.279,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 79.69,
+    "pct": 1.814,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "WHD",
@@ -4633,11 +4633,11 @@
     "score": 0.3969,
     "pct_from_high": -13.5,
     "isin": "US92333F1012",
-    "price": 12.75,
-    "pct": -2.299,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 14.72,
+    "pct": -2.71,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TDW",
@@ -4657,11 +4657,11 @@
     "score": 0.5034,
     "pct_from_high": -0.2,
     "isin": "US88642R1095",
-    "price": 87.26,
-    "pct": 5.209,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 100.79,
+    "pct": 4.853,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PR",
@@ -4729,11 +4729,11 @@
     "score": 0.4551,
     "pct_from_high": -5.5,
     "isin": "CA07317Q1054",
-    "price": 4.364,
-    "pct": 1.042,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 5.07,
+    "pct": 1.198,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "KNTK",
@@ -4873,11 +4873,11 @@
     "score": 0.5336,
     "pct_from_high": -0.5,
     "isin": "CA8672241079",
-    "price": 59.35,
-    "pct": -0.319,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 68.38,
+    "pct": -0.92,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CHRD",
@@ -4897,11 +4897,11 @@
     "score": 0.4855,
     "pct_from_high": 0.0,
     "isin": "US6742152076",
-    "price": 130.35,
-    "pct": 0.424,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 149.595,
+    "pct": -0.466,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "YPF",
@@ -4921,11 +4921,11 @@
     "score": 0.4818,
     "pct_from_high": -6.8,
     "isin": "US9842451000",
-    "price": 47.0,
-    "pct": 3.524,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 53.905,
+    "pct": 2.725,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "COP",
@@ -4945,11 +4945,11 @@
     "score": 0.4826,
     "pct_from_high": 0.0,
     "isin": "US20825C1045",
-    "price": 118.5,
-    "pct": 0.834,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 137.185,
+    "pct": 0.745,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "LNG",
@@ -4969,11 +4969,11 @@
     "score": 0.4747,
     "pct_from_high": -0.5,
     "isin": "US16411R2085",
-    "price": 256.0,
-    "pct": 0.867,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 295.77,
+    "pct": 0.588,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NOV",
@@ -4993,11 +4993,11 @@
     "score": 0.4668,
     "pct_from_high": -1.2,
     "isin": "US62955J1034",
-    "price": 18.8,
-    "pct": 1.622,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 21.72,
+    "pct": 1.685,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "IMO",
@@ -5113,11 +5113,11 @@
     "score": 0.4635,
     "pct_from_high": -1.4,
     "isin": "US6826801036",
-    "price": 83.04,
-    "pct": 0.557,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 95.99,
+    "pct": 0.298,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "OXY",
@@ -5161,11 +5161,11 @@
     "score": 0.465,
     "pct_from_high": -0.2,
     "isin": "GB0002634946",
-    "price": 23.16,
-    "pct": -1.739,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 92.8,
+    "pct": -0.77,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "EOG",
@@ -5185,11 +5185,11 @@
     "score": 0.4481,
     "pct_from_high": -3.1,
     "isin": "US26875P1012",
-    "price": 127.3,
-    "pct": -0.547,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 148.94,
+    "pct": 0.428,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "GLNG",
@@ -5233,11 +5233,11 @@
     "score": 0.431,
     "pct_from_high": -4.0,
     "isin": "US25278X1090",
-    "price": 174.6,
-    "pct": -0.331,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 203.56,
+    "pct": 0.283,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "EPD",
@@ -5281,11 +5281,11 @@
     "score": 0.4423,
     "pct_from_high": -2.8,
     "isin": "US03676B1026",
-    "price": 19.395,
-    "pct": -0.026,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 22.51,
+    "pct": 0.133,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "WMB",
@@ -5379,11 +5379,11 @@
     "score": 0.4503,
     "pct_from_high": -10.3,
     "isin": "CA1520061021",
-    "price": 19.29,
-    "pct": 2.661,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 22.25,
+    "pct": 2.205,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TGB",
@@ -5403,11 +5403,11 @@
     "score": 0.4085,
     "pct_from_high": -12.8,
     "isin": "CA89472Y1079",
-    "price": 7.3,
-    "pct": 0.206,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 8.315,
+    "pct": -1.481,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "MT",
@@ -5451,11 +5451,11 @@
     "score": 0.4148,
     "pct_from_high": -13.7,
     "isin": "CA2960061091",
-    "price": 29.96,
-    "pct": -0.3,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 34.765,
+    "pct": -0.244,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SSRM",
@@ -5475,11 +5475,11 @@
     "score": 0.4291,
     "pct_from_high": -8.6,
     "isin": "CA7847301032",
-    "price": 31.94,
-    "pct": 3.332,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 37.745,
+    "pct": 5.374,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TECK",
@@ -5499,11 +5499,11 @@
     "score": 0.4371,
     "pct_from_high": -6.8,
     "isin": "CA8787422044",
-    "price": 57.78,
-    "pct": 0.278,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 67.06,
+    "pct": 0.434,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NUE",
@@ -5571,11 +5571,11 @@
     "score": 0.3688,
     "pct_from_high": -15.2,
     "isin": "CA4436281022",
-    "price": 23.65,
-    "pct": 1.502,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 27.31,
+    "pct": 1.129,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BHP",
@@ -5595,11 +5595,11 @@
     "score": 0.4448,
     "pct_from_high": -5.9,
     "isin": "US0886061086",
-    "price": 81.0,
-    "pct": 0.621,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 93.47,
+    "pct": 0.7,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FCX",
@@ -5619,11 +5619,11 @@
     "score": 0.4091,
     "pct_from_high": -9.3,
     "isin": "US35671D8570",
-    "price": 63.88,
-    "pct": 2.126,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 73.945,
+    "pct": 2.035,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_11": [
@@ -5645,11 +5645,11 @@
     "score": 0.5165,
     "pct_from_high": -2.1,
     "isin": "US97717P1049",
-    "price": 20.5,
-    "pct": -3.302,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 23.74,
+    "pct": -3.102,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VCTR",
@@ -5669,11 +5669,11 @@
     "score": 0.4858,
     "pct_from_high": -6.6,
     "isin": "US92645B1035",
-    "price": 96.25,
-    "pct": -1.786,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 111.4,
+    "pct": -1.538,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VIRT",
@@ -5693,11 +5693,11 @@
     "score": 0.493,
     "pct_from_high": -3.9,
     "isin": "US9282541013",
-    "price": 54.0,
-    "pct": -4.425,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 62.74,
+    "pct": -3.906,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "STT",
@@ -5741,11 +5741,11 @@
     "score": 0.4809,
     "pct_from_high": -1.4,
     "isin": "US9290891004",
-    "price": 88.25,
-    "pct": 0.857,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 102.39,
+    "pct": 1.351,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BNY",
@@ -5837,11 +5837,11 @@
     "score": 0.5027,
     "pct_from_high": -4.0,
     "isin": "BMG491BT1088",
-    "price": 27.43,
-    "pct": -0.652,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 31.7,
+    "pct": -0.845,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SEIC",
@@ -5885,11 +5885,11 @@
     "score": 0.4619,
     "pct_from_high": -2.8,
     "isin": "CH0244767585",
-    "price": 47.51,
-    "pct": 1.844,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 54.89,
+    "pct": 1.367,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "AMG",
@@ -5909,11 +5909,11 @@
     "score": 0.4355,
     "pct_from_high": -5.8,
     "isin": "US0082521081",
-    "price": 312.0,
-    "pct": 0.0,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 356.14,
+    "pct": -1.393,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BGC",
@@ -5933,11 +5933,11 @@
     "score": 0.4358,
     "pct_from_high": -5.1,
     "isin": "US0889291045",
-    "price": 10.25,
-    "pct": -1.442,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 11.865,
+    "pct": -1.001,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CPAY",
@@ -5981,11 +5981,11 @@
     "score": 0.466,
     "pct_from_high": -7.1,
     "isin": "US96208T1043",
-    "price": 167.0,
-    "pct": 2.454,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 192.94,
+    "pct": 2.206,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "FCFS",
@@ -6005,11 +6005,11 @@
     "score": 0.4464,
     "pct_from_high": -8.6,
     "isin": "US33768G1076",
-    "price": 187.75,
-    "pct": 0.887,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 220.12,
+    "pct": 2.068,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "NATL",
@@ -6055,11 +6055,11 @@
     "score": 0.5469,
     "pct_from_high": 0.0,
     "isin": "US1630861011",
-    "price": 97.75,
-    "pct": -2.25,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 113.435,
+    "pct": -1.813,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TGT",
@@ -6103,11 +6103,11 @@
     "score": 0.4569,
     "pct_from_high": -6.0,
     "isin": "US29786A1060",
-    "price": 70.4,
-    "pct": -0.198,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 81.76,
+    "pct": -0.024,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "KMX",
@@ -6127,11 +6127,11 @@
     "score": 0.4991,
     "pct_from_high": -5.1,
     "isin": "US1431301027",
-    "price": 53.0,
-    "pct": 0.722,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 61.455,
+    "pct": 0.845,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "PAG",
@@ -6151,11 +6151,11 @@
     "score": 0.4662,
     "pct_from_high": -2.3,
     "isin": "US70959W1036",
-    "price": 188.5,
-    "pct": 0.266,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 218.275,
+    "pct": 0.592,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "USFD",
@@ -6175,11 +6175,11 @@
     "score": 0.4517,
     "pct_from_high": -3.9,
     "isin": "US9120081099",
-    "price": 90.5,
-    "pct": -1.63,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 104.775,
+    "pct": -1.777,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_13": [
@@ -6225,11 +6225,11 @@
     "score": 0.4744,
     "pct_from_high": -5.2,
     "isin": "US6512291062",
-    "price": 5.166,
-    "pct": 0.702,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 5.99,
+    "pct": 0.757,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "GRMN",
@@ -6249,11 +6249,11 @@
     "score": 0.374,
     "pct_from_high": -12.0,
     "isin": "CH0114405324",
-    "price": 238.9,
-    "pct": 0.589,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 275.88,
+    "pct": 0.158,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "MHK",
@@ -6273,11 +6273,11 @@
     "score": 0.3682,
     "pct_from_high": -10.7,
     "isin": "US6081901042",
-    "price": 111.475,
-    "pct": 3.265,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 129.22,
+    "pct": 3.256,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_14": [
@@ -6299,11 +6299,11 @@
     "score": 0.4798,
     "pct_from_high": -3.7,
     "isin": "US3789735079",
-    "price": 70.4,
-    "pct": 0.0,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 81.45,
+    "pct": 0.111,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "SKM",
@@ -6323,11 +6323,11 @@
     "score": 0.3416,
     "pct_from_high": -17.9,
     "isin": "US78440P3064",
-    "price": 32.4,
-    "pct": -0.613,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 37.09,
+    "pct": -1.8,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "VOD",
@@ -6347,11 +6347,11 @@
     "score": 0.5015,
     "pct_from_high": -2.2,
     "isin": "US92857W3088",
-    "price": 13.85,
-    "pct": -0.36,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 16.07,
+    "pct": 0.156,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    }
   ],
   "sector_15": [
@@ -6373,11 +6373,11 @@
     "score": 0.6395,
     "pct_from_high": -15.6,
     "isin": "US1241551027",
-    "price": 6.653,
-    "pct": -5.792,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 7.605,
+    "pct": -7.143,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "LFST",
@@ -6421,11 +6421,11 @@
     "score": 0.5343,
     "pct_from_high": -3.6,
     "isin": "US05463X1063",
-    "price": 41.7,
-    "pct": -3.091,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 48.205,
+    "pct": -3.29,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HNGE",
@@ -6493,11 +6493,11 @@
     "score": 0.5375,
     "pct_from_high": -3.5,
     "isin": "US4448591028",
-    "price": 352.0,
-    "pct": 2.924,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 401.1,
+    "pct": 1.562,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ITGR",
@@ -6565,11 +6565,11 @@
     "score": 0.4026,
     "pct_from_high": -10.1,
     "isin": "US0718131099",
-    "price": 22.13,
-    "pct": 0.637,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 25.7,
+    "pct": 0.863,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "DXCM",
@@ -6589,11 +6589,11 @@
     "score": 0.4591,
     "pct_from_high": -2.5,
     "isin": "US2521311074",
-    "price": 77.3663,
-    "pct": -0.499,
+    "price": 89.69,
+    "pct": -0.427,
     "currency": "USD",
-    "live": true,
-    "price_source": "DE_CONV"
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CAH",
@@ -6613,11 +6613,11 @@
     "score": 0.5246,
     "pct_from_high": -0.4,
     "isin": "US14149Y1082",
-    "price": 211.9,
-    "pct": 2.615,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 245.42,
+    "pct": 2.622,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "BDX",
@@ -6685,11 +6685,11 @@
     "score": 0.4468,
     "pct_from_high": -3.3,
     "isin": "US5049221055",
-    "price": 286.0,
-    "pct": 0.704,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 331.92,
+    "pct": 1.343,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "ELV",
@@ -6709,11 +6709,11 @@
     "score": 0.4677,
     "pct_from_high": -6.3,
     "isin": "US0367521038",
-    "price": 348.7,
-    "pct": 0.259,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 405.92,
+    "pct": 0.707,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "CHE",
@@ -6733,11 +6733,11 @@
     "score": 0.4149,
     "pct_from_high": -6.6,
     "isin": "US16359R1032",
-    "price": 450.0,
-    "pct": 0.897,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 525.04,
+    "pct": 1.853,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "HSIC",
@@ -6757,11 +6757,11 @@
     "score": 0.4967,
     "pct_from_high": -2.5,
     "isin": "US8064071025",
-    "price": 78.5,
-    "pct": 2.614,
-    "currency": "EUR",
-    "live": true,
-    "price_source": "TG"
+    "price": 90.385,
+    "pct": 2.153,
+    "currency": "USD",
+    "live": false,
+    "price_source": "US"
    },
    {
     "t": "TFX",
@@ -6806,5 +6806,5 @@
   "sector_14": "#14 Telecommunication",
   "sector_15": "#15 Health Care"
  },
- "prices_updated_at": 1788382243
+ "prices_updated_at": 1788382855
 }
