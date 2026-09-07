@@ -3,7 +3,7 @@
  "computed_at": 1788767978,
  "computed_iso": "2026-09-07T09:59:38",
  "universe_size": 55,
- "fx": 1.1632,
+ "fx": 1.16306,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -25,8 +25,8 @@
     "score": 0.868,
     "pct_from_high": -16.5,
     "isin": "US5951121038",
-    "price": 894.9,
-    "pct": 2.356,
+    "price": 894.6,
+    "pct": 2.322,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -241,8 +241,8 @@
     "score": 0.5414,
     "pct_from_high": 0.0,
     "isin": "MHY2065G1219",
-    "price": 17.91,
-    "pct": -0.389,
+    "price": 18.32,
+    "pct": 1.891,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -433,8 +433,8 @@
     "score": 0.4697,
     "pct_from_high": -4.3,
     "isin": "US1252691001",
-    "price": 114.3,
-    "pct": -0.479,
+    "price": 115.05,
+    "pct": 0.174,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -795,8 +795,8 @@
     "score": 0.4801,
     "pct_from_high": -4.0,
     "isin": "US33829M1018",
-    "price": 216.15,
-    "pct": -0.438,
+    "price": 216.3,
+    "pct": -0.368,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -963,8 +963,8 @@
     "score": 0.4985,
     "pct_from_high": -8.0,
     "isin": "US0427351004",
-    "price": 186.0,
-    "pct": -0.535,
+    "price": 186.5,
+    "pct": -0.267,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1301,8 +1301,8 @@
     "score": 0.5414,
     "pct_from_high": 0.0,
     "isin": "MHY2065G1219",
-    "price": 17.91,
-    "pct": -0.389,
+    "price": 18.32,
+    "pct": 1.891,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1544,8 +1544,8 @@
     "score": 0.5414,
     "pct_from_high": 0.0,
     "isin": "MHY2065G1219",
-    "price": 17.91,
-    "pct": -0.389,
+    "price": 18.32,
+    "pct": 1.891,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2004,8 +2004,8 @@
     "score": 0.4985,
     "pct_from_high": -8.0,
     "isin": "US0427351004",
-    "price": 186.0,
-    "pct": -0.535,
+    "price": 186.5,
+    "pct": -0.267,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2290,5 +2290,5 @@
   "sector_5": "#5 Biotechnology",
   "sector_6": "#6 Banking"
  },
- "prices_updated_at": 1788770380
+ "prices_updated_at": 1788770621
 }
