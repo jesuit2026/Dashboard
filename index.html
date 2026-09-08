@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-08-25.6';
+const APP_BUILD = '2026-09-08.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1458,13 +1458,28 @@ async function fetchQuote(ticker, fx, isin){
 let _fxCache = {v:0, ts:0};
 async function getFx(){
   if(_fxCache.v>0 && Date.now()-_fxCache.ts < 300000) return _fxCache.v;
+  // Frankfurter API zuerst: kostenlos, kein Key, CORS-fähig (direkt aus
+  // dem Browser, kein Proxy nötig), EZB-Daten, keine Limits. Deutlich
+  // zuverlässiger als der bisherige alleinige Yahoo/Proxy-Weg, der bei
+  // Ausfall stillschweigend auf einen HARTCODIERTEN, mit der Zeit
+  // veraltenden Wert (1.14) zurückfiel — genau das führte dazu, dass alle
+  // USD-Kurse systematisch falsch (zu hoch) in EUR umgerechnet wurden.
+  try{
+    const res = await fetch('https://api.frankfurter.app/latest?from=EUR&to=USD', {cache:'no-store'});
+    if(res.ok){
+      const d = await res.json();
+      const fx = d?.rates?.USD;
+      if(fx>0){ _fxCache={v:fx,ts:Date.now()}; return fx; }
+    }
+  }catch{}
+  // Rückfalloption: Yahoo über den Proxy-Pool
   try{
     const yurl='https://query1.finance.yahoo.com/v8/finance/chart/EURUSD=X?interval=1d&range=1d';
     const j = await fetchJsonViaProxy(yurl, 6000);
     const fx=j?.chart?.result?.[0]?.meta?.regularMarketPrice;
     if(fx>0){ _fxCache={v:fx,ts:Date.now()}; return fx; }
   }catch{}
-  return _fxCache.v || 1.14;  // Fallback
+  return _fxCache.v || 1.14;  // Letzter Rückfall, falls wirklich beides ausfällt
 }
 
 function updateCard(t){
