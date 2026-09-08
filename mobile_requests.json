@@ -1,14 +1,3 @@
 {
- "requests": [
-  {
-   "type": "remove_alert",
-   "ticker": "TENB",
-   "condition": "above",
-   "price_usd": 38.435100000000006,
-   "price_input": "33",
-   "currency": "EUR",
-   "id": "r17888578933984vxwn",
-   "ts": "2026-09-08T08:58:13.398Z"
-  }
- ]
+ "requests": []
 }
