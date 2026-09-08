@@ -1,3 +1,10 @@
 {
- "requests": []
+ "requests": [
+  {
+   "type": "remove_watch",
+   "ticker": "TENB",
+   "id": "r1788889632119643w1",
+   "ts": "2026-09-08T17:47:12.119Z"
+  }
+ ]
 }
