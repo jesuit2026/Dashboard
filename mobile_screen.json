@@ -3,7 +3,7 @@
  "computed_at": 1788858139,
  "computed_iso": "2026-09-08T11:02:19",
  "universe_size": 55,
- "fx": 1.16158,
+ "fx": 1.16144,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -25,7 +25,7 @@
     "score": 0.868,
     "pct_from_high": -16.5,
     "isin": "US5951121038",
-    "price": 875.3821,
+    "price": 875.2841,
     "pct": 0.162,
     "currency": "USD",
     "live": true,
@@ -49,7 +49,7 @@
     "score": 0.8293,
     "pct_from_high": 0.0,
     "isin": "US24703L2025",
-    "price": 451.3351,
+    "price": 451.2846,
     "pct": 0.295,
     "currency": "USD",
     "live": true,
@@ -433,8 +433,8 @@
     "score": 0.4697,
     "pct_from_high": -4.3,
     "isin": "US1252691001",
-    "price": 117.1,
-    "pct": 1.561,
+    "price": 118.65,
+    "pct": 2.905,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -555,8 +555,8 @@
     "score": 0.5132,
     "pct_from_high": -2.3,
     "isin": "CA15135U1093",
-    "price": 28.215,
-    "pct": 1.002,
+    "price": 28.305,
+    "pct": 1.325,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -795,8 +795,8 @@
     "score": 0.4801,
     "pct_from_high": -4.0,
     "isin": "US33829M1018",
-    "price": 215.3,
-    "pct": -0.185,
+    "price": 215.5,
+    "pct": -0.093,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -915,7 +915,7 @@
     "score": 0.4789,
     "pct_from_high": -4.6,
     "isin": "US0090661010",
-    "price": 156.6679,
+    "price": 156.6504,
     "pct": -0.033,
     "currency": "USD",
     "live": true,
@@ -1011,8 +1011,8 @@
     "score": 0.483,
     "pct_from_high": -4.6,
     "isin": "US2372661015",
-    "price": 55.7,
-    "pct": -0.465,
+    "price": 56.14,
+    "pct": 0.322,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1131,7 +1131,7 @@
     "score": 0.4819,
     "pct_from_high": -7.9,
     "isin": "US0404132054",
-    "price": 166.8633,
+    "price": 166.8446,
     "pct": -0.216,
     "currency": "USD",
     "live": true,
@@ -1325,7 +1325,7 @@
     "score": 0.8293,
     "pct_from_high": 0.0,
     "isin": "US24703L2025",
-    "price": 451.3351,
+    "price": 451.2846,
     "pct": 0.295,
     "currency": "USD",
     "live": true,
@@ -1568,8 +1568,8 @@
     "score": 0.5132,
     "pct_from_high": -2.3,
     "isin": "CA15135U1093",
-    "price": 28.215,
-    "pct": 1.002,
+    "price": 28.305,
+    "pct": 1.325,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2289,5 +2289,6 @@
   "sector_4": "#4 Financial Services",
   "sector_5": "#5 Biotechnology",
   "sector_6": "#6 Banking"
- }
+ },
+ "prices_updated_at": 1788858422
 }
