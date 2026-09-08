@@ -25,11 +25,11 @@
     "score": 0.868,
     "pct_from_high": -16.5,
     "isin": "US5951121038",
-    "price": 891.4,
-    "pct": -0.246,
-    "currency": "EUR",
+    "price": 874.9828,
+    "pct": 0.162,
+    "currency": "USD",
     "live": true,
-    "price_source": "TG"
+    "price_source": "DE_CONV"
    },
    {
     "t": "DELL",
@@ -49,7 +49,7 @@
     "score": 0.8293,
     "pct_from_high": 0.0,
     "isin": "US24703L2025",
-    "price": 451.1797,
+    "price": 451.1292,
     "pct": 0.295,
     "currency": "USD",
     "live": true,
@@ -241,8 +241,8 @@
     "score": 0.5414,
     "pct_from_high": 0.0,
     "isin": "MHY2065G1219",
-    "price": 18.51,
-    "pct": 1.48,
+    "price": 18.49,
+    "pct": 1.371,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -361,8 +361,8 @@
     "score": 0.4938,
     "pct_from_high": -0.9,
     "isin": "US86562M2098",
-    "price": 23.4,
-    "pct": 0.0,
+    "price": 23.2,
+    "pct": -0.855,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -915,7 +915,7 @@
     "score": 0.4789,
     "pct_from_high": -4.6,
     "isin": "US0090661010",
-    "price": 156.614,
+    "price": 156.5964,
     "pct": -0.033,
     "currency": "USD",
     "live": true,
@@ -1131,7 +1131,7 @@
     "score": 0.4819,
     "pct_from_high": -7.9,
     "isin": "US0404132054",
-    "price": 166.8058,
+    "price": 166.7872,
     "pct": -0.216,
     "currency": "USD",
     "live": true,
@@ -1301,8 +1301,8 @@
     "score": 0.5414,
     "pct_from_high": 0.0,
     "isin": "MHY2065G1219",
-    "price": 18.51,
-    "pct": 1.48,
+    "price": 18.49,
+    "pct": 1.371,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1325,7 +1325,7 @@
     "score": 0.8293,
     "pct_from_high": 0.0,
     "isin": "US24703L2025",
-    "price": 451.1797,
+    "price": 451.1292,
     "pct": 0.295,
     "currency": "USD",
     "live": true,
@@ -1544,8 +1544,8 @@
     "score": 0.5414,
     "pct_from_high": 0.0,
     "isin": "MHY2065G1219",
-    "price": 18.51,
-    "pct": 1.48,
+    "price": 18.49,
+    "pct": 1.371,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2274,8 +2274,8 @@
     "score": 0.4938,
     "pct_from_high": -0.9,
     "isin": "US86562M2098",
-    "price": 23.4,
-    "pct": 0.0,
+    "price": 23.2,
+    "pct": -0.855,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2290,5 +2290,5 @@
   "sector_5": "#5 Biotechnology",
   "sector_6": "#6 Banking"
  },
- "prices_updated_at": 1788861161
+ "prices_updated_at": 1788861520
 }
