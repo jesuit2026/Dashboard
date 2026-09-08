@@ -25,8 +25,8 @@
     "score": 0.868,
     "pct_from_high": -16.5,
     "isin": "US5951121038",
-    "price": 885.1,
-    "pct": -0.951,
+    "price": 887.4,
+    "pct": -0.694,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -217,8 +217,8 @@
     "score": 0.5582,
     "pct_from_high": -0.4,
     "isin": "US7185461040",
-    "price": 222.4,
-    "pct": 0.633,
+    "price": 222.0,
+    "pct": 0.452,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -699,8 +699,8 @@
     "score": 0.4852,
     "pct_from_high": -3.5,
     "isin": "CA8787422044",
-    "price": 60.04,
-    "pct": 1.214,
+    "price": 60.0,
+    "pct": 1.146,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1131,8 +1131,8 @@
     "score": 0.4819,
     "pct_from_high": -7.9,
     "isin": "US0404132054",
-    "price": 168.34,
-    "pct": -2.048,
+    "price": 167.9,
+    "pct": -2.304,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1400,8 +1400,8 @@
     "score": 0.5995,
     "pct_from_high": -0.7,
     "isin": "US4039491000",
-    "price": 91.09,
-    "pct": 1.166,
+    "price": 90.16,
+    "pct": 0.133,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1520,8 +1520,8 @@
     "score": 0.5582,
     "pct_from_high": -0.4,
     "isin": "US7185461040",
-    "price": 222.4,
-    "pct": 0.633,
+    "price": 222.0,
+    "pct": 0.452,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1858,8 +1858,8 @@
     "score": 0.4852,
     "pct_from_high": -3.5,
     "isin": "CA8787422044",
-    "price": 60.04,
-    "pct": 1.214,
+    "price": 60.0,
+    "pct": 1.146,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2290,5 +2290,5 @@
   "sector_5": "#5 Biotechnology",
   "sector_6": "#6 Banking"
  },
- "prices_updated_at": 1788859723
+ "prices_updated_at": 1788859961
 }
