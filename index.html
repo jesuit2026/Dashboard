@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-09-08.2';
+const APP_BUILD = '2026-09-08.3';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1585,11 +1585,18 @@ async function fetchFinnhubCandles(ticker, yInterval, period1, period2){
 async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
   // query1 UND query2 probieren — Yahoo betreibt beide Hostnamen parallel,
   // oft ist nur einer davon mal überlastet/blockiert, nicht beide gleichzeitig.
+  // Schlägt der KOMPLETTE Durchlauf (beide Server × alle Proxies) fehl,
+  // wird nach kurzer Pause einmal ganz von vorne wiederholt — deckt
+  // kurze, vorübergehende Aussetzer ab (Proxy kurz überlastet, erholt
+  // sich oft innerhalb weniger Sekunden von selbst).
   let j = null;
-  for(const host of ['query1.finance.yahoo.com', 'query2.finance.yahoo.com']){
-    const yurl=`https://${host}/v8/finance/chart/${ticker}?interval=${yInterval}&period1=${period1}&period2=${period2}&events=div,splits,earn`;
-    j = await fetchJsonViaProxy(yurl);
-    if(j?.chart?.result?.[0]) break;
+  for(let attempt=0; attempt<2 && !j; attempt++){
+    if(attempt>0) await sleep(2500);
+    for(const host of ['query1.finance.yahoo.com', 'query2.finance.yahoo.com']){
+      const yurl=`https://${host}/v8/finance/chart/${ticker}?interval=${yInterval}&period1=${period1}&period2=${period2}&events=div,splits,earn`;
+      j = await fetchJsonViaProxy(yurl);
+      if(j?.chart?.result?.[0]) break;
+    }
   }
   const r=j?.chart?.result?.[0];
   if(!r) throw new Error('Yahoo lieferte keine Daten');
