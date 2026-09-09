@@ -1,3 +1,10 @@
 {
- "requests": []
+ "requests": [
+  {
+   "type": "add_watch",
+   "ticker": "PAA",
+   "id": "r1788946065824wf011",
+   "ts": "2026-09-09T09:27:45.824Z"
+  }
+ ]
 }
