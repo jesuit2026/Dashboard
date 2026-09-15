@@ -25,11 +25,11 @@
     "score": 0.9062,
     "pct_from_high": -5.8,
     "isin": "US24703L2025",
-    "price": 470.8446,
-    "pct": 1.154,
-    "currency": "USD",
+    "price": 470.85,
+    "pct": 1.783,
+    "currency": "EUR",
     "live": true,
-    "price_source": "DE_CONV"
+    "price_source": "TG"
    },
    {
     "t": "DINO",
@@ -651,11 +651,11 @@
     "score": 0.6064,
     "pct_from_high": -1.5,
     "isin": "US34959E1091",
-    "price": 149.3247,
-    "pct": 1.4,
-    "currency": "USD",
+    "price": 149.82,
+    "pct": 1.683,
+    "currency": "EUR",
     "live": true,
-    "price_source": "DE_CONV"
+    "price_source": "TG"
    },
    {
     "t": "KNTK",
@@ -1059,11 +1059,11 @@
     "score": 0.6856,
     "pct_from_high": -11.1,
     "isin": "US0079031078",
-    "price": 436.7902,
-    "pct": 2.11,
-    "currency": "USD",
+    "price": 436.65,
+    "pct": 2.224,
+    "currency": "EUR",
     "live": true,
-    "price_source": "DE_CONV"
+    "price_source": "TG"
    },
    {
     "t": "ZBRA",
@@ -1323,11 +1323,11 @@
     "score": 0.4225,
     "pct_from_high": -10.4,
     "isin": "US0090661010",
-    "price": 145.8162,
-    "pct": 0.036,
-    "currency": "USD",
+    "price": 145.56,
+    "pct": -1.529,
+    "currency": "EUR",
     "live": true,
-    "price_source": "DE_CONV"
+    "price_source": "TG"
    },
    {
     "t": "WT",
@@ -2098,11 +2098,11 @@
     "score": 0.6856,
     "pct_from_high": -11.1,
     "isin": "US0079031078",
-    "price": 436.7902,
-    "pct": 2.11,
-    "currency": "USD",
+    "price": 436.65,
+    "pct": 2.224,
+    "currency": "EUR",
     "live": true,
-    "price_source": "DE_CONV"
+    "price_source": "TG"
    },
    {
     "t": "UMC",
@@ -2557,5 +2557,5 @@
   "sector_6": "#6 Biotechnology",
   "sector_7": "#7 Banking"
  },
- "prices_updated_at": 1789505006
+ "prices_updated_at": 1789505367
 }
