@@ -170,8 +170,8 @@
     "score": 0.603,
     "pct_from_high": -2.6,
     "isin": "US40637H1095",
-    "price": 91.72,
-    "pct": -0.413,
+    "price": 92.54,
+    "pct": 0.478,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -434,8 +434,8 @@
     "score": 0.5063,
     "pct_from_high": -5.0,
     "isin": "US2372661015",
-    "price": 57.23,
-    "pct": -0.746,
+    "price": 57.22,
+    "pct": -0.763,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -578,8 +578,8 @@
     "score": 0.4439,
     "pct_from_high": -14.6,
     "isin": "US67059N1081",
-    "price": 59.015,
-    "pct": 0.178,
+    "price": 59.0,
+    "pct": 0.153,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -698,8 +698,8 @@
     "score": 0.6391,
     "pct_from_high": -13.1,
     "isin": "US0079031078",
-    "price": 442.5,
-    "pct": 1.282,
+    "price": 441.75,
+    "pct": 1.11,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -722,8 +722,8 @@
     "score": 0.4895,
     "pct_from_high": -8.4,
     "isin": "US0404132054",
-    "price": 169.36,
-    "pct": 1.365,
+    "price": 169.42,
+    "pct": 1.401,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1039,8 +1039,8 @@
     "score": 0.6368,
     "pct_from_high": 0.0,
     "isin": "CY0200352116",
-    "price": 45.43,
-    "pct": 1.542,
+    "price": 45.41,
+    "pct": 1.498,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1327,8 +1327,8 @@
     "score": 0.5319,
     "pct_from_high": 0.0,
     "isin": "CA8672241079",
-    "price": 62.5,
-    "pct": 0.353,
+    "price": 61.8,
+    "pct": -0.771,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1815,8 +1815,8 @@
     "score": 0.603,
     "pct_from_high": -2.6,
     "isin": "US40637H1095",
-    "price": 91.72,
-    "pct": -0.413,
+    "price": 92.54,
+    "pct": 0.478,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1929,5 +1929,5 @@
   "sector_5": "#5 Biotechnology",
   "sector_6": "#6 Banking"
  },
- "prices_updated_at": 1789544355
+ "prices_updated_at": 1789544714
 }
