@@ -97,8 +97,8 @@
     "score": 0.6582,
     "pct_from_high": -0.8,
     "isin": "US56585A1025",
-    "price": 357.3,
-    "pct": 0.365,
+    "price": 357.4,
+    "pct": 0.393,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -241,8 +241,8 @@
     "score": 0.5756,
     "pct_from_high": -0.5,
     "isin": "CA15135U1093",
-    "price": 29.2175,
-    "pct": -0.604,
+    "price": 29.2225,
+    "pct": -0.587,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -313,8 +313,8 @@
     "score": 0.5536,
     "pct_from_high": -0.5,
     "isin": "US20825C1045",
-    "price": 121.54,
-    "pct": -0.686,
+    "price": 121.56,
+    "pct": -0.67,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -409,8 +409,8 @@
     "score": 0.5227,
     "pct_from_high": -1.5,
     "isin": "US77543R1023",
-    "price": 135.92,
-    "pct": 0.133,
+    "price": 135.89,
+    "pct": 0.111,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -553,8 +553,8 @@
     "score": 0.5092,
     "pct_from_high": 0.0,
     "isin": "US3021301094",
-    "price": 168.375,
-    "pct": 0.223,
+    "price": 168.325,
+    "pct": 0.193,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -771,8 +771,8 @@
     "score": 0.4946,
     "pct_from_high": -5.0,
     "isin": "US33829M1018",
-    "price": 204.9,
-    "pct": 0.147,
+    "price": 204.85,
+    "pct": 0.122,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -819,8 +819,8 @@
     "score": 0.5117,
     "pct_from_high": -4.9,
     "isin": "MHY8162K2046",
-    "price": 27.085,
-    "pct": 0.203,
+    "price": 27.08,
+    "pct": 0.185,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1035,8 +1035,8 @@
     "score": 0.4478,
     "pct_from_high": -14.6,
     "isin": "US67059N1081",
-    "price": 59.185,
-    "pct": 0.467,
+    "price": 59.14,
+    "pct": 0.39,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1496,8 +1496,8 @@
     "score": 0.6582,
     "pct_from_high": -0.8,
     "isin": "US56585A1025",
-    "price": 357.3,
-    "pct": 0.365,
+    "price": 357.4,
+    "pct": 0.393,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1664,8 +1664,8 @@
     "score": 0.5756,
     "pct_from_high": -0.5,
     "isin": "CA15135U1093",
-    "price": 29.2175,
-    "pct": -0.604,
+    "price": 29.2225,
+    "pct": -0.587,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1976,8 +1976,8 @@
     "score": 0.5536,
     "pct_from_high": -0.5,
     "isin": "US20825C1045",
-    "price": 121.54,
-    "pct": -0.686,
+    "price": 121.56,
+    "pct": -0.67,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2410,5 +2410,5 @@
   "sector_5": "#5 Biotechnology",
   "sector_6": "#6 Banking"
  },
- "prices_updated_at": 1789539194
+ "prices_updated_at": 1789539435
 }
