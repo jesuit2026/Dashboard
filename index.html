@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-09-11.1';
+const APP_BUILD = '2026-09-11.2';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1688,6 +1688,15 @@ async function fetchLiveChartData(ticker, interval){
     period1 = now - (interval==='week' ? 5*365*86400 : 366*86400);
   }
   const fresh = await fetchYahooChartRaw(ticker, yInterval, period1, now);
+  // WICHTIG: Bei einem ERSTEN Laden (kein Cache) ist eine leere Antwort
+  // ein echter Fehler — jede Aktie mit normalem Handel hat über ein Jahr
+  // Kursdaten. Ohne diese Prüfung kam bei manchen dünn gehandelten Titeln
+  // (z.B. MLPs wie PAA) am Ende ein "erfolgreiches" Ergebnis mit null
+  // Kerzen raus, und die App blieb bei leerem Chart + "lädt…" hängen,
+  // statt die normale Fehlermeldung zu zeigen. Bei einem DELTA-Nachladen
+  // (Cache existiert schon) ist eine leere Antwort dagegen völlig normal
+  // (einfach noch keine neue Kerze seit dem letzten Öffnen) — kein Fehler.
+  if(!cache && fresh.closes.length===0) throw new Error('keine echten Kursdaten erhalten');
   const result = cache ? mergeChartData(cache, fresh) : fresh;
   saveChartCache(ticker, interval, result);
   return result;
