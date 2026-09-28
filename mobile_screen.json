@@ -507,8 +507,8 @@
     "score": 0.5468,
     "pct_from_high": -17.9,
     "isin": "US82706C1080",
-    "price": 236.0,
-    "pct": -3.279,
+    "price": 234.0,
+    "pct": -4.098,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1568,8 +1568,8 @@
     "score": 0.5468,
     "pct_from_high": -17.9,
     "isin": "US82706C1080",
-    "price": 236.0,
-    "pct": -3.279,
+    "price": 234.0,
+    "pct": -4.098,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2602,5 +2602,5 @@
   "sector_5": "#5 Technology",
   "sector_6": "#6 Financial Services"
  },
- "prices_updated_at": 1790589446
+ "prices_updated_at": 1790589626
 }
