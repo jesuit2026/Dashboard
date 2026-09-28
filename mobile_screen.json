@@ -507,8 +507,8 @@
     "score": 0.5468,
     "pct_from_high": -17.9,
     "isin": "US82706C1080",
-    "price": 238.0,
-    "pct": -2.459,
+    "price": 236.0,
+    "pct": -3.279,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -531,8 +531,8 @@
     "score": 0.5233,
     "pct_from_high": -2.9,
     "isin": "US4448591028",
-    "price": 349.0,
-    "pct": -0.286,
+    "price": 354.0,
+    "pct": 1.143,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -603,8 +603,8 @@
     "score": 0.5,
     "pct_from_high": -4.7,
     "isin": "US36162J1060",
-    "price": 27.505,
-    "pct": 0.347,
+    "price": 27.515,
+    "pct": 0.383,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1323,8 +1323,8 @@
     "score": 0.4021,
     "pct_from_high": -21.9,
     "isin": "VGG069731120",
-    "price": 72.6,
-    "pct": -0.955,
+    "price": 68.6,
+    "pct": -6.412,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1371,8 +1371,8 @@
     "score": 0.4765,
     "pct_from_high": -10.0,
     "isin": "US92645B1035",
-    "price": 95.25,
-    "pct": -0.262,
+    "price": 95.5,
+    "pct": 0.0,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -1568,8 +1568,8 @@
     "score": 0.5468,
     "pct_from_high": -17.9,
     "isin": "US82706C1080",
-    "price": 238.0,
-    "pct": -2.459,
+    "price": 236.0,
+    "pct": -3.279,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2342,8 +2342,8 @@
     "score": 0.4021,
     "pct_from_high": -21.9,
     "isin": "VGG069731120",
-    "price": 72.6,
-    "pct": -0.955,
+    "price": 68.6,
+    "pct": -6.412,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2586,8 +2586,8 @@
     "score": 0.4765,
     "pct_from_high": -10.0,
     "isin": "US92645B1035",
-    "price": 95.25,
-    "pct": -0.262,
+    "price": 95.5,
+    "pct": 0.0,
     "currency": "EUR",
     "live": true,
     "price_source": "TG"
@@ -2602,5 +2602,5 @@
   "sector_5": "#5 Technology",
   "sector_6": "#6 Financial Services"
  },
- "prices_updated_at": 1790588787
+ "prices_updated_at": 1790589026
 }
