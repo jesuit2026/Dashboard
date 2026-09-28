@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1790568776,
- "updated_iso": "2026-09-28T06:12:56",
+ "updated_at": 1790582958,
+ "updated_iso": "2026-09-28T10:09:18",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1790568690,
+   "price_ts": 1790582951,
    "insider": [
     {
      "date": "2026-09-21",
@@ -5520,13 +5520,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 310.38,
-   "price_prev": 310.38,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1790568690,
+   "price": 262.5,
+   "price_prev": 272.0,
+   "pct": -3.493,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1790582952,
    "insider": [
     {
      "date": "2026-09-23",
@@ -10171,13 +10171,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 364.48,
-   "price_prev": 364.48,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1790568691,
+   "price": 309.0,
+   "price_prev": 320.0,
+   "pct": -3.438,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1790582952,
    "insider": [
     {
      "date": "2026-09-03",
@@ -14592,13 +14592,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 43.255,
-   "price_prev": 43.255,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1790568692,
+   "price": 37.36,
+   "price_prev": 37.96,
+   "pct": -1.581,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1790582952,
    "insider": [
     {
      "date": "2026-09-08",
@@ -20143,13 +20143,13 @@
    "dt": "2026-06-10 12:40",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 206.49,
-   "price_prev": 206.49,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1790568693,
+   "price": 177.72,
+   "price_prev": 181.26,
+   "pct": -1.953,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1790582953,
    "insider": [
     {
      "date": "2026-09-23",
@@ -25694,13 +25694,13 @@
    "dt": "2026-06-16 16:07",
    "isin": "NL0010273215",
    "name": "Asml Holding Nv",
-   "price": 1743.61,
-   "price_prev": 1743.61,
-   "pct": 0.0,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1790568694,
+   "price": 1510.0,
+   "price_prev": 1526.6,
+   "pct": -1.087,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1790582953,
    "insider": [],
    "earnings_history": [
     {
@@ -31202,7 +31202,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1790568694,
+   "price_ts": 1790582954,
    "insider": [
     {
      "date": "2026-09-23",
@@ -36753,7 +36753,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1790568695,
+   "price_ts": 1790582955,
    "insider": [
     {
      "date": "2026-09-17",
