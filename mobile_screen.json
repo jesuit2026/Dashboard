@@ -217,11 +217,11 @@
     "score": 0.4138,
     "pct_from_high": -24.4,
     "isin": "US04626A1034",
-    "price": 308.0,
-    "pct": -3.75,
-    "currency": "EUR",
+    "price": 351.47,
+    "pct": -3.569,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG"
+    "price_source": "US"
    },
    {
     "t": "SANM",
@@ -387,11 +387,11 @@
     "score": 0.5162,
     "pct_from_high": -1.9,
     "isin": "US0404132054",
-    "price": 180.0,
-    "pct": -0.695,
-    "currency": "EUR",
+    "price": 204.82,
+    "pct": -0.809,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG"
+    "price_source": "US"
    },
    {
     "t": "TXN",
@@ -1592,11 +1592,11 @@
     "score": 0.4138,
     "pct_from_high": -24.4,
     "isin": "US04626A1034",
-    "price": 308.0,
-    "pct": -3.75,
-    "currency": "EUR",
+    "price": 351.47,
+    "pct": -3.569,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG"
+    "price_source": "US"
    },
    {
     "t": "TER",
@@ -2602,5 +2602,5 @@
   "sector_5": "#5 Technology",
   "sector_6": "#6 Financial Services"
  },
- "prices_updated_at": 1790652942
+ "prices_updated_at": 1790652968
 }
