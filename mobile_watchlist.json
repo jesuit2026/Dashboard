@@ -108,7 +108,7 @@
      "ts": 1698868800,
      "date": "2023-11-01",
      "eps_estimate": -0.11,
-     "eps_actual": NaN,
+     "eps_actual": null,
      "beat": false
     },
     {
