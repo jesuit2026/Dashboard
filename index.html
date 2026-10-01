@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-09-11.2';
+const APP_BUILD = '2026-09-29.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -891,6 +891,26 @@ function ensurePriceAtAdd(ticker, dt, pcValue, pcCurrency){
   })();
 }
 
+// Anstehende Termine (Quartalszahlen/Dividende) — nur zeigen, wenn
+// innerhalb der nächsten 14 Tage (1-2 Wochen vorher), sonst überladen die
+// Karten unnötig mit Terminen, die noch Monate hin sind. Gemeinsam für
+// Watch- UND Top-50-Karten genutzt. Konferenztermine gibt's hier nicht
+// (siehe mobile_sync.py-Hinweis: über yfinance nicht verlässlich abrufbar).
+function eventHtmlFor(row){
+  const items = [];
+  const now = Date.now();
+  const fmtDate = iso=>{ const d=new Date(iso);
+    return `${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`; };
+  [['next_earnings_date','📊 Quartalszahlen'], ['next_dividend_date','💰 Dividende']].forEach(([field,label])=>{
+    if(!row[field]) return;
+    const days = Math.ceil((new Date(row[field]) - now)/86400000);
+    if(days>=0 && days<=14){
+      items.push(`${label} ${fmtDate(row[field])}${days<=7?` <b>(in ${days} Tg)</b>`:''}`);
+    }
+  });
+  return items.length ? `<div class="event-row">${items.join(' &nbsp;·&nbsp; ')}</div>` : '';
+}
+
 function wcardHtml(w, allAlerts, pending){
   const t = w.t;
   // Live-Abfrage (Finnhub/Tradegate/Yahoo direkt vom Handy) hat Vorrang,
@@ -969,22 +989,7 @@ function wcardHtml(w, allAlerts, pending){
   const noteHtml = w.note
     ? `<div class="note-row" data-add-note="${t}">📝 ${w.note.replace(/</g,'&lt;')}</div>` : '';
 
-  // Anstehende Termine (Quartalszahlen/Dividende) — nur zeigen, wenn
-  // innerhalb der nächsten 30 Tage, sonst überladen die Karten unnötig.
-  // Konferenztermine gibt's hier nicht (siehe mobile_sync.py-Hinweis:
-  // über yfinance nicht verlässlich abrufbar).
-  const eventItems = [];
-  const _now = Date.now();
-  const _fmtEventDate = iso=>{ const d=new Date(iso);
-    return `${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`; };
-  [['next_earnings_date','📊 Quartalszahlen'], ['next_dividend_date','💰 Dividende']].forEach(([field,label])=>{
-    if(!w[field]) return;
-    const days = Math.ceil((new Date(w[field]) - _now)/86400000);
-    if(days>=0 && days<=30){
-      eventItems.push(`${label} ${_fmtEventDate(w[field])}${days<=7?` <b>(in ${days} Tg)</b>`:''}`);
-    }
-  });
-  const eventHtml = eventItems.length ? `<div class="event-row">${eventItems.join(' &nbsp;·&nbsp; ')}</div>` : '';
+  const eventHtml = eventHtmlFor(w);
 
   return `
   <div class="wcard${watchRemovePending?' pending':''}">
@@ -1064,6 +1069,7 @@ function cardHtml(r){
       ${badgeHtml}
     </div>
     ${ageHtml ? `<div class="age-row">${ageHtml}</div>` : ''}
+    ${eventHtmlFor(r)}
     <div class="metrics">
       ${setup}
       <span class="metric"><b>Pivot</b> <span class="v ${pdClass}">${pd==null?'—':(pd>0?'+':'')+pd+'%'}</span></span>
