@@ -3,7 +3,7 @@
  "computed_at": 1791173629,
  "computed_iso": "2026-10-05T06:13:49",
  "universe_size": 103,
- "fx": 1.11682,
+ "fx": 1.11719,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -4339,5 +4339,5 @@
   "sector_8": "#8 Chemicals",
   "sector_9": "#9 Banking"
  },
- "prices_updated_at": 1791174489
+ "prices_updated_at": 1791174729
 }
