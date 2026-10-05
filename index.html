@@ -458,7 +458,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-09-29.1';
+const APP_BUILD = '2026-10-05.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1367,24 +1367,32 @@ async function fetchTradegateQuote(isin){
   // fusioniert und läuft jetzt primär unter tradegatebsx.com — die alte
   // Domain (tradegate.de) bleibt als Rückfalloption, falls sie noch
   // funktioniert oder umleitet.
-  // Cache-Buster direkt in der URL (nicht nur im Proxy-Wrapper) — schützt
-  // auch den DIREKT-Versuch (fetchDirectJson hat von sich aus keinen)
-  // vor einer möglichen Zwischenspeicherung, egal auf welchem Weg.
-  const cb = Date.now();
-  const urls = [
-    `https://www.tradegatebsx.com/refresh.php?isin=${isin}&_cb=${cb}`,
-    `https://www.tradegate.de/refresh.php?isin=${isin}&_cb=${cb}`,
-  ];
-  for(const tgUrl of urls){
-    let d = await fetchDirectJson(tgUrl, 5000);
-    if(!d) d = await fetchJsonViaProxy(tgUrl, 6000);
-    if(!d) continue;
-    const last = parseDeNum(d.last), close = parseDeNum(d.close);
-    const bid = parseDeNum(d.bid), ask = parseDeNum(d.ask);
-    const price = last>0 ? last : (bid>0 && ask>0 ? (bid+ask)/2 : 0);
-    if(price<=0) continue;
-    const prev = close>0 ? close : price;
-    return {price, prev, currency:'EUR'};
+  // Schlägt der KOMPLETTE Durchlauf (beide Domains × Direkt+3 Proxies)
+  // fehl, wird nach kurzer Pause einmal ganz von vorne wiederholt —
+  // dasselbe Muster wie beim Chart-Abruf (deckt kurze, vorübergehende
+  // Aussetzer ab, z.B. live beobachtet bei ARM: OnVista hatte einen
+  // Live-Kurs, unsere App fiel aber auf den alten US-Schlusskurs zurück).
+  for(let attempt=0; attempt<2; attempt++){
+    if(attempt>0) await sleep(2000);
+    // Cache-Buster direkt in der URL (nicht nur im Proxy-Wrapper) —
+    // schützt auch den DIREKT-Versuch (fetchDirectJson hat von sich aus
+    // keinen) vor einer möglichen Zwischenspeicherung, egal auf welchem Weg.
+    const cb = Date.now();
+    const urls = [
+      `https://www.tradegatebsx.com/refresh.php?isin=${isin}&_cb=${cb}`,
+      `https://www.tradegate.de/refresh.php?isin=${isin}&_cb=${cb}`,
+    ];
+    for(const tgUrl of urls){
+      let d = await fetchDirectJson(tgUrl, 5000);
+      if(!d) d = await fetchJsonViaProxy(tgUrl, 6000);
+      if(!d) continue;
+      const last = parseDeNum(d.last), close = parseDeNum(d.close);
+      const bid = parseDeNum(d.bid), ask = parseDeNum(d.ask);
+      const price = last>0 ? last : (bid>0 && ask>0 ? (bid+ask)/2 : 0);
+      if(price<=0) continue;
+      const prev = close>0 ? close : price;
+      return {price, prev, currency:'EUR'};
+    }
   }
   return null;
 }
