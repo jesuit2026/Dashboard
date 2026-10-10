@@ -80392,7 +80392,7 @@
     "pct_from_high": -21.1,
     "isin": "US7069151055",
     "price": 76.27,
-    "pct": 6.597,
+    "pct": 6.567,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -243756,7 +243756,7 @@
     "pct_from_high": -5.9,
     "isin": "US0427351004",
     "price": 227.87,
-    "pct": 0.401,
+    "pct": 0.494,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -350287,7 +350287,7 @@
     "pct_from_high": -21.1,
     "isin": "US7069151055",
     "price": 76.27,
-    "pct": 6.597,
+    "pct": 6.567,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -511691,7 +511691,7 @@
     "pct_from_high": -5.9,
     "isin": "US0427351004",
     "price": 227.87,
-    "pct": 0.401,
+    "pct": 0.494,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -598147,5 +598147,5 @@
   "sector_8": "#8 Financial Services",
   "sector_9": "#9 Health Care"
  },
- "prices_updated_at": 1791639773
+ "prices_updated_at": 1791640336
 }
