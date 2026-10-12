@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1791640717,
- "updated_iso": "2026-10-10T15:58:37",
+ "updated_at": 1791776480,
+ "updated_iso": "2026-10-12T05:41:20",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1791640713,
+   "price_ts": 1791776470,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5487,7 +5487,7 @@
      "h": 32.1,
      "l": 29.24,
      "c": 30.52,
-     "v": 5254420
+     "v": 5256732
     }
    ],
    "fundamentals": {
@@ -5526,7 +5526,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1791640714,
+   "price_ts": 1791776471,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10154,7 +10154,7 @@
      "h": 311.0,
      "l": 265.6,
      "c": 266.28,
-     "v": 24419939
+     "v": 24443876
     }
    ],
    "fundamentals": {
@@ -10188,12 +10188,12 @@
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
    "price": 41.86,
-   "price_prev": 42.775,
-   "pct": -2.139,
+   "price_prev": 42.77,
+   "pct": -2.128,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1791640715,
+   "price_ts": 1791776472,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15705,7 +15705,7 @@
      "h": 45.77,
      "l": 40.63,
      "c": 41.855,
-     "v": 183799788
+     "v": 183903612
     }
    ],
    "fundamentals": {
@@ -15739,12 +15739,12 @@
    "isin": "",
    "name": "Palantir Technologies Inc.",
    "price": 209.03,
-   "price_prev": 198.77,
-   "pct": 5.162,
+   "price_prev": 198.78,
+   "pct": 5.156,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1791640716,
+   "price_ts": 1791776473,
    "insider": [
     {
      "date": "2026-10-01",
@@ -21256,7 +21256,7 @@
      "h": 209.58,
      "l": 187.63,
      "c": 209.05,
-     "v": 167825259
+     "v": 168057937
     }
    ],
    "fundamentals": {
@@ -21295,7 +21295,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1791640717,
+   "price_ts": 1791776474,
    "insider": [
     {
      "date": "2026-08-06",
@@ -26807,7 +26807,7 @@
      "h": 41.12,
      "l": 38.908,
      "c": 39.73,
-     "v": 2458024
+     "v": 2485326
     }
    ],
    "fundamentals": {
