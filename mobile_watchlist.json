@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1791909638,
- "updated_iso": "2026-10-13T18:40:38",
+ "updated_at": 1791910940,
+ "updated_iso": "2026-10-13T19:02:20",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 28.73,
+   "price": 28.62,
    "price_prev": 30.105,
-   "pct": -4.567,
+   "pct": -4.933,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909627,
+   "price_ts": 1791910921,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 259.455,
+   "price": 257.47,
    "price_prev": 255.24,
-   "pct": 1.651,
+   "pct": 0.874,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909628,
+   "price_ts": 1791910924,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10203,13 +10203,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 39.33,
+   "price": 39.27,
    "price_prev": 39.98,
-   "pct": -1.626,
+   "pct": -1.776,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909629,
+   "price_ts": 1791910927,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15762,13 +15762,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 207.11,
+   "price": 206.77,
    "price_prev": 209.01,
-   "pct": -0.909,
+   "pct": -1.072,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909630,
+   "price_ts": 1791910930,
    "insider": [
     {
      "date": "2026-10-01",
@@ -21327,7 +21327,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909632,
+   "price_ts": 1791910935,
    "insider": [
     {
      "date": "2026-08-06",
@@ -26886,7 +26886,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909634,
+   "price_ts": 1791910937,
    "insider": [],
    "earnings_history": [
     {
@@ -31197,13 +31197,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 75.115,
+   "price": 75.35,
    "price_prev": 73.51,
-   "pct": 2.183,
+   "pct": 2.503,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791909635,
+   "price_ts": 1791910939,
    "insider": [
     {
      "date": "2026-10-05",
