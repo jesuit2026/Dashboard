@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1791908843,
- "updated_iso": "2026-10-13T18:27:23",
+ "updated_at": 1791909166,
+ "updated_iso": "2026-10-13T18:32:46",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 28.7,
+   "price": 28.73,
    "price_prev": 30.105,
-   "pct": -4.667,
+   "pct": -4.567,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791908836,
+   "price_ts": 1791909161,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 257.255,
-   "price_prev": 255.575,
-   "pct": 0.657,
+   "price": 259.345,
+   "price_prev": 255.24,
+   "pct": 1.608,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791908837,
+   "price_ts": 1791909162,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10203,13 +10203,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 39.035,
-   "price_prev": 39.785,
-   "pct": -1.885,
+   "price": 39.265,
+   "price_prev": 39.98,
+   "pct": -1.788,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791908838,
+   "price_ts": 1791909163,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15762,13 +15762,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 207.755,
+   "price": 207.48,
    "price_prev": 209.01,
-   "pct": -0.6,
+   "pct": -0.732,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791908839,
+   "price_ts": 1791909164,
    "insider": [
     {
      "date": "2026-10-01",
@@ -21327,7 +21327,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791908840,
+   "price_ts": 1791909165,
    "insider": [
     {
      "date": "2026-08-06",
@@ -26881,12 +26881,12 @@
    "isin": "US10240L1026",
    "name": "Bowhead Specialty Holdings Inc.",
    "price": 34.07,
-   "price_prev": 34.025,
-   "pct": 0.132,
+   "price_prev": 34.02,
+   "pct": 0.147,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1791908841,
+   "price_ts": 1791909166,
    "insider": [],
    "earnings_history": [
     {
