@@ -3,7 +3,7 @@
  "computed_at": 1792037755,
  "computed_iso": "2026-10-15T06:15:55",
  "universe_size": 130,
- "fx": 1.12171,
+ "fx": 1.12158,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -739697,5 +739697,5 @@
   "sector_10": "#10 Biotechnology",
   "sector_11": "#11 Media"
  },
- "prices_updated_at": 1792106659
+ "prices_updated_at": 1792107017
 }
