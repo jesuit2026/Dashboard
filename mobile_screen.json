@@ -70338,7 +70338,7 @@
     "pct_from_high": -2.4,
     "isin": "US0404132054",
     "price": 195.435,
-    "pct": -4.433,
+    "pct": -4.442,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -173636,7 +173636,7 @@
     "pct_from_high": -8.6,
     "isin": "US0326541051",
     "price": 403.56,
-    "pct": -2.682,
+    "pct": -2.686,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -221520,7 +221520,7 @@
     "pct_from_high": -4.3,
     "isin": "",
     "price": 91.035,
-    "pct": -0.497,
+    "pct": -0.595,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -598893,7 +598893,7 @@
     "pct_from_high": -8.6,
     "isin": "US0326541051",
     "price": 403.56,
-    "pct": -2.682,
+    "pct": -2.686,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -700959,7 +700959,7 @@
     "pct_from_high": -4.3,
     "isin": "",
     "price": 91.035,
-    "pct": -0.497,
+    "pct": -0.595,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -739697,5 +739697,5 @@
   "sector_10": "#10 Biotechnology",
   "sector_11": "#11 Media"
  },
- "prices_updated_at": 1792038068
+ "prices_updated_at": 1792038309
 }
