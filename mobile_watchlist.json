@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792077845,
- "updated_iso": "2026-10-15T17:24:05",
+ "updated_at": 1792077859,
+ "updated_iso": "2026-10-15T17:24:19",
  "fx": 1.14,
  "watchlist": [
   {
@@ -126,37 +126,6 @@
     "dividendYield": null
    },
    "price_at_add": 172.73,
-   "price_at_add_currency": "USD"
-  },
-  {
-   "t": "PNTG",
-   "dt": "2026-09-16 18:13",
-   "isin": "",
-   "name": "Pennant Group, Inc.",
-   "insider": [],
-   "fundamentals": {
-    "sector": "Healthcare",
-    "industry": "Medical Care Facilities",
-    "marketCap": 1385636224,
-    "trailingPE": 43.593403,
-    "forwardPE": 24.994644,
-    "pegRatio": 1.95,
-    "trailingEps": 0.92,
-    "forwardEps": 1.58714,
-    "revenueGrowth": 0.358,
-    "earningsGrowth": 0.25,
-    "profitMargins": 0.02934,
-    "grossMargins": 0.19590001,
-    "returnOnEquity": 0.1042,
-    "fiftyTwoWeekHigh": null,
-    "fiftyTwoWeekLow": null,
-    "targetMeanPrice": null,
-    "heldPercentInstitutions": null,
-    "shortPercentOfFloat": null,
-    "beta": null,
-    "dividendYield": null
-   },
-   "price_at_add": 40.11,
    "price_at_add_currency": "USD"
   },
   {
