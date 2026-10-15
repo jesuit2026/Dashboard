@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792082629,
- "updated_iso": "2026-10-15T18:43:49",
+ "updated_at": 1792082701,
+ "updated_iso": "2026-10-15T18:45:01",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082620,
+   "price_ts": 1792082691,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 237.43,
+   "price": 237.12,
    "price_prev": 238.01,
-   "pct": -0.244,
+   "pct": -0.374,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082621,
+   "price_ts": 1792082692,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10203,13 +10203,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 33.93,
+   "price": 33.98,
    "price_prev": 35.8,
-   "pct": -5.223,
+   "pct": -5.084,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082623,
+   "price_ts": 1792082694,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15762,13 +15762,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 198.97,
+   "price": 199.215,
    "price_prev": 200.975,
-   "pct": -0.998,
+   "pct": -0.876,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082624,
+   "price_ts": 1792082695,
    "insider": [
     {
      "date": "2026-10-09",
@@ -21327,7 +21327,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082625,
+   "price_ts": 1792082697,
    "insider": [],
    "earnings_history": [
     {
@@ -25638,13 +25638,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 76.54,
+   "price": 76.5,
    "price_prev": 75.89,
-   "pct": 0.857,
+   "pct": 0.804,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082627,
+   "price_ts": 1792082698,
    "insider": [],
    "earnings_history": [
     {
@@ -31154,7 +31154,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792082628,
+   "price_ts": 1792082699,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36691,6 +36691,225 @@
     "profitMargins": 0.24858999,
     "grossMargins": 0.76271003,
     "returnOnEquity": 1.73674,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   }
+  },
+  {
+   "t": "CCNE",
+   "dt": "2026-10-15 18:44",
+   "isin": "",
+   "name": "Cnb Financial Corp/Pa",
+   "price": 33.52,
+   "price_prev": 33.78,
+   "pct": -0.77,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1792082700,
+   "insider": [
+    {
+     "date": "2026-08-05",
+     "name": "Peduzzi Michael D",
+     "type": "BUY",
+     "shares": 1100,
+     "value": 38908.32,
+     "signal_strength": "stark"
+    }
+   ],
+   "earnings_history": [
+    {
+     "ts": 1784836800,
+     "date": "2026-07-23",
+     "eps_estimate": 0.86,
+     "eps_actual": 0.91,
+     "beat": true
+    },
+    {
+     "ts": 1776715200,
+     "date": "2026-04-20",
+     "eps_estimate": 0.8,
+     "eps_actual": 0.88,
+     "beat": true
+    },
+    {
+     "ts": 1769547600,
+     "date": "2026-01-27",
+     "eps_estimate": 0.79,
+     "eps_actual": 0.87,
+     "beat": true
+    },
+    {
+     "ts": 1761854400,
+     "date": "2025-10-30",
+     "eps_estimate": 0.71,
+     "eps_actual": 0.82,
+     "beat": true
+    },
+    {
+     "ts": 1753214400,
+     "date": "2025-07-22",
+     "eps_estimate": 0.59,
+     "eps_actual": 0.63,
+     "beat": true
+    },
+    {
+     "ts": 1744660800,
+     "date": "2025-04-14",
+     "eps_estimate": 0.58,
+     "eps_actual": 0.57,
+     "beat": false
+    },
+    {
+     "ts": 1738098000,
+     "date": "2025-01-28",
+     "eps_estimate": 0.61,
+     "eps_actual": 0.66,
+     "beat": true
+    },
+    {
+     "ts": 1729540800,
+     "date": "2024-10-21",
+     "eps_estimate": 0.56,
+     "eps_actual": 0.61,
+     "beat": true
+    },
+    {
+     "ts": 1721332800,
+     "date": "2024-07-18",
+     "eps_estimate": 0.51,
+     "eps_actual": 0.56,
+     "beat": true
+    },
+    {
+     "ts": 1713211200,
+     "date": "2024-04-15",
+     "eps_estimate": 0.51,
+     "eps_actual": 0.55,
+     "beat": true
+    },
+    {
+     "ts": 1706043600,
+     "date": "2024-01-23",
+     "eps_estimate": 0.54,
+     "eps_actual": 0.62,
+     "beat": true
+    },
+    {
+     "ts": 1698091200,
+     "date": "2023-10-23",
+     "eps_estimate": 0.55,
+     "eps_actual": 0.6,
+     "beat": true
+    },
+    {
+     "ts": 1689883200,
+     "date": "2023-07-20",
+     "eps_estimate": 0.65,
+     "eps_actual": 0.61,
+     "beat": false
+    },
+    {
+     "ts": 1681761600,
+     "date": "2023-04-17",
+     "eps_estimate": 0.75,
+     "eps_actual": 0.73,
+     "beat": false
+    },
+    {
+     "ts": 1674162000,
+     "date": "2023-01-19",
+     "eps_estimate": 0.74,
+     "eps_actual": 0.7,
+     "beat": false
+    },
+    {
+     "ts": 1666123200,
+     "date": "2022-10-18",
+     "eps_estimate": 0.99,
+     "eps_actual": 0.9,
+     "beat": false
+    },
+    {
+     "ts": 1658260800,
+     "date": "2022-07-19",
+     "eps_estimate": 0.83,
+     "eps_actual": 0.85,
+     "beat": true
+    },
+    {
+     "ts": 1650312000,
+     "date": "2022-04-18",
+     "eps_estimate": 0.75,
+     "eps_actual": 0.84,
+     "beat": true
+    },
+    {
+     "ts": 1643058000,
+     "date": "2022-01-24",
+     "eps_estimate": 0.79,
+     "eps_actual": 0.8,
+     "beat": true
+    },
+    {
+     "ts": 1635192000,
+     "date": "2021-10-25",
+     "eps_estimate": 0.77,
+     "eps_actual": 0.82,
+     "beat": true
+    },
+    {
+     "ts": 1626811200,
+     "date": "2021-07-20",
+     "eps_estimate": 0.73,
+     "eps_actual": 0.76,
+     "beat": true
+    },
+    {
+     "ts": 1618862400,
+     "date": "2021-04-19",
+     "eps_estimate": 0.69,
+     "eps_actual": 0.78,
+     "beat": true
+    },
+    {
+     "ts": 1611694800,
+     "date": "2021-01-26",
+     "eps_estimate": 0.58,
+     "eps_actual": 0.75,
+     "beat": true
+    },
+    {
+     "ts": 1603224000,
+     "date": "2020-10-20",
+     "eps_estimate": 0.35,
+     "eps_actual": 0.7,
+     "beat": true
+    }
+   ],
+   "next_earnings_date": "2026-10-29",
+   "next_dividend_date": null,
+   "chart_daily": [],
+   "chart_weekly": [],
+   "fundamentals": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "marketCap": 1000001024,
+    "trailingPE": 10.517134,
+    "forwardPE": 9.034781,
+    "pegRatio": 1.06,
+    "trailingEps": 3.21,
+    "forwardEps": 3.73667,
+    "revenueGrowth": 0.51,
+    "earningsGrowth": 0.492,
+    "profitMargins": 0.29163998,
+    "grossMargins": 0.0,
+    "returnOnEquity": 0.124180004,
     "fiftyTwoWeekHigh": null,
     "fiftyTwoWeekLow": null,
     "targetMeanPrice": null,
