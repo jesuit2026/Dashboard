@@ -3,7 +3,7 @@
  "computed_at": 1792122538,
  "computed_iso": "2026-10-16T05:48:58",
  "universe_size": 602,
- "fx": 1.1241,
+ "fx": 1.12385,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -279742,7 +279742,7 @@
     "pct_from_high": -4.0,
     "isin": "CA92512J1066",
     "price": 22.44,
-    "pct": 2.606,
+    "pct": 2.559,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -286199,5 +286199,5 @@
   "sector_10": "#10 Electrical Equipment",
   "sector_11": "#11 Banking"
  },
- "prices_updated_at": 1792123243
+ "prices_updated_at": 1792123574
 }
