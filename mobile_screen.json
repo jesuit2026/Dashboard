@@ -3,7 +3,7 @@
  "computed_at": 1792122538,
  "computed_iso": "2026-10-16T05:48:58",
  "universe_size": 602,
- "fx": 1.12385,
+ "fx": 1.12296,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -286199,5 +286199,5 @@
   "sector_10": "#10 Electrical Equipment",
   "sector_11": "#11 Banking"
  },
- "prices_updated_at": 1792123574
+ "prices_updated_at": 1792123933
 }
