@@ -97026,8 +97026,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "CA8672241079",
-    "price": 79.01,
-    "pct": 4.455,
+    "price": 78.05,
+    "pct": 3.186,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -286199,5 +286199,5 @@
   "sector_10": "#10 Electrical Equipment",
   "sector_11": "#11 Banking"
  },
- "prices_updated_at": 1792223898
+ "prices_updated_at": 1792224318
 }
