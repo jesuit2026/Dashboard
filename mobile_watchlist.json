@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792640940,
- "updated_iso": "2026-10-22T05:49:00",
+ "updated_at": 1792646955,
+ "updated_iso": "2026-10-22T07:29:15",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640885,
+   "price_ts": 1792646948,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5529,12 +5529,12 @@
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
    "price": 226.62,
-   "price_prev": 220.98,
-   "pct": 2.552,
+   "price_prev": 221.06,
+   "pct": 2.515,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640886,
+   "price_ts": 1792646949,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10209,15 +10209,16 @@
   {
    "t": "SMCI",
    "dt": "2026-05-21 19:10",
+   "note": "Noch unter 50er SMA",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
    "price": 35.55,
-   "price_prev": 32.46,
-   "pct": 9.519,
+   "price_prev": 32.47,
+   "pct": 9.486,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640887,
+   "price_ts": 1792646950,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15771,12 +15772,12 @@
    "isin": "",
    "name": "Palantir Technologies Inc.",
    "price": 201.705,
-   "price_prev": 192.58,
-   "pct": 4.738,
+   "price_prev": 192.6,
+   "pct": 4.727,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640888,
+   "price_ts": 1792646951,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21335,7 +21336,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640889,
+   "price_ts": 1792646952,
    "insider": [],
    "earnings_history": [
     {
@@ -25660,7 +25661,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640890,
+   "price_ts": 1792646953,
    "insider": [
     {
      "date": "2026-10-05",
@@ -31219,7 +31220,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640890,
+   "price_ts": 1792646954,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36778,7 +36779,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792640891,
+   "price_ts": 1792646955,
    "insider": [
     {
      "date": "2026-08-05",
