@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792684374,
- "updated_iso": "2026-10-22T17:52:54",
+ "updated_at": 1792685231,
+ "updated_iso": "2026-10-22T18:07:11",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 25.09,
+   "price": 25.24,
    "price_prev": 26.64,
-   "pct": -5.818,
+   "pct": -5.255,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684366,
+   "price_ts": 1792685218,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 212.42,
+   "price": 212.39,
    "price_prev": 226.59,
-   "pct": -6.254,
+   "pct": -6.267,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684367,
+   "price_ts": 1792685220,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10211,13 +10211,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 33.69,
+   "price": 33.79,
    "price_prev": 35.57,
-   "pct": -5.285,
+   "pct": -5.004,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684368,
+   "price_ts": 1792685221,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15770,13 +15770,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 198.195,
+   "price": 198.265,
    "price_prev": 201.72,
-   "pct": -1.747,
+   "pct": -1.713,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684369,
+   "price_ts": 1792685222,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21329,13 +21329,13 @@
    "dt": "2026-10-13 18:27",
    "isin": "US10240L1026",
    "name": "Bowhead Specialty Holdings Inc.",
-   "price": 34.15,
+   "price": 34.155,
    "price_prev": 34.09,
-   "pct": 0.176,
+   "pct": 0.191,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684370,
+   "price_ts": 1792685223,
    "insider": [],
    "earnings_history": [
     {
@@ -25654,63 +25654,14 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 77.145,
+   "price": 76.94,
    "price_prev": 79.02,
-   "pct": -2.373,
+   "pct": -2.632,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684371,
-   "insider": [
-    {
-     "date": "2026-10-05",
-     "name": "Sangha (Gurkirpal Singh)",
-     "type": "OTHER",
-     "shares": 0,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-09-30",
-     "name": "Gladu (Jean-Paul)",
-     "type": "BUY",
-     "shares": 350,
-     "value": 24041.0,
-     "signal_strength": "stark"
-    },
-    {
-     "date": "2026-09-29",
-     "name": "Suncor Energy, Inc.",
-     "type": "BUY",
-     "shares": 259656,
-     "value": 17576374.0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-09-29",
-     "name": "Suncor Energy, Inc.",
-     "type": "OTHER",
-     "shares": 259656,
-     "value": 0,
-     "signal_strength": "normal"
-    },
-    {
-     "date": "2026-09-28",
-     "name": "Suncor Energy, Inc.",
-     "type": "BUY",
-     "shares": 254712,
-     "value": 17610787.0,
-     "signal_strength": "mittel"
-    },
-    {
-     "date": "2026-09-28",
-     "name": "Suncor Energy, Inc.",
-     "type": "OTHER",
-     "shares": 254712,
-     "value": 0,
-     "signal_strength": "normal"
-    }
-   ],
+   "price_ts": 1792685224,
+   "insider": [],
    "earnings_history": [
     {
      "ts": 1785877200,
@@ -31213,13 +31164,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 123.67,
+   "price": 123.155,
    "price_prev": 124.83,
-   "pct": -0.929,
+   "pct": -1.342,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684372,
+   "price_ts": 1792685225,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36778,7 +36729,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792684373,
+   "price_ts": 1792685226,
    "insider": [
     {
      "date": "2026-08-05",
