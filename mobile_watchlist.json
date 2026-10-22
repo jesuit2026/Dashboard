@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792685231,
- "updated_iso": "2026-10-22T18:07:11",
+ "updated_at": 1792685525,
+ "updated_iso": "2026-10-22T18:12:05",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685218,
+   "price_ts": 1792685516,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 212.39,
+   "price": 212.94,
    "price_prev": 226.59,
-   "pct": -6.267,
+   "pct": -6.024,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685220,
+   "price_ts": 1792685517,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10211,13 +10211,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 33.79,
+   "price": 33.78,
    "price_prev": 35.57,
-   "pct": -5.004,
+   "pct": -5.032,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685221,
+   "price_ts": 1792685518,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15770,13 +15770,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 198.265,
+   "price": 199.32,
    "price_prev": 201.72,
-   "pct": -1.713,
+   "pct": -1.19,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685222,
+   "price_ts": 1792685519,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21329,13 +21329,13 @@
    "dt": "2026-10-13 18:27",
    "isin": "US10240L1026",
    "name": "Bowhead Specialty Holdings Inc.",
-   "price": 34.155,
+   "price": 34.15,
    "price_prev": 34.09,
-   "pct": 0.191,
+   "pct": 0.176,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685223,
+   "price_ts": 1792685520,
    "insider": [],
    "earnings_history": [
     {
@@ -25654,13 +25654,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 76.94,
+   "price": 77.03,
    "price_prev": 79.02,
-   "pct": -2.632,
+   "pct": -2.518,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685224,
+   "price_ts": 1792685521,
    "insider": [],
    "earnings_history": [
     {
@@ -31164,13 +31164,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 123.155,
+   "price": 123.44,
    "price_prev": 124.83,
-   "pct": -1.342,
+   "pct": -1.114,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685225,
+   "price_ts": 1792685522,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36729,7 +36729,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792685226,
+   "price_ts": 1792685523,
    "insider": [
     {
      "date": "2026-08-05",
