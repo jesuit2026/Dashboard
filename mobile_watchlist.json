@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792686579,
- "updated_iso": "2026-10-22T18:29:39",
+ "updated_at": 1792688205,
+ "updated_iso": "2026-10-22T18:56:45",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 25.35,
+   "price": 25.075,
    "price_prev": 26.64,
-   "pct": -4.842,
+   "pct": -5.875,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686571,
+   "price_ts": 1792688192,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 212.29,
+   "price": 211.17,
    "price_prev": 226.59,
-   "pct": -6.311,
+   "pct": -6.805,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686572,
+   "price_ts": 1792688193,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10211,13 +10211,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 33.715,
+   "price": 33.27,
    "price_prev": 35.57,
-   "pct": -5.215,
+   "pct": -6.466,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686573,
+   "price_ts": 1792688194,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15770,13 +15770,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 199.345,
+   "price": 197.34,
    "price_prev": 201.72,
-   "pct": -1.177,
+   "pct": -2.171,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686574,
+   "price_ts": 1792688196,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21329,13 +21329,13 @@
    "dt": "2026-10-13 18:27",
    "isin": "US10240L1026",
    "name": "Bowhead Specialty Holdings Inc.",
-   "price": 34.14,
+   "price": 34.15,
    "price_prev": 34.09,
-   "pct": 0.147,
+   "pct": 0.176,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686575,
+   "price_ts": 1792688197,
    "insider": [],
    "earnings_history": [
     {
@@ -25654,13 +25654,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 77.29,
+   "price": 77.465,
    "price_prev": 79.02,
-   "pct": -2.189,
+   "pct": -1.968,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686576,
+   "price_ts": 1792688198,
    "insider": [],
    "earnings_history": [
     {
@@ -31164,13 +31164,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 123.59,
+   "price": 122.73,
    "price_prev": 124.83,
-   "pct": -0.993,
+   "pct": -1.682,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686577,
+   "price_ts": 1792688200,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36723,13 +36723,13 @@
    "dt": "2026-10-15 18:44",
    "isin": "",
    "name": "Cnb Financial Corp/Pa",
-   "price": 35.485,
+   "price": 35.28,
    "price_prev": 34.54,
-   "pct": 2.736,
+   "pct": 2.142,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1792686578,
+   "price_ts": 1792688201,
    "insider": [
     {
      "date": "2026-08-05",
@@ -42243,6 +42243,118 @@
    },
    "price_at_add": 33.78,
    "price_at_add_currency": "USD"
+  },
+  {
+   "t": "LOG.MC",
+   "dt": "2026-10-22 18:56",
+   "isin": "",
+   "name": "LOG.MC",
+   "insider": [],
+   "earnings_history": [
+    {
+     "ts": 1517486400,
+     "date": "2018-02-01",
+     "eps_estimate": 0.31,
+     "eps_actual": 0.29,
+     "beat": false
+    },
+    {
+     "ts": 1510041600,
+     "date": "2017-11-07",
+     "eps_estimate": 0.37,
+     "eps_actual": 0.29,
+     "beat": false
+    },
+    {
+     "ts": 1501228800,
+     "date": "2017-07-28",
+     "eps_estimate": 0.31,
+     "eps_actual": 0.32,
+     "beat": true
+    },
+    {
+     "ts": 1493798400,
+     "date": "2017-05-03",
+     "eps_estimate": 0.31,
+     "eps_actual": 0.39,
+     "beat": true
+    },
+    {
+     "ts": 1485921600,
+     "date": "2017-01-31",
+     "eps_estimate": 0.36,
+     "eps_actual": 0.38,
+     "beat": true
+    },
+    {
+     "ts": 1478577600,
+     "date": "2016-11-07",
+     "eps_estimate": 0.31,
+     "eps_actual": 0.31,
+     "beat": true
+    },
+    {
+     "ts": 1469682000,
+     "date": "2016-07-28",
+     "eps_estimate": 0.3,
+     "eps_actual": 0.47,
+     "beat": true
+    },
+    {
+     "ts": 1462402800,
+     "date": "2016-05-04",
+     "eps_estimate": 0.25,
+     "eps_actual": 0.28,
+     "beat": true
+    },
+    {
+     "ts": 1454990400,
+     "date": "2016-02-08",
+     "eps_estimate": 0.23,
+     "eps_actual": 0.26,
+     "beat": true
+    },
+    {
+     "ts": 1448557200,
+     "date": "2015-11-26",
+     "eps_estimate": 0.31,
+     "eps_actual": 0.26,
+     "beat": false
+    },
+    {
+     "ts": 1438232400,
+     "date": "2015-07-30",
+     "eps_estimate": 0.3,
+     "eps_actual": 0.27,
+     "beat": false
+    }
+   ],
+   "next_earnings_date": "2026-11-06",
+   "next_dividend_date": null,
+   "chart_daily": [],
+   "chart_weekly": [],
+   "fundamentals": {
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "marketCap": 4860649472,
+    "trailingPE": 17.514286,
+    "forwardPE": 15.26933,
+    "pegRatio": null,
+    "trailingEps": 2.1,
+    "forwardEps": 2.40875,
+    "revenueGrowth": 0.017,
+    "earningsGrowth": 0.175,
+    "profitMargins": 0.020130001,
+    "grossMargins": 0.06727,
+    "returnOnEquity": 0.42494,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   }
   }
  ],
  "alerts": []
