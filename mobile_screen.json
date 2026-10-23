@@ -964191,8 +964191,8 @@
     },
     "pct_from_high": -3.5,
     "isin": "",
-    "price": 196.18,
-    "pct": -2.746,
+    "price": 197.2,
+    "pct": -2.241,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -986826,8 +986826,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US40637H1095",
-    "price": 124.535,
-    "pct": -0.236,
+    "price": 124.54,
+    "pct": -0.232,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -1044187,5 +1044187,5 @@
   "sector_9": "#9 Health Care",
   "sector_10": "#10 Media"
  },
- "prices_updated_at": 1792727668
+ "prices_updated_at": 1792727968
 }
