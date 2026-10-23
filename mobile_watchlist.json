@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792727837,
- "updated_iso": "2026-10-23T05:57:17",
+ "updated_at": 1792727912,
+ "updated_iso": "2026-10-23T05:58:32",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727823,
+   "price_ts": 1792727902,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5534,7 +5534,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727824,
+   "price_ts": 1792727903,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10218,7 +10218,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727824,
+   "price_ts": 1792727904,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15777,7 +15777,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727825,
+   "price_ts": 1792727905,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21336,7 +21336,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727826,
+   "price_ts": 1792727905,
    "insider": [],
    "earnings_history": [
     {
@@ -25661,7 +25661,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727827,
+   "price_ts": 1792727906,
    "insider": [
     {
      "date": "2026-10-05",
@@ -31221,7 +31221,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727828,
+   "price_ts": 1792727907,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36780,7 +36780,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727828,
+   "price_ts": 1792727908,
    "insider": [
     {
      "date": "2026-08-05",
@@ -42299,7 +42299,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727829,
+   "price_ts": 1792727909,
    "insider": [
     {
      "date": "2026-10-01",
@@ -47844,7 +47844,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727830,
+   "price_ts": 1792727909,
    "insider": [
     {
      "date": "2026-10-20",
@@ -53375,7 +53375,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727831,
+   "price_ts": 1792727910,
    "insider": [],
    "earnings_history": [
     {
@@ -58892,7 +58892,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727832,
+   "price_ts": 1792727911,
    "insider": [],
    "earnings_history": [
     {
@@ -64394,6 +64394,7 @@
   {
    "t": "VRNS",
    "dt": "2026-10-23 05:55",
+   "note": "🎯 TRADING-PLAN:\n• Ideal-Entry (Pivot): €44,50 – €45,00 (Ausbruch über den Widerstand der letzten engeren Handelsspannen)\n• Stop-Loss: €41,00 (ca. 6% unter dem Einstieg / unter dem gleitenden 50-Tage-Durchschnitt)\n• Risiko/Chance (1:3 Target): €55,00\n• Volumen-Validierung: Bestätigt bei nachhaltigem Ausbruch mit >150% des Ø-Volumens",
    "isin": "US9222801022",
    "name": "Varonis Systems Inc",
    "price": 48.9,
@@ -64402,7 +64403,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727833,
+   "price_ts": 1792727912,
    "insider": [],
    "earnings_history": [
     {
