@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792727714,
- "updated_iso": "2026-10-23T05:55:14",
+ "updated_at": 1792727837,
+ "updated_iso": "2026-10-23T05:57:17",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727703,
+   "price_ts": 1792727823,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5534,7 +5534,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727704,
+   "price_ts": 1792727824,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10218,7 +10218,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727705,
+   "price_ts": 1792727824,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15777,7 +15777,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727705,
+   "price_ts": 1792727825,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21336,7 +21336,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727706,
+   "price_ts": 1792727826,
    "insider": [],
    "earnings_history": [
     {
@@ -25661,7 +25661,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727707,
+   "price_ts": 1792727827,
    "insider": [
     {
      "date": "2026-10-05",
@@ -31212,6 +31212,7 @@
   {
    "t": "HALO",
    "dt": "2026-10-15 18:43",
+   "note": "Ideal-Entry (Pivot): €115,00 – €117,50 (Ausbruch über den Widerstand der letzten Konsolidierung)\n• Stop-Loss: €108,50 (ca. 6% unter dem Einstieg bzw. unter dem letzten Swing-Tief)\n• Risiko/Chance (1:3 Target): €135,00\n• Volumen-Validierung: Ausstehend (wird beim Ausbruch am Pivot-Punkt mit >150% des Ø-Volumens benötigt)",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
    "price": 124.535,
@@ -31220,7 +31221,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727708,
+   "price_ts": 1792727828,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36779,7 +36780,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727708,
+   "price_ts": 1792727828,
    "insider": [
     {
      "date": "2026-08-05",
@@ -42298,7 +42299,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727709,
+   "price_ts": 1792727829,
    "insider": [
     {
      "date": "2026-10-01",
@@ -47843,7 +47844,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727710,
+   "price_ts": 1792727830,
    "insider": [
     {
      "date": "2026-10-20",
@@ -53374,7 +53375,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727711,
+   "price_ts": 1792727831,
    "insider": [],
    "earnings_history": [
     {
@@ -58891,7 +58892,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727712,
+   "price_ts": 1792727832,
    "insider": [],
    "earnings_history": [
     {
@@ -64401,7 +64402,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792727712,
+   "price_ts": 1792727833,
    "insider": [],
    "earnings_history": [
     {
