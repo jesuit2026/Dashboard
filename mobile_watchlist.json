@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1792989789,
- "updated_iso": "2026-10-26T05:43:09",
+ "updated_at": 1793009645,
+ "updated_iso": "2026-10-26T11:14:05",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792989704,
+   "price_ts": 1793009641,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5520,13 +5520,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 210.31,
-   "price_prev": 210.1,
-   "pct": 0.1,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1792989704,
+   "price": 189.2,
+   "price_prev": 188.0,
+   "pct": 0.638,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793009642,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10203,13 +10203,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 32.95,
-   "price_prev": 33.72,
-   "pct": -2.284,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1792989705,
+   "price": 29.38,
+   "price_prev": 29.42,
+   "pct": -0.136,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793009642,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15755,12 +15755,12 @@
    "isin": "",
    "name": "Palantir Technologies Inc.",
    "price": 196.74,
-   "price_prev": 196.18,
-   "pct": 0.285,
+   "price_prev": 196.19,
+   "pct": 0.28,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792989706,
+   "price_ts": 1793009642,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21311,7 +21311,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792989707,
+   "price_ts": 1793009643,
    "insider": [],
    "earnings_history": [
     {
@@ -25630,13 +25630,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 79.35,
-   "price_prev": 77.39,
-   "pct": 2.533,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1792989708,
+   "price": 69.51,
+   "price_prev": 70.88,
+   "pct": -1.933,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793009643,
    "insider": [
     {
      "date": "2026-10-05",
@@ -31181,13 +31181,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 125.605,
-   "price_prev": 124.54,
-   "pct": 0.855,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1792989708,
+   "price": 113.15,
+   "price_prev": 112.2,
+   "pct": 0.847,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793009643,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36738,7 +36738,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792989709,
+   "price_ts": 1793009644,
    "insider": [
     {
      "date": "2026-08-05",
@@ -42243,13 +42243,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 422.3,
-   "price_prev": 420.97,
-   "pct": 0.316,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1792989710,
+   "price": 374.0,
+   "price_prev": 378.0,
+   "pct": -1.058,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793009644,
    "insider": [
     {
      "date": "2026-09-01",
@@ -47776,7 +47776,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1792989711,
+   "price_ts": 1793009645,
    "insider": [
     {
      "date": "2026-10-01",
