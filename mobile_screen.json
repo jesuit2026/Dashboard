@@ -3,7 +3,7 @@
  "computed_at": 1792727368,
  "computed_iso": "2026-10-23T05:49:28",
  "universe_size": 653,
- "fx": 1.12246,
+ "fx": 1.12233,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -754037,8 +754037,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US0396531008",
-    "price": 149.16,
-    "pct": 0.087,
+    "price": 149.15,
+    "pct": 0.081,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -986826,8 +986826,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US40637H1095",
-    "price": 125.63,
-    "pct": 0.875,
+    "price": 125.605,
+    "pct": 0.855,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -1044187,5 +1044187,5 @@
   "sector_9": "#9 Health Care",
   "sector_10": "#10 Media"
  },
- "prices_updated_at": 1792991298
+ "prices_updated_at": 1792991537
 }
