@@ -3,7 +3,7 @@
  "computed_at": 1793011085,
  "computed_iso": "2026-10-26T11:38:05",
  "universe_size": 154,
- "fx": 1.11744,
+ "fx": 1.11757,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -3267,11 +3267,11 @@
     },
     "pct_from_high": -5.7,
     "isin": "US56585A1025",
-    "price": 422.0,
-    "pct": 3.33,
-    "currency": "EUR",
+    "price": 470.65,
+    "pct": 2.937,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -22665,11 +22665,11 @@
     },
     "pct_from_high": -4.7,
     "isin": "US7185461040",
-    "price": 259.6,
-    "pct": 2.609,
-    "currency": "EUR",
+    "price": 288.73,
+    "pct": 1.96,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -35597,11 +35597,11 @@
     },
     "pct_from_high": -11.4,
     "isin": "MHY410531021",
-    "price": 102.5,
-    "pct": 3.535,
-    "currency": "EUR",
+    "price": 113.73,
+    "pct": 2.663,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -54995,11 +54995,11 @@
     },
     "pct_from_high": -7.3,
     "isin": "MHY2106R1100",
-    "price": 49.9,
-    "pct": 3.355,
-    "currency": "EUR",
+    "price": 55.185,
+    "pct": 2.081,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -71160,11 +71160,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "CA8672241079",
-    "price": 71.27,
-    "pct": 0.55,
-    "currency": "EUR",
+    "price": 79.48,
+    "pct": 0.126,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -190787,11 +190787,11 @@
     },
     "pct_from_high": -9.9,
     "isin": "US64110D1046",
-    "price": 199.8,
-    "pct": 3.846,
-    "currency": "EUR",
+    "price": 222.07,
+    "pct": 3.058,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -200486,11 +200486,11 @@
     },
     "pct_from_high": -2.7,
     "isin": "US75704L1044",
-    "price": 74.0,
-    "pct": 2.069,
-    "currency": "EUR",
+    "price": 80.03,
+    "pct": -0.928,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -210185,11 +210185,11 @@
     },
     "pct_from_high": -3.2,
     "isin": "US79589L1061",
-    "price": 39.8,
-    "pct": -0.995,
-    "currency": "EUR",
+    "price": 44.64,
+    "pct": -0.623,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -216653,11 +216653,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "US40637H1095",
-    "price": 114.2,
-    "pct": 1.783,
-    "currency": "EUR",
+    "price": 128.02,
+    "pct": 1.902,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -229251,11 +229251,11 @@
     },
     "pct_from_high": -2.6,
     "isin": "US4448591028",
-    "price": 380.0,
-    "pct": 0.529,
-    "currency": "EUR",
+    "price": 417.105,
+    "pct": -1.176,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1742788800,
@@ -264818,11 +264818,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "US8313491057",
-    "price": 26.0,
-    "pct": 1.562,
-    "currency": "EUR",
+    "price": 29.08,
+    "pct": 1.856,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1750219200,
@@ -274026,5 +274026,5 @@
   "sector_7": "#7 Banking",
   "sector_8": "#8 Insurance"
  },
- "prices_updated_at": 1793074624
+ "prices_updated_at": 1793074935
 }
