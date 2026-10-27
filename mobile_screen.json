@@ -210185,8 +210185,8 @@
     },
     "pct_from_high": -5.9,
     "isin": "",
-    "price": 198.86,
-    "pct": 1.072,
+    "price": 198.84,
+    "pct": 1.062,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -274042,5 +274042,5 @@
   "sector_7": "#7 Banking",
   "sector_8": "#8 Insurance"
  },
- "prices_updated_at": 1793077212
+ "prices_updated_at": 1793077572
 }
