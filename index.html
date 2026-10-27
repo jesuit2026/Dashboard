@@ -223,6 +223,11 @@
     cursor:pointer;padding:0 4px}
   .sheet-hd .st{font-family:var(--mono);font-weight:800;font-size:18px}
   .sheet-hd .sp{font-family:var(--mono);font-size:15px;margin-left:auto}
+  .live-chip{font-family:var(--mono);font-size:10.5px;font-weight:700;padding:3px 8px;
+    border-radius:999px;margin-left:8px;border:1px solid var(--brd);color:var(--dim);white-space:nowrap}
+  .live-chip.live{color:#04210f;background:var(--grn);border-color:var(--grn)}
+  .live-chip.load{color:var(--acc);border-color:rgba(0,212,255,.4)}
+  .live-chip.fail{color:#fff;background:rgba(239,83,80,.35);border-color:var(--red)}
   .sheet-body{flex:1;overflow-y:auto;padding:12px}
   .chart-wrap{background:var(--panel);border:1px solid var(--brd);border-radius:10px;
     padding:8px;margin-bottom:12px}
@@ -430,6 +435,7 @@
   <div class="sheet-hd">
     <button class="close" onclick="closeSheet()">✕</button>
     <span class="st" id="sheet-tk"></span>
+    <span class="live-chip" id="sheet-live" onclick="retryLiveChart()"></span>
     <span class="sp" id="sheet-px"></span>
   </div>
   <div class="sheet-body">
@@ -469,7 +475,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-10-13.1';
+const APP_BUILD = '2026-10-27.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1369,6 +1375,7 @@ function updateCardFailed(t){
 // Alle JSON-Abrufe (Kurse, Chart, Tradegate) laufen jetzt über dieselbe
 // Kette mit automatischem Fallback, statt sich auf einen zu verlassen.
 const PROXIES = [CORS_PROXY, PROXY2, PROXY3];
+const CHART_WORKER = 'https://little-unit-f122.jesuit1983.workers.dev';
 
 async function fetchJsonViaProxy(targetUrl, timeoutMs=8000){
   // Cache-Buster IN der Ziel-URL (nicht nur beim Proxy-Wrapper) — sonst
@@ -1720,6 +1727,21 @@ async function fetchYahooChartRaw(ticker, yInterval, period1, period2){
   // kurze, vorübergehende Aussetzer ab (Proxy kurz überlastet, erholt
   // sich oft innerhalb weniger Sekunden von selbst).
   let j = null;
+  // 1) Eigener Cloudflare-Worker (zuverlässig, kein Gratis-Proxy). Falls die
+  //    Route /chart dort (noch) nicht existiert, wird sie 1 h lang übersprungen.
+  try{
+    const down = LS.get('chartWorkerDown',0);
+    if(!down || Date.now()-down > 3600000){
+      const wurl = `${CHART_WORKER}/chart?symbol=${encodeURIComponent(ticker)}&interval=${yInterval}`+
+        `&period1=${period1}&period2=${period2}&_cb=${Date.now()}`;
+      const ctrl=new AbortController(); const tm=setTimeout(()=>ctrl.abort(),9000);
+      try{
+        const res=await fetch(wurl,{signal:ctrl.signal,cache:'no-store'});
+        if(res.ok){ const wj=await res.json(); if(wj?.chart?.result?.[0]) j=wj; }
+        else if(res.status===404){ LS.set('chartWorkerDown',Date.now()); }
+      }finally{ clearTimeout(tm); }
+    }
+  }catch{}
   for(let attempt=0; attempt<2 && !j; attempt++){
     if(attempt>0) await sleep(2500);
     for(const host of ['query1.finance.yahoo.com', 'query2.finance.yahoo.com']){
@@ -1837,7 +1859,36 @@ async function fetchLiveChartData(ticker, interval){
 // Handelstag (inkl. Volumen) wirklich live bleibt, nicht nur so aktuell
 // wie der letzte PC-Export. Schlägt's fehl, bleibt einfach die PC-
 // Anzeige stehen (kein Fehlerbild, es wird ja schon was Sinnvolles gezeigt).
+function setLiveChip(state, extra){
+  const el=document.getElementById('sheet-live'); if(!el) return;
+  el.className='live-chip '+(state==='live'?'live':state==='load'?'load':state==='fail'?'fail':'');
+  const hhmm=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+  el.textContent = state==='live' ? `● Live ${hhmm}${extra?' · '+extra:''}`
+    : state==='load' ? '⟳ lädt live…'
+    : state==='fail' ? '⚠ nur PC-Stand – antippen' : '';
+}
+function retryLiveChart(){ if(_curTicker) refreshLiveChartInBackground(_curTicker,_curInterval); }
+function usMarketOpenNow(){
+  try{
+    const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Berlin',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    const g=k=>p.find(x=>x.type===k)?.value;
+    if(['Sat','Sun'].includes(g('weekday'))) return false;
+    const m=parseInt(g('hour'))*60+parseInt(g('minute'));
+    return m>=15*60+30 && m<22*60+5;
+  }catch{ return false; }
+}
+let _liveTimer=null;
+function startLiveChartTimer(){
+  stopLiveChartTimer();
+  _liveTimer=setInterval(()=>{
+    if(!document.getElementById('sheet').classList.contains('on') || !_curTicker) return stopLiveChartTimer();
+    if(usMarketOpenNow()) refreshLiveChartInBackground(_curTicker,_curInterval);
+  },60000);
+}
+function stopLiveChartTimer(){ if(_liveTimer){ clearInterval(_liveTimer); _liveTimer=null; } }
+
 async function refreshLiveChartInBackground(ticker, interval){
+  setLiveChip('load');
   try{
     const live = await fetchLiveChartData(ticker, interval);
     if(_curTicker!==ticker || _curInterval!==interval) return;   // Nutzer ist inzwischen weg
@@ -1849,8 +1900,13 @@ async function refreshLiveChartInBackground(ticker, interval){
     document.getElementById('sheet-px').style.color =
       (live.meta.regularMarketPrice >= (live.meta.chartPreviousClose||live.meta.regularMarketPrice)) ? 'var(--grn)' : 'var(--red)';
     redrawChart();
+    // Ehrlicher Status: Kerzendatum zeigen, falls die letzte Kerze nicht von heute ist
+    const lastTs=live.timestamps[live.timestamps.length-1]*1000;
+    const lastD=new Date(lastTs);
+    const isToday=lastD.toDateString()===new Date().toDateString();
+    setLiveChip('live', isToday ? '' : 'Kerze '+String(lastD.getDate()).padStart(2,'0')+'.'+String(lastD.getMonth()+1).padStart(2,'0')+'.');
   }catch{
-    // Live-Nachladen fehlgeschlagen — PC-Daten bleiben stehen, das reicht.
+    if(_curTicker===ticker) setLiveChip('fail');
   }
 }
 
@@ -1860,6 +1916,14 @@ async function fetchChartData(ticker, interval){
   // separat über refreshLiveChartInBackground().
   const pcData = getPcChartData(ticker, interval);
   if(pcData){
+    // Hat der lokale Cache schon neuere Kerzen (vom letzten Live-Abruf) als
+    // der PC-Export, den Cache behalten — sonst würde jedes Öffnen den
+    // frischeren Live-Stand wieder durch den älteren PC-Stand ersetzen.
+    const lc = loadChartCache(ticker, interval);
+    if(lc?.timestamps?.length &&
+       lc.timestamps[lc.timestamps.length-1] >= pcData.timestamps[pcData.timestamps.length-1]){
+      return lc;
+    }
     saveChartCache(ticker, interval, pcData);
     return pcData;
   }
@@ -1891,6 +1955,7 @@ async function openChart(ticker){
   document.getElementById('sheet-info').innerHTML='';
   _curTicker=ticker;
   _curInterval='day';
+  setLiveChip('');
   _hoverIdx=null;
   _chartCache={day:null, week:null};
   updateIntervalButtons();
@@ -1932,6 +1997,7 @@ async function openChart(ticker){
     // angezeigt werden) — der heutige Handelstag (Kurs, Volumen) soll
     // wirklich live sein, nicht nur so aktuell wie der letzte PC-Export.
     refreshLiveChartInBackground(ticker, 'day');
+    startLiveChartTimer();
   }catch(e){
     if(cached){
       // Cache stand schon sichtbar da — kein hartes Fehlerbild, nur ein
@@ -2192,6 +2258,7 @@ async function renderNewsTab(ticker){
 }
 
 function closeSheet(){
+  stopLiveChartTimer();
   document.getElementById('sheet').classList.remove('on');
   // Falls über den X-Button geschlossen (nicht über den Zurück-Button):
   // den offenen History-Eintrag sauber zurücknehmen, damit der Stack
