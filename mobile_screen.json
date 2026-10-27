@@ -203720,7 +203720,7 @@
     "pct_from_high": -0.8,
     "isin": "US75704L1044",
     "price": 80.03,
-    "pct": -0.928,
+    "pct": -0.953,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -274042,5 +274042,5 @@
   "sector_7": "#7 Banking",
   "sector_8": "#8 Insurance"
  },
- "prices_updated_at": 1793075525
+ "prices_updated_at": 1793075885
 }
