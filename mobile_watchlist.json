@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793209592,
- "updated_iso": "2026-10-28T18:46:32",
+ "updated_at": 1793209722,
+ "updated_iso": "2026-10-28T18:48:42",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209577,
+   "price_ts": 1793209705,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 232.36,
+   "price": 232.47,
    "price_prev": 226.36,
-   "pct": 2.651,
+   "pct": 2.699,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209578,
+   "price_ts": 1793209706,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10219,13 +10219,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 34.92,
+   "price": 34.87,
    "price_prev": 35.09,
-   "pct": -0.484,
+   "pct": -0.627,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209579,
+   "price_ts": 1793209707,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15778,13 +15778,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 194.1,
+   "price": 194.04,
    "price_prev": 198.73,
-   "pct": -2.33,
+   "pct": -2.36,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209580,
+   "price_ts": 1793209708,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21337,13 +21337,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 77.49,
+   "price": 77.53,
    "price_prev": 77.17,
-   "pct": 0.415,
+   "pct": 0.467,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209581,
+   "price_ts": 1793209709,
    "insider": [
     {
      "date": "2026-10-05",
@@ -26896,13 +26896,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 129.16,
+   "price": 129.205,
    "price_prev": 128.5,
-   "pct": 0.514,
+   "pct": 0.549,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209582,
+   "price_ts": 1793209711,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32461,7 +32461,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209584,
+   "price_ts": 1793209712,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37974,13 +37974,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 416.87,
+   "price": 415.74,
    "price_prev": 414.85,
-   "pct": 0.487,
+   "pct": 0.215,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209585,
+   "price_ts": 1793209713,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43515,7 +43515,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209586,
+   "price_ts": 1793209714,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49074,7 +49074,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209587,
+   "price_ts": 1793209715,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54627,13 +54627,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 293.38,
+   "price": 293.23,
    "price_prev": 286.69,
-   "pct": 2.334,
+   "pct": 2.281,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209588,
+   "price_ts": 1793209716,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59094,7 +59094,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209589,
+   "price_ts": 1793209718,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64613,7 +64613,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209590,
+   "price_ts": 1793209719,
    "insider": [
     {
      "date": "2026-08-04",
@@ -70150,13 +70150,13 @@
    "dt": "2026-10-28 18:18",
    "isin": "US7265031051",
    "name": "Plains All American Pipeline Lp",
-   "price": 26.53,
+   "price": 26.535,
    "price_prev": 26.41,
-   "pct": 0.454,
+   "pct": 0.473,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793209591,
+   "price_ts": 1793209720,
    "insider": [
     {
      "date": "2026-08-14",
