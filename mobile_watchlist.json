@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793162967,
- "updated_iso": "2026-10-28T05:49:27",
+ "updated_at": 1793163102,
+ "updated_iso": "2026-10-28T05:51:42",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 27.625,
+   "price": 27.63,
    "price_prev": 25.4,
-   "pct": 8.76,
+   "pct": 8.78,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162955,
+   "price_ts": 1793163076,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 226.56,
+   "price": 226.6,
    "price_prev": 223.35,
-   "pct": 1.437,
+   "pct": 1.455,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162956,
+   "price_ts": 1793163094,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10225,7 +10225,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162957,
+   "price_ts": 1793163095,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15784,7 +15784,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162958,
+   "price_ts": 1793163095,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21343,7 +21343,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162958,
+   "price_ts": 1793163096,
    "insider": [],
    "earnings_history": [
     {
@@ -25676,7 +25676,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162959,
+   "price_ts": 1793163097,
    "insider": [
     {
      "date": "2026-10-05",
@@ -31235,7 +31235,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162960,
+   "price_ts": 1793163098,
    "insider": [
     {
      "date": "2026-10-08",
@@ -36794,7 +36794,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162961,
+   "price_ts": 1793163099,
    "insider": [
     {
      "date": "2026-08-05",
@@ -42313,7 +42313,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162962,
+   "price_ts": 1793163100,
    "insider": [
     {
      "date": "2026-09-01",
@@ -47848,7 +47848,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162962,
+   "price_ts": 1793163101,
    "insider": [
     {
      "date": "2026-10-01",
@@ -53407,7 +53407,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162963,
+   "price_ts": 1793163101,
    "insider": [
     {
      "date": "2026-10-20",
@@ -58966,7 +58966,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793162964,
+   "price_ts": 1793163102,
    "insider": [
     {
      "date": "2026-10-07",
