@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793206167,
- "updated_iso": "2026-10-28T17:49:27",
+ "updated_at": 1793207801,
+ "updated_iso": "2026-10-28T18:16:41",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 28.0,
+   "price": 27.745,
    "price_prev": 27.63,
-   "pct": 1.339,
+   "pct": 0.416,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206149,
+   "price_ts": 1793207787,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 233.145,
+   "price": 232.675,
    "price_prev": 226.36,
-   "pct": 2.997,
+   "pct": 2.79,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206150,
+   "price_ts": 1793207788,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10225,7 +10225,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206152,
+   "price_ts": 1793207789,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15778,13 +15778,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 193.81,
+   "price": 193.825,
    "price_prev": 198.73,
-   "pct": -2.476,
+   "pct": -2.468,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206153,
+   "price_ts": 1793207791,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21337,13 +21337,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 77.4,
+   "price": 77.43,
    "price_prev": 77.17,
-   "pct": 0.298,
+   "pct": 0.337,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206154,
+   "price_ts": 1793207792,
    "insider": [
     {
      "date": "2026-10-05",
@@ -26896,13 +26896,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 128.78,
+   "price": 129.02,
    "price_prev": 128.5,
-   "pct": 0.218,
+   "pct": 0.405,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206155,
+   "price_ts": 1793207793,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32461,7 +32461,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206157,
+   "price_ts": 1793207794,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37974,13 +37974,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 419.11,
+   "price": 416.005,
    "price_prev": 414.85,
-   "pct": 1.027,
+   "pct": 0.278,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206158,
+   "price_ts": 1793207795,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43515,7 +43515,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206159,
+   "price_ts": 1793207796,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49068,13 +49068,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 187.05,
+   "price": 186.93,
    "price_prev": 187.0,
-   "pct": 0.027,
+   "pct": -0.037,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206160,
+   "price_ts": 1793207797,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54627,13 +54627,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 294.12,
+   "price": 294.44,
    "price_prev": 286.69,
-   "pct": 2.592,
+   "pct": 2.703,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206162,
+   "price_ts": 1793207798,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59088,13 +59088,13 @@
    "dt": "2026-10-28 15:08",
    "isin": "US4041111067",
    "name": "Hbt Financial, Inc.",
-   "price": 36.53,
+   "price": 36.51,
    "price_prev": 36.75,
-   "pct": -0.599,
+   "pct": -0.653,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206163,
+   "price_ts": 1793207799,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64607,13 +64607,13 @@
    "dt": "2026-10-28 15:08",
    "isin": "",
    "name": "Acadian Asset Management Inc.",
-   "price": 93.41,
+   "price": 93.55,
    "price_prev": 93.89,
-   "pct": -0.511,
+   "pct": -0.362,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793206164,
+   "price_ts": 1793207800,
    "insider": [
     {
      "date": "2026-08-04",
