@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793295233,
- "updated_iso": "2026-10-29T18:33:53",
+ "updated_at": 1793295265,
+ "updated_iso": "2026-10-29T18:34:25",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295219,
+   "price_ts": 1793295251,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5534,7 +5534,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295220,
+   "price_ts": 1793295252,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10219,13 +10219,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 35.005,
+   "price": 35.02,
    "price_prev": 35.61,
-   "pct": -1.699,
+   "pct": -1.657,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295221,
+   "price_ts": 1793295253,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15778,13 +15778,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 194.25,
+   "price": 194.11,
    "price_prev": 194.0945,
-   "pct": 0.08,
+   "pct": 0.008,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295222,
+   "price_ts": 1793295254,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21343,7 +21343,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295223,
+   "price_ts": 1793295256,
    "insider": [],
    "earnings_history": [
     {
@@ -26853,7 +26853,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295224,
+   "price_ts": 1793295257,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32412,7 +32412,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295225,
+   "price_ts": 1793295258,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37931,7 +37931,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295227,
+   "price_ts": 1793295259,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43466,7 +43466,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295228,
+   "price_ts": 1793295260,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49025,7 +49025,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295229,
+   "price_ts": 1793295261,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54578,13 +54578,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 288.1,
+   "price": 288.26,
    "price_prev": 293.77,
-   "pct": -1.93,
+   "pct": -1.876,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295230,
+   "price_ts": 1793295262,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59045,7 +59045,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295231,
+   "price_ts": 1793295263,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64564,7 +64564,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295232,
+   "price_ts": 1793295264,
    "insider": [
     {
      "date": "2026-08-04",
@@ -70114,7 +70114,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295233,
+   "price_ts": 1793295265,
    "insider": [
     {
      "date": "2026-10-13",
@@ -75667,6 +75667,15 @@
    "price_input": 33.72,
    "currency": "EUR",
    "created": "2026-10-29 18:33"
+  },
+  {
+   "ticker": "FLYW",
+   "name": "FLYW",
+   "condition": "above",
+   "price": 19.5979,
+   "price_input": 17.55,
+   "currency": "EUR",
+   "created": "2026-10-29 18:34"
   }
  ]
 }
