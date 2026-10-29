@@ -130353,8 +130353,8 @@
     },
     "pct_from_high": -2.5,
     "isin": "",
-    "price": 19.29,
-    "pct": 1.902,
+    "price": 19.28,
+    "pct": 1.207,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -330806,8 +330806,8 @@
     },
     "pct_from_high": -2.5,
     "isin": "",
-    "price": 19.29,
-    "pct": 1.902,
+    "price": 19.28,
+    "pct": 1.207,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -436728,5 +436728,5 @@
   "sector_7": "#7 Financial Services",
   "sector_8": "#8 Banking"
  },
- "prices_updated_at": 1793309951
+ "prices_updated_at": 1793310311
 }
