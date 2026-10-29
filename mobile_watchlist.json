@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793295078,
- "updated_iso": "2026-10-29T18:31:18",
+ "updated_at": 1793295223,
+ "updated_iso": "2026-10-29T18:33:43",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295063,
+   "price_ts": 1793295208,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5534,7 +5534,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295064,
+   "price_ts": 1793295209,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10219,13 +10219,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 35.025,
+   "price": 35.01,
    "price_prev": 35.61,
-   "pct": -1.643,
+   "pct": -1.685,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295065,
+   "price_ts": 1793295210,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15778,13 +15778,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 193.98,
+   "price": 194.25,
    "price_prev": 194.0945,
-   "pct": -0.059,
+   "pct": 0.08,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295066,
+   "price_ts": 1793295211,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21343,7 +21343,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295067,
+   "price_ts": 1793295212,
    "insider": [],
    "earnings_history": [
     {
@@ -26847,13 +26847,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 130.92,
+   "price": 130.71,
    "price_prev": 128.725,
-   "pct": 1.705,
+   "pct": 1.542,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295068,
+   "price_ts": 1793295213,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32412,7 +32412,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295069,
+   "price_ts": 1793295214,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37931,7 +37931,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295070,
+   "price_ts": 1793295215,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43466,7 +43466,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295071,
+   "price_ts": 1793295216,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49019,13 +49019,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 185.18,
+   "price": 184.9,
    "price_prev": 186.72,
-   "pct": -0.825,
+   "pct": -0.975,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295072,
+   "price_ts": 1793295217,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54578,13 +54578,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 288.02,
+   "price": 288.1,
    "price_prev": 293.77,
-   "pct": -1.957,
+   "pct": -1.93,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295073,
+   "price_ts": 1793295218,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59045,7 +59045,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295074,
+   "price_ts": 1793295219,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64558,13 +64558,13 @@
    "dt": "2026-10-28 15:08",
    "isin": "",
    "name": "Acadian Asset Management Inc.",
-   "price": 89.13,
+   "price": 89.135,
    "price_prev": 93.425,
-   "pct": -4.597,
+   "pct": -4.592,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295075,
+   "price_ts": 1793295220,
    "insider": [
     {
      "date": "2026-08-04",
@@ -70108,13 +70108,13 @@
    "dt": "2026-10-28 18:18",
    "isin": "US7265031051",
    "name": "Plains All American Pipeline Lp",
-   "price": 26.91,
+   "price": 26.925,
    "price_prev": 26.59,
-   "pct": 1.203,
+   "pct": 1.26,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295076,
+   "price_ts": 1793295221,
    "insider": [
     {
      "date": "2026-08-14",
@@ -75671,7 +75671,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793295077,
+   "price_ts": 1793295223,
    "insider": [
     {
      "date": "2026-10-13",
@@ -81215,6 +81215,15 @@
    "price_input": 176.05,
    "currency": "EUR",
    "created": "2026-10-28 05:51"
+  },
+  {
+   "ticker": "HBT",
+   "name": "HBT",
+   "condition": "above",
+   "price": 37.6548,
+   "price_input": 33.72,
+   "currency": "EUR",
+   "created": "2026-10-29 18:33"
   }
  ]
 }
