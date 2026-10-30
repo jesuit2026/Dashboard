@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793339497,
- "updated_iso": "2026-10-30T06:51:37",
+ "updated_at": 1793342264,
+ "updated_iso": "2026-10-30T07:37:44",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339486,
+   "price_ts": 1793342257,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5528,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 228.79,
-   "price_prev": 235.9,
-   "pct": -3.014,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339487,
+   "price": 190.4,
+   "price_prev": 193.2,
+   "pct": -1.449,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342257,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10219,13 +10219,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 34.445,
-   "price_prev": 35.81,
-   "pct": -3.812,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339487,
+   "price": 29.56,
+   "price_prev": 29.88,
+   "pct": -1.071,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342258,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15784,7 +15784,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339488,
+   "price_ts": 1793342258,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21337,13 +21337,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 77.635,
-   "price_prev": 77.54,
-   "pct": 0.123,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339489,
+   "price": 69.14,
+   "price_prev": 69.56,
+   "pct": -0.604,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342258,
    "insider": [
     {
      "date": "2026-10-05",
@@ -26896,13 +26896,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 131.13,
-   "price_prev": 128.725,
-   "pct": 1.868,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339490,
+   "price": 115.5,
+   "price_prev": 116.75,
+   "pct": -1.071,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342258,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32456,12 +32456,12 @@
    "isin": "",
    "name": "Cnb Financial Corp/Pa",
    "price": 35.61,
-   "price_prev": 35.325,
-   "pct": 0.807,
+   "price_prev": 35.41,
+   "pct": 0.565,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339491,
+   "price_ts": 1793342259,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37974,13 +37974,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 416.55,
-   "price_prev": 418.24,
-   "pct": -0.404,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339491,
+   "price": 370.0,
+   "price_prev": 374.0,
+   "pct": -1.07,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342259,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43515,7 +43515,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339492,
+   "price_ts": 1793342260,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49068,13 +49068,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 184.2,
-   "price_prev": 186.72,
-   "pct": -1.35,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339493,
+   "price": 158.4,
+   "price_prev": 161.12,
+   "pct": -1.688,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342260,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54627,13 +54627,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 290.55,
-   "price_prev": 297.2,
-   "pct": -2.238,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793339494,
+   "price": 243.0,
+   "price_prev": 251.0,
+   "pct": -3.187,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793342260,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59094,7 +59094,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339494,
+   "price_ts": 1793342261,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64613,7 +64613,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339495,
+   "price_ts": 1793342262,
    "insider": [
     {
      "date": "2026-08-04",
@@ -70163,7 +70163,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339496,
+   "price_ts": 1793342262,
    "insider": [
     {
      "date": "2026-10-13",
@@ -75701,7 +75701,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793339497,
+   "price_ts": 1793342263,
    "insider": [
     {
      "date": "2026-10-23",
