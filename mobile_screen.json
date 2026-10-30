@@ -293350,8 +293350,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US40637H1095",
-    "price": 131.18,
-    "pct": 0.884,
+    "price": 131.13,
+    "pct": 1.868,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -306270,5 +306270,5 @@
   "sector_4": "#4 Biotechnology",
   "sector_5": "#5 Electrical Equipment"
  },
- "prices_updated_at": 1793337933
+ "prices_updated_at": 1793338173
 }
