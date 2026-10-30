@@ -3,7 +3,7 @@
  "computed_at": 1793336276,
  "computed_iso": "2026-10-30T05:57:56",
  "universe_size": 118,
- "fx": 1.11869,
+ "fx": 1.11857,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -293350,8 +293350,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US40637H1095",
-    "price": 131.13,
-    "pct": 1.868,
+    "price": 131.18,
+    "pct": 0.884,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -306270,5 +306270,5 @@
   "sector_4": "#4 Biotechnology",
   "sector_5": "#5 Electrical Equipment"
  },
- "prices_updated_at": 1793339134
+ "prices_updated_at": 1793339320
 }
