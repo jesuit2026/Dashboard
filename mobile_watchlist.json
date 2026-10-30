@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793336693,
- "updated_iso": "2026-10-30T06:04:53",
+ "updated_at": 1793339497,
+ "updated_iso": "2026-10-30T06:51:37",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336682,
+   "price_ts": 1793339486,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5534,7 +5534,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336683,
+   "price_ts": 1793339487,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10225,7 +10225,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336684,
+   "price_ts": 1793339487,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15784,7 +15784,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336684,
+   "price_ts": 1793339488,
    "insider": [
     {
      "date": "2026-10-15",
@@ -21343,7 +21343,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336685,
+   "price_ts": 1793339489,
    "insider": [
     {
      "date": "2026-10-05",
@@ -26902,7 +26902,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336686,
+   "price_ts": 1793339490,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32461,7 +32461,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336686,
+   "price_ts": 1793339491,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37980,7 +37980,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336687,
+   "price_ts": 1793339491,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43510,12 +43510,12 @@
    "isin": "US0226711010",
    "name": "Amalgamated Financial Corp.",
    "price": 51.29,
-   "price_prev": 50.855,
-   "pct": 0.855,
+   "price_prev": 51.13,
+   "pct": 0.313,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336688,
+   "price_ts": 1793339492,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49074,7 +49074,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336689,
+   "price_ts": 1793339493,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54633,7 +54633,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336689,
+   "price_ts": 1793339494,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59094,7 +59094,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336690,
+   "price_ts": 1793339494,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64608,12 +64608,12 @@
    "isin": "",
    "name": "Acadian Asset Management Inc.",
    "price": 91.265,
-   "price_prev": 93.425,
-   "pct": -2.312,
+   "price_prev": 91.27,
+   "pct": -0.005,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336691,
+   "price_ts": 1793339495,
    "insider": [
     {
      "date": "2026-08-04",
@@ -70163,7 +70163,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336692,
+   "price_ts": 1793339496,
    "insider": [
     {
      "date": "2026-10-13",
@@ -75696,12 +75696,12 @@
    "isin": "",
    "name": "Pennant Group, Inc.",
    "price": 42.41,
-   "price_prev": 42.42,
-   "pct": -0.024,
+   "price_prev": 42.16,
+   "pct": 0.593,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793336692,
+   "price_ts": 1793339497,
    "insider": [
     {
      "date": "2026-10-23",
