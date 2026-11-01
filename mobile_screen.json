@@ -69253,7 +69253,7 @@
     "pct_from_high": -2.2,
     "isin": "US4041111067",
     "price": 36.485,
-    "pct": -1.125,
+    "pct": -0.856,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -137148,7 +137148,7 @@
     "pct_from_high": -2.2,
     "isin": "US4041111067",
     "price": 36.485,
-    "pct": -1.125,
+    "pct": -0.856,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -424152,7 +424152,7 @@
     "pct_from_high": -2.2,
     "isin": "US4041111067",
     "price": 36.485,
-    "pct": -1.125,
+    "pct": -0.856,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -427373,5 +427373,5 @@
   "sector_7": "#7 Financial Services",
   "sector_8": "#8 Banking"
  },
- "prices_updated_at": 1793474425
+ "prices_updated_at": 1793519968
 }
