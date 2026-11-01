@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793519779,
- "updated_iso": "2026-11-01T08:56:19",
+ "updated_at": 1793520217,
+ "updated_iso": "2026-11-01T09:03:37",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519661,
+   "price_ts": 1793520198,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5526,7 +5526,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519662,
+   "price_ts": 1793520199,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10217,7 +10217,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519663,
+   "price_ts": 1793520200,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15768,7 +15768,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519664,
+   "price_ts": 1793520200,
    "insider": [
     {
      "date": "2026-10-28",
@@ -21319,7 +21319,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519664,
+   "price_ts": 1793520201,
    "insider": [
     {
      "date": "2026-10-05",
@@ -26870,7 +26870,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519665,
+   "price_ts": 1793520203,
    "insider": [
     {
      "date": "2026-10-08",
@@ -32421,7 +32421,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519666,
+   "price_ts": 1793520207,
    "insider": [
     {
      "date": "2026-08-05",
@@ -37932,7 +37932,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519667,
+   "price_ts": 1793520210,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43459,7 +43459,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519667,
+   "price_ts": 1793520212,
    "insider": [
     {
      "date": "2026-10-01",
@@ -49010,7 +49010,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519668,
+   "price_ts": 1793520213,
    "insider": [
     {
      "date": "2026-10-20",
@@ -54561,7 +54561,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519669,
+   "price_ts": 1793520214,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59022,7 +59022,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519670,
+   "price_ts": 1793520215,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64533,7 +64533,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519670,
+   "price_ts": 1793520215,
    "insider": [
     {
      "date": "2026-08-04",
@@ -70068,7 +70068,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519671,
+   "price_ts": 1793520216,
    "insider": [
     {
      "date": "2026-10-13",
@@ -75598,7 +75598,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793519672,
+   "price_ts": 1793520217,
    "insider": [
     {
      "date": "2026-10-23",
@@ -81157,15 +81157,6 @@
    "price_input": 33.72,
    "currency": "EUR",
    "created": "2026-10-29 18:33"
-  },
-  {
-   "ticker": "FLYW",
-   "name": "FLYW",
-   "condition": "above",
-   "price": 19.5979,
-   "price_input": 17.55,
-   "currency": "EUR",
-   "created": "2026-10-29 18:34"
   }
  ]
 }
