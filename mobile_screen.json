@@ -3,7 +3,7 @@
  "computed_at": 1793681066,
  "computed_iso": "2026-11-03T05:44:26",
  "universe_size": 113,
- "fx": 1.1197,
+ "fx": 1.11957,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -84097,8 +84097,8 @@
     },
     "pct_from_high": -2.3,
     "isin": "CA8672241079",
-    "price": 75.42,
-    "pct": -5.037,
+    "price": 75.82,
+    "pct": -4.533,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -139058,8 +139058,8 @@
     },
     "pct_from_high": -6.4,
     "isin": "MHY7542C1306",
-    "price": 86.6,
-    "pct": -6.479,
+    "price": 86.62,
+    "pct": -6.458,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -171392,8 +171392,8 @@
     },
     "pct_from_high": -0.2,
     "isin": "US40637H1095",
-    "price": 128.95,
-    "pct": -1.497,
+    "price": 128.93,
+    "pct": -1.512,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -187113,5 +187113,5 @@
   "sector_4": "#4 Biotechnology",
   "sector_5": "#5 Financial Services"
  },
- "prices_updated_at": 1793684035
+ "prices_updated_at": 1793684276
 }
