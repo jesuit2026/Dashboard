@@ -19810,15 +19810,6 @@
    "price_input": 26.05,
    "currency": "EUR",
    "created": "2026-10-28 05:49"
-  },
-  {
-   "ticker": "HBT",
-   "name": "HBT",
-   "condition": "above",
-   "price": 37.6548,
-   "price_input": 33.72,
-   "currency": "EUR",
-   "created": "2026-10-29 18:33"
   }
  ]
 }
