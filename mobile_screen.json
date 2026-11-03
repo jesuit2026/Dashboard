@@ -126127,7 +126127,7 @@
     "pct_from_high": -1.9,
     "isin": "US26875P1012",
     "price": 157.9,
-    "pct": -4.644,
+    "pct": -4.615,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -187113,5 +187113,5 @@
   "sector_4": "#4 Biotechnology",
   "sector_5": "#5 Financial Services"
  },
- "prices_updated_at": 1793682956
+ "prices_updated_at": 1793683435
 }
