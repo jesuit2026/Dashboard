@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793736272,
- "updated_iso": "2026-11-03T21:04:32",
+ "updated_at": 1793736722,
+ "updated_iso": "2026-11-03T21:12:02",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 27.38,
+   "price": 27.45,
    "price_prev": 26.35,
-   "pct": 3.909,
+   "pct": 4.175,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736258,
+   "price_ts": 1793736701,
    "insider": [
     {
      "date": "2026-09-18",
@@ -5534,7 +5534,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736258,
+   "price_ts": 1793736701,
    "insider": [
     {
      "date": "2026-09-21",
@@ -10225,13 +10225,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 28.4,
+   "price": 28.48,
    "price_prev": 27.22,
-   "pct": 4.335,
+   "pct": 4.629,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736259,
+   "price_ts": 1793736702,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15782,13 +15782,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 175.505,
+   "price": 175.43,
    "price_prev": 178.445,
-   "pct": -1.648,
+   "pct": -1.69,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736259,
+   "price_ts": 1793736703,
    "insider": [
     {
      "date": "2026-10-28",
@@ -21345,7 +21345,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736260,
+   "price_ts": 1793736703,
    "insider": [],
    "earnings_history": [
     {
@@ -21555,7 +21555,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736260,
+   "price_ts": 1793736703,
    "insider": [
     {
      "date": "2026-10-08",
@@ -21808,13 +21808,13 @@
    "dt": "2026-10-15 18:44",
    "isin": "",
    "name": "Cnb Financial Corp/Pa",
-   "price": 36.16,
+   "price": 36.14,
    "price_prev": 36.56,
-   "pct": -1.094,
+   "pct": -1.149,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736260,
+   "price_ts": 1793736704,
    "insider": [
     {
      "date": "2026-08-05",
@@ -22033,7 +22033,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736260,
+   "price_ts": 1793736704,
    "insider": [
     {
      "date": "2026-09-01",
@@ -22246,13 +22246,13 @@
    "dt": "2026-10-24 10:00",
    "isin": "US0226711010",
    "name": "Amalgamated Financial Corp.",
-   "price": 50.15,
+   "price": 50.16,
    "price_prev": 50.43,
-   "pct": -0.555,
+   "pct": -0.535,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736262,
+   "price_ts": 1793736705,
    "insider": [
     {
      "date": "2026-10-01",
@@ -22505,13 +22505,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 152.12,
+   "price": 151.44,
    "price_prev": 146.66,
-   "pct": 3.723,
+   "pct": 3.259,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736262,
+   "price_ts": 1793736705,
    "insider": [
     {
      "date": "2026-10-20",
@@ -22764,13 +22764,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 209.0,
+   "price": 210.0,
    "price_prev": 206.0,
-   "pct": 1.456,
+   "pct": 1.942,
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736262,
+   "price_ts": 1793736705,
    "insider": [
     {
      "date": "2026-10-07",
@@ -22931,7 +22931,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736263,
+   "price_ts": 1793736706,
    "insider": [
     {
      "date": "2026-08-18",
@@ -23144,13 +23144,13 @@
    "dt": "2026-10-28 15:08",
    "isin": "",
    "name": "Acadian Asset Management Inc.",
-   "price": 88.57,
+   "price": 88.3,
    "price_prev": 90.555,
-   "pct": -2.192,
+   "pct": -2.49,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736264,
+   "price_ts": 1793736707,
    "insider": [],
    "earnings_history": [
     {
@@ -23354,13 +23354,13 @@
    "dt": "2026-10-29 18:31",
    "isin": "",
    "name": "Flywire Corp",
-   "price": 19.045,
+   "price": 19.055,
    "price_prev": 19.965,
-   "pct": -4.608,
+   "pct": -4.558,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736265,
+   "price_ts": 1793736709,
    "insider": [
     {
      "date": "2026-10-13",
@@ -23598,7 +23598,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736266,
+   "price_ts": 1793736710,
    "insider": [
     {
      "date": "2026-10-23",
@@ -23857,7 +23857,7 @@
    "currency": "EUR",
    "live": true,
    "price_source": "TG",
-   "price_ts": 1793736266,
+   "price_ts": 1793736710,
    "insider": [
     {
      "date": "2026-08-15",
@@ -24070,13 +24070,13 @@
    "dt": "2026-11-02 16:02",
    "isin": "",
    "name": "Nucor Corp",
-   "price": 272.66,
+   "price": 272.99,
    "price_prev": 277.65,
-   "pct": -1.797,
+   "pct": -1.678,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736267,
+   "price_ts": 1793736711,
    "insider": [
     {
      "date": "2026-10-29",
@@ -24335,7 +24335,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793736268,
+   "price_ts": 1793736712,
    "insider": [
     {
      "date": "2026-10-26",
