@@ -20020,15 +20020,5 @@
    }
   }
  ],
- "alerts": [
-  {
-   "ticker": "AMSC",
-   "name": "American Superconductor Corp /De/",
-   "condition": "above",
-   "price": 28.9798,
-   "price_input": 26.05,
-   "currency": "EUR",
-   "created": "2026-10-28 05:49"
-  }
- ]
+ "alerts": []
 }
