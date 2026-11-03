@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793733732,
- "updated_iso": "2026-11-03T20:22:12",
+ "updated_at": 1793733951,
+ "updated_iso": "2026-11-03T20:25:51",
  "fx": 1.12,
  "watchlist": [
   {
@@ -15,7 +15,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733686,
+   "price_ts": 1793733919,
    "insider": [
     {
      "date": "2026-09-18",
@@ -228,13 +228,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 201.87,
+   "price": 201.28,
    "price_prev": 196.61,
-   "pct": 2.675,
+   "pct": 2.375,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733687,
+   "price_ts": 1793733921,
    "insider": [
     {
      "date": "2026-09-21",
@@ -403,13 +403,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 31.49,
+   "price": 31.375,
    "price_prev": 30.44,
-   "pct": 3.449,
+   "pct": 3.072,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733688,
+   "price_ts": 1793733922,
    "insider": [
     {
      "date": "2026-10-07",
@@ -662,13 +662,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 174.95,
+   "price": 174.64,
    "price_prev": 178.445,
-   "pct": -1.959,
+   "pct": -2.132,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733689,
+   "price_ts": 1793733923,
    "insider": [
     {
      "date": "2026-10-28",
@@ -921,13 +921,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 75.05,
+   "price": 75.3,
    "price_prev": 75.42,
-   "pct": -0.491,
+   "pct": -0.159,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733690,
+   "price_ts": 1793733925,
    "insider": [],
    "earnings_history": [
     {
@@ -6429,13 +6429,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 130.045,
+   "price": 129.99,
    "price_prev": 128.93,
-   "pct": 0.865,
+   "pct": 0.822,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733691,
+   "price_ts": 1793733926,
    "insider": [
     {
      "date": "2026-10-08",
@@ -11992,7 +11992,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733692,
+   "price_ts": 1793733927,
    "insider": [
     {
      "date": "2026-08-05",
@@ -12205,13 +12205,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 418.93,
+   "price": 420.285,
    "price_prev": 410.155,
-   "pct": 2.139,
+   "pct": 2.47,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733693,
+   "price_ts": 1793733928,
    "insider": [
     {
      "date": "2026-09-01",
@@ -12430,7 +12430,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733694,
+   "price_ts": 1793733929,
    "insider": [
     {
      "date": "2026-10-01",
@@ -12683,13 +12683,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 168.27,
+   "price": 167.97,
    "price_prev": 164.1,
-   "pct": 2.541,
+   "pct": 2.358,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733695,
+   "price_ts": 1793733931,
    "insider": [
     {
      "date": "2026-10-20",
@@ -12942,13 +12942,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 234.86,
+   "price": 233.98,
    "price_prev": 229.63,
-   "pct": 2.278,
+   "pct": 1.894,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733696,
+   "price_ts": 1793733932,
    "insider": [
     {
      "date": "2026-10-07",
@@ -13109,7 +13109,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733697,
+   "price_ts": 1793733933,
    "insider": [
     {
      "date": "2026-08-18",
@@ -13328,7 +13328,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733698,
+   "price_ts": 1793733934,
    "insider": [],
    "earnings_history": [
     {
@@ -13532,13 +13532,13 @@
    "dt": "2026-10-29 18:31",
    "isin": "",
    "name": "Flywire Corp",
-   "price": 19.4,
+   "price": 19.41,
    "price_prev": 19.965,
-   "pct": -2.83,
+   "pct": -2.78,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733699,
+   "price_ts": 1793733936,
    "insider": [
     {
      "date": "2026-10-13",
@@ -13776,7 +13776,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733701,
+   "price_ts": 1793733937,
    "insider": [
     {
      "date": "2026-10-23",
@@ -14029,13 +14029,13 @@
    "dt": "2026-11-01 09:05",
    "isin": "US16411R2085",
    "name": "Cheniere Energy, Inc.",
-   "price": 312.11,
+   "price": 312.49,
    "price_prev": 311.67,
-   "pct": 0.141,
+   "pct": 0.263,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733702,
+   "price_ts": 1793733938,
    "insider": [
     {
      "date": "2026-08-15",
@@ -19546,13 +19546,13 @@
    "dt": "2026-11-02 16:02",
    "isin": "",
    "name": "Nucor Corp",
-   "price": 274.32,
+   "price": 274.18,
    "price_prev": 277.65,
-   "pct": -1.199,
+   "pct": -1.25,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733703,
+   "price_ts": 1793733939,
    "insider": [
     {
      "date": "2026-10-29",
@@ -19804,7 +19804,7 @@
  "alerts": [
   {
    "ticker": "AMSC",
-   "name": "AMSC",
+   "name": "American Superconductor Corp /De/",
    "condition": "above",
    "price": 28.9798,
    "price_input": 26.05,
