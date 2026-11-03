@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793733951,
- "updated_iso": "2026-11-03T20:25:51",
+ "updated_at": 1793734320,
+ "updated_iso": "2026-11-03T20:32:00",
  "fx": 1.12,
  "watchlist": [
   {
@@ -9,13 +9,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "",
    "name": "American Superconductor Corp /De/",
-   "price": 27.335,
+   "price": 27.32,
    "price_prev": 26.34,
-   "pct": 3.778,
+   "pct": 3.721,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733919,
+   "price_ts": 1793734282,
    "insider": [
     {
      "date": "2026-09-18",
@@ -228,13 +228,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 201.28,
-   "price_prev": 196.61,
-   "pct": 2.375,
+   "price": 201.46,
+   "price_prev": 196.79,
+   "pct": 2.373,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733921,
+   "price_ts": 1793734283,
    "insider": [
     {
      "date": "2026-09-21",
@@ -403,13 +403,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 31.375,
+   "price": 31.41,
    "price_prev": 30.44,
-   "pct": 3.072,
+   "pct": 3.187,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733922,
+   "price_ts": 1793734284,
    "insider": [
     {
      "date": "2026-10-07",
@@ -662,13 +662,13 @@
    "dt": "2026-08-27 09:46",
    "isin": "",
    "name": "Palantir Technologies Inc.",
-   "price": 174.64,
+   "price": 173.685,
    "price_prev": 178.445,
-   "pct": -2.132,
+   "pct": -2.667,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733923,
+   "price_ts": 1793734285,
    "insider": [
     {
      "date": "2026-10-28",
@@ -921,13 +921,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 75.3,
+   "price": 75.29,
    "price_prev": 75.42,
-   "pct": -0.159,
+   "pct": -0.172,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733925,
+   "price_ts": 1793734286,
    "insider": [],
    "earnings_history": [
     {
@@ -6429,13 +6429,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 129.99,
+   "price": 129.935,
    "price_prev": 128.93,
-   "pct": 0.822,
+   "pct": 0.779,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733926,
+   "price_ts": 1793734287,
    "insider": [
     {
      "date": "2026-10-08",
@@ -11992,7 +11992,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733927,
+   "price_ts": 1793734287,
    "insider": [
     {
      "date": "2026-08-05",
@@ -12205,13 +12205,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 420.285,
-   "price_prev": 410.155,
-   "pct": 2.47,
+   "price": 420.3,
+   "price_prev": 410.41,
+   "pct": 2.41,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733928,
+   "price_ts": 1793734288,
    "insider": [
     {
      "date": "2026-09-01",
@@ -12425,12 +12425,12 @@
    "isin": "US0226711010",
    "name": "Amalgamated Financial Corp.",
    "price": 50.12,
-   "price_prev": 50.6,
-   "pct": -0.949,
+   "price_prev": 50.43,
+   "pct": -0.615,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733929,
+   "price_ts": 1793734289,
    "insider": [
     {
      "date": "2026-10-01",
@@ -12683,13 +12683,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 167.97,
+   "price": 168.56,
    "price_prev": 164.1,
-   "pct": 2.358,
+   "pct": 2.718,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733931,
+   "price_ts": 1793734290,
    "insider": [
     {
      "date": "2026-10-20",
@@ -12942,13 +12942,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 233.98,
-   "price_prev": 229.63,
-   "pct": 1.894,
+   "price": 234.105,
+   "price_prev": 229.67,
+   "pct": 1.931,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733932,
+   "price_ts": 1793734291,
    "insider": [
     {
      "date": "2026-10-07",
@@ -13109,7 +13109,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733933,
+   "price_ts": 1793734293,
    "insider": [
     {
      "date": "2026-08-18",
@@ -13328,7 +13328,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733934,
+   "price_ts": 1793734294,
    "insider": [],
    "earnings_history": [
     {
@@ -13532,13 +13532,13 @@
    "dt": "2026-10-29 18:31",
    "isin": "",
    "name": "Flywire Corp",
-   "price": 19.41,
+   "price": 19.265,
    "price_prev": 19.965,
-   "pct": -2.78,
+   "pct": -3.506,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733936,
+   "price_ts": 1793734295,
    "insider": [
     {
      "date": "2026-10-13",
@@ -13776,7 +13776,7 @@
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733937,
+   "price_ts": 1793734296,
    "insider": [
     {
      "date": "2026-10-23",
@@ -14029,13 +14029,13 @@
    "dt": "2026-11-01 09:05",
    "isin": "US16411R2085",
    "name": "Cheniere Energy, Inc.",
-   "price": 312.49,
+   "price": 312.33,
    "price_prev": 311.67,
-   "pct": 0.263,
+   "pct": 0.212,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733938,
+   "price_ts": 1793734297,
    "insider": [
     {
      "date": "2026-08-15",
@@ -19546,13 +19546,13 @@
    "dt": "2026-11-02 16:02",
    "isin": "",
    "name": "Nucor Corp",
-   "price": 274.18,
+   "price": 274.12,
    "price_prev": 277.65,
-   "pct": -1.25,
+   "pct": -1.271,
    "currency": "USD",
    "live": true,
    "price_source": "US",
-   "price_ts": 1793733939,
+   "price_ts": 1793734298,
    "insider": [
     {
      "date": "2026-10-29",
@@ -19791,6 +19791,225 @@
     "profitMargins": 0.07989,
     "grossMargins": 0.15554,
     "returnOnEquity": 0.14548999,
+    "fiftyTwoWeekHigh": null,
+    "fiftyTwoWeekLow": null,
+    "targetMeanPrice": null,
+    "heldPercentInstitutions": null,
+    "shortPercentOfFloat": null,
+    "beta": null,
+    "dividendYield": null
+   }
+  },
+  {
+   "t": "WASH",
+   "dt": "2026-11-03 20:31",
+   "isin": "",
+   "name": "Washington Trust Bancorp Inc",
+   "price": 39.6,
+   "price_prev": 39.62,
+   "pct": -0.05,
+   "currency": "USD",
+   "live": true,
+   "price_source": "US",
+   "price_ts": 1793734299,
+   "insider": [
+    {
+     "date": "2026-10-26",
+     "name": "Santos Edwin J",
+     "type": "SELL",
+     "shares": 1200,
+     "value": 47100.0,
+     "signal_strength": "normal"
+    }
+   ],
+   "earnings_history": [
+    {
+     "ts": 1792440000,
+     "date": "2026-10-19",
+     "eps_estimate": 0.87,
+     "eps_actual": 0.96,
+     "beat": true
+    },
+    {
+     "ts": 1784577600,
+     "date": "2026-07-20",
+     "eps_estimate": 0.77,
+     "eps_actual": 0.83,
+     "beat": true
+    },
+    {
+     "ts": 1776715200,
+     "date": "2026-04-20",
+     "eps_estimate": 0.76,
+     "eps_actual": 0.66,
+     "beat": false
+    },
+    {
+     "ts": 1769634000,
+     "date": "2026-01-28",
+     "eps_estimate": 0.75,
+     "eps_actual": 0.83,
+     "beat": true
+    },
+    {
+     "ts": 1760990400,
+     "date": "2025-10-20",
+     "eps_estimate": 0.46,
+     "eps_actual": 0.56,
+     "beat": true
+    },
+    {
+     "ts": 1753128000,
+     "date": "2025-07-21",
+     "eps_estimate": 0.63,
+     "eps_actual": 0.68,
+     "beat": true
+    },
+    {
+     "ts": 1745236800,
+     "date": "2025-04-21",
+     "eps_estimate": 0.63,
+     "eps_actual": 0.61,
+     "beat": false
+    },
+    {
+     "ts": 1738184400,
+     "date": "2025-01-29",
+     "eps_estimate": 0.55,
+     "eps_actual": 0.59,
+     "beat": true
+    },
+    {
+     "ts": 1729540800,
+     "date": "2024-10-21",
+     "eps_estimate": 0.56,
+     "eps_actual": 0.64,
+     "beat": true
+    },
+    {
+     "ts": 1721678400,
+     "date": "2024-07-22",
+     "eps_estimate": 0.49,
+     "eps_actual": 0.63,
+     "beat": true
+    },
+    {
+     "ts": 1713787200,
+     "date": "2024-04-22",
+     "eps_estimate": 0.45,
+     "eps_actual": 0.64,
+     "beat": true
+    },
+    {
+     "ts": 1706130000,
+     "date": "2024-01-24",
+     "eps_estimate": 0.57,
+     "eps_actual": 0.76,
+     "beat": true
+    },
+    {
+     "ts": 1698091200,
+     "date": "2023-10-23",
+     "eps_estimate": 0.58,
+     "eps_actual": 0.65,
+     "beat": true
+    },
+    {
+     "ts": 1690228800,
+     "date": "2023-07-24",
+     "eps_estimate": 0.63,
+     "eps_actual": 0.66,
+     "beat": true
+    },
+    {
+     "ts": 1682337600,
+     "date": "2023-04-24",
+     "eps_estimate": 0.9,
+     "eps_actual": 0.74,
+     "beat": false
+    },
+    {
+     "ts": 1674680400,
+     "date": "2023-01-25",
+     "eps_estimate": 1.09,
+     "eps_actual": 0.95,
+     "beat": false
+    },
+    {
+     "ts": 1666641600,
+     "date": "2022-10-24",
+     "eps_estimate": 1.0,
+     "eps_actual": 1.08,
+     "beat": true
+    },
+    {
+     "ts": 1658779200,
+     "date": "2022-07-25",
+     "eps_estimate": 0.91,
+     "eps_actual": 1.14,
+     "beat": true
+    },
+    {
+     "ts": 1650888000,
+     "date": "2022-04-25",
+     "eps_estimate": 0.92,
+     "eps_actual": 0.94,
+     "beat": true
+    },
+    {
+     "ts": 1643230800,
+     "date": "2022-01-26",
+     "eps_estimate": 0.98,
+     "eps_actual": 1.15,
+     "beat": true
+    },
+    {
+     "ts": 1635192000,
+     "date": "2021-10-25",
+     "eps_estimate": 0.96,
+     "eps_actual": 1.07,
+     "beat": true
+    },
+    {
+     "ts": 1626897600,
+     "date": "2021-07-21",
+     "eps_estimate": 1.07,
+     "eps_actual": 1.0,
+     "beat": false
+    },
+    {
+     "ts": 1619035200,
+     "date": "2021-04-21",
+     "eps_estimate": 1.04,
+     "eps_actual": 1.17,
+     "beat": true
+    },
+    {
+     "ts": 1611781200,
+     "date": "2021-01-27",
+     "eps_estimate": 0.97,
+     "eps_actual": 1.07,
+     "beat": true
+    }
+   ],
+   "next_earnings_date": "2027-01-25",
+   "next_dividend_date": null,
+   "chart_daily": [],
+   "chart_weekly": [],
+   "fundamentals": {
+    "sector": "Financial Services",
+    "industry": "Banks - Regional",
+    "marketCap": 733789120,
+    "trailingPE": 13.357638,
+    "forwardPE": 10.822505,
+    "pegRatio": 2.76,
+    "trailingEps": 2.88,
+    "forwardEps": 3.55463,
+    "revenueGrowth": 0.272,
+    "earningsGrowth": 0.804,
+    "profitMargins": 0.27265,
+    "grossMargins": 0.0,
+    "returnOnEquity": 0.12020001,
     "fiftyTwoWeekHigh": null,
     "fiftyTwoWeekLow": null,
     "targetMeanPrice": null,
