@@ -11014,8 +11014,8 @@
     },
     "pct_from_high": -1.9,
     "isin": "US40637H1095",
-    "price": 128.63,
-    "pct": -0.248,
+    "price": 128.62,
+    "pct": -0.256,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -14493,5 +14493,5 @@
   "sector_4": "#4 Technology",
   "sector_5": "#5 Financial Services"
  },
- "prices_updated_at": 1793769423
+ "prices_updated_at": 1793769956
 }
