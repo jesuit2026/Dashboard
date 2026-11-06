@@ -1,7 +1,7 @@
 {
  "schema": 3,
- "updated_at": 1793941584,
- "updated_iso": "2026-11-06T06:06:24",
+ "updated_at": 1793962465,
+ "updated_iso": "2026-11-06T11:54:25",
  "fx": 1.12,
  "watchlist": [
   {
@@ -10,12 +10,12 @@
    "isin": "",
    "name": "American Superconductor Corp /De/",
    "price": 23.96,
-   "price_prev": 26.265,
-   "pct": -8.776,
+   "price_prev": 26.26,
+   "pct": -8.759,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941439,
+   "price_ts": 1793962435,
    "insider": [
     {
      "date": "2026-09-18",
@@ -27,6 +27,13 @@
     }
    ],
    "earnings_history": [
+    {
+     "ts": 1793826000,
+     "date": "2026-11-04",
+     "eps_estimate": 0.2,
+     "eps_actual": 0.19,
+     "beat": false
+    },
     {
      "ts": 1785960000,
      "date": "2026-08-05",
@@ -187,23 +194,9 @@
      "eps_estimate": -0.13,
      "eps_actual": -0.13,
      "beat": true
-    },
-    {
-     "ts": 1604523600,
-     "date": "2020-11-04",
-     "eps_estimate": -0.18,
-     "eps_actual": -0.13,
-     "beat": true
-    },
-    {
-     "ts": 1596657600,
-     "date": "2020-08-05",
-     "eps_estimate": -0.24,
-     "eps_actual": -0.11,
-     "beat": true
     }
    ],
-   "next_earnings_date": null,
+   "next_earnings_date": "2027-02-03",
    "next_dividend_date": null,
    "chart_daily": [
     {
@@ -5519,8 +5512,8 @@
     "profitMargins": 0.42564,
     "grossMargins": 0.2902,
     "returnOnEquity": 0.30163,
-    "fiftyTwoWeekHigh": 60.65,
-    "fiftyTwoWeekLow": 24.08,
+    "fiftyTwoWeekHigh": 60.18,
+    "fiftyTwoWeekLow": 22.77,
     "targetMeanPrice": 61.75,
     "heldPercentInstitutions": 0.7528,
     "shortPercentOfFloat": 0.0875,
@@ -5535,13 +5528,13 @@
    "dt": "2026-05-21 18:53",
    "isin": "US0420682058",
    "name": "Arm Holdings Plc /Uk",
-   "price": 167.5,
-   "price_prev": 191.84,
-   "pct": -12.688,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941440,
+   "price": 160.0,
+   "price_prev": 148.6,
+   "pct": 7.672,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962436,
    "insider": [
     {
      "date": "2026-09-21",
@@ -5685,7 +5678,7 @@
      "beat": true
     }
    ],
-   "next_earnings_date": null,
+   "next_earnings_date": "2027-02-03",
    "next_dividend_date": null,
    "chart_daily": [
     {
@@ -10241,13 +10234,13 @@
    "dt": "2026-05-21 19:10",
    "isin": "US86800U3023",
    "name": "Super Micro Computer, Inc.",
-   "price": 27.085,
-   "price_prev": 29.6,
-   "pct": -8.497,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941441,
+   "price": 25.44,
+   "price_prev": 24.14,
+   "pct": 5.385,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962436,
    "insider": [
     {
      "date": "2026-10-07",
@@ -15787,7 +15780,7 @@
     "fiftyTwoWeekHigh": 51.4,
     "fiftyTwoWeekLow": 19.48,
     "targetMeanPrice": 43.26667,
-    "heldPercentInstitutions": 0.69421,
+    "heldPercentInstitutions": 0.69198996,
     "shortPercentOfFloat": 0.1359,
     "beta": 2.181,
     "dividendYield": 0.0
@@ -15806,7 +15799,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941442,
+   "price_ts": 1793962436,
    "insider": [
     {
      "date": "2026-11-02",
@@ -21346,7 +21339,7 @@
     "fiftyTwoWeekHigh": 212.94,
     "fiftyTwoWeekLow": 106.37,
     "targetMeanPrice": 217.96786,
-    "heldPercentInstitutions": 0.6486,
+    "heldPercentInstitutions": 0.64682,
     "shortPercentOfFloat": 0.026099999,
     "beta": 1.61,
     "dividendYield": 0.0
@@ -21359,13 +21352,13 @@
    "dt": "2026-10-13 18:40",
    "isin": "CA8672241079",
    "name": "Suncor Energy Inc",
-   "price": 69.04,
-   "price_prev": 72.04,
-   "pct": -4.164,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941443,
+   "price": 61.3,
+   "price_prev": 61.55,
+   "pct": -0.406,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962436,
    "insider": [
     {
      "date": "2026-10-05",
@@ -26903,12 +26896,12 @@
     "grossMargins": 0.60398,
     "returnOnEquity": 0.19251,
     "fiftyTwoWeekHigh": 80.25,
-    "fiftyTwoWeekLow": 40.49,
-    "targetMeanPrice": 75.64526,
-    "heldPercentInstitutions": 0.72653,
+    "fiftyTwoWeekLow": 41.38,
+    "targetMeanPrice": 74.97749,
+    "heldPercentInstitutions": 0.74463,
     "shortPercentOfFloat": null,
     "beta": 0.471,
-    "dividendYield": 2.25
+    "dividendYield": 2.74
    },
    "price_at_add": 73.51,
    "price_at_add_currency": "USD"
@@ -26918,13 +26911,13 @@
    "dt": "2026-10-15 18:43",
    "isin": "US40637H1095",
    "name": "Halozyme Therapeutics, Inc.",
-   "price": 122.935,
-   "price_prev": 130.41,
-   "pct": -5.732,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941444,
+   "price": 104.4,
+   "price_prev": 109.5,
+   "pct": -4.658,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962437,
    "insider": [
     {
      "date": "2026-10-08",
@@ -26976,6 +26969,13 @@
     }
    ],
    "earnings_history": [
+    {
+     "ts": 1793912400,
+     "date": "2026-11-05",
+     "eps_estimate": 2.36,
+     "eps_actual": 2.39,
+     "beat": true
+    },
     {
      "ts": 1786046400,
      "date": "2026-08-06",
@@ -27145,7 +27145,7 @@
      "beat": true
     }
    ],
-   "next_earnings_date": "2026-11-05",
+   "next_earnings_date": null,
    "next_dividend_date": null,
    "chart_daily": [
     {
@@ -32464,9 +32464,9 @@
     "fiftyTwoWeekHigh": 134.0,
     "fiftyTwoWeekLow": 61.23,
     "targetMeanPrice": 108.88889,
-    "heldPercentInstitutions": 1.13552,
+    "heldPercentInstitutions": 1.1413,
     "shortPercentOfFloat": 0.1577,
-    "beta": 0.897,
+    "beta": null,
     "dividendYield": 0.0
    },
    "price_at_add": 109.62,
@@ -32483,7 +32483,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941445,
+   "price_ts": 1793962437,
    "insider": [],
    "earnings_history": [
     {
@@ -37971,13 +37971,13 @@
     "profitMargins": 0.29163998,
     "grossMargins": 0.0,
     "returnOnEquity": 0.124180004,
-    "fiftyTwoWeekHigh": 37.4,
+    "fiftyTwoWeekHigh": 37.7,
     "fiftyTwoWeekLow": 23.78,
     "targetMeanPrice": 38.5,
-    "heldPercentInstitutions": 0.67939,
+    "heldPercentInstitutions": 0.68064004,
     "shortPercentOfFloat": 0.0336,
     "beta": 0.606,
-    "dividendYield": 2.07
+    "dividendYield": 2.11
    },
    "price_at_add": 33.78,
    "price_at_add_currency": "USD"
@@ -37987,13 +37987,13 @@
    "dt": "2026-10-24 09:59",
    "isin": "US4448591028",
    "name": "Humana Inc",
-   "price": 411.61,
-   "price_prev": 417.46,
-   "pct": -1.401,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941446,
+   "price": 364.0,
+   "price_prev": 368.0,
+   "pct": -1.087,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962437,
    "insider": [
     {
      "date": "2026-09-01",
@@ -43493,10 +43493,10 @@
     "fiftyTwoWeekHigh": 456.5,
     "fiftyTwoWeekLow": 163.11,
     "targetMeanPrice": 465.125,
-    "heldPercentInstitutions": 1.0122,
+    "heldPercentInstitutions": 1.0131199,
     "shortPercentOfFloat": 0.0347,
     "beta": 0.643,
-    "dividendYield": 0.85
+    "dividendYield": 0.86
    },
    "price_at_add": 420.0778,
    "price_at_add_currency": "USD"
@@ -43507,12 +43507,12 @@
    "isin": "US0226711010",
    "name": "Amalgamated Financial Corp.",
    "price": 49.34,
-   "price_prev": 50.81,
-   "pct": -2.893,
+   "price_prev": 50.82,
+   "pct": -2.912,
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941446,
+   "price_ts": 1793962438,
    "insider": [
     {
      "date": "2026-11-03",
@@ -49052,10 +49052,10 @@
     "fiftyTwoWeekHigh": 52.3,
     "fiftyTwoWeekLow": 26.61,
     "targetMeanPrice": 56.0,
-    "heldPercentInstitutions": 0.62296003,
+    "heldPercentInstitutions": 0.62558,
     "shortPercentOfFloat": 0.0946,
     "beta": 0.739,
-    "dividendYield": 1.34
+    "dividendYield": 1.38
    },
    "price_at_add": 50.141,
    "price_at_add_currency": "USD"
@@ -49065,13 +49065,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US0404132054",
    "name": "Arista Networks, Inc.",
-   "price": 159.23,
-   "price_prev": 178.52,
-   "pct": -10.806,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941447,
+   "price": 149.02,
+   "price_prev": 141.94,
+   "pct": 4.988,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962438,
    "insider": [
     {
      "date": "2026-11-02",
@@ -54611,7 +54611,7 @@
     "fiftyTwoWeekHigh": 217.41,
     "fiftyTwoWeekLow": 114.52,
     "targetMeanPrice": 245.42892,
-    "heldPercentInstitutions": 0.73379,
+    "heldPercentInstitutions": 0.73093003,
     "shortPercentOfFloat": 0.0117,
     "beta": 1.637,
     "dividendYield": 0.0
@@ -54624,13 +54624,13 @@
    "dt": "2026-10-27 18:59",
    "isin": "US04626A1034",
    "name": "Astera Labs, Inc.",
-   "price": 179.32,
-   "price_prev": 223.66,
-   "pct": -19.825,
-   "currency": "USD",
-   "live": false,
-   "price_source": "US",
-   "price_ts": 1793941448,
+   "price": 176.0,
+   "price_prev": 160.0,
+   "pct": 10.0,
+   "currency": "EUR",
+   "live": true,
+   "price_source": "TG",
+   "price_ts": 1793962438,
    "insider": [
     {
      "date": "2026-10-07",
@@ -59087,8 +59087,8 @@
     "fiftyTwoWeekHigh": 499.476,
     "fiftyTwoWeekLow": 97.89,
     "targetMeanPrice": 375.66248,
-    "heldPercentInstitutions": 0.75516,
-    "shortPercentOfFloat": 0.060599998,
+    "heldPercentInstitutions": 0.74584997,
+    "shortPercentOfFloat": 0.06,
     "beta": 3.86,
     "dividendYield": 0.0
    },
@@ -59106,7 +59106,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941449,
+   "price_ts": 1793962439,
    "insider": [
     {
      "date": "2026-08-18",
@@ -64603,13 +64603,13 @@
     "profitMargins": 0.30628002,
     "grossMargins": 0.0,
     "returnOnEquity": 0.13209,
-    "fiftyTwoWeekHigh": 38.47,
+    "fiftyTwoWeekHigh": 38.79,
     "fiftyTwoWeekLow": 22.369,
     "targetMeanPrice": 42.0,
-    "heldPercentInstitutions": 0.26306,
+    "heldPercentInstitutions": 0.26233,
     "shortPercentOfFloat": 0.0602,
     "beta": 0.422,
-    "dividendYield": 2.64
+    "dividendYield": 2.69
    },
    "price_at_add": 37.21,
    "price_at_add_currency": "USD"
@@ -64625,7 +64625,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941450,
+   "price_ts": 1793962440,
    "insider": [],
    "earnings_history": [
     {
@@ -70116,7 +70116,7 @@
     "fiftyTwoWeekHigh": 98.52,
     "fiftyTwoWeekLow": 41.47,
     "targetMeanPrice": 95.66667,
-    "heldPercentInstitutions": 1.09145,
+    "heldPercentInstitutions": 1.0945,
     "shortPercentOfFloat": 0.0774,
     "beta": 1.3,
     "dividendYield": 0.44
@@ -70135,7 +70135,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941451,
+   "price_ts": 1793962441,
    "insider": [
     {
      "date": "2026-11-02",
@@ -75658,11 +75658,11 @@
     "profitMargins": 0.0477,
     "grossMargins": 0.59622,
     "returnOnEquity": 0.04231,
-    "fiftyTwoWeekHigh": 22.16,
+    "fiftyTwoWeekHigh": 22.17,
     "fiftyTwoWeekLow": 10.55,
     "targetMeanPrice": 21.21429,
-    "heldPercentInstitutions": 1.09531,
-    "shortPercentOfFloat": 0.098900005,
+    "heldPercentInstitutions": 1.09164,
+    "shortPercentOfFloat": 0.09819999,
     "beta": 1.303,
     "dividendYield": 0.0
    },
@@ -75680,7 +75680,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941452,
+   "price_ts": 1793962442,
    "insider": [
     {
      "date": "2026-10-23",
@@ -75732,6 +75732,13 @@
     }
    ],
    "earnings_history": [
+    {
+     "ts": 1793826000,
+     "date": "2026-11-04",
+     "eps_estimate": 0.35,
+     "eps_actual": 0.35,
+     "beat": true
+    },
     {
      "ts": 1785960000,
      "date": "2026-08-05",
@@ -75892,23 +75899,9 @@
      "eps_estimate": 0.2,
      "eps_actual": 0.17,
      "beat": false
-    },
-    {
-     "ts": 1605042000,
-     "date": "2020-11-10",
-     "eps_estimate": 0.17,
-     "eps_actual": 0.18,
-     "beat": true
-    },
-    {
-     "ts": 1597176000,
-     "date": "2020-08-11",
-     "eps_estimate": 0.12,
-     "eps_actual": 0.24,
-     "beat": true
     }
    ],
-   "next_earnings_date": null,
+   "next_earnings_date": "2027-02-24",
    "next_dividend_date": null,
    "chart_daily": [
     {
@@ -81227,8 +81220,8 @@
     "fiftyTwoWeekHigh": 44.239,
     "fiftyTwoWeekLow": 22.255,
     "targetMeanPrice": 46.83333,
-    "heldPercentInstitutions": 0.9825,
-    "shortPercentOfFloat": 0.0346,
+    "heldPercentInstitutions": 0.97037005,
+    "shortPercentOfFloat": 0.0344,
     "beta": 1.299,
     "dividendYield": 0.0
    },
@@ -81246,7 +81239,7 @@
    "currency": "USD",
    "live": false,
    "price_source": "US",
-   "price_ts": 1793941453,
+   "price_ts": 1793962442,
    "insider": [
     {
      "date": "2026-11-03",
@@ -86786,10 +86779,10 @@
     "fiftyTwoWeekHigh": 287.7,
     "fiftyTwoWeekLow": 140.93,
     "targetMeanPrice": 295.875,
-    "heldPercentInstitutions": 0.81018996,
+    "heldPercentInstitutions": 0.80862,
     "shortPercentOfFloat": 0.028499998,
     "beta": 1.815,
-    "dividendYield": 0.84
+    "dividendYield": 0.91
    },
    "price_at_add": 277.65,
    "price_at_add_currency": "USD"
