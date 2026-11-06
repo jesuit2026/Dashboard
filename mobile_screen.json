@@ -29135,8 +29135,8 @@
     },
     "pct_from_high": -13.1,
     "isin": "",
-    "price": 96.45,
-    "pct": -3.308,
+    "price": 97.12,
+    "pct": -2.637,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -32351,5 +32351,5 @@
   "sector_1": "#1 Oil & Gas Integrated",
   "sector_2": "#2 Financial Services"
  },
- "prices_updated_at": 1793942571
+ "prices_updated_at": 1793942812
 }
