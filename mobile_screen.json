@@ -3,7 +3,7 @@
  "computed_at": 1793891088,
  "computed_iso": "2026-11-05T16:04:48",
  "universe_size": 109,
- "fx": 1.11995,
+ "fx": 1.1202,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -12962,8 +12962,8 @@
     },
     "pct_from_high": -3.4,
     "isin": "",
-    "price": 21.26,
-    "pct": -2.522,
+    "price": 21.255,
+    "pct": -2.545,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -242503,5 +242503,5 @@
   "sector_3": "#3 Technology",
   "sector_4": "#4 Financial Services"
  },
- "prices_updated_at": 1793940595
+ "prices_updated_at": 1793940836
 }
