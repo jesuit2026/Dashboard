@@ -475,7 +475,7 @@ const REFRESH_MS = 60000;           // Kurs-Refresh-Intervall
 // Bei jeder Auslieferung von Hand hochzählen — sichtbar im Setup-Tab,
 // damit erkennbar ist ob das Handy wirklich die neueste Version geladen
 // hat (statt einer vom CDN/Browser gecachten alten Version).
-const APP_BUILD = '2026-10-27.1';
+const APP_BUILD = '2026-11-08.1';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';  // CORS-Umgehung
 const PROXY2 = 'https://corsproxy.io/?url=';                // Fallback, falls Proxy 1 ausfällt
 const PROXY3 = 'https://api.codetabs.com/v1/proxy?quest=';  // Zweiter Fallback, falls beide oben ausfallen
@@ -1438,16 +1438,25 @@ async function fetchDirectJson(url, timeoutMs=6000){
 // Mo–Fr. ET-Offset grob (EDT/EST) über Monat geschätzt — reicht für die
 // Anzeige, ersetzt keine exakte Feiertagslogik wie am Desktop.
 function isUsMarketOpenApprox(){
-  const now = new Date();
-  const day = now.getUTCDay();               // 0=So, 6=Sa
-  if(day===0 || day===6) return false;
-  const month = now.getUTCMonth();           // 0-11
-  const isDst = month>=2 && month<=10;       // grob: März–Nov = Sommerzeit (EDT, UTC-4)
-  const etOffset = isDst ? 4 : 5;
-  const utcH = now.getUTCHours() + now.getUTCMinutes()/60;
-  const etH = utcH - etOffset;
-  const etHNorm = ((etH % 24) + 24) % 24;
-  return etHNorm >= 9.5 && etHNorm < 16;
+  try{
+    const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',
+      hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    const g=k=>p.find(x=>x.type===k)?.value;
+    if(['Sat','Sun'].includes(g('weekday'))) return false;
+    const m=(parseInt(g('hour'))%24)*60+parseInt(g('minute'));
+    return m>=9*60+30 && m<16*60;
+  }catch{ return false; }
+}
+// Deutsche Handelszeit (Tradegate/gettex): Mo–Fr 08:00–22:00 Berliner Zeit.
+function isDeMarketOpenNow(){
+  try{
+    const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Berlin',weekday:'short',
+      hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    const g=k=>p.find(x=>x.type===k)?.value;
+    if(['Sat','Sun'].includes(g('weekday'))) return false;
+    const m=(parseInt(g('hour'))%24)*60+parseInt(g('minute'));
+    return m>=8*60 && m<22*60;
+  }catch{ return false; }
 }
 
 // Live-Kurs DIREKT von Finnhub (kein Proxy nötig — siehe Setup-Tab für
@@ -1527,6 +1536,10 @@ async function fetchTradegateQuote(isin){
 // Mega-Caps praktisch nicht zuverlässig zu bekommen (siehe Recherche:
 // OpenFIGI gibt aus Lizenzgründen z.B. explizit keine ISINs raus).
 async function tryDeOverlay(ticker, isin){
+  if(isin){
+    const tg = await fetchTradegateQuote(isin);
+    if(tg) return tg;
+  }
   const deMeta = await fetchYahooQuoteMeta(ticker+'.DE');
   if(deMeta && deMeta.regularMarketPrice && deMeta.marketState==='REGULAR'){
     return {
@@ -1535,72 +1548,58 @@ async function tryDeOverlay(ticker, isin){
       currency: deMeta.currency || 'EUR'
     };
   }
-  if(isin){
-    const tg = await fetchTradegateQuote(isin);
-    if(tg) return tg;
-  }
   return null;
 }
 
-async function fetchQuote(ticker, fx, isin){
-  // ── Primärquelle: Finnhub DIREKT (kein Proxy, zuverlässig) ──────────
-  // Nur wenn ein Key im Setup hinterlegt ist. Sonst Yahoo-Fallback unten.
-  const fh = await fetchFinnhubQuote(ticker);
-  if(fh){
-    const isLive = isUsMarketOpenApprox();
-    let price=fh.price, cur='USD', source='us';
-    const prevUsd = fh.prev;   // zuverlässige US-Vortagesschluss-Referenz — immer behalten
-    if(!isLive){
-      const de = await tryDeOverlay(ticker, isin);
-      if(de){ price=de.price; cur=de.currency; source='de'; }
-    }
-    let priceEur = cur==='USD' && fx>0 ? price/fx : price;
-    // %-Änderung IMMER gegen die zuverlässige US-Referenz berechnen, in
-    // dieselbe Anzeige-Währung umgerechnet — sonst würde bei DE-Overlay
-    // Tradegates EIGENE Vortages-Referenz genutzt, die vom US-Handels-
-    // kalender abweichen kann (z.B. an einem US-Feiertag) und dann
-    // falsche %-Werte liefert, obwohl der Kurs selbst korrekt ist.
-    const prevInDisplayCcy = cur==='USD' ? prevUsd : (fx>0 ? prevUsd/fx : prevUsd);
-    return {
-      price, priceEur, currency:cur,
-      pct: prevInDisplayCcy>0 ? (price/prevInDisplayCcy-1)*100 : 0,
-      live: source==='de' ? true : isLive, source, ts: Date.now()
-    };
-  }
-
-  // ── Fallback: Yahoo über Proxy-Pool (kein Finnhub-Key hinterlegt oder
-  // Finnhub grad nicht erreichbar) ────────────────────────────────────
-  const meta = await fetchYahooQuoteMeta(ticker);
-  if(!meta || !meta.regularMarketPrice) return null;
-  let price = meta.regularMarketPrice;
-  const prevUsd = meta.chartPreviousClose || meta.previousClose || price;   // zuverlässige US-Referenz — immer behalten
-  let cur = meta.currency || 'USD';
-  let isLive = meta.marketState==='REGULAR';
-  let source = 'us';
-
-  // Wenn die US-Börse gerade GESCHLOSSEN ist (typisch: deutscher Vor-/
-  // Nachmittag), zeigt der obige Kurs nur den alten US-Schlusskurs.
-  // Primärquelle dafür: Tradegate direkt per ISIN (gleiche Quelle wie am
-  // Desktop, zuverlässiger). Fallback: Yahoo-Xetra-Ticker (TICKER.DE),
-  // falls keine ISIN vorliegt (z.B. alte, noch nicht neu exportierte Daten).
-  if(!isLive && cur==='USD'){
-    const de = await tryDeOverlay(ticker, isin);
-    if(de){ price=de.price; cur=de.currency; isLive=true; source='de'; }
-  }
-
-  // In EUR umrechnen wenn USD
-  let priceEur = price;
-  if(cur==='USD' && fx>0) priceEur = price / fx;
-  else if(cur==='EUR') priceEur = price;
-  // %-Änderung IMMER gegen die zuverlässige US-Vortagesreferenz (siehe
-  // Kommentar im Finnhub-Zweig oben — Tradegate/DE kann eine eigene,
-  // vom US-Handelskalender abweichende Referenz haben).
-  const prevInDisplayCcy = cur==='USD' ? prevUsd : (fx>0 ? prevUsd/fx : prevUsd);
+// Baut das Kurs-Objekt. Bei deutschem Kurs wird die %-Änderung gegen den
+// deutschen Vortagesschluss gerechnet (so wie OnVista/gettex es zeigen);
+// fehlt der, gegen die US-Referenz (in Anzeige-Währung umgerechnet).
+function buildQuote({price, cur, source, live, prevUsd, dePrev, fx}){
+  const priceEur = cur==='USD' && fx>0 ? price/fx : price;
+  let ref;
+  if(source==='de' && dePrev>0 && cur==='EUR') ref = dePrev;
+  else ref = cur==='USD' ? prevUsd : (fx>0 && prevUsd>0 ? prevUsd/fx : prevUsd);
   return {
     price, priceEur, currency:cur,
-    pct: prevInDisplayCcy>0 ? (price/prevInDisplayCcy-1)*100 : 0,
-    live: isLive, source, ts: Date.now()
+    pct: ref>0 ? (price/ref-1)*100 : 0,
+    live, source, ts: Date.now()
   };
+}
+
+async function fetchQuote(ticker, fx, isin){
+  // Schwerpunkt deutsche Kurse (Handel läuft über gettex/Tradegate in EUR):
+  //  1) Deutsche Handelszeit (08–22 Uhr) → Tradegate/Xetra zuerst, auch wenn
+  //     die US-Börse gerade offen ist. Außerhalb: letzter deutscher Stand
+  //     (als "Schluss" markiert), solange die US-Börse zu ist.
+  //  2) US-Kurs (Finnhub, sonst Yahoo) als Rückfall und als Referenz.
+  const usOpen = isUsMarketOpenApprox();
+  const deOpen = isDeMarketOpenNow();
+  const [fh, de] = await Promise.all([
+    fetchFinnhubQuote(ticker),
+    (deOpen || !usOpen) ? tryDeOverlay(ticker, isin) : Promise.resolve(null)
+  ]);
+  let prevUsd = fh?.prev || 0;
+  let usPrice = fh?.price || 0, usLive = usOpen, usCur = 'USD';
+
+  if(!fh){
+    // Kein Finnhub (Key fehlt / nicht erreichbar) → Yahoo über Proxy-Pool
+    const meta = await fetchYahooQuoteMeta(ticker);
+    if(meta && meta.regularMarketPrice){
+      usPrice = meta.regularMarketPrice;
+      prevUsd = meta.chartPreviousClose || meta.previousClose || usPrice;
+      usCur = meta.currency || 'USD';
+      usLive = meta.marketState==='REGULAR';
+    }
+  }
+
+  if(de && de.price>0){
+    return buildQuote({price:de.price, cur:de.currency||'EUR', source:'de',
+      live: deOpen, prevUsd, dePrev:de.prev, fx});
+  }
+  if(usPrice>0){
+    return buildQuote({price:usPrice, cur:usCur, source:'us', live:usLive, prevUsd, dePrev:0, fx});
+  }
+  return null;
 }
 
 let _fxCache = {v:0, ts:0};
