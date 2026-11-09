@@ -1,9 +1,9 @@
 {
  "schema": 3,
- "computed_at": 1794061516,
- "computed_iso": "2026-11-07T15:25:16",
- "universe_size": 74,
- "fx": 1.11607,
+ "computed_at": 1794200144,
+ "computed_iso": "2026-11-09T05:55:44",
+ "universe_size": 73,
+ "fx": 1.1162,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -13,22 +13,22 @@
     "rs": 93,
     "setup": "Flat Base",
     "pivot": 29.71,
-    "pivot_dist": 0.1,
+    "pivot_dist": 0.6,
     "ext_gd50": 1.8,
     "sma50_pct": 1.8,
-    "sma200_pct": 25.6,
+    "sma200_pct": 25.4,
     "above_gd200": true,
-    "day_change_pct": -1.85,
-    "price_morning": 29.75,
-    "breakout_days_ago": 4,
+    "day_change_pct": -1.03,
+    "price_morning": 29.899999618530273,
+    "breakout_days_ago": 6,
     "breakout_vol_ratio": 1.63,
-    "score": 0.4843,
+    "score": 0.4892,
     "strat": {
      "so": null,
      "sm": "BUYABLE",
      "sp": "BUYABLE"
     },
-    "pct_from_high": -5.7,
+    "pct_from_high": -5.2,
     "isin": "",
     "price": 29.9,
     "pct": -1.026,
@@ -3245,6 +3245,5 @@
   "breakout": [],
   "trendsetter": []
  },
- "view_labels": {},
- "prices_updated_at": 1794200025
+ "view_labels": {}
 }
