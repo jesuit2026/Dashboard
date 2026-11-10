@@ -3268,11 +3268,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "US92645B1035",
-    "price": 101.0,
-    "pct": 1.0,
-    "currency": "EUR",
+    "price": 127.18,
+    "pct": 6.659,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1744084800,
@@ -6501,8 +6501,8 @@
     },
     "pct_from_high": -1.4,
     "isin": "",
-    "price": 96.05,
-    "pct": 5.596,
+    "price": 95.82,
+    "pct": 5.343,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -22651,5 +22651,5 @@
   "sector_1": "#1 Financial Services",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1794286712
+ "prices_updated_at": 1794287094
 }
