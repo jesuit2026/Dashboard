@@ -6501,8 +6501,8 @@
     },
     "pct_from_high": -1.4,
     "isin": "",
-    "price": 96.05,
-    "pct": 5.596,
+    "price": 95.82,
+    "pct": 5.343,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -22651,5 +22651,5 @@
   "sector_1": "#1 Financial Services",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1794289314
+ "prices_updated_at": 1794289615
 }
