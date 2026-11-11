@@ -3267,8 +3267,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 59.475,
-    "pct": 0.754,
+    "price": 59.45,
+    "pct": 0.712,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -6500,8 +6500,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 420.055,
-    "pct": -0.93,
+    "price": 419.98,
+    "pct": -0.948,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -19434,8 +19434,8 @@
     },
     "pct_from_high": -1.8,
     "isin": "",
-    "price": 139.445,
-    "pct": 1.04,
+    "price": 139.44,
+    "pct": 1.036,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -22650,5 +22650,5 @@
   "sector_1": "#1 Biotechnology",
   "sector_2": "#2 Financial Services"
  },
- "prices_updated_at": 1794433134
+ "prices_updated_at": 1794437116
 }
