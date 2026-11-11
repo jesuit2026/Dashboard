@@ -1,8 +1,8 @@
 {
  "schema": 3,
- "computed_at": 1794373591,
- "computed_iso": "2026-11-11T06:06:31",
- "universe_size": 73,
+ "computed_at": 1794385898,
+ "computed_iso": "2026-11-11T09:31:38",
+ "universe_size": 74,
  "fx": 1.1157,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
@@ -3259,7 +3259,7 @@
     "price_morning": 59.03,
     "breakout_days_ago": 4,
     "breakout_vol_ratio": 4.81,
-    "score": 0.5565,
+    "score": 0.5566,
     "strat": {
      "so": null,
      "sm": null,
@@ -9735,8 +9735,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 97.57,
-    "pct": 1.583,
+    "price": 97.66,
+    "pct": 1.676,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -12960,7 +12960,7 @@
     "price_morning": 126.455,
     "breakout_days_ago": 9,
     "breakout_vol_ratio": 0.62,
-    "score": 0.5264,
+    "score": 0.5265,
     "strat": {
      "so": null,
      "sm": null,
@@ -16181,18 +16181,18 @@
    {
     "t": "AMG",
     "name": "Affiliated Managers Group, Inc.",
-    "rs": 85,
+    "rs": 84,
     "setup": "Pocket Pivot",
-    "pivot": 401.25,
+    "pivot": 407.16,
     "pivot_dist": 0.3,
-    "ext_gd50": 7.8,
-    "sma50_pct": 7.8,
-    "sma200_pct": 20.1,
+    "ext_gd50": 7.7,
+    "sma50_pct": 7.7,
+    "sma200_pct": 20.0,
     "above_gd200": true,
-    "day_change_pct": 10.52,
+    "day_change_pct": 4.7,
     "price_morning": 401.15,
     "breakout_days_ago": 1,
-    "breakout_vol_ratio": 2.19,
+    "breakout_vol_ratio": 2.76,
     "score": 0.4828,
     "strat": {
      "so": null,
@@ -19426,7 +19426,7 @@
     "price_morning": 138.085,
     "breakout_days_ago": 10,
     "breakout_vol_ratio": 0.75,
-    "score": 0.4542,
+    "score": 0.4543,
     "strat": {
      "so": null,
      "sm": null,
@@ -22649,6 +22649,5 @@
  "view_labels": {
   "sector_1": "#1 Biotechnology",
   "sector_2": "#2 Financial Services"
- },
- "prices_updated_at": 1794385854
+ }
 }
