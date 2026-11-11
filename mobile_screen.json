@@ -3,7 +3,7 @@
  "computed_at": 1794373591,
  "computed_iso": "2026-11-11T06:06:31",
  "universe_size": 73,
- "fx": 1.11694,
+ "fx": 1.11707,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -3268,7 +3268,7 @@
     "pct_from_high": 0.0,
     "isin": "",
     "price": 59.03,
-    "pct": 1.113,
+    "pct": 1.096,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -12969,7 +12969,7 @@
     "pct_from_high": -0.3,
     "isin": "US92645B1035",
     "price": 126.455,
-    "pct": -0.57,
+    "pct": -0.272,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -22649,5 +22649,6 @@
  "view_labels": {
   "sector_1": "#1 Biotechnology",
   "sector_2": "#2 Financial Services"
- }
+ },
+ "prices_updated_at": 1794373693
 }
