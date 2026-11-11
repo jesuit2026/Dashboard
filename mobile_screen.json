@@ -16201,8 +16201,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US0082521081",
-    "price": 361.0,
-    "pct": 0.278,
+    "price": 360.0,
+    "pct": 0.0,
     "currency": "EUR",
     "live": true,
     "price_source": "TG",
@@ -22650,5 +22650,5 @@
   "sector_1": "#1 Biotechnology",
   "sector_2": "#2 Financial Services"
  },
- "prices_updated_at": 1794386574
+ "prices_updated_at": 1794387054
 }
