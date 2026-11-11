@@ -3,7 +3,7 @@
  "computed_at": 1794373591,
  "computed_iso": "2026-11-11T06:06:31",
  "universe_size": 73,
- "fx": 1.11607,
+ "fx": 1.1157,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -34,11 +34,11 @@
     },
     "pct_from_high": -8.8,
     "isin": "US14167L1035",
-    "price": 80.72,
-    "pct": -4.383,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 72.5,
+    "pct": 0.0,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1744171200,
@@ -9735,8 +9735,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 97.66,
-    "pct": 1.676,
+    "price": 97.57,
+    "pct": 1.583,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -12968,11 +12968,11 @@
     },
     "pct_from_high": -0.3,
     "isin": "US92645B1035",
-    "price": 126.455,
-    "pct": -0.272,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 113.5,
+    "pct": -0.439,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1744171200,
@@ -16201,11 +16201,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "US0082521081",
-    "price": 401.15,
-    "pct": 4.698,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 360.0,
+    "pct": 0.0,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1744171200,
@@ -22650,5 +22650,5 @@
   "sector_1": "#1 Biotechnology",
   "sector_2": "#2 Financial Services"
  },
- "prices_updated_at": 1794377814
+ "prices_updated_at": 1794384092
 }
