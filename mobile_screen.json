@@ -3,7 +3,7 @@
  "computed_at": 1794891436,
  "computed_iso": "2026-11-17T05:57:16",
  "universe_size": 43,
- "fx": 1.10072,
+ "fx": 1.10096,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -3263,8 +3263,8 @@
     },
     "pct_from_high": -3.8,
     "isin": "",
-    "price": 58.25,
-    "pct": 2.265,
+    "price": 57.47,
+    "pct": 0.895,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -6496,8 +6496,8 @@
     },
     "pct_from_high": -5.1,
     "isin": "US0082521081",
-    "price": 390.27,
-    "pct": -1.145,
+    "price": 387.06,
+    "pct": -1.958,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -9729,8 +9729,8 @@
     },
     "pct_from_high": -6.1,
     "isin": "",
-    "price": 5.83,
-    "pct": -2.671,
+    "price": 5.82,
+    "pct": -2.838,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -38834,8 +38834,8 @@
     },
     "pct_from_high": -5.1,
     "isin": "US0082521081",
-    "price": 390.27,
-    "pct": -1.145,
+    "price": 387.06,
+    "pct": -1.958,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -51752,5 +51752,5 @@
   "sector_2": "#2 Financial Services",
   "sector_3": "#3 Energy"
  },
- "prices_updated_at": 1794891487
+ "prices_updated_at": 1794891907
 }
