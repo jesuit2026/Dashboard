@@ -29136,7 +29136,7 @@
     "pct_from_high": -7.2,
     "isin": "US92645B1035",
     "price": 117.93,
-    "pct": -1.75,
+    "pct": -1.717,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -35602,7 +35602,7 @@
     "pct_from_high": -15.0,
     "isin": "US9282541013",
     "price": 56.93,
-    "pct": -2.233,
+    "pct": -2.35,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -51752,5 +51752,5 @@
   "sector_2": "#2 Financial Services",
   "sector_3": "#3 Energy"
  },
- "prices_updated_at": 1794978384
+ "prices_updated_at": 1794978755
 }
