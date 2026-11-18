@@ -3,7 +3,7 @@
  "computed_at": 1794978791,
  "computed_iso": "2026-11-18T06:13:11",
  "universe_size": 46,
- "fx": 1.09914,
+ "fx": 1.09926,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -56680,5 +56680,6 @@
   "sector_1": "#1 Oil & Gas Integrated",
   "sector_2": "#2 Insurance",
   "sector_3": "#3 Energy"
- }
+ },
+ "prices_updated_at": 1794978969
 }
