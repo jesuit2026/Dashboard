@@ -9730,7 +9730,7 @@
     "pct_from_high": -6.1,
     "isin": "",
     "price": 5.72,
-    "pct": -1.718,
+    "pct": -1.887,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -51752,5 +51752,5 @@
   "sector_2": "#2 Financial Services",
   "sector_3": "#3 Energy"
  },
- "prices_updated_at": 1794977184
+ "prices_updated_at": 1794977845
 }
