@@ -3,7 +3,7 @@
  "computed_at": 1794978791,
  "computed_iso": "2026-11-18T06:13:11",
  "universe_size": 46,
- "fx": 1.0989,
+ "fx": 1.09842,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -56681,5 +56681,5 @@
   "sector_2": "#2 Insurance",
   "sector_3": "#3 Energy"
  },
- "prices_updated_at": 1794982698
+ "prices_updated_at": 1794983064
 }
