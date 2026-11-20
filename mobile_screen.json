@@ -33,7 +33,7 @@
     "price": 18.1,
     "pct": 0.0,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -2738,7 +2738,7 @@
     "price": 26.3,
     "pct": -0.379,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -12324,8 +12324,8 @@
     },
     "pct_from_high": -2.7,
     "isin": "US69753M1053",
-    "price": 143.5,
-    "pct": -0.174,
+    "price": 143.975,
+    "pct": 0.157,
     "currency": "EUR",
     "live": false,
     "price_source": "TG",
@@ -15560,7 +15560,7 @@
     "price": 36.8,
     "pct": 0.0,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -22025,8 +22025,8 @@
     },
     "pct_from_high": -8.2,
     "isin": "US8313491057",
-    "price": 24.4,
-    "pct": 0.826,
+    "price": 24.2,
+    "pct": 0.0,
     "currency": "EUR",
     "live": false,
     "price_source": "TG",
@@ -34626,8 +34626,8 @@
     },
     "pct_from_high": -8.2,
     "isin": "US8313491057",
-    "price": 24.4,
-    "pct": 0.826,
+    "price": 24.2,
+    "pct": 0.0,
     "currency": "EUR",
     "live": false,
     "price_source": "TG",
@@ -37526,7 +37526,7 @@
     "price": 26.3,
     "pct": -0.379,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -40647,7 +40647,7 @@
     "price": 18.1,
     "pct": 0.0,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -43349,8 +43349,8 @@
     },
     "pct_from_high": -2.7,
     "isin": "US69753M1053",
-    "price": 143.5,
-    "pct": -0.174,
+    "price": 143.975,
+    "pct": 0.157,
     "currency": "EUR",
     "live": false,
     "price_source": "TG",
@@ -49817,8 +49817,8 @@
     },
     "pct_from_high": -7.2,
     "isin": "US7332451043",
-    "price": 19.17,
-    "pct": 2.843,
+    "price": 18.71,
+    "pct": 0.376,
     "currency": "EUR",
     "live": false,
     "price_source": "TG",
@@ -53053,7 +53053,7 @@
     "price": 31.0,
     "pct": 1.639,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -56283,11 +56283,11 @@
     },
     "pct_from_high": -13.2,
     "isin": "",
-    "price": 199.949,
-    "pct": -1.754,
+    "price": 243.45,
+    "pct": 2.739,
     "currency": "USD",
     "live": false,
-    "price_source": "DE_CONV",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1744862400,
@@ -59500,5 +59500,5 @@
   "sector_2": "#2 Insurance",
   "sector_3": "#3 Technology"
  },
- "prices_updated_at": 1795149444
+ "prices_updated_at": 1795150012
 }
