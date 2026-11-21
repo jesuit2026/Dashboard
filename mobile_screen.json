@@ -30,11 +30,11 @@
     },
     "pct_from_high": -7.9,
     "isin": "US8313491057",
-    "price": 26.23,
-    "pct": -2.309,
-    "currency": "USD",
+    "price": 24.2,
+    "pct": -1.626,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1750219200,
@@ -6170,11 +6170,11 @@
     },
     "pct_from_high": -0.3,
     "isin": "KYG008941083",
-    "price": 19.885,
-    "pct": 0.126,
-    "currency": "USD",
+    "price": 18.15,
+    "pct": 0.276,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1753329600,
@@ -15349,11 +15349,11 @@
     },
     "pct_from_high": -3.2,
     "isin": "US69753M1053",
-    "price": 163.59,
-    "pct": 4.39,
-    "currency": "USD",
+    "price": 148.9,
+    "pct": 4.272,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1745208000,
@@ -31520,11 +31520,11 @@
     },
     "pct_from_high": -9.8,
     "isin": "US0269481091",
-    "price": 28.54,
-    "pct": -1.992,
-    "currency": "USD",
+    "price": 26.1,
+    "pct": -1.88,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1746676800,
@@ -34649,11 +34649,11 @@
     },
     "pct_from_high": -7.9,
     "isin": "US8313491057",
-    "price": 26.23,
-    "pct": -2.309,
-    "currency": "USD",
+    "price": 24.2,
+    "pct": -1.626,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1750219200,
@@ -37554,11 +37554,11 @@
     },
     "pct_from_high": -0.3,
     "isin": "KYG008941083",
-    "price": 19.885,
-    "pct": 0.126,
-    "currency": "USD",
+    "price": 18.15,
+    "pct": 0.276,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1753329600,
@@ -40267,11 +40267,11 @@
     },
     "pct_from_high": -3.2,
     "isin": "US69753M1053",
-    "price": 163.59,
-    "pct": 4.39,
-    "currency": "USD",
+    "price": 148.9,
+    "pct": 4.272,
+    "currency": "EUR",
     "live": false,
-    "price_source": "US",
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1745208000,
@@ -46716,5 +46716,5 @@
   "sector_1": "#1 Oil & Gas Integrated",
   "sector_2": "#2 Insurance"
  },
- "prices_updated_at": 1795252342
+ "prices_updated_at": 1795252710
 }
