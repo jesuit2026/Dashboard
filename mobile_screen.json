@@ -43500,8 +43500,8 @@
     },
     "pct_from_high": -2.9,
     "isin": "",
-    "price": 266.78,
-    "pct": -0.466,
+    "price": 266.75,
+    "pct": -0.563,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -46716,5 +46716,5 @@
   "sector_1": "#1 Oil & Gas Integrated",
   "sector_2": "#2 Insurance"
  },
- "prices_updated_at": 1795297342
+ "prices_updated_at": 1795297642
 }
