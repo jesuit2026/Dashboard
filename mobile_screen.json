@@ -33,7 +33,7 @@
     "price": 24.2,
     "pct": -1.626,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -6173,7 +6173,7 @@
     "price": 18.15,
     "pct": 0.276,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -15352,7 +15352,7 @@
     "price": 148.9,
     "pct": 4.272,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -31523,7 +31523,7 @@
     "price": 26.1,
     "pct": -1.88,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -34652,7 +34652,7 @@
     "price": 24.2,
     "pct": -1.626,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -37557,7 +37557,7 @@
     "price": 18.15,
     "pct": 0.276,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -40270,7 +40270,7 @@
     "price": 148.9,
     "pct": 4.272,
     "currency": "EUR",
-    "live": false,
+    "live": true,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -43500,8 +43500,8 @@
     },
     "pct_from_high": -2.9,
     "isin": "",
-    "price": 266.75,
-    "pct": -0.563,
+    "price": 266.78,
+    "pct": -0.466,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -46716,5 +46716,5 @@
   "sector_1": "#1 Oil & Gas Integrated",
   "sector_2": "#2 Insurance"
  },
- "prices_updated_at": 1795253636
+ "prices_updated_at": 1795297342
 }
