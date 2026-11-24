@@ -3,7 +3,7 @@
  "computed_at": 1795150208,
  "computed_iso": "2026-11-20T05:50:08",
  "universe_size": 36,
- "fx": 1.09123,
+ "fx": 1.09111,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [
@@ -43501,7 +43501,7 @@
     "pct_from_high": -2.9,
     "isin": "",
     "price": 272.82,
-    "pct": 2.276,
+    "pct": 2.264,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -46716,5 +46716,5 @@
   "sector_1": "#1 Oil & Gas Integrated",
   "sector_2": "#2 Insurance"
  },
- "prices_updated_at": 1795495740
+ "prices_updated_at": 1795496101
 }
