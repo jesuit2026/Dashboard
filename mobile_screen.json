@@ -3195,8 +3195,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "US69753M1053",
-    "price": 154.275,
-    "pct": 0.472,
+    "price": 154.325,
+    "pct": 0.505,
     "currency": "EUR",
     "live": true,
     "price_source": "TG",
@@ -25323,5 +25323,5 @@
   "sector_1": "#1 Insurance",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1795761600
+ "prices_updated_at": 1795761782
 }
