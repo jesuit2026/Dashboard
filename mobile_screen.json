@@ -3,7 +3,7 @@
  "computed_at": 1795755041,
  "computed_iso": "2026-11-27T05:50:41",
  "universe_size": 103,
- "fx": 1.09782,
+ "fx": 1.09601,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -34,11 +34,11 @@
     },
     "pct_from_high": -10.0,
     "isin": "US0269481091",
-    "price": 28.98,
-    "pct": -2.719,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 26.8,
+    "pct": 0.752,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1746676800,
@@ -3195,11 +3195,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "US69753M1053",
-    "price": 167.74,
-    "pct": 0.042,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 157.0,
+    "pct": 2.247,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1745553600,
@@ -9661,11 +9661,11 @@
     },
     "pct_from_high": -0.1,
     "isin": "KYG008941083",
-    "price": 19.91,
-    "pct": -0.05,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 18.35,
+    "pct": 0.824,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1753329600,
@@ -12408,11 +12408,11 @@
     },
     "pct_from_high": -16.5,
     "isin": "US14167L1035",
-    "price": 75.86,
-    "pct": -2.531,
-    "currency": "USD",
-    "live": false,
-    "price_source": "US",
+    "price": 68.75,
+    "pct": -4.514,
+    "currency": "EUR",
+    "live": true,
+    "price_source": "TG",
     "chart_daily": [
      {
       "t": 1745553600,
@@ -25323,5 +25323,5 @@
   "sector_1": "#1 Insurance",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1795773768
+ "prices_updated_at": 1795774020
 }
