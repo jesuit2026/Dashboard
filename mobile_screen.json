@@ -3,7 +3,7 @@
  "computed_at": 1795755041,
  "computed_iso": "2026-11-27T05:50:41",
  "universe_size": 103,
- "fx": 1.09625,
+ "fx": 1.09721,
  "note": "Auswahl + Live-Preise vom PC. App zeigt nur noch an.",
  "views": {
   "buyable": [],
@@ -34,10 +34,10 @@
     },
     "pct_from_high": -10.0,
     "isin": "US0269481091",
-    "price": 26.8,
-    "pct": 0.752,
+    "price": 26.6,
+    "pct": 0.0,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -3195,10 +3195,10 @@
     },
     "pct_from_high": 0.0,
     "isin": "US69753M1053",
-    "price": 157.0,
-    "pct": 2.247,
+    "price": 154.325,
+    "pct": 0.505,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -6428,8 +6428,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 278.42,
-    "pct": 1.476,
+    "price": 279.32,
+    "pct": 0.323,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -9661,10 +9661,10 @@
     },
     "pct_from_high": -0.1,
     "isin": "KYG008941083",
-    "price": 18.35,
-    "pct": 0.824,
+    "price": 18.25,
+    "pct": 0.275,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -12408,10 +12408,10 @@
     },
     "pct_from_high": -16.5,
     "isin": "US14167L1035",
-    "price": 68.75,
-    "pct": -4.514,
+    "price": 71.0,
+    "pct": -1.389,
     "currency": "EUR",
-    "live": true,
+    "live": false,
     "price_source": "TG",
     "chart_daily": [
      {
@@ -15641,8 +15641,8 @@
     },
     "pct_from_high": 0.0,
     "isin": "",
-    "price": 60.99,
-    "pct": -0.368,
+    "price": 61.42,
+    "pct": 0.705,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -18874,8 +18874,8 @@
     },
     "pct_from_high": -2.3,
     "isin": "",
-    "price": 13.53,
-    "pct": -0.221,
+    "price": 13.68,
+    "pct": 1.109,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -22107,8 +22107,8 @@
     },
     "pct_from_high": -2.4,
     "isin": "",
-    "price": 414.73,
-    "pct": -0.166,
+    "price": 419.15,
+    "pct": 1.066,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -25323,5 +25323,5 @@
   "sector_1": "#1 Insurance",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1795774681
+ "prices_updated_at": 1795869911
 }
