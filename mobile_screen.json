@@ -22108,7 +22108,7 @@
     "pct_from_high": -2.4,
     "isin": "",
     "price": 419.15,
-    "pct": 1.066,
+    "pct": 1.051,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -25323,5 +25323,5 @@
   "sector_1": "#1 Insurance",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1795870494
+ "prices_updated_at": 1795871092
 }
