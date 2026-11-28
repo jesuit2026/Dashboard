@@ -34,11 +34,11 @@
     },
     "pct_from_high": -10.0,
     "isin": "US0269481091",
-    "price": 26.6,
-    "pct": 0.0,
-    "currency": "EUR",
+    "price": 29.01,
+    "pct": 0.104,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1746676800,
@@ -3195,11 +3195,11 @@
     },
     "pct_from_high": 0.0,
     "isin": "US69753M1053",
-    "price": 154.325,
-    "pct": 0.505,
-    "currency": "EUR",
+    "price": 167.12,
+    "pct": -0.292,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1745553600,
@@ -9661,11 +9661,11 @@
     },
     "pct_from_high": -0.1,
     "isin": "KYG008941083",
-    "price": 18.25,
-    "pct": 0.275,
-    "currency": "EUR",
+    "price": 19.935,
+    "pct": 0.126,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1753329600,
@@ -12408,11 +12408,11 @@
     },
     "pct_from_high": -16.5,
     "isin": "US14167L1035",
-    "price": 71.0,
-    "pct": -1.389,
-    "currency": "EUR",
+    "price": 77.34,
+    "pct": 1.951,
+    "currency": "USD",
     "live": false,
-    "price_source": "TG",
+    "price_source": "US",
     "chart_daily": [
      {
       "t": 1745553600,
@@ -18875,7 +18875,7 @@
     "pct_from_high": -2.3,
     "isin": "",
     "price": 13.68,
-    "pct": 1.109,
+    "pct": 1.258,
     "currency": "USD",
     "live": false,
     "price_source": "US",
@@ -25323,5 +25323,5 @@
   "sector_1": "#1 Insurance",
   "sector_2": "#2 Biotechnology"
  },
- "prices_updated_at": 1795869911
+ "prices_updated_at": 1795870494
 }
